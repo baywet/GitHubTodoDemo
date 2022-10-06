@@ -1,5 +1,5 @@
 namespace GithubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.</summary>
+    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public enum BookingsAvailabilityStatus {
         Available,
         Busy,

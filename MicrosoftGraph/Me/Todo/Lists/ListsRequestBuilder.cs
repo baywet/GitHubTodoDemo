@@ -1,12 +1,16 @@
 using GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item;
+using GithubTodoDemo.MicrosoftGraph.Models;
+using GithubTodoDemo.MicrosoftGraph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
+using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists {
-    /// <summary>Builds and executes requests for operations under \me\todo\lists</summary>
+    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class ListsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -28,7 +32,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists {
         public ListsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/todo/lists";
+            UrlTemplate = "{+baseurl}/me/todo/lists{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -41,11 +45,140 @@ namespace GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists {
         public ListsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/todo/lists";
+            UrlTemplate = "{+baseurl}/me/todo/lists{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
+        }
+        /// <summary>
+        /// Get a list of the todoTaskList objects and their properties.
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// </summary>
+        public RequestInformation CreateGetRequestInformation(Action<ListsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
+            var requestInfo = new RequestInformation {
+                HttpMethod = Method.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
+            };
+            requestInfo.Headers.Add("Accept", "application/json");
+            if (requestConfiguration != null) {
+                var requestConfig = new ListsRequestBuilderGetRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddQueryParameters(requestConfig.QueryParameters);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
+            }
+            return requestInfo;
+        }
+        /// <summary>
+        /// Create a new lists object.
+        /// <param name="body"></param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// </summary>
+        public RequestInformation CreatePostRequestInformation(TodoTaskList body, Action<ListsRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
+            _ = body ?? throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation {
+                HttpMethod = Method.POST,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
+            };
+            requestInfo.Headers.Add("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            if (requestConfiguration != null) {
+                var requestConfig = new ListsRequestBuilderPostRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
+            }
+            return requestInfo;
+        }
+        /// <summary>
+        /// Get a list of the todoTaskList objects and their properties.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
+        /// </summary>
+        public async Task<TodoTaskListCollectionResponse> GetAsync(Action<ListsRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+            var requestInfo = CreateGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<TodoTaskListCollectionResponse>(requestInfo, TodoTaskListCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+        }
+        /// <summary>
+        /// Create a new lists object.
+        /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
+        /// </summary>
+        public async Task<TodoTaskList> PostAsync(TodoTaskList body, Action<ListsRequestBuilderPostRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+            _ = body ?? throw new ArgumentNullException(nameof(body));
+            var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<TodoTaskList>(requestInfo, TodoTaskList.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+        }
+        /// <summary>Get a list of the todoTaskList objects and their properties.</summary>
+        public class ListsRequestBuilderGetQueryParameters {
+            /// <summary>Include count of items</summary>
+            [QueryParameter("%24count")]
+            public bool? Count { get; set; }
+            /// <summary>Expand related entities</summary>
+            [QueryParameter("%24expand")]
+            public string[] Expand { get; set; }
+            /// <summary>Filter items by property values</summary>
+            [QueryParameter("%24filter")]
+            public string Filter { get; set; }
+            /// <summary>Order items by property values</summary>
+            [QueryParameter("%24orderby")]
+            public string[] Orderby { get; set; }
+            /// <summary>Search items by search phrases</summary>
+            [QueryParameter("%24search")]
+            public string Search { get; set; }
+            /// <summary>Select properties to be returned</summary>
+            [QueryParameter("%24select")]
+            public string[] Select { get; set; }
+            /// <summary>Skip the first n items</summary>
+            [QueryParameter("%24skip")]
+            public int? Skip { get; set; }
+            /// <summary>Show only the first n items</summary>
+            [QueryParameter("%24top")]
+            public int? Top { get; set; }
+        }
+        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        public class ListsRequestBuilderGetRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public IDictionary<string, string> Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>Request query parameters</summary>
+            public ListsRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ListsRequestBuilderGetQueryParameters();
+            /// <summary>
+            /// Instantiates a new listsRequestBuilderGetRequestConfiguration and sets the default values.
+            /// </summary>
+            public ListsRequestBuilderGetRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new Dictionary<string, string>();
+            }
+        }
+        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        public class ListsRequestBuilderPostRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public IDictionary<string, string> Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>
+            /// Instantiates a new listsRequestBuilderPostRequestConfiguration and sets the default values.
+            /// </summary>
+            public ListsRequestBuilderPostRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new Dictionary<string, string>();
+            }
         }
     }
 }
