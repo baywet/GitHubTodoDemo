@@ -18,7 +18,7 @@ namespace GithubTodoDemo.GitHub.Models {
         /// <summary>The resource property</summary>
         public string Resource { get; set; }
         /// <summary>The value property</summary>
-        public WithPull_number Value { get; set; }
+        public Pulls Value { get; set; }
         /// <summary>
         /// Instantiates a new ValidationError_errors and sets the default values.
         /// </summary>
@@ -43,7 +43,7 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"index", n => { Index = n.GetIntValue(); } },
                 {"message", n => { Message = n.GetStringValue(); } },
                 {"resource", n => { Resource = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetObjectValue<WithPull_number>(WithPull_number.CreateFromDiscriminatorValue); } },
+                {"value", n => { Value = n.GetObjectValue<Pulls>(Pulls.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,11 +57,11 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteIntValue("index", Index);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("resource", Resource);
-            writer.WriteObjectValue<WithPull_number>("value", Value);
+            writer.WriteObjectValue<Pulls>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>Composed type wrapper for classes string, integer, string</summary>
-        public class WithPull_number : IAdditionalDataHolder, IParsable {
+        public class Pulls : IAdditionalDataHolder, IParsable {
             /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
             public IDictionary<string, object> AdditionalData { get; set; }
             /// <summary>Composed type representation for type integer</summary>
@@ -71,19 +71,19 @@ namespace GithubTodoDemo.GitHub.Models {
             /// <summary>Composed type representation for type string</summary>
             public string String { get; set; }
             /// <summary>
-            /// Instantiates a new WithPull_number and sets the default values.
+            /// Instantiates a new pulls and sets the default values.
             /// </summary>
-            public WithPull_number() {
+            public Pulls() {
                 AdditionalData = new Dictionary<string, object>();
             }
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             /// </summary>
-            public static WithPull_number CreateFromDiscriminatorValue(IParseNode parseNode) {
+            public static Pulls CreateFromDiscriminatorValue(IParseNode parseNode) {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new WithPull_number();
+                var result = new Pulls();
                 if(parseNode.GetIntValue() is int integerValue) {
                     result.Integer = integerValue;
                 }
