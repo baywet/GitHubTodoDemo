@@ -33,15 +33,19 @@ var todoList = todoLists.Value.First();
 foreach(var pullRequest in pullRequests) {
 	var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(
 		new TodoTask() {
+			OdataType = null,
 			Title = pullRequest.Title,
 			DueDateTime = new DateTimeTimeZone {
+				OdataType = null,
 				DateTime = pullRequest.Created_at.Value.Add(TimeSpan.FromDays(7)).ToString("o"),
 				TimeZone = "UTC"
 			},
 			Importance = Importance.High,
 			LinkedResources = new List<LinkedResource> {
 				new LinkedResource {
-					WebUrl = pullRequest.Html_url
+					OdataType = null,
+					WebUrl = pullRequest.Html_url,
+					ApplicationName = "GitHub",
 				}
 			}
 	});
