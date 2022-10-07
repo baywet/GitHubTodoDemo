@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Azure.Identity;
 using GithubTodoDemo.GitHub;
+using GithubTodoDemo.GitHubAuthentication;
 using GithubTodoDemo.MicrosoftGraph;
 using GithubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Authentication.Azure;
@@ -8,12 +9,15 @@ using Microsoft.Kiota.Http.HttpClientLibrary;
 
 Console.WriteLine("Hello, World!");
 
-var gitHubClient = new GitHubClient(null);
+var githubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.GithubClientId, "repo", new[] { "api.github.com" });
+var githubRequestAdapter = new HttpClientRequestAdapter(githubAuthenticationProvider);
+
+var gitHubClient = new GitHubClient(githubRequestAdapter);
 var pullRequests = await gitHubClient.Repos["baywet"]["demo"].Pulls.GetAsync();
 
 var tokenCredential = new DeviceCodeCredential(
-    clientId: "f19e2a30-d500-4fa7-8582-bd6099088b37",
-    tenantId: "09988f3c-947e-4986-a87e-37ad49a3b175",
+    clientId: Constants.GraphClientId,
+    tenantId: Constants.GraphTenantId,
     deviceCodeCallback: (deviceCodeInfo, _) =>
     {
         Console.WriteLine(deviceCodeInfo.Message);
