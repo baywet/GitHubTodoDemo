@@ -1,0 +1,31 @@
+{
+  "descriptionHash": "D906A0E8AD2C917A3918A871E9AC73BAFEE59A7A5A1AD75D0607D4FCA5714BF2F2DE51A08C0FF28EF142714F4347487A0315F5D4645F7338FD0CCFBC8D4E9677",
+  "descriptionLocation": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "0.7.1.0",
+  "clientClassName": "MicrosoftGraphClient",
+  "clientNamespaceName": "GitHubTodoDemo.MicrosoftGraph",
+  "language": "CSharp",
+  "usesBackingStore": false,
+  "includeAdditionalData": true,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "application/xml",
+    "text/plain",
+    "text/xml",
+    "text/yaml"
+  ],
+  "includePatterns": [
+    "/me/todo/**/tasks",
+    "/me/todo/lists"
+  ],
+  "excludePatterns": []
+}

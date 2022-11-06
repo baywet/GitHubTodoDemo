@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TeamworkUserIdentity : Identity, IParsable {
         /// <summary>Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.</summary>
         public TeamworkUserIdentityType? UserIdentityType { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Quota : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -16,7 +16,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Enumeration value that indicates the state of the storage space. Read-only.</summary>
         public string State { get; set; }
         /// <summary>Information about the drive&apos;s storage quota plans. Only in Personal OneDrive.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.StoragePlanInformation StoragePlanInformation { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.StoragePlanInformation StoragePlanInformation { get; set; }
         /// <summary>Total allowed storage space, in bytes. Read-only.</summary>
         public long? Total { get; set; }
         /// <summary>Total space used, in bytes. Read-only.</summary>
@@ -45,7 +45,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"remaining", n => { Remaining = n.GetLongValue(); } },
                 {"state", n => { State = n.GetStringValue(); } },
-                {"storagePlanInformation", n => { StoragePlanInformation = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.StoragePlanInformation>(GithubTodoDemo.MicrosoftGraph.Models.StoragePlanInformation.CreateFromDiscriminatorValue); } },
+                {"storagePlanInformation", n => { StoragePlanInformation = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.StoragePlanInformation>(GitHubTodoDemo.MicrosoftGraph.Models.StoragePlanInformation.CreateFromDiscriminatorValue); } },
                 {"total", n => { Total = n.GetLongValue(); } },
                 {"used", n => { Used = n.GetLongValue(); } },
             };
@@ -60,7 +60,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteLongValue("remaining", Remaining);
             writer.WriteStringValue("state", State);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.StoragePlanInformation>("storagePlanInformation", StoragePlanInformation);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.StoragePlanInformation>("storagePlanInformation", StoragePlanInformation);
             writer.WriteLongValue("total", Total);
             writer.WriteLongValue("used", Used);
             writer.WriteAdditionalData(AdditionalData);

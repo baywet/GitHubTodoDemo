@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BookingQuestionAnswer : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The answer given by the user in case the answerInputType is text.</summary>
         public string Answer { get; set; }
         /// <summary>The expected answer type. The possible values are: text, radioButton, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AnswerInputType? AnswerInputType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AnswerInputType? AnswerInputType { get; set; }
         /// <summary>In case the answerInputType is radioButton, this will consists of a list of possible answer values.</summary>
         public List<string> AnswerOptions { get; set; }
         /// <summary>Indicates whether it is mandatory to answer the custom question.</summary>

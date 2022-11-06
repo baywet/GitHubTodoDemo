@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RequiredResourceAccess : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.ResourceAccess> ResourceAccess { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.ResourceAccess> ResourceAccess { get; set; }
         /// <summary>The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.</summary>
         public string ResourceAppId { get; set; }
         /// <summary>
@@ -34,7 +34,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"resourceAccess", n => { ResourceAccess = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.ResourceAccess>(GithubTodoDemo.MicrosoftGraph.Models.ResourceAccess.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"resourceAccess", n => { ResourceAccess = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.ResourceAccess>(GitHubTodoDemo.MicrosoftGraph.Models.ResourceAccess.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"resourceAppId", n => { ResourceAppId = n.GetStringValue(); } },
             };
         }
@@ -45,7 +45,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.ResourceAccess>("resourceAccess", ResourceAccess);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.ResourceAccess>("resourceAccess", ResourceAccess);
             writer.WriteStringValue("resourceAppId", ResourceAppId);
             writer.WriteAdditionalData(AdditionalData);
         }

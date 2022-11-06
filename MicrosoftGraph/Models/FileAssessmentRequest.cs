@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class FileAssessmentRequest : ThreatAssessmentRequest, IParsable {
         /// <summary>Base64 encoded file content. The file content cannot fetch back because it isn&apos;t stored.</summary>
         public string ContentData { get; set; }

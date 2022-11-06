@@ -1,4 +1,4 @@
-using GithubTodoDemo.MicrosoftGraph.Me;
+using GitHubTodoDemo.MicrosoftGraph.Me;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Text;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.MicrosoftGraph {
+namespace GitHubTodoDemo.MicrosoftGraph {
     /// <summary>The main entry point of the SDK, exposes the configuration and the fluent API.</summary>
     public class MicrosoftGraphClient {
         /// <summary>The me property</summary>

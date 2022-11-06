@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Approval : Entity, IParsable {
         /// <summary>A collection of stages in the approval decision.</summary>
         public List<ApprovalStage> Stages { get; set; }

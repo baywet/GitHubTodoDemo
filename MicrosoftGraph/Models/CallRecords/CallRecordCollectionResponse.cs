@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class CallRecordCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<CallRecord> Value { get; set; }

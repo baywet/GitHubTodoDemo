@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class DirectoryAudit : Entity, IParsable {
         /// <summary>Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string ActivityDisplayName { get; set; }
         /// <summary>Indicates additional details on the activity.</summary>
         public List<KeyValue> AdditionalDetails { get; set; }
-        /// <summary>Indicates which resource category that&apos;s targeted by the activity. (For example: User Management, Group Management etc..)</summary>
+        /// <summary>Indicates which resource category that&apos;s targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.</summary>
         public string Category { get; set; }
         /// <summary>Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.</summary>
         public string CorrelationId { get; set; }

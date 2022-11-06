@@ -1,5 +1,5 @@
-namespace GithubTodoDemo.GitHub.Models {
-    public enum AuthorAssociation {
+namespace GitHubTodoDemo.GitHub.Models {
+    public enum Author_association {
         COLLABORATOR,
         CONTRIBUTOR,
         FIRST_TIMER,

@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AadUserConversationMember : ConversationMember, IParsable {
         /// <summary>The email address of the user.</summary>
         public string Email { get; set; }
         /// <summary>TenantId which the Azure AD user belongs to.</summary>
         public string TenantId { get; set; }
         /// <summary>The user property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.User User { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.User User { get; set; }
         /// <summary>The guid of the user.</summary>
         public string UserId { get; set; }
         /// <summary>
@@ -34,7 +34,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"email", n => { Email = n.GetStringValue(); } },
                 {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"user", n => { User = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.User>(GithubTodoDemo.MicrosoftGraph.Models.User.CreateFromDiscriminatorValue); } },
+                {"user", n => { User = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.User>(GitHubTodoDemo.MicrosoftGraph.Models.User.CreateFromDiscriminatorValue); } },
                 {"userId", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -47,7 +47,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             base.Serialize(writer);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("tenantId", TenantId);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.User>("user", User);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.User>("user", User);
             writer.WriteStringValue("userId", UserId);
         }
     }

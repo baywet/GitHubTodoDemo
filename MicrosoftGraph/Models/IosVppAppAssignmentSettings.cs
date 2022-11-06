@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosVppAppAssignmentSettings : MobileAppAssignmentSettings, IParsable {
         /// <summary>Whether or not to use device licensing.</summary>
         public bool? UseDeviceLicensing { get; set; }

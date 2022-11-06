@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class VerifiedPublisher : IAdditionalDataHolder, IParsable {
         /// <summary>The timestamp when the verified publisher was first added or most recently updated.</summary>
         public DateTimeOffset? AddedDateTime { get; set; }

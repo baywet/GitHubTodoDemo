@@ -1,4 +1,4 @@
-using GithubTodoDemo.GitHub.Models;
+using GitHubTodoDemo.GitHub.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Commits.Item.Pulls {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Commits.Item.Pulls {
     /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\commits\{commit_sha}\pulls</summary>
     public class PullsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
@@ -44,7 +44,7 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Commits.Item.Pulls {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Lists the merged pull request that introduced the commit to the repository. If the commit is not present in the default branch, additionally returns open pull requests associated with the commit. The results only include open pull requests.
+        /// Lists all pull requests containing the provided commit SHA, which can be from any point in the commit history. The results will include open and closed pull requests. Additional preview headers may be required to see certain details for associated pull requests, such as whether a pull request is in a draft state. For more information about previews that might affect this endpoint, see the [List pull requests](https://docs.github.com/rest/reference/pulls#list-pull-requests) endpoint.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<PullsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -64,21 +64,23 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Commits.Item.Pulls {
             return requestInfo;
         }
         /// <summary>
-        /// Lists the merged pull request that introduced the commit to the repository. If the commit is not present in the default branch, additionally returns open pull requests associated with the commit. The results only include open pull requests.
+        /// Lists all pull requests containing the provided commit SHA, which can be from any point in the commit history. The results will include open and closed pull requests. Additional preview headers may be required to see certain details for associated pull requests, such as whether a pull request is in a draft state. For more information about previews that might affect this endpoint, see the [List pull requests](https://docs.github.com/rest/reference/pulls#list-pull-requests) endpoint.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<List<PullRequestSimple>> GetAsync(Action<PullsRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<List<PullRequestSimple>> GetAsync(Action<PullsRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<PullRequestSimple>(requestInfo, PullRequestSimple.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"415", Pulls415Error.CreateFromDiscriminatorValue},
+            };
+            var collectionResult = await RequestAdapter.SendCollectionAsync<PullRequestSimple>(requestInfo, PullRequestSimple.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
             return collectionResult.ToList();
         }
-        /// <summary>Lists the merged pull request that introduced the commit to the repository. If the commit is not present in the default branch, additionally returns open pull requests associated with the commit. The results only include open pull requests.</summary>
+        /// <summary>Lists all pull requests containing the provided commit SHA, which can be from any point in the commit history. The results will include open and closed pull requests. Additional preview headers may be required to see certain details for associated pull requests, such as whether a pull request is in a draft state. For more information about previews that might affect this endpoint, see the [List pull requests](https://docs.github.com/rest/reference/pulls#list-pull-requests) endpoint.</summary>
         public class PullsRequestBuilderGetQueryParameters {
             /// <summary>Page number of the results to fetch.</summary>
             public int? Page { get; set; }
-            /// <summary>The number of results per page (max 100).</summary>
+            /// <summary>Results per page (max 100).</summary>
             public int? Per_page { get; set; }
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>

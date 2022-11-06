@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WindowsPhone81GeneralConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only.</summary>
         public bool? ApplyOnlyToWindowsPhone81 { get; private set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Simulation : Entity, IParsable {
         /// <summary>The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations.</summary>
@@ -31,7 +31,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Date and time of the launch/start of the attack simulation and training campaign. Supports $filter and $orderby.</summary>
         public DateTimeOffset? LaunchDateTime { get; set; }
         /// <summary>Method of delivery of the phishing payload used in the attack simulation and training campaign. Possible values are: unknown, sms, email, teams, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PayloadDeliveryPlatform? PayloadDeliveryPlatform { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PayloadDeliveryPlatform? PayloadDeliveryPlatform { get; set; }
         /// <summary>Report of the attack simulation and training campaign.</summary>
         public SimulationReport Report { get; set; }
         /// <summary>Status of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, draft, running, scheduled, succeeded, failed, cancelled, excluded, unknownFutureValue.</summary>

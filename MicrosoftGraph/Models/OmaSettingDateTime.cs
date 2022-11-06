@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OmaSettingDateTime : OmaSetting, IParsable {
         /// <summary>Value.</summary>
         public DateTimeOffset? Value { get; set; }

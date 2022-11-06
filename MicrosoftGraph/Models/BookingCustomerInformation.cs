@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BookingCustomerInformation : BookingCustomerInformationBase, IParsable {
         /// <summary>The ID of the bookingCustomer for this appointment. If no ID is specified when an appointment is created, then a new bookingCustomer object is created. Once set, you should consider the customerId immutable.</summary>
         public string CustomerId { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The SMTP address of the bookingCustomer who is booking the appointment</summary>
         public string EmailAddress { get; set; }
         /// <summary>Represents location information for the bookingCustomer who is booking the appointment.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Location Location { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Location Location { get; set; }
         /// <summary>The customer&apos;s name.</summary>
         public string Name { get; set; }
         /// <summary>Notes from the customer associated with this appointment. You can get the value only when reading this bookingAppointment by its ID. You can set this property only when initially creating an appointment with a new customer. After that point, the value is computed from the customer represented by the customerId.</summary>
@@ -43,7 +43,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"customerId", n => { CustomerId = n.GetStringValue(); } },
                 {"customQuestionAnswers", n => { CustomQuestionAnswers = n.GetCollectionOfObjectValues<BookingQuestionAnswer>(BookingQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
-                {"location", n => { Location = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Location>(GithubTodoDemo.MicrosoftGraph.Models.Location.CreateFromDiscriminatorValue); } },
+                {"location", n => { Location = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Location>(GitHubTodoDemo.MicrosoftGraph.Models.Location.CreateFromDiscriminatorValue); } },
                 {"name", n => { Name = n.GetStringValue(); } },
                 {"notes", n => { Notes = n.GetStringValue(); } },
                 {"phone", n => { Phone = n.GetStringValue(); } },
@@ -60,7 +60,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("customerId", CustomerId);
             writer.WriteCollectionOfObjectValues<BookingQuestionAnswer>("customQuestionAnswers", CustomQuestionAnswers);
             writer.WriteStringValue("emailAddress", EmailAddress);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Location>("location", Location);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Location>("location", Location);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("notes", Notes);
             writer.WriteStringValue("phone", Phone);

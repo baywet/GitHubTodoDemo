@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Windows10GeneralConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.</summary>
         public bool? AccountsBlockAddingNonMicrosoftAccountEmail { get; set; }
@@ -47,17 +47,17 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of days before deleting quarantined malware. Valid values 0 to 90</summary>
         public int? DefenderDaysBeforeDeletingQuarantinedMalware { get; set; }
         /// <summary>Gets or sets Defender’s actions to take on detected Malware per threat level.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DefenderDetectedMalwareActions DefenderDetectedMalwareActions { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DefenderDetectedMalwareActions DefenderDetectedMalwareActions { get; set; }
         /// <summary>File extensions to exclude from scans and real time protection.</summary>
         public List<string> DefenderFileExtensionsToExclude { get; set; }
         /// <summary>Files and folder to exclude from scans and real time protection.</summary>
         public List<string> DefenderFilesAndFoldersToExclude { get; set; }
         /// <summary>Possible values for monitoring file activity.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DefenderMonitorFileActivity? DefenderMonitorFileActivity { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DefenderMonitorFileActivity? DefenderMonitorFileActivity { get; set; }
         /// <summary>Processes to exclude from scans and real time protection.</summary>
         public List<string> DefenderProcessesToExclude { get; set; }
         /// <summary>Possible values for prompting user for samples submission.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DefenderPromptForSampleSubmission? DefenderPromptForSampleSubmission { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DefenderPromptForSampleSubmission? DefenderPromptForSampleSubmission { get; set; }
         /// <summary>Indicates whether or not to require behavior monitoring.</summary>
         public bool? DefenderRequireBehaviorMonitoring { get; set; }
         /// <summary>Indicates whether or not to require cloud protection.</summary>
@@ -83,7 +83,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether or not to scan scripts loaded in Internet Explorer browser.</summary>
         public bool? DefenderScanScriptsLoadedInInternetExplorer { get; set; }
         /// <summary>Possible values for system scan type.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DefenderScanType? DefenderScanType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DefenderScanType? DefenderScanType { get; set; }
         /// <summary>The time to perform a daily quick scan.</summary>
         public Time? DefenderScheduledQuickScanTime { get; set; }
         /// <summary>The defender time for the system scan.</summary>
@@ -135,7 +135,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Clear browsing data on exiting Microsoft Edge.</summary>
         public bool? EdgeClearBrowsingDataOnExit { get; set; }
         /// <summary>Possible values to specify which cookies are allowed in Microsoft Edge.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.EdgeCookiePolicy? EdgeCookiePolicy { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.EdgeCookiePolicy? EdgeCookiePolicy { get; set; }
         /// <summary>Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page.</summary>
         public bool? EdgeDisableFirstRunPage { get; set; }
         /// <summary>Indicates the enterprise mode site list location. Could be a local file, local network or http location.</summary>
@@ -447,7 +447,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"defenderBlockEndUserAccess", n => { DefenderBlockEndUserAccess = n.GetBoolValue(); } },
                 {"defenderCloudBlockLevel", n => { DefenderCloudBlockLevel = n.GetEnumValue<DefenderCloudBlockLevelType>(); } },
                 {"defenderDaysBeforeDeletingQuarantinedMalware", n => { DefenderDaysBeforeDeletingQuarantinedMalware = n.GetIntValue(); } },
-                {"defenderDetectedMalwareActions", n => { DefenderDetectedMalwareActions = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DefenderDetectedMalwareActions>(GithubTodoDemo.MicrosoftGraph.Models.DefenderDetectedMalwareActions.CreateFromDiscriminatorValue); } },
+                {"defenderDetectedMalwareActions", n => { DefenderDetectedMalwareActions = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DefenderDetectedMalwareActions>(GitHubTodoDemo.MicrosoftGraph.Models.DefenderDetectedMalwareActions.CreateFromDiscriminatorValue); } },
                 {"defenderFileExtensionsToExclude", n => { DefenderFileExtensionsToExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"defenderFilesAndFoldersToExclude", n => { DefenderFilesAndFoldersToExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"defenderMonitorFileActivity", n => { DefenderMonitorFileActivity = n.GetEnumValue<DefenderMonitorFileActivity>(); } },
@@ -657,7 +657,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("defenderBlockEndUserAccess", DefenderBlockEndUserAccess);
             writer.WriteEnumValue<DefenderCloudBlockLevelType>("defenderCloudBlockLevel", DefenderCloudBlockLevel);
             writer.WriteIntValue("defenderDaysBeforeDeletingQuarantinedMalware", DefenderDaysBeforeDeletingQuarantinedMalware);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DefenderDetectedMalwareActions>("defenderDetectedMalwareActions", DefenderDetectedMalwareActions);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DefenderDetectedMalwareActions>("defenderDetectedMalwareActions", DefenderDetectedMalwareActions);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderFileExtensionsToExclude", DefenderFileExtensionsToExclude);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderFilesAndFoldersToExclude", DefenderFilesAndFoldersToExclude);
             writer.WriteEnumValue<DefenderMonitorFileActivity>("defenderMonitorFileActivity", DefenderMonitorFileActivity);

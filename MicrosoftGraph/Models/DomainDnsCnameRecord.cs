@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainDnsCnameRecord : DomainDnsRecord, IParsable {
         /// <summary>The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.</summary>
         public string CanonicalName { get; set; }

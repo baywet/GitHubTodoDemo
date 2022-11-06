@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class BitlockerRecoveryKey : Entity, IParsable {
         /// <summary>The date and time when the key was originally backed up to Azure Active Directory. Not nullable.</summary>
@@ -13,7 +13,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The BitLocker recovery key. Returned only on $select. Not nullable.</summary>
         public string Key { get; set; }
         /// <summary>Indicates the type of volume the BitLocker key is associated with. The possible values are: 1 (for operatingSystemVolume), 2 (for fixedDataVolume), 3 (for removableDataVolume), and 4 (for unknownFutureValue).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.VolumeType? VolumeType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.VolumeType? VolumeType { get; set; }
         /// <summary>
         /// Instantiates a new bitlockerRecoveryKey and sets the default values.
         /// </summary>

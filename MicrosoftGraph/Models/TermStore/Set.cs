@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     public class Set : Entity, IParsable {
         /// <summary>Children terms of set in term [store].</summary>
         public List<Term> Children { get; set; }
@@ -16,7 +16,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
         /// <summary>The parentGroup property</summary>
         public Group ParentGroup { get; set; }
         /// <summary>Custom properties for the set.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.KeyValue> Properties { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue> Properties { get; set; }
         /// <summary>Indicates which terms have been pinned or reused directly under the set.</summary>
         public List<Relation> Relations { get; set; }
         /// <summary>All the terms under the set.</summary>
@@ -45,7 +45,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"localizedNames", n => { LocalizedNames = n.GetCollectionOfObjectValues<LocalizedName>(LocalizedName.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"parentGroup", n => { ParentGroup = n.GetObjectValue<Group>(Group.CreateFromDiscriminatorValue); } },
-                {"properties", n => { Properties = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.KeyValue>(GithubTodoDemo.MicrosoftGraph.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"properties", n => { Properties = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue>(GitHubTodoDemo.MicrosoftGraph.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"relations", n => { Relations = n.GetCollectionOfObjectValues<Relation>(Relation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"terms", n => { Terms = n.GetCollectionOfObjectValues<Term>(Term.CreateFromDiscriminatorValue)?.ToList(); } },
             };
@@ -62,7 +62,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<LocalizedName>("localizedNames", LocalizedNames);
             writer.WriteObjectValue<Group>("parentGroup", ParentGroup);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.KeyValue>("properties", Properties);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue>("properties", Properties);
             writer.WriteCollectionOfObjectValues<Relation>("relations", Relations);
             writer.WriteCollectionOfObjectValues<Term>("terms", Terms);
         }

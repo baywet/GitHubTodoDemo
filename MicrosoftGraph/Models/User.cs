@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class User : DirectoryObject, IParsable {
         /// <summary>A freeform text entry field for the user to describe themselves. Returned only on $select.</summary>
         public string AboutMe { get; set; }
@@ -22,19 +22,19 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The plans that are assigned to the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq and not).</summary>
         public List<AssignedPlan> AssignedPlans { get; set; }
         /// <summary>The authentication methods that are supported for the user.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Authentication Authentication { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Authentication Authentication { get; set; }
         /// <summary>The authorizationInfo property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AuthorizationInfo AuthorizationInfo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AuthorizationInfo AuthorizationInfo { get; set; }
         /// <summary>The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned only on $select.</summary>
         public DateTimeOffset? Birthday { get; set; }
         /// <summary>The telephone numbers for the user. NOTE: Although this is a string collection, only one number can be set for this property. Read-only for users synced from on-premises directory. Returned by default. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> BusinessPhones { get; set; }
         /// <summary>The user&apos;s primary calendar. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Calendar Calendar { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Calendar Calendar { get; set; }
         /// <summary>The user&apos;s calendar groups. Read-only. Nullable.</summary>
         public List<CalendarGroup> CalendarGroups { get; set; }
         /// <summary>The user&apos;s calendars. Read-only. Nullable.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.Calendar> Calendars { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.Calendar> Calendars { get; set; }
         /// <summary>The calendar view for the calendar. Read-only. Nullable.</summary>
         public List<Event> CalendarView { get; set; }
         /// <summary>The chats property</summary>
@@ -68,15 +68,15 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The name displayed in the address book for the user. This is usually the combination of the user&apos;s first name, middle initial and last name. This property is required when a user is created and it cannot be cleared during updates. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderBy, and $search.</summary>
         public string DisplayName { get; set; }
         /// <summary>The user&apos;s OneDrive. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
         /// <summary>A collection of drives available for this user. Read-only.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.Drive> Drives { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.Drive> Drives { get; set; }
         /// <summary>The date and time when the user was hired or will start work in case of a future hire. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).</summary>
         public DateTimeOffset? EmployeeHireDate { get; set; }
         /// <summary>The employee identifier assigned to the user by the organization. The maximum length is 16 characters. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values).</summary>
         public string EmployeeId { get; set; }
         /// <summary>Represents organization data (e.g. division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.EmployeeOrgData EmployeeOrgData { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.EmployeeOrgData EmployeeOrgData { get; set; }
         /// <summary>Captures enterprise worker type. For example, Employee, Contractor, Consultant, or Vendor. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, startsWith).</summary>
         public string EmployeeType { get; set; }
         /// <summary>The user&apos;s events. Default is to show Events under the Default Calendar. Read-only. Nullable.</summary>
@@ -100,7 +100,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Returned only on $select. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> ImAddresses { get; set; }
         /// <summary>Relevance classification of the user&apos;s messages based on explicit designations which override inferred relevance or importance.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.InferenceClassification InferenceClassification { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.InferenceClassification InferenceClassification { get; set; }
         /// <summary>The insights property</summary>
         public OfficeGraphInsights Insights { get; set; }
         /// <summary>A list for the user to describe their interests. Returned only on $select.</summary>
@@ -118,11 +118,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>State of license assignments for this user. Read-only. Returned only on $select.</summary>
         public List<LicenseAssignmentState> LicenseAssignmentStates { get; set; }
         /// <summary>A collection of this user&apos;s license details. Read-only.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.LicenseDetails> LicenseDetails { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.LicenseDetails> LicenseDetails { get; set; }
         /// <summary>The SMTP address for the user, for example, jeff@contoso.onmicrosoft.com. Changes to this property will also update the user&apos;s proxyAddresses collection to include the value as an SMTP address. This property cannot contain accent characters.  NOTE: We do not recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).</summary>
         public string Mail { get; set; }
         /// <summary>Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale and time zone. Returned only on $select.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MailboxSettings MailboxSettings { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MailboxSettings MailboxSettings { get; set; }
         /// <summary>The user&apos;s mail folders. Read-only. Nullable.</summary>
         public List<MailFolder> MailFolders { get; set; }
         /// <summary>The mail alias for the user. This property must be specified when a user is created. Maximum length is 64 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
@@ -146,7 +146,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The office location in the user&apos;s place of business. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
         public string OfficeLocation { get; set; }
         /// <summary>The onenote property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Onenote Onenote { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Onenote Onenote { get; set; }
         /// <summary>The onlineMeetings property</summary>
         public List<OnlineMeeting> OnlineMeetings { get; set; }
         /// <summary>Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. Returned only on $select.</summary>
@@ -154,7 +154,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. Returned only on $select.</summary>
         public string OnPremisesDomainName { get; set; }
         /// <summary>Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Returned only on $select. Supports $filter (eq, ne, not, in).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.OnPremisesExtensionAttributes OnPremisesExtensionAttributes { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.OnPremisesExtensionAttributes OnPremisesExtensionAttributes { get; set; }
         /// <summary>This property is used to associate an on-premises Active Directory user account to their Azure AD user object. This property must be specified when creating a new user account in the Graph if you are using a federated domain for the user&apos;s userPrincipalName (UPN) property. NOTE: The $ and _ characters cannot be used when specifying this property. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in)..</summary>
         public string OnPremisesImmutableId { get; set; }
         /// <summary>Indicates the last time at which the object was synced with the on-premises directory; for example: 2013-02-16T03:04:54Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in).</summary>
@@ -180,7 +180,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two may be specified together; for example: DisablePasswordExpiration, DisableStrongPassword. Returned only on $select. For more information on the default password policies, see Azure AD pasword policies. Supports $filter (ne, not, and eq on null values).</summary>
         public string PasswordPolicies { get; set; }
         /// <summary>Specifies the password profile for the user. The profile contains the user’s password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. NOTE: For Azure B2C tenants, the forceChangePasswordNextSignIn property should be set to false and instead use custom policies and user flows to force password reset at first logon. See Force password reset at first logon.Returned only on $select. Supports $filter (eq, ne, not, in, and eq on null values).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PasswordProfile PasswordProfile { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile PasswordProfile { get; set; }
         /// <summary>A list for the user to enumerate their past projects. Returned only on $select.</summary>
         public List<string> PastProjects { get; set; }
         /// <summary>People that are relevant to the user. Read-only. Nullable.</summary>
@@ -200,7 +200,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The preferred name for the user. Not Supported. This attribute returns an empty string.Returned only on $select.</summary>
         public string PreferredName { get; set; }
         /// <summary>The presence property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Presence Presence { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Presence Presence { get; set; }
         /// <summary>The plans that are provisioned for the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le).</summary>
         public List<ProvisionedPlan> ProvisionedPlans { get; set; }
         /// <summary>For example: [&apos;SMTP: bob@contoso.com&apos;, &apos;smtp: bob@sales.contoso.com&apos;]. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).</summary>
@@ -232,7 +232,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The teamwork property</summary>
         public UserTeamwork Teamwork { get; set; }
         /// <summary>Represents the To Do services available to a user.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Todo Todo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Todo Todo { get; set; }
         /// <summary>The groups, including nested groups, and directory roles that a user is a member of. Nullable.</summary>
         public List<DirectoryObject> TransitiveMemberOf { get; set; }
         /// <summary>A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries.  Examples include: US, JP, and GB. Not nullable. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
@@ -268,13 +268,13 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"appRoleAssignments", n => { AppRoleAssignments = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<AssignedLicense>(AssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"assignedPlans", n => { AssignedPlans = n.GetCollectionOfObjectValues<AssignedPlan>(AssignedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authentication", n => { Authentication = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Authentication>(GithubTodoDemo.MicrosoftGraph.Models.Authentication.CreateFromDiscriminatorValue); } },
-                {"authorizationInfo", n => { AuthorizationInfo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AuthorizationInfo>(GithubTodoDemo.MicrosoftGraph.Models.AuthorizationInfo.CreateFromDiscriminatorValue); } },
+                {"authentication", n => { Authentication = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Authentication>(GitHubTodoDemo.MicrosoftGraph.Models.Authentication.CreateFromDiscriminatorValue); } },
+                {"authorizationInfo", n => { AuthorizationInfo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AuthorizationInfo>(GitHubTodoDemo.MicrosoftGraph.Models.AuthorizationInfo.CreateFromDiscriminatorValue); } },
                 {"birthday", n => { Birthday = n.GetDateTimeOffsetValue(); } },
                 {"businessPhones", n => { BusinessPhones = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"calendar", n => { Calendar = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Calendar>(GithubTodoDemo.MicrosoftGraph.Models.Calendar.CreateFromDiscriminatorValue); } },
+                {"calendar", n => { Calendar = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Calendar>(GitHubTodoDemo.MicrosoftGraph.Models.Calendar.CreateFromDiscriminatorValue); } },
                 {"calendarGroups", n => { CalendarGroups = n.GetCollectionOfObjectValues<CalendarGroup>(CalendarGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"calendars", n => { Calendars = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Calendar>(GithubTodoDemo.MicrosoftGraph.Models.Calendar.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"calendars", n => { Calendars = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Calendar>(GitHubTodoDemo.MicrosoftGraph.Models.Calendar.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"chats", n => { Chats = n.GetCollectionOfObjectValues<Chat>(Chat.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"city", n => { City = n.GetStringValue(); } },
@@ -291,11 +291,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"deviceManagementTroubleshootingEvents", n => { DeviceManagementTroubleshootingEvents = n.GetCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>(DeviceManagementTroubleshootingEvent.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"directReports", n => { DirectReports = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"drive", n => { Drive = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Drive>(GithubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue); } },
-                {"drives", n => { Drives = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Drive>(GithubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"drive", n => { Drive = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Drive>(GitHubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue); } },
+                {"drives", n => { Drives = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Drive>(GitHubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"employeeHireDate", n => { EmployeeHireDate = n.GetDateTimeOffsetValue(); } },
                 {"employeeId", n => { EmployeeId = n.GetStringValue(); } },
-                {"employeeOrgData", n => { EmployeeOrgData = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.EmployeeOrgData>(GithubTodoDemo.MicrosoftGraph.Models.EmployeeOrgData.CreateFromDiscriminatorValue); } },
+                {"employeeOrgData", n => { EmployeeOrgData = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.EmployeeOrgData>(GitHubTodoDemo.MicrosoftGraph.Models.EmployeeOrgData.CreateFromDiscriminatorValue); } },
                 {"employeeType", n => { EmployeeType = n.GetStringValue(); } },
                 {"events", n => { Events = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -307,7 +307,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"hireDate", n => { HireDate = n.GetDateTimeOffsetValue(); } },
                 {"identities", n => { Identities = n.GetCollectionOfObjectValues<ObjectIdentity>(ObjectIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"imAddresses", n => { ImAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"inferenceClassification", n => { InferenceClassification = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.InferenceClassification>(GithubTodoDemo.MicrosoftGraph.Models.InferenceClassification.CreateFromDiscriminatorValue); } },
+                {"inferenceClassification", n => { InferenceClassification = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.InferenceClassification>(GitHubTodoDemo.MicrosoftGraph.Models.InferenceClassification.CreateFromDiscriminatorValue); } },
                 {"insights", n => { Insights = n.GetObjectValue<OfficeGraphInsights>(OfficeGraphInsights.CreateFromDiscriminatorValue); } },
                 {"interests", n => { Interests = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"isResourceAccount", n => { IsResourceAccount = n.GetBoolValue(); } },
@@ -316,9 +316,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"lastPasswordChangeDateTime", n => { LastPasswordChangeDateTime = n.GetDateTimeOffsetValue(); } },
                 {"legalAgeGroupClassification", n => { LegalAgeGroupClassification = n.GetStringValue(); } },
                 {"licenseAssignmentStates", n => { LicenseAssignmentStates = n.GetCollectionOfObjectValues<LicenseAssignmentState>(LicenseAssignmentState.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"licenseDetails", n => { LicenseDetails = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.LicenseDetails>(GithubTodoDemo.MicrosoftGraph.Models.LicenseDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"licenseDetails", n => { LicenseDetails = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.LicenseDetails>(GitHubTodoDemo.MicrosoftGraph.Models.LicenseDetails.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"mail", n => { Mail = n.GetStringValue(); } },
-                {"mailboxSettings", n => { MailboxSettings = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MailboxSettings>(GithubTodoDemo.MicrosoftGraph.Models.MailboxSettings.CreateFromDiscriminatorValue); } },
+                {"mailboxSettings", n => { MailboxSettings = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MailboxSettings>(GitHubTodoDemo.MicrosoftGraph.Models.MailboxSettings.CreateFromDiscriminatorValue); } },
                 {"mailFolders", n => { MailFolders = n.GetCollectionOfObjectValues<MailFolder>(MailFolder.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"mailNickname", n => { MailNickname = n.GetStringValue(); } },
                 {"managedAppRegistrations", n => { ManagedAppRegistrations = n.GetCollectionOfObjectValues<ManagedAppRegistration>(ManagedAppRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -330,11 +330,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"mySite", n => { MySite = n.GetStringValue(); } },
                 {"oauth2PermissionGrants", n => { Oauth2PermissionGrants = n.GetCollectionOfObjectValues<OAuth2PermissionGrant>(OAuth2PermissionGrant.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"officeLocation", n => { OfficeLocation = n.GetStringValue(); } },
-                {"onenote", n => { Onenote = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Onenote>(GithubTodoDemo.MicrosoftGraph.Models.Onenote.CreateFromDiscriminatorValue); } },
+                {"onenote", n => { Onenote = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Onenote>(GitHubTodoDemo.MicrosoftGraph.Models.Onenote.CreateFromDiscriminatorValue); } },
                 {"onlineMeetings", n => { OnlineMeetings = n.GetCollectionOfObjectValues<OnlineMeeting>(OnlineMeeting.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"onPremisesDistinguishedName", n => { OnPremisesDistinguishedName = n.GetStringValue(); } },
                 {"onPremisesDomainName", n => { OnPremisesDomainName = n.GetStringValue(); } },
-                {"onPremisesExtensionAttributes", n => { OnPremisesExtensionAttributes = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.OnPremisesExtensionAttributes>(GithubTodoDemo.MicrosoftGraph.Models.OnPremisesExtensionAttributes.CreateFromDiscriminatorValue); } },
+                {"onPremisesExtensionAttributes", n => { OnPremisesExtensionAttributes = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.OnPremisesExtensionAttributes>(GitHubTodoDemo.MicrosoftGraph.Models.OnPremisesExtensionAttributes.CreateFromDiscriminatorValue); } },
                 {"onPremisesImmutableId", n => { OnPremisesImmutableId = n.GetStringValue(); } },
                 {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"onPremisesProvisioningErrors", n => { OnPremisesProvisioningErrors = n.GetCollectionOfObjectValues<OnPremisesProvisioningError>(OnPremisesProvisioningError.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -347,7 +347,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"ownedDevices", n => { OwnedDevices = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"ownedObjects", n => { OwnedObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"passwordPolicies", n => { PasswordPolicies = n.GetStringValue(); } },
-                {"passwordProfile", n => { PasswordProfile = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PasswordProfile>(GithubTodoDemo.MicrosoftGraph.Models.PasswordProfile.CreateFromDiscriminatorValue); } },
+                {"passwordProfile", n => { PasswordProfile = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile>(GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile.CreateFromDiscriminatorValue); } },
                 {"pastProjects", n => { PastProjects = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"people", n => { People = n.GetCollectionOfObjectValues<Person>(Person.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"photo", n => { Photo = n.GetObjectValue<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue); } },
@@ -357,7 +357,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"preferredDataLocation", n => { PreferredDataLocation = n.GetStringValue(); } },
                 {"preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
                 {"preferredName", n => { PreferredName = n.GetStringValue(); } },
-                {"presence", n => { Presence = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Presence>(GithubTodoDemo.MicrosoftGraph.Models.Presence.CreateFromDiscriminatorValue); } },
+                {"presence", n => { Presence = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Presence>(GitHubTodoDemo.MicrosoftGraph.Models.Presence.CreateFromDiscriminatorValue); } },
                 {"provisionedPlans", n => { ProvisionedPlans = n.GetCollectionOfObjectValues<ProvisionedPlan>(ProvisionedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"proxyAddresses", n => { ProxyAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"registeredDevices", n => { RegisteredDevices = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -373,7 +373,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"streetAddress", n => { StreetAddress = n.GetStringValue(); } },
                 {"surname", n => { Surname = n.GetStringValue(); } },
                 {"teamwork", n => { Teamwork = n.GetObjectValue<UserTeamwork>(UserTeamwork.CreateFromDiscriminatorValue); } },
-                {"todo", n => { Todo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Todo>(GithubTodoDemo.MicrosoftGraph.Models.Todo.CreateFromDiscriminatorValue); } },
+                {"todo", n => { Todo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Todo>(GitHubTodoDemo.MicrosoftGraph.Models.Todo.CreateFromDiscriminatorValue); } },
                 {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"usageLocation", n => { UsageLocation = n.GetStringValue(); } },
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
@@ -395,13 +395,13 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", AppRoleAssignments);
             writer.WriteCollectionOfObjectValues<AssignedLicense>("assignedLicenses", AssignedLicenses);
             writer.WriteCollectionOfObjectValues<AssignedPlan>("assignedPlans", AssignedPlans);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Authentication>("authentication", Authentication);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AuthorizationInfo>("authorizationInfo", AuthorizationInfo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Authentication>("authentication", Authentication);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AuthorizationInfo>("authorizationInfo", AuthorizationInfo);
             writer.WriteDateTimeOffsetValue("birthday", Birthday);
             writer.WriteCollectionOfPrimitiveValues<string>("businessPhones", BusinessPhones);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Calendar>("calendar", Calendar);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Calendar>("calendar", Calendar);
             writer.WriteCollectionOfObjectValues<CalendarGroup>("calendarGroups", CalendarGroups);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Calendar>("calendars", Calendars);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Calendar>("calendars", Calendars);
             writer.WriteCollectionOfObjectValues<Event>("calendarView", CalendarView);
             writer.WriteCollectionOfObjectValues<Chat>("chats", Chats);
             writer.WriteStringValue("city", City);
@@ -418,11 +418,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>("deviceManagementTroubleshootingEvents", DeviceManagementTroubleshootingEvents);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("directReports", DirectReports);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Drive>("drive", Drive);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Drive>("drives", Drives);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Drive>("drive", Drive);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Drive>("drives", Drives);
             writer.WriteDateTimeOffsetValue("employeeHireDate", EmployeeHireDate);
             writer.WriteStringValue("employeeId", EmployeeId);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.EmployeeOrgData>("employeeOrgData", EmployeeOrgData);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.EmployeeOrgData>("employeeOrgData", EmployeeOrgData);
             writer.WriteStringValue("employeeType", EmployeeType);
             writer.WriteCollectionOfObjectValues<Event>("events", Events);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
@@ -434,7 +434,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteDateTimeOffsetValue("hireDate", HireDate);
             writer.WriteCollectionOfObjectValues<ObjectIdentity>("identities", Identities);
             writer.WriteCollectionOfPrimitiveValues<string>("imAddresses", ImAddresses);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.InferenceClassification>("inferenceClassification", InferenceClassification);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.InferenceClassification>("inferenceClassification", InferenceClassification);
             writer.WriteObjectValue<OfficeGraphInsights>("insights", Insights);
             writer.WriteCollectionOfPrimitiveValues<string>("interests", Interests);
             writer.WriteBoolValue("isResourceAccount", IsResourceAccount);
@@ -443,9 +443,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteDateTimeOffsetValue("lastPasswordChangeDateTime", LastPasswordChangeDateTime);
             writer.WriteStringValue("legalAgeGroupClassification", LegalAgeGroupClassification);
             writer.WriteCollectionOfObjectValues<LicenseAssignmentState>("licenseAssignmentStates", LicenseAssignmentStates);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.LicenseDetails>("licenseDetails", LicenseDetails);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.LicenseDetails>("licenseDetails", LicenseDetails);
             writer.WriteStringValue("mail", Mail);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MailboxSettings>("mailboxSettings", MailboxSettings);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MailboxSettings>("mailboxSettings", MailboxSettings);
             writer.WriteCollectionOfObjectValues<MailFolder>("mailFolders", MailFolders);
             writer.WriteStringValue("mailNickname", MailNickname);
             writer.WriteCollectionOfObjectValues<ManagedAppRegistration>("managedAppRegistrations", ManagedAppRegistrations);
@@ -457,11 +457,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("mySite", MySite);
             writer.WriteCollectionOfObjectValues<OAuth2PermissionGrant>("oauth2PermissionGrants", Oauth2PermissionGrants);
             writer.WriteStringValue("officeLocation", OfficeLocation);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Onenote>("onenote", Onenote);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Onenote>("onenote", Onenote);
             writer.WriteCollectionOfObjectValues<OnlineMeeting>("onlineMeetings", OnlineMeetings);
             writer.WriteStringValue("onPremisesDistinguishedName", OnPremisesDistinguishedName);
             writer.WriteStringValue("onPremisesDomainName", OnPremisesDomainName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.OnPremisesExtensionAttributes>("onPremisesExtensionAttributes", OnPremisesExtensionAttributes);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.OnPremisesExtensionAttributes>("onPremisesExtensionAttributes", OnPremisesExtensionAttributes);
             writer.WriteStringValue("onPremisesImmutableId", OnPremisesImmutableId);
             writer.WriteDateTimeOffsetValue("onPremisesLastSyncDateTime", OnPremisesLastSyncDateTime);
             writer.WriteCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", OnPremisesProvisioningErrors);
@@ -474,7 +474,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<DirectoryObject>("ownedDevices", OwnedDevices);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("ownedObjects", OwnedObjects);
             writer.WriteStringValue("passwordPolicies", PasswordPolicies);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PasswordProfile>("passwordProfile", PasswordProfile);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile>("passwordProfile", PasswordProfile);
             writer.WriteCollectionOfPrimitiveValues<string>("pastProjects", PastProjects);
             writer.WriteCollectionOfObjectValues<Person>("people", People);
             writer.WriteObjectValue<ProfilePhoto>("photo", Photo);
@@ -484,7 +484,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("preferredDataLocation", PreferredDataLocation);
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
             writer.WriteStringValue("preferredName", PreferredName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Presence>("presence", Presence);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Presence>("presence", Presence);
             writer.WriteCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", ProvisionedPlans);
             writer.WriteCollectionOfPrimitiveValues<string>("proxyAddresses", ProxyAddresses);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("registeredDevices", RegisteredDevices);
@@ -500,7 +500,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("streetAddress", StreetAddress);
             writer.WriteStringValue("surname", Surname);
             writer.WriteObjectValue<UserTeamwork>("teamwork", Teamwork);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Todo>("todo", Todo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Todo>("todo", Todo);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", TransitiveMemberOf);
             writer.WriteStringValue("usageLocation", UsageLocation);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);

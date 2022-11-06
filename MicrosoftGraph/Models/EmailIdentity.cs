@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EmailIdentity : Identity, IParsable {
         /// <summary>Email address of the user.</summary>
         public string Email { get; set; }

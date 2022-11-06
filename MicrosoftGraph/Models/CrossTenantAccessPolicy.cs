@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CrossTenantAccessPolicy : PolicyBase, IParsable {
         /// <summary>Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.</summary>
         public CrossTenantAccessPolicyConfigurationDefault Default { get; set; }

@@ -1,11 +1,11 @@
-using GithubTodoDemo.GitHub.Repos.Item.Item.Commits.Item;
+using GitHubTodoDemo.GitHub.Repos.Item.Item.Commits.Item;
 using Microsoft.Kiota.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Commits {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Commits {
     /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\commits</summary>
     public class CommitsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
@@ -14,7 +14,7 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Commits {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the GithubTodoDemo.GitHub.repos.item.item.commits.item collection</summary>
+        /// <summary>Gets an item from the GitHubTodoDemo.GitHub.repos.item.item.commits.item collection</summary>
         public WithCommit_shaItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("commit_sha", position);

@@ -3,20 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     public class Repository_template_repository : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The allow_auto_merge property</summary>
-        public bool? Allow_auto_merge { get; set; }
         /// <summary>The allow_merge_commit property</summary>
         public bool? Allow_merge_commit { get; set; }
         /// <summary>The allow_rebase_merge property</summary>
         public bool? Allow_rebase_merge { get; set; }
         /// <summary>The allow_squash_merge property</summary>
         public bool? Allow_squash_merge { get; set; }
-        /// <summary>The allow_update_branch property</summary>
-        public bool? Allow_update_branch { get; set; }
         /// <summary>The archive_url property</summary>
         public string Archive_url { get; set; }
         /// <summary>The archived property</summary>
@@ -107,10 +103,6 @@ namespace GithubTodoDemo.GitHub.Models {
         public string Language { get; set; }
         /// <summary>The languages_url property</summary>
         public string Languages_url { get; set; }
-        /// <summary>The default value for a merge commit message.- `PR_TITLE` - default to the pull request&apos;s title.- `PR_BODY` - default to the pull request&apos;s body.- `BLANK` - default to a blank commit message.</summary>
-        public Repository_template_repository_merge_commit_message? Merge_commit_message { get; set; }
-        /// <summary>The default value for a merge commit title.- `PR_TITLE` - default to the pull request&apos;s title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).</summary>
-        public Repository_template_repository_merge_commit_title? Merge_commit_title { get; set; }
         /// <summary>The merges_url property</summary>
         public string Merges_url { get; set; }
         /// <summary>The milestones_url property</summary>
@@ -141,10 +133,6 @@ namespace GithubTodoDemo.GitHub.Models {
         public string Releases_url { get; set; }
         /// <summary>The size property</summary>
         public int? Size { get; set; }
-        /// <summary>The default value for a squash merge commit message:- `PR_BODY` - default to the pull request&apos;s body.- `COMMIT_MESSAGES` - default to the branch&apos;s commit messages.- `BLANK` - default to a blank commit message.</summary>
-        public Repository_template_repository_squash_merge_commit_message? Squash_merge_commit_message { get; set; }
-        /// <summary>The default value for a squash merge commit title:- `PR_TITLE` - default to the pull request&apos;s title.- `COMMIT_OR_PR_TITLE` - default to the commit&apos;s title (if only one commit) or the pull request&apos;s title (when more than one commit).</summary>
-        public Repository_template_repository_squash_merge_commit_title? Squash_merge_commit_title { get; set; }
         /// <summary>The ssh_url property</summary>
         public string Ssh_url { get; set; }
         /// <summary>The stargazers_count property</summary>
@@ -175,8 +163,6 @@ namespace GithubTodoDemo.GitHub.Models {
         public string Updated_at { get; set; }
         /// <summary>The url property</summary>
         public string Url { get; set; }
-        /// <summary>The use_squash_pr_title_as_default property</summary>
-        public bool? Use_squash_pr_title_as_default { get; set; }
         /// <summary>The visibility property</summary>
         public string Visibility { get; set; }
         /// <summary>The watchers_count property</summary>
@@ -200,11 +186,9 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"allow_auto_merge", n => { Allow_auto_merge = n.GetBoolValue(); } },
                 {"allow_merge_commit", n => { Allow_merge_commit = n.GetBoolValue(); } },
                 {"allow_rebase_merge", n => { Allow_rebase_merge = n.GetBoolValue(); } },
                 {"allow_squash_merge", n => { Allow_squash_merge = n.GetBoolValue(); } },
-                {"allow_update_branch", n => { Allow_update_branch = n.GetBoolValue(); } },
                 {"archive_url", n => { Archive_url = n.GetStringValue(); } },
                 {"archived", n => { Archived = n.GetBoolValue(); } },
                 {"assignees_url", n => { Assignees_url = n.GetStringValue(); } },
@@ -250,8 +234,6 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"labels_url", n => { Labels_url = n.GetStringValue(); } },
                 {"language", n => { Language = n.GetStringValue(); } },
                 {"languages_url", n => { Languages_url = n.GetStringValue(); } },
-                {"merge_commit_message", n => { Merge_commit_message = n.GetEnumValue<Repository_template_repository_merge_commit_message>(); } },
-                {"merge_commit_title", n => { Merge_commit_title = n.GetEnumValue<Repository_template_repository_merge_commit_title>(); } },
                 {"merges_url", n => { Merges_url = n.GetStringValue(); } },
                 {"milestones_url", n => { Milestones_url = n.GetStringValue(); } },
                 {"mirror_url", n => { Mirror_url = n.GetStringValue(); } },
@@ -267,8 +249,6 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"pushed_at", n => { Pushed_at = n.GetStringValue(); } },
                 {"releases_url", n => { Releases_url = n.GetStringValue(); } },
                 {"size", n => { Size = n.GetIntValue(); } },
-                {"squash_merge_commit_message", n => { Squash_merge_commit_message = n.GetEnumValue<Repository_template_repository_squash_merge_commit_message>(); } },
-                {"squash_merge_commit_title", n => { Squash_merge_commit_title = n.GetEnumValue<Repository_template_repository_squash_merge_commit_title>(); } },
                 {"ssh_url", n => { Ssh_url = n.GetStringValue(); } },
                 {"stargazers_count", n => { Stargazers_count = n.GetIntValue(); } },
                 {"stargazers_url", n => { Stargazers_url = n.GetStringValue(); } },
@@ -284,7 +264,6 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"trees_url", n => { Trees_url = n.GetStringValue(); } },
                 {"updated_at", n => { Updated_at = n.GetStringValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
-                {"use_squash_pr_title_as_default", n => { Use_squash_pr_title_as_default = n.GetBoolValue(); } },
                 {"visibility", n => { Visibility = n.GetStringValue(); } },
                 {"watchers_count", n => { Watchers_count = n.GetIntValue(); } },
             };
@@ -295,11 +274,9 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("allow_auto_merge", Allow_auto_merge);
             writer.WriteBoolValue("allow_merge_commit", Allow_merge_commit);
             writer.WriteBoolValue("allow_rebase_merge", Allow_rebase_merge);
             writer.WriteBoolValue("allow_squash_merge", Allow_squash_merge);
-            writer.WriteBoolValue("allow_update_branch", Allow_update_branch);
             writer.WriteStringValue("archive_url", Archive_url);
             writer.WriteBoolValue("archived", Archived);
             writer.WriteStringValue("assignees_url", Assignees_url);
@@ -345,8 +322,6 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("labels_url", Labels_url);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("languages_url", Languages_url);
-            writer.WriteEnumValue<Repository_template_repository_merge_commit_message>("merge_commit_message", Merge_commit_message);
-            writer.WriteEnumValue<Repository_template_repository_merge_commit_title>("merge_commit_title", Merge_commit_title);
             writer.WriteStringValue("merges_url", Merges_url);
             writer.WriteStringValue("milestones_url", Milestones_url);
             writer.WriteStringValue("mirror_url", Mirror_url);
@@ -362,8 +337,6 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("pushed_at", Pushed_at);
             writer.WriteStringValue("releases_url", Releases_url);
             writer.WriteIntValue("size", Size);
-            writer.WriteEnumValue<Repository_template_repository_squash_merge_commit_message>("squash_merge_commit_message", Squash_merge_commit_message);
-            writer.WriteEnumValue<Repository_template_repository_squash_merge_commit_title>("squash_merge_commit_title", Squash_merge_commit_title);
             writer.WriteStringValue("ssh_url", Ssh_url);
             writer.WriteIntValue("stargazers_count", Stargazers_count);
             writer.WriteStringValue("stargazers_url", Stargazers_url);
@@ -379,7 +352,6 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("trees_url", Trees_url);
             writer.WriteStringValue("updated_at", Updated_at);
             writer.WriteStringValue("url", Url);
-            writer.WriteBoolValue("use_squash_pr_title_as_default", Use_squash_pr_title_as_default);
             writer.WriteStringValue("visibility", Visibility);
             writer.WriteIntValue("watchers_count", Watchers_count);
             writer.WriteAdditionalData(AdditionalData);

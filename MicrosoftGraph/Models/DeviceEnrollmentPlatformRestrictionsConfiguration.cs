@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DeviceEnrollmentPlatformRestrictionsConfiguration : DeviceEnrollmentConfiguration, IParsable {
         /// <summary>Android restrictions based on platform, platform operating system version, and device ownership</summary>
         public DeviceEnrollmentPlatformRestriction AndroidRestriction { get; set; }

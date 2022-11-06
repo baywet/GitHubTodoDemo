@@ -3,18 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MailboxSettings : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Folder ID of an archive folder for the user.</summary>
         public string ArchiveFolder { get; set; }
         /// <summary>Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AutomaticRepliesSetting AutomaticRepliesSetting { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AutomaticRepliesSetting AutomaticRepliesSetting { get; set; }
         /// <summary>The date format for the user&apos;s mailbox.</summary>
         public string DateFormat { get; set; }
         /// <summary>If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DelegateMeetingMessageDeliveryOptions? DelegateMeetingMessageDeliveryOptions { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DelegateMeetingMessageDeliveryOptions? DelegateMeetingMessageDeliveryOptions { get; set; }
         /// <summary>The locale information for the user, including the preferred language and country/region.</summary>
         public LocaleInfo Language { get; set; }
         /// <summary>The OdataType property</summary>
@@ -24,9 +24,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The default time zone for the user&apos;s mailbox.</summary>
         public string TimeZone { get; set; }
         /// <summary>The userPurpose property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.UserPurpose? UserPurpose { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.UserPurpose? UserPurpose { get; set; }
         /// <summary>The days of the week and hours in a specific time zone that the user works.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.WorkingHours WorkingHours { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.WorkingHours WorkingHours { get; set; }
         /// <summary>
         /// Instantiates a new mailboxSettings and sets the default values.
         /// </summary>
@@ -48,7 +48,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"archiveFolder", n => { ArchiveFolder = n.GetStringValue(); } },
-                {"automaticRepliesSetting", n => { AutomaticRepliesSetting = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AutomaticRepliesSetting>(GithubTodoDemo.MicrosoftGraph.Models.AutomaticRepliesSetting.CreateFromDiscriminatorValue); } },
+                {"automaticRepliesSetting", n => { AutomaticRepliesSetting = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AutomaticRepliesSetting>(GitHubTodoDemo.MicrosoftGraph.Models.AutomaticRepliesSetting.CreateFromDiscriminatorValue); } },
                 {"dateFormat", n => { DateFormat = n.GetStringValue(); } },
                 {"delegateMeetingMessageDeliveryOptions", n => { DelegateMeetingMessageDeliveryOptions = n.GetEnumValue<DelegateMeetingMessageDeliveryOptions>(); } },
                 {"language", n => { Language = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
@@ -56,7 +56,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"timeFormat", n => { TimeFormat = n.GetStringValue(); } },
                 {"timeZone", n => { TimeZone = n.GetStringValue(); } },
                 {"userPurpose", n => { UserPurpose = n.GetEnumValue<UserPurpose>(); } },
-                {"workingHours", n => { WorkingHours = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.WorkingHours>(GithubTodoDemo.MicrosoftGraph.Models.WorkingHours.CreateFromDiscriminatorValue); } },
+                {"workingHours", n => { WorkingHours = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.WorkingHours>(GitHubTodoDemo.MicrosoftGraph.Models.WorkingHours.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("archiveFolder", ArchiveFolder);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AutomaticRepliesSetting>("automaticRepliesSetting", AutomaticRepliesSetting);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AutomaticRepliesSetting>("automaticRepliesSetting", AutomaticRepliesSetting);
             writer.WriteStringValue("dateFormat", DateFormat);
             writer.WriteEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", DelegateMeetingMessageDeliveryOptions);
             writer.WriteObjectValue<LocaleInfo>("language", Language);
@@ -74,7 +74,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("timeFormat", TimeFormat);
             writer.WriteStringValue("timeZone", TimeZone);
             writer.WriteEnumValue<UserPurpose>("userPurpose", UserPurpose);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.WorkingHours>("workingHours", WorkingHours);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.WorkingHours>("workingHours", WorkingHours);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

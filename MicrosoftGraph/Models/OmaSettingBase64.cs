@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OmaSettingBase64 : OmaSetting, IParsable {
         /// <summary>File name associated with the Value property (.cer</summary>
         public string FileName { get; set; }

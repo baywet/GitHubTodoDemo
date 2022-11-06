@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AttendeeBase : Recipient, IParsable {
         /// <summary>The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.</summary>
         public AttendeeType? Type { get; set; }

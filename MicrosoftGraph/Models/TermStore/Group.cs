@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Group : Entity, IParsable {
         /// <summary>Date and time of the group creation. Read-only.</summary>

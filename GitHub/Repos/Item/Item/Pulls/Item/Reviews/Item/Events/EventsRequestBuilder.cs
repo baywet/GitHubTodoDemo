@@ -1,4 +1,4 @@
-using GithubTodoDemo.GitHub.Models;
+using GitHubTodoDemo.GitHub.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Events {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Events {
     /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\reviews\{review_id}\events</summary>
     public class EventsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
@@ -43,11 +43,6 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Events {
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
-        /// <summary>
-        /// Submits a pending review for a pull request. For more information about creating a pending review for a pull request, see &quot;[Create a review for a pull request](https://docs.github.com/rest/pulls#create-a-review-for-a-pull-request).&quot;
-        /// <param name="body"></param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public RequestInformation CreatePostRequestInformation(EventsPostRequestBody body, Action<EventsRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -65,14 +60,7 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Events {
             }
             return requestInfo;
         }
-        /// <summary>
-        /// Submits a pending review for a pull request. For more information about creating a pending review for a pull request, see &quot;[Create a review for a pull request](https://docs.github.com/rest/pulls#create-a-review-for-a-pull-request).&quot;
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
-        /// </summary>
-        public async Task<PullRequestReview> PostAsync(EventsPostRequestBody body, Action<EventsRequestBuilderPostRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<PullRequestReview> PostAsync(EventsPostRequestBody body, Action<EventsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -80,7 +68,7 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Events {
                 {"404", BasicError.CreateFromDiscriminatorValue},
                 {"422", ValidationErrorSimple.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class EventsRequestBuilderPostRequestConfiguration {

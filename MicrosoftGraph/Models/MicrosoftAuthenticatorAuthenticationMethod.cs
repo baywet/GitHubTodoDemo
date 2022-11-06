@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MicrosoftAuthenticatorAuthenticationMethod : AuthenticationMethod, IParsable {
         /// <summary>The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Device Device { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Device Device { get; set; }
         /// <summary>Tags containing app metadata.</summary>
         public string DeviceTag { get; set; }
         /// <summary>The name of the device on which this app is registered.</summary>
@@ -35,7 +35,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"device", n => { Device = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Device>(GithubTodoDemo.MicrosoftGraph.Models.Device.CreateFromDiscriminatorValue); } },
+                {"device", n => { Device = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Device>(GitHubTodoDemo.MicrosoftGraph.Models.Device.CreateFromDiscriminatorValue); } },
                 {"deviceTag", n => { DeviceTag = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"phoneAppVersion", n => { PhoneAppVersion = n.GetStringValue(); } },
@@ -49,7 +49,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Device>("device", Device);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Device>("device", Device);
             writer.WriteStringValue("deviceTag", DeviceTag);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("phoneAppVersion", PhoneAppVersion);

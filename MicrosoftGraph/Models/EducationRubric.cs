@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationRubric : Entity, IParsable {
         /// <summary>The user who created this resource.</summary>
         public IdentitySet CreatedBy { get; private set; }

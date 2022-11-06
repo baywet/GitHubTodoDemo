@@ -1,4 +1,4 @@
-using GithubTodoDemo.GitHub.Models;
+using GitHubTodoDemo.GitHub.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
     /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\files</summary>
     public class FilesRequestBuilder {
         /// <summary>Path parameters for the request</summary>
@@ -67,23 +67,21 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
         /// **Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<List<DiffEntry>> GetAsync(Action<FilesRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<List<DiffEntry>> GetAsync(Action<FilesRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"422", ValidationError.CreateFromDiscriminatorValue},
                 {"500", BasicError.CreateFromDiscriminatorValue},
-                {"503", Files503Error.CreateFromDiscriminatorValue},
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<DiffEntry>(requestInfo, DiffEntry.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<DiffEntry>(requestInfo, DiffEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
             return collectionResult.ToList();
         }
         /// <summary>**Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.</summary>
         public class FilesRequestBuilderGetQueryParameters {
             /// <summary>Page number of the results to fetch.</summary>
             public int? Page { get; set; }
-            /// <summary>The number of results per page (max 100).</summary>
+            /// <summary>Results per page (max 100).</summary>
             public int? Per_page { get; set; }
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>

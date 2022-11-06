@@ -1,6 +1,6 @@
-using GithubTodoDemo.GitHub.Models;
-using GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Dismissals;
-using GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Events;
+using GitHubTodoDemo.GitHub.Models;
+using GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Dismissals;
+using GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item.Events;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
     /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\reviews\{review_id}</summary>
     public class WithReview_ItemRequestBuilder {
         /// <summary>The dismissals property</summary>
@@ -105,35 +105,34 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             }
             return requestInfo;
         }
-        public async Task<PullRequestReview> DeleteAsync(Action<WithReview_ItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<PullRequestReview> DeleteAsync(Action<WithReview_ItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"404", BasicError.CreateFromDiscriminatorValue},
                 {"422", ValidationErrorSimple.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        public async Task<PullRequestReview> GetAsync(Action<WithReview_ItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<PullRequestReview> GetAsync(Action<WithReview_ItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"404", BasicError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update the review summary comment with new text.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<PullRequestReview> PutAsync(WithReview_PutRequestBody body, Action<WithReview_ItemRequestBuilderPutRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<PullRequestReview> PutAsync(WithReview_PutRequestBody body, Action<WithReview_ItemRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"422", ValidationErrorSimple.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class WithReview_ItemRequestBuilderDeleteRequestConfiguration {

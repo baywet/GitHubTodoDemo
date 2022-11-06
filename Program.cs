@@ -1,9 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Azure.Identity;
-using GithubTodoDemo.GitHub;
-using GithubTodoDemo.GitHubAuthentication;
-using GithubTodoDemo.MicrosoftGraph;
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.GitHub;
+using GitHubTodoDemo.GitHubAuthentication;
+using GitHubTodoDemo.MicrosoftGraph;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Authentication.Azure;
 using Microsoft.Kiota.Http.HttpClientLibrary;
 

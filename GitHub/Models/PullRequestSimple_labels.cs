@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     public class PullRequestSimple_labels : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -14,7 +14,7 @@ namespace GithubTodoDemo.GitHub.Models {
         /// <summary>The description property</summary>
         public string Description { get; set; }
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>The name property</summary>
         public string Name { get; set; }
         /// <summary>The node_id property</summary>
@@ -43,7 +43,7 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"color", n => { Color = n.GetStringValue(); } },
                 {"default", n => { Default = n.GetBoolValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetLongValue(); } },
+                {"id", n => { Id = n.GetIntValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
                 {"node_id", n => { Node_id = n.GetStringValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
@@ -58,7 +58,7 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("color", Color);
             writer.WriteBoolValue("default", Default);
             writer.WriteStringValue("description", Description);
-            writer.WriteLongValue("id", Id);
+            writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", Node_id);
             writer.WriteStringValue("url", Url);

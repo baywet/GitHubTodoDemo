@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ApplicationEnforcedRestrictionsSessionControl : ConditionalAccessSessionControl, IParsable {
         /// <summary>
         /// Instantiates a new ApplicationEnforcedRestrictionsSessionControl and sets the default values.

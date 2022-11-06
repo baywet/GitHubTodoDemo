@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class OnlineMeeting : Entity, IParsable {
         /// <summary>Indicates whether attendees can turn on their camera.</summary>
@@ -21,11 +21,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The content stream of the attendee report of a Microsoft Teams live event. Read-only.</summary>
         public byte[] AttendeeReport { get; set; }
         /// <summary>The phone access (dial-in) information for an online meeting. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AudioConferencing AudioConferencing { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AudioConferencing AudioConferencing { get; set; }
         /// <summary>Settings related to a live event.</summary>
         public BroadcastMeetingSettings BroadcastSettings { get; set; }
         /// <summary>The chat information associated with this online meeting.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ChatInfo ChatInfo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ChatInfo ChatInfo { get; set; }
         /// <summary>The meeting creation time in UTC. Read-only.</summary>
         public DateTimeOffset? CreationDateTime { get; set; }
         /// <summary>The meeting end time in UTC.</summary>
@@ -41,7 +41,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The join URL of the online meeting. Read-only.</summary>
         public string JoinWebUrl { get; set; }
         /// <summary>Specifies which participants can bypass the meeting   lobby.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.LobbyBypassSettings LobbyBypassSettings { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.LobbyBypassSettings LobbyBypassSettings { get; set; }
         /// <summary>The participants associated with the online meeting.  This includes the organizer and the attendees.</summary>
         public MeetingParticipants Participants { get; set; }
         /// <summary>Indicates whether to record the meeting automatically.</summary>
@@ -78,9 +78,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"allowTeamworkReactions", n => { AllowTeamworkReactions = n.GetBoolValue(); } },
                 {"attendanceReports", n => { AttendanceReports = n.GetCollectionOfObjectValues<MeetingAttendanceReport>(MeetingAttendanceReport.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"attendeeReport", n => { AttendeeReport = n.GetByteArrayValue(); } },
-                {"audioConferencing", n => { AudioConferencing = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AudioConferencing>(GithubTodoDemo.MicrosoftGraph.Models.AudioConferencing.CreateFromDiscriminatorValue); } },
+                {"audioConferencing", n => { AudioConferencing = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AudioConferencing>(GitHubTodoDemo.MicrosoftGraph.Models.AudioConferencing.CreateFromDiscriminatorValue); } },
                 {"broadcastSettings", n => { BroadcastSettings = n.GetObjectValue<BroadcastMeetingSettings>(BroadcastMeetingSettings.CreateFromDiscriminatorValue); } },
-                {"chatInfo", n => { ChatInfo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ChatInfo>(GithubTodoDemo.MicrosoftGraph.Models.ChatInfo.CreateFromDiscriminatorValue); } },
+                {"chatInfo", n => { ChatInfo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ChatInfo>(GitHubTodoDemo.MicrosoftGraph.Models.ChatInfo.CreateFromDiscriminatorValue); } },
                 {"creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
                 {"externalId", n => { ExternalId = n.GetStringValue(); } },
@@ -88,7 +88,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"isEntryExitAnnounced", n => { IsEntryExitAnnounced = n.GetBoolValue(); } },
                 {"joinInformation", n => { JoinInformation = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
                 {"joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
-                {"lobbyBypassSettings", n => { LobbyBypassSettings = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.LobbyBypassSettings>(GithubTodoDemo.MicrosoftGraph.Models.LobbyBypassSettings.CreateFromDiscriminatorValue); } },
+                {"lobbyBypassSettings", n => { LobbyBypassSettings = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.LobbyBypassSettings>(GitHubTodoDemo.MicrosoftGraph.Models.LobbyBypassSettings.CreateFromDiscriminatorValue); } },
                 {"participants", n => { Participants = n.GetObjectValue<MeetingParticipants>(MeetingParticipants.CreateFromDiscriminatorValue); } },
                 {"recordAutomatically", n => { RecordAutomatically = n.GetBoolValue(); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
@@ -110,9 +110,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("allowTeamworkReactions", AllowTeamworkReactions);
             writer.WriteCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", AttendanceReports);
             writer.WriteByteArrayValue("attendeeReport", AttendeeReport);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AudioConferencing>("audioConferencing", AudioConferencing);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AudioConferencing>("audioConferencing", AudioConferencing);
             writer.WriteObjectValue<BroadcastMeetingSettings>("broadcastSettings", BroadcastSettings);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ChatInfo>("chatInfo", ChatInfo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ChatInfo>("chatInfo", ChatInfo);
             writer.WriteDateTimeOffsetValue("creationDateTime", CreationDateTime);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
             writer.WriteStringValue("externalId", ExternalId);
@@ -120,7 +120,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("isEntryExitAnnounced", IsEntryExitAnnounced);
             writer.WriteObjectValue<ItemBody>("joinInformation", JoinInformation);
             writer.WriteStringValue("joinWebUrl", JoinWebUrl);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.LobbyBypassSettings>("lobbyBypassSettings", LobbyBypassSettings);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.LobbyBypassSettings>("lobbyBypassSettings", LobbyBypassSettings);
             writer.WriteObjectValue<MeetingParticipants>("participants", Participants);
             writer.WriteBoolValue("recordAutomatically", RecordAutomatically);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);

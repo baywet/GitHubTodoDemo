@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Relation : Entity, IParsable {
         /// <summary>The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].</summary>
@@ -11,7 +11,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
         /// <summary>The type of relation. Possible values are: pin, reuse.</summary>
         public RelationType? Relationship { get; set; }
         /// <summary>The [set] in which the relation is relevant.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TermStore.Set Set { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set Set { get; set; }
         /// <summary>The to [term] of the relation. The term to which the relationship is defined.</summary>
         public Term ToTerm { get; set; }
         /// <summary>
@@ -35,7 +35,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"fromTerm", n => { FromTerm = n.GetObjectValue<Term>(Term.CreateFromDiscriminatorValue); } },
                 {"relationship", n => { Relationship = n.GetEnumValue<RelationType>(); } },
-                {"set", n => { Set = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TermStore.Set>(GithubTodoDemo.MicrosoftGraph.Models.TermStore.Set.CreateFromDiscriminatorValue); } },
+                {"set", n => { Set = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set>(GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set.CreateFromDiscriminatorValue); } },
                 {"toTerm", n => { ToTerm = n.GetObjectValue<Term>(Term.CreateFromDiscriminatorValue); } },
             };
         }
@@ -48,7 +48,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
             base.Serialize(writer);
             writer.WriteObjectValue<Term>("fromTerm", FromTerm);
             writer.WriteEnumValue<RelationType>("relationship", Relationship);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TermStore.Set>("set", Set);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set>("set", Set);
             writer.WriteObjectValue<Term>("toTerm", ToTerm);
         }
     }

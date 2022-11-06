@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Process : IAdditionalDataHolder, IParsable {
         /// <summary>User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.</summary>
         public string AccountName { get; set; }
@@ -14,7 +14,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Complex type containing file hashes (cryptographic and location-sensitive).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.FileHash FileHash { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.FileHash FileHash { get; set; }
         /// <summary>The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.</summary>
         public ProcessIntegrityLevel? IntegrityLevel { get; set; }
         /// <summary>True if the process is elevated.</summary>
@@ -56,7 +56,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"accountName", n => { AccountName = n.GetStringValue(); } },
                 {"commandLine", n => { CommandLine = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"fileHash", n => { FileHash = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.FileHash>(GithubTodoDemo.MicrosoftGraph.Models.FileHash.CreateFromDiscriminatorValue); } },
+                {"fileHash", n => { FileHash = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.FileHash>(GitHubTodoDemo.MicrosoftGraph.Models.FileHash.CreateFromDiscriminatorValue); } },
                 {"integrityLevel", n => { IntegrityLevel = n.GetEnumValue<ProcessIntegrityLevel>(); } },
                 {"isElevated", n => { IsElevated = n.GetBoolValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
@@ -77,7 +77,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("accountName", AccountName);
             writer.WriteStringValue("commandLine", CommandLine);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.FileHash>("fileHash", FileHash);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.FileHash>("fileHash", FileHash);
             writer.WriteEnumValue<ProcessIntegrityLevel>("integrityLevel", IntegrityLevel);
             writer.WriteBoolValue("isElevated", IsElevated);
             writer.WriteStringValue("name", Name);

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosUpdateConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Active Hours End (active hours mean the time window when updates install should not happen)</summary>
         public Time? ActiveHoursEnd { get; set; }

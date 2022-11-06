@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RecordOperation : CommsOperation, IParsable {
         /// <summary>The access token required to retrieve the recording.</summary>
         public string RecordingAccessToken { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class ItemActivity : Entity, IParsable {
         /// <summary>An item was accessed.</summary>
@@ -13,7 +13,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Identity of who performed the action. Read-only.</summary>
         public IdentitySet Actor { get; set; }
         /// <summary>Exposes the driveItem that was the target of this activity.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DriveItem DriveItem { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DriveItem DriveItem { get; set; }
         /// <summary>
         /// Instantiates a new itemActivity and sets the default values.
         /// </summary>
@@ -36,7 +36,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"access", n => { Access = n.GetObjectValue<AccessAction>(AccessAction.CreateFromDiscriminatorValue); } },
                 {"activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
                 {"actor", n => { Actor = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"driveItem", n => { DriveItem = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DriveItem>(GithubTodoDemo.MicrosoftGraph.Models.DriveItem.CreateFromDiscriminatorValue); } },
+                {"driveItem", n => { DriveItem = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DriveItem>(GitHubTodoDemo.MicrosoftGraph.Models.DriveItem.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteObjectValue<AccessAction>("access", Access);
             writer.WriteDateTimeOffsetValue("activityDateTime", ActivityDateTime);
             writer.WriteObjectValue<IdentitySet>("actor", Actor);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DriveItem>("driveItem", DriveItem);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DriveItem>("driveItem", DriveItem);
         }
     }
 }

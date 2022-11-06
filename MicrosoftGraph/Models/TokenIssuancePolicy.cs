@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TokenIssuancePolicy : StsPolicy, IParsable {
         /// <summary>
         /// Instantiates a new TokenIssuancePolicy and sets the default values.

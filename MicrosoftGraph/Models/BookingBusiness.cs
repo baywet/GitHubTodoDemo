@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BookingBusiness : Entity, IParsable {
         /// <summary>The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.</summary>
         public PhysicalAddress Address { get; set; }
@@ -27,6 +27,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string Email { get; set; }
         /// <summary>The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only.</summary>
         public bool? IsPublished { get; private set; }
+        /// <summary>The languageTag property</summary>
+        public string LanguageTag { get; set; }
         /// <summary>The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page.</summary>
         public string Phone { get; set; }
         /// <summary>The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only.</summary>
@@ -69,6 +71,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"email", n => { Email = n.GetStringValue(); } },
                 {"isPublished", n => { IsPublished = n.GetBoolValue(); } },
+                {"languageTag", n => { LanguageTag = n.GetStringValue(); } },
                 {"phone", n => { Phone = n.GetStringValue(); } },
                 {"publicUrl", n => { PublicUrl = n.GetStringValue(); } },
                 {"schedulingPolicy", n => { SchedulingPolicy = n.GetObjectValue<BookingSchedulingPolicy>(BookingSchedulingPolicy.CreateFromDiscriminatorValue); } },
@@ -94,6 +97,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("defaultCurrencyIso", DefaultCurrencyIso);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("languageTag", LanguageTag);
             writer.WriteStringValue("phone", Phone);
             writer.WriteObjectValue<BookingSchedulingPolicy>("schedulingPolicy", SchedulingPolicy);
             writer.WriteCollectionOfObjectValues<BookingService>("services", Services);

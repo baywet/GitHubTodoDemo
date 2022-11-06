@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Device compliance policy assignment.</summary>
     public class DeviceCompliancePolicyAssignment : Entity, IParsable {
         /// <summary>Target for the compliance policy assignment.</summary>

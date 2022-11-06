@@ -3,12 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     public class PullRequest_head_repo : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The allow_forking property</summary>
-        public bool? Allow_forking { get; set; }
         /// <summary>The allow_merge_commit property</summary>
         public bool? Allow_merge_commit { get; set; }
         /// <summary>The allow_rebase_merge property</summary>
@@ -89,8 +87,6 @@ namespace GithubTodoDemo.GitHub.Models {
         public string Html_url { get; set; }
         /// <summary>The id property</summary>
         public int? Id { get; set; }
-        /// <summary>The is_template property</summary>
-        public bool? Is_template { get; set; }
         /// <summary>The issue_comment_url property</summary>
         public string Issue_comment_url { get; set; }
         /// <summary>The issue_events_url property</summary>
@@ -167,14 +163,10 @@ namespace GithubTodoDemo.GitHub.Models {
         public DateTimeOffset? Updated_at { get; set; }
         /// <summary>The url property</summary>
         public string Url { get; set; }
-        /// <summary>The repository visibility: public, private, or internal.</summary>
-        public string Visibility { get; set; }
         /// <summary>The watchers property</summary>
         public int? Watchers { get; set; }
         /// <summary>The watchers_count property</summary>
         public int? Watchers_count { get; set; }
-        /// <summary>The web_commit_signoff_required property</summary>
-        public bool? Web_commit_signoff_required { get; set; }
         /// <summary>
         /// Instantiates a new PullRequest_head_repo and sets the default values.
         /// </summary>
@@ -194,7 +186,6 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"allow_forking", n => { Allow_forking = n.GetBoolValue(); } },
                 {"allow_merge_commit", n => { Allow_merge_commit = n.GetBoolValue(); } },
                 {"allow_rebase_merge", n => { Allow_rebase_merge = n.GetBoolValue(); } },
                 {"allow_squash_merge", n => { Allow_squash_merge = n.GetBoolValue(); } },
@@ -235,7 +226,6 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"hooks_url", n => { Hooks_url = n.GetStringValue(); } },
                 {"html_url", n => { Html_url = n.GetStringValue(); } },
                 {"id", n => { Id = n.GetIntValue(); } },
-                {"is_template", n => { Is_template = n.GetBoolValue(); } },
                 {"issue_comment_url", n => { Issue_comment_url = n.GetStringValue(); } },
                 {"issue_events_url", n => { Issue_events_url = n.GetStringValue(); } },
                 {"issues_url", n => { Issues_url = n.GetStringValue(); } },
@@ -274,10 +264,8 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"trees_url", n => { Trees_url = n.GetStringValue(); } },
                 {"updated_at", n => { Updated_at = n.GetDateTimeOffsetValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
-                {"visibility", n => { Visibility = n.GetStringValue(); } },
                 {"watchers", n => { Watchers = n.GetIntValue(); } },
                 {"watchers_count", n => { Watchers_count = n.GetIntValue(); } },
-                {"web_commit_signoff_required", n => { Web_commit_signoff_required = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -286,7 +274,6 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("allow_forking", Allow_forking);
             writer.WriteBoolValue("allow_merge_commit", Allow_merge_commit);
             writer.WriteBoolValue("allow_rebase_merge", Allow_rebase_merge);
             writer.WriteBoolValue("allow_squash_merge", Allow_squash_merge);
@@ -327,7 +314,6 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("hooks_url", Hooks_url);
             writer.WriteStringValue("html_url", Html_url);
             writer.WriteIntValue("id", Id);
-            writer.WriteBoolValue("is_template", Is_template);
             writer.WriteStringValue("issue_comment_url", Issue_comment_url);
             writer.WriteStringValue("issue_events_url", Issue_events_url);
             writer.WriteStringValue("issues_url", Issues_url);
@@ -366,10 +352,8 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("trees_url", Trees_url);
             writer.WriteDateTimeOffsetValue("updated_at", Updated_at);
             writer.WriteStringValue("url", Url);
-            writer.WriteStringValue("visibility", Visibility);
             writer.WriteIntValue("watchers", Watchers);
             writer.WriteIntValue("watchers_count", Watchers_count);
-            writer.WriteBoolValue("web_commit_signoff_required", Web_commit_signoff_required);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

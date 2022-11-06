@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosMobileAppConfiguration : ManagedDeviceMobileAppConfiguration, IParsable {
         /// <summary>mdm app configuration Base64 binary.</summary>
         public byte[] EncodedSettingXml { get; set; }

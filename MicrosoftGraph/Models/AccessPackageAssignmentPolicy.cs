@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class AccessPackageAssignmentPolicy : Entity, IParsable {
         /// <summary>Access package containing this policy. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AccessPackage AccessPackage { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage AccessPackage { get; set; }
         /// <summary>Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AllowedTargetScope? AllowedTargetScope { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AllowedTargetScope? AllowedTargetScope { get; set; }
         /// <summary>This property is only present for an auto assignment policy; if absent, this is a request-based policy.</summary>
         public AccessPackageAutomaticRequestSettings AutomaticRequestSettings { get; set; }
         /// <summary>Catalog of the access package containing this policy. Read-only.</summary>
@@ -51,7 +51,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"accessPackage", n => { AccessPackage = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AccessPackage>(GithubTodoDemo.MicrosoftGraph.Models.AccessPackage.CreateFromDiscriminatorValue); } },
+                {"accessPackage", n => { AccessPackage = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage>(GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage.CreateFromDiscriminatorValue); } },
                 {"allowedTargetScope", n => { AllowedTargetScope = n.GetEnumValue<AllowedTargetScope>(); } },
                 {"automaticRequestSettings", n => { AutomaticRequestSettings = n.GetObjectValue<AccessPackageAutomaticRequestSettings>(AccessPackageAutomaticRequestSettings.CreateFromDiscriminatorValue); } },
                 {"catalog", n => { Catalog = n.GetObjectValue<AccessPackageCatalog>(AccessPackageCatalog.CreateFromDiscriminatorValue); } },
@@ -73,7 +73,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AccessPackage>("accessPackage", AccessPackage);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage>("accessPackage", AccessPackage);
             writer.WriteEnumValue<AllowedTargetScope>("allowedTargetScope", AllowedTargetScope);
             writer.WriteObjectValue<AccessPackageAutomaticRequestSettings>("automaticRequestSettings", AutomaticRequestSettings);
             writer.WriteObjectValue<AccessPackageCatalog>("catalog", Catalog);

@@ -3,15 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Chat : Entity, IParsable {
         /// <summary>The chatType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ChatType? ChatType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ChatType? ChatType { get; set; }
         /// <summary>Date and time at which the chat was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>A collection of all the apps in the chat. Nullable.</summary>
         public List<TeamsAppInstallation> InstalledApps { get; set; }
+        /// <summary>Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.</summary>
+        public ChatMessageInfo LastMessagePreview { get; set; }
         /// <summary>Date and time at which the chat was renamed or list of members were last changed. Read-only.</summary>
         public DateTimeOffset? LastUpdatedDateTime { get; set; }
         /// <summary>A collection of all the members in the chat. Nullable.</summary>
@@ -28,6 +30,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string TenantId { get; set; }
         /// <summary>(Optional) Subject or topic for the chat. Only available for group chats.</summary>
         public string Topic { get; set; }
+        /// <summary>Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.</summary>
+        public ChatViewpoint Viewpoint { get; set; }
         /// <summary>The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.</summary>
         public string WebUrl { get; set; }
         /// <summary>
@@ -52,6 +56,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"chatType", n => { ChatType = n.GetEnumValue<ChatType>(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"installedApps", n => { InstalledApps = n.GetCollectionOfObjectValues<TeamsAppInstallation>(TeamsAppInstallation.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"lastMessagePreview", n => { LastMessagePreview = n.GetObjectValue<ChatMessageInfo>(ChatMessageInfo.CreateFromDiscriminatorValue); } },
                 {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"members", n => { Members = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"messages", n => { Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -60,6 +65,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"tabs", n => { Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tenantId", n => { TenantId = n.GetStringValue(); } },
                 {"topic", n => { Topic = n.GetStringValue(); } },
+                {"viewpoint", n => { Viewpoint = n.GetObjectValue<ChatViewpoint>(ChatViewpoint.CreateFromDiscriminatorValue); } },
                 {"webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
@@ -73,6 +79,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteEnumValue<ChatType>("chatType", ChatType);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteCollectionOfObjectValues<TeamsAppInstallation>("installedApps", InstalledApps);
+            writer.WriteObjectValue<ChatMessageInfo>("lastMessagePreview", LastMessagePreview);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteCollectionOfObjectValues<ConversationMember>("members", Members);
             writer.WriteCollectionOfObjectValues<ChatMessage>("messages", Messages);
@@ -81,6 +88,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<TeamsTab>("tabs", Tabs);
             writer.WriteStringValue("tenantId", TenantId);
             writer.WriteStringValue("topic", Topic);
+            writer.WriteObjectValue<ChatViewpoint>("viewpoint", Viewpoint);
             writer.WriteStringValue("webUrl", WebUrl);
         }
     }

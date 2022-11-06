@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Scheduled Action Configuration</summary>
     public class DeviceComplianceActionItem : Entity, IParsable {
         /// <summary>Scheduled Action Type Enum</summary>

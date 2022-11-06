@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Application : DirectoryObject, IParsable {
         /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its &apos;FileHandler&apos; functionality. This will let services like Office 365 call the application in the context of a document the user is working on.</summary>
         public List<AddIn> AddIns { get; set; }
@@ -16,7 +16,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.</summary>
         public List<AppRole> AppRoles { get; set; }
         /// <summary>Specifies the certification status of the application.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Certification Certification { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Certification Certification { get; set; }
         /// <summary>The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Supports $filter (eq when counting empty collections). Read-only.</summary>
@@ -54,11 +54,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The oauth2RequirePostResponse property</summary>
         public bool? Oauth2RequirePostResponse { get; set; }
         /// <summary>Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.OptionalClaims OptionalClaims { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.OptionalClaims OptionalClaims { get; set; }
         /// <summary>Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).</summary>
         public List<DirectoryObject> Owners { get; set; }
         /// <summary>Specifies parental control settings for an application.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings ParentalControlSettings { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings ParentalControlSettings { get; set; }
         /// <summary>The collection of password credentials associated with the application. Not nullable.</summary>
         public List<PasswordCredential> PasswordCredentials { get; set; }
         /// <summary>Specifies settings for installed clients such as desktop or mobile devices.</summary>
@@ -66,7 +66,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application&apos;s publisher domain. Supports $filter (eq, ne, ge, le, startsWith).</summary>
         public string PublisherDomain { get; set; }
         /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess> RequiredResourceAccess { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess> RequiredResourceAccess { get; set; }
         /// <summary>The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.</summary>
         public string SamlMetadataUrl { get; set; }
         /// <summary>References application or service contact information from a Service or Asset Management database. Nullable.</summary>
@@ -84,7 +84,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The tokenLifetimePolicies property</summary>
         public List<TokenLifetimePolicy> TokenLifetimePolicies { get; set; }
         /// <summary>Specifies the verified publisher of the application. For more information about how publisher verification helps support application security, trustworthiness, and compliance, see Publisher verification.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher VerifiedPublisher { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher VerifiedPublisher { get; set; }
         /// <summary>Specifies settings for a web application.</summary>
         public WebApplication Web { get; set; }
         /// <summary>
@@ -111,7 +111,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"appId", n => { AppId = n.GetStringValue(); } },
                 {"applicationTemplateId", n => { ApplicationTemplateId = n.GetStringValue(); } },
                 {"appRoles", n => { AppRoles = n.GetCollectionOfObjectValues<AppRole>(AppRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"certification", n => { Certification = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Certification>(GithubTodoDemo.MicrosoftGraph.Models.Certification.CreateFromDiscriminatorValue); } },
+                {"certification", n => { Certification = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Certification>(GitHubTodoDemo.MicrosoftGraph.Models.Certification.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"createdOnBehalfOf", n => { CreatedOnBehalfOf = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"defaultRedirectUri", n => { DefaultRedirectUri = n.GetStringValue(); } },
@@ -130,13 +130,13 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"logo", n => { Logo = n.GetByteArrayValue(); } },
                 {"notes", n => { Notes = n.GetStringValue(); } },
                 {"oauth2RequirePostResponse", n => { Oauth2RequirePostResponse = n.GetBoolValue(); } },
-                {"optionalClaims", n => { OptionalClaims = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.OptionalClaims>(GithubTodoDemo.MicrosoftGraph.Models.OptionalClaims.CreateFromDiscriminatorValue); } },
+                {"optionalClaims", n => { OptionalClaims = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.OptionalClaims>(GitHubTodoDemo.MicrosoftGraph.Models.OptionalClaims.CreateFromDiscriminatorValue); } },
                 {"owners", n => { Owners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"parentalControlSettings", n => { ParentalControlSettings = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings>(GithubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings.CreateFromDiscriminatorValue); } },
+                {"parentalControlSettings", n => { ParentalControlSettings = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings>(GitHubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings.CreateFromDiscriminatorValue); } },
                 {"passwordCredentials", n => { PasswordCredentials = n.GetCollectionOfObjectValues<PasswordCredential>(PasswordCredential.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"publicClient", n => { PublicClient = n.GetObjectValue<PublicClientApplication>(PublicClientApplication.CreateFromDiscriminatorValue); } },
                 {"publisherDomain", n => { PublisherDomain = n.GetStringValue(); } },
-                {"requiredResourceAccess", n => { RequiredResourceAccess = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess>(GithubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"requiredResourceAccess", n => { RequiredResourceAccess = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess>(GitHubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"samlMetadataUrl", n => { SamlMetadataUrl = n.GetStringValue(); } },
                 {"serviceManagementReference", n => { ServiceManagementReference = n.GetStringValue(); } },
                 {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
@@ -145,7 +145,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetStringValue(); } },
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>(GithubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
+                {"verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>(GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
                 {"web", n => { Web = n.GetObjectValue<WebApplication>(WebApplication.CreateFromDiscriminatorValue); } },
             };
         }
@@ -161,7 +161,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("applicationTemplateId", ApplicationTemplateId);
             writer.WriteCollectionOfObjectValues<AppRole>("appRoles", AppRoles);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Certification>("certification", Certification);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Certification>("certification", Certification);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteObjectValue<DirectoryObject>("createdOnBehalfOf", CreatedOnBehalfOf);
             writer.WriteStringValue("defaultRedirectUri", DefaultRedirectUri);
@@ -180,13 +180,13 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteByteArrayValue("logo", Logo);
             writer.WriteStringValue("notes", Notes);
             writer.WriteBoolValue("oauth2RequirePostResponse", Oauth2RequirePostResponse);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.OptionalClaims>("optionalClaims", OptionalClaims);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.OptionalClaims>("optionalClaims", OptionalClaims);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("owners", Owners);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings>("parentalControlSettings", ParentalControlSettings);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings>("parentalControlSettings", ParentalControlSettings);
             writer.WriteCollectionOfObjectValues<PasswordCredential>("passwordCredentials", PasswordCredentials);
             writer.WriteObjectValue<PublicClientApplication>("publicClient", PublicClient);
             writer.WriteStringValue("publisherDomain", PublisherDomain);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess>("requiredResourceAccess", RequiredResourceAccess);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess>("requiredResourceAccess", RequiredResourceAccess);
             writer.WriteStringValue("samlMetadataUrl", SamlMetadataUrl);
             writer.WriteStringValue("serviceManagementReference", ServiceManagementReference);
             writer.WriteStringValue("signInAudience", SignInAudience);
@@ -195,7 +195,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
             writer.WriteCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>("verifiedPublisher", VerifiedPublisher);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>("verifiedPublisher", VerifiedPublisher);
             writer.WriteObjectValue<WebApplication>("web", Web);
         }
     }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Win32LobAppAssignmentSettings : MobileAppAssignmentSettings, IParsable {
         /// <summary>Contains value for delivery optimization priority.</summary>
         public Win32LobAppDeliveryOptimizationPriority? DeliveryOptimizationPriority { get; set; }

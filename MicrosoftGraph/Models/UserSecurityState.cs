@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UserSecurityState : IAdditionalDataHolder, IParsable {
         /// <summary>AAD User object identifier (GUID) - represents the physical/multi-account user entity.</summary>
         public string AadUserId { get; set; }
@@ -14,7 +14,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>NetBIOS/Active Directory domain of user account (that is, domain/account format).</summary>
         public string DomainName { get; set; }
         /// <summary>For email-related alerts - user account&apos;s email &apos;role&apos;. Possible values are: unknown, sender, recipient.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.EmailRole? EmailRole { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.EmailRole? EmailRole { get; set; }
         /// <summary>Indicates whether the user logged on through a VPN.</summary>
         public bool? IsVpn { get; set; }
         /// <summary>Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -26,7 +26,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Location (by IP address mapping) associated with a user sign-in event by this user.</summary>
         public string LogonLocation { get; set; }
         /// <summary>Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.LogonType? LogonType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.LogonType? LogonType { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>Active Directory (on-premises) Security Identifier (SID) of the user.</summary>

@@ -1,14 +1,14 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class UnifiedRoleScheduleInstanceBase : Entity, IParsable {
         /// <summary>Read-only property with details of the app-specific scope when the assignment or role eligibility is scoped to an app. Nullable.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AppScope AppScope { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AppScope AppScope { get; set; }
         /// <summary>Identifier of the app-specific scope when the assignment or role eligibility is scoped to an app. The scope of an assignment or role eligibility determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units.</summary>
         public string AppScopeId { get; set; }
         /// <summary>The directory object that is the scope of the assignment or role eligibility. Read-only.</summary>
@@ -47,7 +47,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"appScope", n => { AppScope = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AppScope>(GithubTodoDemo.MicrosoftGraph.Models.AppScope.CreateFromDiscriminatorValue); } },
+                {"appScope", n => { AppScope = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AppScope>(GitHubTodoDemo.MicrosoftGraph.Models.AppScope.CreateFromDiscriminatorValue); } },
                 {"appScopeId", n => { AppScopeId = n.GetStringValue(); } },
                 {"directoryScope", n => { DirectoryScope = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"directoryScopeId", n => { DirectoryScopeId = n.GetStringValue(); } },
@@ -64,7 +64,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AppScope>("appScope", AppScope);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AppScope>("appScope", AppScope);
             writer.WriteStringValue("appScopeId", AppScopeId);
             writer.WriteObjectValue<DirectoryObject>("directoryScope", DirectoryScope);
             writer.WriteStringValue("directoryScopeId", DirectoryScopeId);

@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RegistrationEnforcement : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Run campaigns to remind users to set up targeted authentication methods.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AuthenticationMethodsRegistrationCampaign AuthenticationMethodsRegistrationCampaign { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AuthenticationMethodsRegistrationCampaign AuthenticationMethodsRegistrationCampaign { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>
@@ -31,7 +31,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"authenticationMethodsRegistrationCampaign", n => { AuthenticationMethodsRegistrationCampaign = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AuthenticationMethodsRegistrationCampaign>(GithubTodoDemo.MicrosoftGraph.Models.AuthenticationMethodsRegistrationCampaign.CreateFromDiscriminatorValue); } },
+                {"authenticationMethodsRegistrationCampaign", n => { AuthenticationMethodsRegistrationCampaign = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AuthenticationMethodsRegistrationCampaign>(GitHubTodoDemo.MicrosoftGraph.Models.AuthenticationMethodsRegistrationCampaign.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -41,7 +41,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AuthenticationMethodsRegistrationCampaign>("authenticationMethodsRegistrationCampaign", AuthenticationMethodsRegistrationCampaign);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AuthenticationMethodsRegistrationCampaign>("authenticationMethodsRegistrationCampaign", AuthenticationMethodsRegistrationCampaign);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

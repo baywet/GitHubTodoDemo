@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ListItem : BaseItem, IParsable {
         /// <summary>Analytics about the view activities that took place on this item.</summary>
         public ItemAnalytics Analytics { get; set; }
@@ -12,11 +12,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Version information for a document set version created by a user.</summary>
         public List<DocumentSetVersion> DocumentSetVersions { get; set; }
         /// <summary>For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DriveItem DriveItem { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DriveItem DriveItem { get; set; }
         /// <summary>The values of the columns set on this list item.</summary>
         public FieldValueSet Fields { get; set; }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
         /// <summary>The list of previous versions of the list item.</summary>
         public List<ListItemVersion> Versions { get; set; }
         /// <summary>
@@ -41,9 +41,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"analytics", n => { Analytics = n.GetObjectValue<ItemAnalytics>(ItemAnalytics.CreateFromDiscriminatorValue); } },
                 {"contentType", n => { ContentType = n.GetObjectValue<ContentTypeInfo>(ContentTypeInfo.CreateFromDiscriminatorValue); } },
                 {"documentSetVersions", n => { DocumentSetVersions = n.GetCollectionOfObjectValues<DocumentSetVersion>(DocumentSetVersion.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"driveItem", n => { DriveItem = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DriveItem>(GithubTodoDemo.MicrosoftGraph.Models.DriveItem.CreateFromDiscriminatorValue); } },
+                {"driveItem", n => { DriveItem = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DriveItem>(GitHubTodoDemo.MicrosoftGraph.Models.DriveItem.CreateFromDiscriminatorValue); } },
                 {"fields", n => { Fields = n.GetObjectValue<FieldValueSet>(FieldValueSet.CreateFromDiscriminatorValue); } },
-                {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GithubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
+                {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
                 {"versions", n => { Versions = n.GetCollectionOfObjectValues<ListItemVersion>(ListItemVersion.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -57,9 +57,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteObjectValue<ItemAnalytics>("analytics", Analytics);
             writer.WriteObjectValue<ContentTypeInfo>("contentType", ContentType);
             writer.WriteCollectionOfObjectValues<DocumentSetVersion>("documentSetVersions", DocumentSetVersions);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DriveItem>("driveItem", DriveItem);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DriveItem>("driveItem", DriveItem);
             writer.WriteObjectValue<FieldValueSet>("fields", Fields);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
             writer.WriteCollectionOfObjectValues<ListItemVersion>("versions", Versions);
         }
     }

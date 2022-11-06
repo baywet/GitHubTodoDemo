@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Enrollment Configuration Assignment</summary>
     public class EnrollmentConfigurationAssignment : Entity, IParsable {
         /// <summary>Represents an assignment to managed devices in the tenant</summary>

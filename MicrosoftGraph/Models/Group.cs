@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Group : DirectoryObject, IParsable {
         /// <summary>The list of users or groups that are allowed to create post&apos;s or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.</summary>
         public List<DirectoryObject> AcceptedSenders { get; set; }
@@ -18,7 +18,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? AutoSubscribeNewMembers { get; set; }
         /// <summary>The group&apos;s calendar. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Calendar Calendar { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Calendar Calendar { get; set; }
         /// <summary>The calendar view for the calendar. Read-only.</summary>
         public List<Event> CalendarView { get; set; }
         /// <summary>Describes a classification for the group (such as low, medium or high business impact). Valid values for this property are defined by creating a ClassificationList setting value, based on the template definition.Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).</summary>
@@ -34,9 +34,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The display name for the group. This property is required when a group is created and cannot be cleared during updates. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName { get; set; }
         /// <summary>The group&apos;s default drive. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
         /// <summary>The group&apos;s drives. Read-only.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.Drive> Drives { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.Drive> Drives { get; set; }
         /// <summary>The group&apos;s calendar events.</summary>
         public List<Event> Events { get; set; }
         /// <summary>Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.</summary>
@@ -55,12 +55,12 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public bool? HideFromOutlookClients { get; set; }
         /// <summary>When a group is associated with a team this property determines whether the team is in read-only mode.To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.</summary>
         public bool? IsArchived { get; set; }
-        /// <summary>Indicates whether this group can be assigned to an Azure Active Directory role or not. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).</summary>
+        /// <summary>Indicates whether this group can be assigned to an Azure Active Directory role or not. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).</summary>
         public bool? IsAssignableToRole { get; set; }
         /// <summary>Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? IsSubscribedByMail { get; set; }
         /// <summary>Indicates status of the group license assignment to all members of the group. Default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.LicenseProcessingState LicenseProcessingState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.LicenseProcessingState LicenseProcessingState { get; set; }
         /// <summary>The SMTP address for the group, for example, &apos;serviceadmins@contoso.onmicrosoft.com&apos;. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
         public string Mail { get; set; }
         /// <summary>Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not).</summary>
@@ -78,7 +78,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A list of group members with license errors from this group-based license assignment. Read-only.</summary>
         public List<DirectoryObject> MembersWithLicenseErrors { get; set; }
         /// <summary>The onenote property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Onenote Onenote { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Onenote Onenote { get; set; }
         /// <summary>The onPremisesDomainName property</summary>
         public string OnPremisesDomainName { get; set; }
         /// <summary>Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in).</summary>
@@ -122,7 +122,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The list of SharePoint sites in this group. Access the default site with /sites/root.</summary>
         public List<Site> Sites { get; set; }
         /// <summary>The team associated with this group.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Team Team { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Team Team { get; set; }
         /// <summary>Specifies a Microsoft 365 group&apos;s color theme. Possible values are Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.</summary>
         public string Theme { get; set; }
         /// <summary>The group&apos;s conversation threads. Nullable.</summary>
@@ -160,7 +160,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"assignedLabels", n => { AssignedLabels = n.GetCollectionOfObjectValues<AssignedLabel>(AssignedLabel.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<AssignedLicense>(AssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"autoSubscribeNewMembers", n => { AutoSubscribeNewMembers = n.GetBoolValue(); } },
-                {"calendar", n => { Calendar = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Calendar>(GithubTodoDemo.MicrosoftGraph.Models.Calendar.CreateFromDiscriminatorValue); } },
+                {"calendar", n => { Calendar = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Calendar>(GitHubTodoDemo.MicrosoftGraph.Models.Calendar.CreateFromDiscriminatorValue); } },
                 {"calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"classification", n => { Classification = n.GetStringValue(); } },
                 {"conversations", n => { Conversations = n.GetCollectionOfObjectValues<Conversation>(Conversation.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -168,8 +168,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"createdOnBehalfOf", n => { CreatedOnBehalfOf = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"drive", n => { Drive = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Drive>(GithubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue); } },
-                {"drives", n => { Drives = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Drive>(GithubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"drive", n => { Drive = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Drive>(GitHubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue); } },
+                {"drives", n => { Drives = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Drive>(GitHubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"events", n => { Events = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -181,7 +181,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"isArchived", n => { IsArchived = n.GetBoolValue(); } },
                 {"isAssignableToRole", n => { IsAssignableToRole = n.GetBoolValue(); } },
                 {"isSubscribedByMail", n => { IsSubscribedByMail = n.GetBoolValue(); } },
-                {"licenseProcessingState", n => { LicenseProcessingState = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.LicenseProcessingState>(GithubTodoDemo.MicrosoftGraph.Models.LicenseProcessingState.CreateFromDiscriminatorValue); } },
+                {"licenseProcessingState", n => { LicenseProcessingState = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.LicenseProcessingState>(GitHubTodoDemo.MicrosoftGraph.Models.LicenseProcessingState.CreateFromDiscriminatorValue); } },
                 {"mail", n => { Mail = n.GetStringValue(); } },
                 {"mailEnabled", n => { MailEnabled = n.GetBoolValue(); } },
                 {"mailNickname", n => { MailNickname = n.GetStringValue(); } },
@@ -190,7 +190,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"membershipRule", n => { MembershipRule = n.GetStringValue(); } },
                 {"membershipRuleProcessingState", n => { MembershipRuleProcessingState = n.GetStringValue(); } },
                 {"membersWithLicenseErrors", n => { MembersWithLicenseErrors = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"onenote", n => { Onenote = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Onenote>(GithubTodoDemo.MicrosoftGraph.Models.Onenote.CreateFromDiscriminatorValue); } },
+                {"onenote", n => { Onenote = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Onenote>(GitHubTodoDemo.MicrosoftGraph.Models.Onenote.CreateFromDiscriminatorValue); } },
                 {"onPremisesDomainName", n => { OnPremisesDomainName = n.GetStringValue(); } },
                 {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"onPremisesNetBiosName", n => { OnPremisesNetBiosName = n.GetStringValue(); } },
@@ -212,7 +212,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"securityIdentifier", n => { SecurityIdentifier = n.GetStringValue(); } },
                 {"settings", n => { Settings = n.GetCollectionOfObjectValues<GroupSetting>(GroupSetting.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"sites", n => { Sites = n.GetCollectionOfObjectValues<Site>(Site.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"team", n => { Team = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Team>(GithubTodoDemo.MicrosoftGraph.Models.Team.CreateFromDiscriminatorValue); } },
+                {"team", n => { Team = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Team>(GitHubTodoDemo.MicrosoftGraph.Models.Team.CreateFromDiscriminatorValue); } },
                 {"theme", n => { Theme = n.GetStringValue(); } },
                 {"threads", n => { Threads = n.GetCollectionOfObjectValues<ConversationThread>(ConversationThread.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -234,7 +234,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<AssignedLabel>("assignedLabels", AssignedLabels);
             writer.WriteCollectionOfObjectValues<AssignedLicense>("assignedLicenses", AssignedLicenses);
             writer.WriteBoolValue("autoSubscribeNewMembers", AutoSubscribeNewMembers);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Calendar>("calendar", Calendar);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Calendar>("calendar", Calendar);
             writer.WriteCollectionOfObjectValues<Event>("calendarView", CalendarView);
             writer.WriteStringValue("classification", Classification);
             writer.WriteCollectionOfObjectValues<Conversation>("conversations", Conversations);
@@ -242,8 +242,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteObjectValue<DirectoryObject>("createdOnBehalfOf", CreatedOnBehalfOf);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Drive>("drive", Drive);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Drive>("drives", Drives);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Drive>("drive", Drive);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Drive>("drives", Drives);
             writer.WriteCollectionOfObjectValues<Event>("events", Events);
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
@@ -255,7 +255,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("isArchived", IsArchived);
             writer.WriteBoolValue("isAssignableToRole", IsAssignableToRole);
             writer.WriteBoolValue("isSubscribedByMail", IsSubscribedByMail);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.LicenseProcessingState>("licenseProcessingState", LicenseProcessingState);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.LicenseProcessingState>("licenseProcessingState", LicenseProcessingState);
             writer.WriteStringValue("mail", Mail);
             writer.WriteBoolValue("mailEnabled", MailEnabled);
             writer.WriteStringValue("mailNickname", MailNickname);
@@ -264,7 +264,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("membershipRule", MembershipRule);
             writer.WriteStringValue("membershipRuleProcessingState", MembershipRuleProcessingState);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("membersWithLicenseErrors", MembersWithLicenseErrors);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Onenote>("onenote", Onenote);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Onenote>("onenote", Onenote);
             writer.WriteStringValue("onPremisesDomainName", OnPremisesDomainName);
             writer.WriteDateTimeOffsetValue("onPremisesLastSyncDateTime", OnPremisesLastSyncDateTime);
             writer.WriteStringValue("onPremisesNetBiosName", OnPremisesNetBiosName);
@@ -286,7 +286,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("securityIdentifier", SecurityIdentifier);
             writer.WriteCollectionOfObjectValues<GroupSetting>("settings", Settings);
             writer.WriteCollectionOfObjectValues<Site>("sites", Sites);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Team>("team", Team);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Team>("team", Team);
             writer.WriteStringValue("theme", Theme);
             writer.WriteCollectionOfObjectValues<ConversationThread>("threads", Threads);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", TransitiveMemberOf);

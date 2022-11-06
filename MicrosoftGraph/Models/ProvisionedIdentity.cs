@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ProvisionedIdentity : Identity, IParsable {
         /// <summary>Details of the identity.</summary>
         public DetailsInfo Details { get; set; }

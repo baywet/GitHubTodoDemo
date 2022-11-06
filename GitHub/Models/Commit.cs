@@ -3,21 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>Commit</summary>
     public class Commit : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Simple User</summary>
-        public NullableSimpleUser Author { get; set; }
+        /// <summary>The author property</summary>
+        public SimpleUser Author { get; set; }
         /// <summary>The comments_url property</summary>
         public string Comments_url { get; set; }
         /// <summary>The commit property</summary>
         public Commit_commit Commit_prop { get; set; }
-        /// <summary>Simple User</summary>
-        public NullableSimpleUser Committer { get; set; }
+        /// <summary>The committer property</summary>
+        public SimpleUser Committer { get; set; }
         /// <summary>The files property</summary>
-        public List<DiffEntry> Files { get; set; }
+        public List<Commit_files> Files { get; set; }
         /// <summary>The html_url property</summary>
         public string Html_url { get; set; }
         /// <summary>The node_id property</summary>
@@ -49,11 +49,11 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"author", n => { Author = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                {"author", n => { Author = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
                 {"comments_url", n => { Comments_url = n.GetStringValue(); } },
                 {"commit", n => { Commit_prop = n.GetObjectValue<Commit_commit>(Commit_commit.CreateFromDiscriminatorValue); } },
-                {"committer", n => { Committer = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
-                {"files", n => { Files = n.GetCollectionOfObjectValues<DiffEntry>(DiffEntry.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"committer", n => { Committer = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
+                {"files", n => { Files = n.GetCollectionOfObjectValues<Commit_files>(Commit_files.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"html_url", n => { Html_url = n.GetStringValue(); } },
                 {"node_id", n => { Node_id = n.GetStringValue(); } },
                 {"parents", n => { Parents = n.GetCollectionOfObjectValues<Commit_parents>(Commit_parents.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -68,11 +68,11 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<NullableSimpleUser>("author", Author);
+            writer.WriteObjectValue<SimpleUser>("author", Author);
             writer.WriteStringValue("comments_url", Comments_url);
             writer.WriteObjectValue<Commit_commit>("commit", Commit_prop);
-            writer.WriteObjectValue<NullableSimpleUser>("committer", Committer);
-            writer.WriteCollectionOfObjectValues<DiffEntry>("files", Files);
+            writer.WriteObjectValue<SimpleUser>("committer", Committer);
+            writer.WriteCollectionOfObjectValues<Commit_files>("files", Files);
             writer.WriteStringValue("html_url", Html_url);
             writer.WriteStringValue("node_id", Node_id);
             writer.WriteCollectionOfObjectValues<Commit_parents>("parents", Parents);

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AuditLogRoot : Entity, IParsable {
         /// <summary>The directoryAudits property</summary>
         public List<DirectoryAudit> DirectoryAudits { get; set; }

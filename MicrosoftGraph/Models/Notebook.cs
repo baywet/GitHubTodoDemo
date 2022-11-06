@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Notebook : OnenoteEntityHierarchyModel, IParsable {
         /// <summary>Indicates whether this is the user&apos;s default notebook. Read-only.</summary>
         public bool? IsDefault { get; set; }

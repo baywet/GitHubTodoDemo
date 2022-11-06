@@ -1,7 +1,7 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Authentication;
 
-namespace GithubTodoDemo.GitHubAuthentication;
+namespace GitHubTodoDemo.GitHubAuthentication;
 
 public class GitHubAuthenticationProvider : IAuthenticationProvider
 {

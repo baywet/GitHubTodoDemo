@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OnenoteResource : OnenoteEntityBaseModel, IParsable {
         /// <summary>The content stream</summary>
         public byte[] Content { get; set; }

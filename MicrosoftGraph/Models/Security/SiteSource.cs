@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class SiteSource : DataSource, IParsable {
         /// <summary>The site property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Site Site { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Site Site { get; set; }
         /// <summary>
         /// Instantiates a new SiteSource and sets the default values.
         /// </summary>
@@ -26,7 +26,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"site", n => { Site = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Site>(GithubTodoDemo.MicrosoftGraph.Models.Site.CreateFromDiscriminatorValue); } },
+                {"site", n => { Site = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Site>(GitHubTodoDemo.MicrosoftGraph.Models.Site.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Site>("site", Site);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Site>("site", Site);
         }
     }
 }

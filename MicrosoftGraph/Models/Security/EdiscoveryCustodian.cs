@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryCustodian : DataSourceContainer, IParsable {
         /// <summary>Date and time the custodian acknowledged a hold notification.</summary>
         public DateTimeOffset? AcknowledgedDateTime { get; set; }

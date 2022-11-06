@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Agreement : Entity, IParsable {
         /// <summary>Read-only. Information about acceptances of this agreement.</summary>
@@ -19,7 +19,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether the user has to expand the agreement before accepting. Supports $filter (eq).</summary>
         public bool? IsViewingBeforeAcceptanceRequired { get; set; }
         /// <summary>Expiration schedule and frequency of agreement for all users. Supports $filter (eq).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TermsExpiration TermsExpiration { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TermsExpiration TermsExpiration { get; set; }
         /// <summary>The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations. Supports $filter (eq).</summary>
         public TimeSpan? UserReacceptRequiredFrequency { get; set; }
         /// <summary>
@@ -47,7 +47,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"files", n => { Files = n.GetCollectionOfObjectValues<AgreementFileLocalization>(AgreementFileLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"isPerDeviceAcceptanceRequired", n => { IsPerDeviceAcceptanceRequired = n.GetBoolValue(); } },
                 {"isViewingBeforeAcceptanceRequired", n => { IsViewingBeforeAcceptanceRequired = n.GetBoolValue(); } },
-                {"termsExpiration", n => { TermsExpiration = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TermsExpiration>(GithubTodoDemo.MicrosoftGraph.Models.TermsExpiration.CreateFromDiscriminatorValue); } },
+                {"termsExpiration", n => { TermsExpiration = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TermsExpiration>(GitHubTodoDemo.MicrosoftGraph.Models.TermsExpiration.CreateFromDiscriminatorValue); } },
                 {"userReacceptRequiredFrequency", n => { UserReacceptRequiredFrequency = n.GetTimeSpanValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<AgreementFileLocalization>("files", Files);
             writer.WriteBoolValue("isPerDeviceAcceptanceRequired", IsPerDeviceAcceptanceRequired);
             writer.WriteBoolValue("isViewingBeforeAcceptanceRequired", IsViewingBeforeAcceptanceRequired);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TermsExpiration>("termsExpiration", TermsExpiration);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TermsExpiration>("termsExpiration", TermsExpiration);
             writer.WriteTimeSpanValue("userReacceptRequiredFrequency", UserReacceptRequiredFrequency);
         }
     }

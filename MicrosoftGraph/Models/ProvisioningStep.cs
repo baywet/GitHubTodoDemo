@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ProvisioningStep : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -16,7 +16,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ProvisioningStepType? ProvisioningStepType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningStepType? ProvisioningStepType { get; set; }
         /// <summary>Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.</summary>
         public ProvisioningResult? Status { get; set; }
         /// <summary>

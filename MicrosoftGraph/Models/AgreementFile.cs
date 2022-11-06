@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AgreementFile : AgreementFileProperties, IParsable {
         /// <summary>The localized version of the terms of use agreement files attached to the agreement.</summary>
         public List<AgreementFileLocalization> Localizations { get; set; }

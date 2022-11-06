@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AuthenticationMethodsPolicy : Entity, IParsable {
         /// <summary>Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.</summary>
         public List<AuthenticationMethodConfiguration> AuthenticationMethodConfigurations { get; set; }
@@ -18,7 +18,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The reconfirmationInDays property</summary>
         public int? ReconfirmationInDays { get; set; }
         /// <summary>Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RegistrationEnforcement RegistrationEnforcement { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RegistrationEnforcement RegistrationEnforcement { get; set; }
         /// <summary>
         /// Instantiates a new AuthenticationMethodsPolicy and sets the default values.
         /// </summary>
@@ -44,7 +44,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"policyVersion", n => { PolicyVersion = n.GetStringValue(); } },
                 {"reconfirmationInDays", n => { ReconfirmationInDays = n.GetIntValue(); } },
-                {"registrationEnforcement", n => { RegistrationEnforcement = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.RegistrationEnforcement>(GithubTodoDemo.MicrosoftGraph.Models.RegistrationEnforcement.CreateFromDiscriminatorValue); } },
+                {"registrationEnforcement", n => { RegistrationEnforcement = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.RegistrationEnforcement>(GitHubTodoDemo.MicrosoftGraph.Models.RegistrationEnforcement.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("policyVersion", PolicyVersion);
             writer.WriteIntValue("reconfirmationInDays", ReconfirmationInDays);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.RegistrationEnforcement>("registrationEnforcement", RegistrationEnforcement);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.RegistrationEnforcement>("registrationEnforcement", RegistrationEnforcement);
         }
     }
 }

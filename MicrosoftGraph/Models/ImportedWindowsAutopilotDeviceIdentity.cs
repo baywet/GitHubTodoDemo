@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Imported windows autopilot devices.</summary>
     public class ImportedWindowsAutopilotDeviceIdentity : Entity, IParsable {
         /// <summary>UPN of the user the device will be assigned</summary>

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class PermissionGrantConditionSet : Entity, IParsable {
         /// <summary>A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all.</summary>
@@ -19,7 +19,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the oauth2PermissionScopes property of the API&apos;s **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API&apos;s **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API&apos;s **servicePrincipal** object. Default is the single value all.</summary>
         public List<string> Permissions { get; set; }
         /// <summary>The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PermissionType? PermissionType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PermissionType? PermissionType { get; set; }
         /// <summary>The appId of the resource application (e.g. the API) for which a permission is being granted, or any to match with any resource application or API. Default is any.</summary>
         public string ResourceApplication { get; set; }
         /// <summary>

@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BookingAppointment : Entity, IParsable {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
         public string AdditionalInformation { get; set; }
+        /// <summary>The anonymousJoinWebUrl property</summary>
+        public string AnonymousJoinWebUrl { get; set; }
         /// <summary>It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.</summary>
         public List<BookingCustomerInformationBase> Customers { get; set; }
         /// <summary>The time zone of the customer. For a list of possible values, see dateTimeTimeZone.</summary>
@@ -71,6 +73,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
+                {"anonymousJoinWebUrl", n => { AnonymousJoinWebUrl = n.GetStringValue(); } },
                 {"customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomerInformationBase>(BookingCustomerInformationBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"customerTimeZone", n => { CustomerTimeZone = n.GetStringValue(); } },
                 {"duration", n => { Duration = n.GetTimeSpanValue(); } },
@@ -103,6 +106,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("additionalInformation", AdditionalInformation);
+            writer.WriteStringValue("anonymousJoinWebUrl", AnonymousJoinWebUrl);
             writer.WriteCollectionOfObjectValues<BookingCustomerInformationBase>("customers", Customers);
             writer.WriteStringValue("customerTimeZone", CustomerTimeZone);
             writer.WriteObjectValue<DateTimeTimeZone>("endDateTime", EndDateTime);

@@ -3,18 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class X509CertificateRule : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The identifier property</summary>
+        /// <summary>The identifier of the X.509 certificate. Required.</summary>
         public string Identifier { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
-        /// <summary>The x509CertificateAuthenticationMode property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.X509CertificateAuthenticationMode? X509CertificateAuthenticationMode { get; set; }
-        /// <summary>The x509CertificateRuleType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.X509CertificateRuleType? X509CertificateRuleType { get; set; }
+        /// <summary>The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.</summary>
+        public GitHubTodoDemo.MicrosoftGraph.Models.X509CertificateAuthenticationMode? X509CertificateAuthenticationMode { get; set; }
+        /// <summary>The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.</summary>
+        public GitHubTodoDemo.MicrosoftGraph.Models.X509CertificateRuleType? X509CertificateRuleType { get; set; }
         /// <summary>
         /// Instantiates a new x509CertificateRule and sets the default values.
         /// </summary>

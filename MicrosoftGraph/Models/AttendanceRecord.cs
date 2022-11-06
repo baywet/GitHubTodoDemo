@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class AttendanceRecord : Entity, IParsable {
         /// <summary>List of time periods between joining and leaving a meeting.</summary>
@@ -11,7 +11,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Email address of the user associated with this atttendance record.</summary>
         public string EmailAddress { get; set; }
         /// <summary>Identity of the user associated with this atttendance record.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Identity Identity { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Identity Identity { get; set; }
         /// <summary>Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer.</summary>
         public string Role { get; set; }
         /// <summary>Total duration of the attendances in seconds.</summary>
@@ -37,7 +37,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"attendanceIntervals", n => { AttendanceIntervals = n.GetCollectionOfObjectValues<AttendanceInterval>(AttendanceInterval.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
-                {"identity", n => { Identity = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Identity>(GithubTodoDemo.MicrosoftGraph.Models.Identity.CreateFromDiscriminatorValue); } },
+                {"identity", n => { Identity = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Identity>(GitHubTodoDemo.MicrosoftGraph.Models.Identity.CreateFromDiscriminatorValue); } },
                 {"role", n => { Role = n.GetStringValue(); } },
                 {"totalAttendanceInSeconds", n => { TotalAttendanceInSeconds = n.GetIntValue(); } },
             };
@@ -51,7 +51,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<AttendanceInterval>("attendanceIntervals", AttendanceIntervals);
             writer.WriteStringValue("emailAddress", EmailAddress);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Identity>("identity", Identity);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Identity>("identity", Identity);
             writer.WriteStringValue("role", Role);
             writer.WriteIntValue("totalAttendanceInSeconds", TotalAttendanceInSeconds);
         }

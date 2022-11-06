@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class AccessPackage : Entity, IParsable {
-        /// <summary>The accessPackagesIncompatibleWith property</summary>
+        /// <summary>The access packages that are incompatible with this package. Read-only.</summary>
         public List<AccessPackage> AccessPackagesIncompatibleWith { get; set; }
         /// <summary>The assignmentPolicies property</summary>
         public List<AccessPackageAssignmentPolicy> AssignmentPolicies { get; set; }
@@ -18,9 +18,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string Description { get; set; }
         /// <summary>The display name of the access package. Supports $filter (eq, contains).</summary>
         public string DisplayName { get; set; }
-        /// <summary>The incompatibleAccessPackages property</summary>
+        /// <summary>The access packages whose assigned users are ineligible to be assigned this access package.</summary>
         public List<AccessPackage> IncompatibleAccessPackages { get; set; }
-        /// <summary>The incompatibleGroups property</summary>
+        /// <summary>The groups whose members are ineligible to be assigned this access package.</summary>
         public List<Group> IncompatibleGroups { get; set; }
         /// <summary>Whether the access package is hidden from the requestor.</summary>
         public bool? IsHidden { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrincipalResourceMembershipsScope : AccessReviewScope, IParsable {
         /// <summary>Defines the scopes of the principals whose access to resources are reviewed in the access review.</summary>
         public List<AccessReviewScope> PrincipalScopes { get; set; }

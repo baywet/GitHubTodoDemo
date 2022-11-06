@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models.Security;
+using GitHubTodoDemo.MicrosoftGraph.Models.Security;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class DataSourceContainer : Entity, IParsable {
         /// <summary>Created date and time of the dataSourceContainer entity.</summary>

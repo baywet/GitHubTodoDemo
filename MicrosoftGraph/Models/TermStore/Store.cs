@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     public class Store : Entity, IParsable {
         /// <summary>Default language of the term store.</summary>
         public string DefaultLanguageTag { get; set; }

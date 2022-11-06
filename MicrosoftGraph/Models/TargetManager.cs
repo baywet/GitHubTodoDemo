@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TargetManager : SubjectSet, IParsable {
         /// <summary>Manager level, between 1 and 4. The direct manager is 1.</summary>
         public int? ManagerLevel { get; set; }

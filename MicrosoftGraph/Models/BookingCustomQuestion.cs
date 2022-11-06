@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Represents a custom question of the business.</summary>
     public class BookingCustomQuestion : Entity, IParsable {
         /// <summary>The expected answer type. The possible values are: text, radioButton, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AnswerInputType? AnswerInputType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AnswerInputType? AnswerInputType { get; set; }
         /// <summary>List of possible answer values.</summary>
         public List<string> AnswerOptions { get; set; }
         /// <summary>The question.</summary>

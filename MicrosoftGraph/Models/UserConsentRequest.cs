@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UserConsentRequest : Request, IParsable {
         /// <summary>Approval decisions associated with a request.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Approval Approval { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Approval Approval { get; set; }
         /// <summary>The user&apos;s justification for requiring access to the app. Supports $filter (eq only) and $orderby.</summary>
         public string Reason { get; set; }
         /// <summary>
@@ -28,7 +28,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"approval", n => { Approval = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Approval>(GithubTodoDemo.MicrosoftGraph.Models.Approval.CreateFromDiscriminatorValue); } },
+                {"approval", n => { Approval = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Approval>(GitHubTodoDemo.MicrosoftGraph.Models.Approval.CreateFromDiscriminatorValue); } },
                 {"reason", n => { Reason = n.GetStringValue(); } },
             };
         }
@@ -39,7 +39,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Approval>("approval", Approval);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Approval>("approval", Approval);
             writer.WriteStringValue("reason", Reason);
         }
     }

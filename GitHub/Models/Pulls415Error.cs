@@ -1,46 +1,38 @@
+using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
-    public class Team_permissions : IAdditionalDataHolder, IParsable {
+namespace GitHubTodoDemo.GitHub.Models {
+    public class Pulls415Error : ApiException, IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The admin property</summary>
-        public bool? Admin { get; set; }
-        /// <summary>The maintain property</summary>
-        public bool? Maintain { get; set; }
-        /// <summary>The pull property</summary>
-        public bool? Pull { get; set; }
-        /// <summary>The push property</summary>
-        public bool? Push { get; set; }
-        /// <summary>The triage property</summary>
-        public bool? Triage { get; set; }
+        /// <summary>The documentation_url property</summary>
+        public string Documentation_url { get; set; }
+        /// <summary>The message property</summary>
+        public string Message { get; set; }
         /// <summary>
-        /// Instantiates a new team_permissions and sets the default values.
+        /// Instantiates a new pulls415Error and sets the default values.
         /// </summary>
-        public Team_permissions() {
+        public Pulls415Error() {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
-        public static Team_permissions CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static Pulls415Error CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Team_permissions();
+            return new Pulls415Error();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"admin", n => { Admin = n.GetBoolValue(); } },
-                {"maintain", n => { Maintain = n.GetBoolValue(); } },
-                {"pull", n => { Pull = n.GetBoolValue(); } },
-                {"push", n => { Push = n.GetBoolValue(); } },
-                {"triage", n => { Triage = n.GetBoolValue(); } },
+                {"documentation_url", n => { Documentation_url = n.GetStringValue(); } },
+                {"message", n => { Message = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -49,11 +41,8 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("admin", Admin);
-            writer.WriteBoolValue("maintain", Maintain);
-            writer.WriteBoolValue("pull", Pull);
-            writer.WriteBoolValue("push", Push);
-            writer.WriteBoolValue("triage", Triage);
+            writer.WriteStringValue("documentation_url", Documentation_url);
+            writer.WriteStringValue("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

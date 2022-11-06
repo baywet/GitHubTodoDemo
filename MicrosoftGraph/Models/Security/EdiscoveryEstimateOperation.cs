@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryEstimateOperation : CaseOperation, IParsable {
         /// <summary>The estimated count of items for the search that matched the content query.</summary>
         public long? IndexedItemCount { get; set; }

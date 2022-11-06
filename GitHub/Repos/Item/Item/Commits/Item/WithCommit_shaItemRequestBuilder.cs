@@ -1,11 +1,11 @@
-using GithubTodoDemo.GitHub.Repos.Item.Item.Commits.Item.Pulls;
+using GitHubTodoDemo.GitHub.Repos.Item.Item.Commits.Item.Pulls;
 using Microsoft.Kiota.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Commits.Item {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Commits.Item {
     /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\commits\{commit_sha}</summary>
     public class WithCommit_shaItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

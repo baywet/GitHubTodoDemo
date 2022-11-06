@@ -1,15 +1,15 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EventMessage : Message, IParsable {
         /// <summary>The endDateTime property</summary>
         public DateTimeTimeZone EndDateTime { get; set; }
         /// <summary>The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Event Event { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Event Event { get; set; }
         /// <summary>The isAllDay property</summary>
         public bool? IsAllDay { get; set; }
         /// <summary>The isDelegated property</summary>
@@ -17,9 +17,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The isOutOfDate property</summary>
         public bool? IsOutOfDate { get; set; }
         /// <summary>The location property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Location Location { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Location Location { get; set; }
         /// <summary>The meetingMessageType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MeetingMessageType? MeetingMessageType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MeetingMessageType? MeetingMessageType { get; set; }
         /// <summary>The recurrence property</summary>
         public PatternedRecurrence Recurrence { get; set; }
         /// <summary>The startDateTime property</summary>
@@ -51,11 +51,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"endDateTime", n => { EndDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                {"event", n => { Event = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Event>(GithubTodoDemo.MicrosoftGraph.Models.Event.CreateFromDiscriminatorValue); } },
+                {"event", n => { Event = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Event>(GitHubTodoDemo.MicrosoftGraph.Models.Event.CreateFromDiscriminatorValue); } },
                 {"isAllDay", n => { IsAllDay = n.GetBoolValue(); } },
                 {"isDelegated", n => { IsDelegated = n.GetBoolValue(); } },
                 {"isOutOfDate", n => { IsOutOfDate = n.GetBoolValue(); } },
-                {"location", n => { Location = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Location>(GithubTodoDemo.MicrosoftGraph.Models.Location.CreateFromDiscriminatorValue); } },
+                {"location", n => { Location = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Location>(GitHubTodoDemo.MicrosoftGraph.Models.Location.CreateFromDiscriminatorValue); } },
                 {"meetingMessageType", n => { MeetingMessageType = n.GetEnumValue<MeetingMessageType>(); } },
                 {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
                 {"startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
@@ -70,11 +70,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<DateTimeTimeZone>("endDateTime", EndDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Event>("event", Event);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Event>("event", Event);
             writer.WriteBoolValue("isAllDay", IsAllDay);
             writer.WriteBoolValue("isDelegated", IsDelegated);
             writer.WriteBoolValue("isOutOfDate", IsOutOfDate);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Location>("location", Location);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Location>("location", Location);
             writer.WriteEnumValue<MeetingMessageType>("meetingMessageType", MeetingMessageType);
             writer.WriteObjectValue<PatternedRecurrence>("recurrence", Recurrence);
             writer.WriteObjectValue<DateTimeTimeZone>("startDateTime", StartDateTime);

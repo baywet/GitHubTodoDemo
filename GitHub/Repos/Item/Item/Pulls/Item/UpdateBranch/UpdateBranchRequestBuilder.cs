@@ -1,4 +1,4 @@
-using GithubTodoDemo.GitHub.Models;
+using GitHubTodoDemo.GitHub.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.UpdateBranch {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.UpdateBranch {
     /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\update-branch</summary>
     public class UpdateBranchRequestBuilder {
         /// <summary>Path parameters for the request</summary>
@@ -70,16 +70,16 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.UpdateBranch {
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UpdateBranchResponse> PutAsync(UpdateBranchPutRequestBody body, Action<UpdateBranchRequestBuilderPutRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<UpdateBranchResponse> PutAsync(UpdateBranchPutRequestBody body, Action<UpdateBranchRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"403", BasicError.CreateFromDiscriminatorValue},
+                {"415", UpdateBranch415Error.CreateFromDiscriminatorValue},
                 {"422", ValidationError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UpdateBranchResponse>(requestInfo, UpdateBranchResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UpdateBranchResponse>(requestInfo, UpdateBranchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class UpdateBranchRequestBuilderPutRequestConfiguration {

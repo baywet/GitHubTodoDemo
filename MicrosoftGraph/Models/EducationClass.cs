@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationClass : Entity, IParsable {
         /// <summary>All categories associated with this class. Nullable.</summary>
         public List<EducationCategory> AssignmentCategories { get; set; }
@@ -34,7 +34,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Grade level of the class.</summary>
         public string Grade { get; set; }
         /// <summary>The underlying Microsoft 365 group object.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Group Group { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Group Group { get; set; }
         /// <summary>Mail name for sending email to all members, if this is enabled.</summary>
         public string MailNickname { get; set; }
         /// <summary>All users in the class. Nullable.</summary>
@@ -78,7 +78,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"externalSource", n => { ExternalSource = n.GetEnumValue<EducationExternalSource>(); } },
                 {"externalSourceDetail", n => { ExternalSourceDetail = n.GetStringValue(); } },
                 {"grade", n => { Grade = n.GetStringValue(); } },
-                {"group", n => { Group = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Group>(GithubTodoDemo.MicrosoftGraph.Models.Group.CreateFromDiscriminatorValue); } },
+                {"group", n => { Group = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Group>(GitHubTodoDemo.MicrosoftGraph.Models.Group.CreateFromDiscriminatorValue); } },
                 {"mailNickname", n => { MailNickname = n.GetStringValue(); } },
                 {"members", n => { Members = n.GetCollectionOfObjectValues<EducationUser>(EducationUser.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"schools", n => { Schools = n.GetCollectionOfObjectValues<EducationSchool>(EducationSchool.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -107,7 +107,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteEnumValue<EducationExternalSource>("externalSource", ExternalSource);
             writer.WriteStringValue("externalSourceDetail", ExternalSourceDetail);
             writer.WriteStringValue("grade", Grade);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Group>("group", Group);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Group>("group", Group);
             writer.WriteStringValue("mailNickname", MailNickname);
             writer.WriteCollectionOfObjectValues<EducationUser>("members", Members);
             writer.WriteCollectionOfObjectValues<EducationSchool>("schools", Schools);

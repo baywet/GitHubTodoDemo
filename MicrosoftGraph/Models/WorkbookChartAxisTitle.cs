@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookChartAxisTitle : Entity, IParsable {
         /// <summary>Represents the formatting of chart axis title. Read-only.</summary>
         public WorkbookChartAxisTitleFormat Format { get; set; }

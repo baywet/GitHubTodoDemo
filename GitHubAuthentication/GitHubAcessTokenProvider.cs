@@ -2,7 +2,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using Microsoft.Kiota.Abstractions.Authentication;
 
-namespace GithubTodoDemo.GitHubAuthentication;
+namespace GitHubTodoDemo.GitHubAuthentication;
 public class GitHubAccessTokenProvider : IAccessTokenProvider
 {
 	public AllowedHostsValidator AllowedHostsValidator {get;set;} = new ();

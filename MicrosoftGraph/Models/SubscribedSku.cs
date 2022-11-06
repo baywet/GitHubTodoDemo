@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SubscribedSku : Entity, IParsable {
         /// <summary>For example, &apos;User&apos; or &apos;Company&apos;.</summary>
         public string AppliesTo { get; set; }

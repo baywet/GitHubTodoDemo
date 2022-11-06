@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MuteParticipantOperation : CommsOperation, IParsable {
         /// <summary>
         /// Instantiates a new MuteParticipantOperation and sets the default values.

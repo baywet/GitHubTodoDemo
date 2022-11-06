@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RiskDetection : Entity, IParsable {
         /// <summary>Indicates the activity type the detected risk is linked to. Possible values are: signin, user, unknownFutureValue.</summary>
         public ActivityType? Activity { get; set; }
@@ -26,17 +26,17 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Request ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in.</summary>
         public string RequestId { get; set; }
         /// <summary>Details of the detected risk. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, m365DAdminDismissedDetection. Note that you must use the Prefer: include - unknown -enum-members request header to get the following value(s) in this evolvable enum: m365DAdminDismissedDetection.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RiskDetail? RiskDetail { get; set; }
-        /// <summary>The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, passwordSpray, impossibleTravel, newCountry, anomalousToken, tokenIssuerAnomaly,suspiciousBrowser, riskyIPAddress, mcasSuspiciousInboxManipulationRules, suspiciousInboxForwarding, and unknownFutureValue. If the risk detection is a premium detection, will show generic. For more information about each value, see riskEventType values.</summary>
+        public GitHubTodoDemo.MicrosoftGraph.Models.RiskDetail? RiskDetail { get; set; }
+        /// <summary>The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, passwordSpray, impossibleTravel, newCountry, anomalousToken, tokenIssuerAnomaly,suspiciousBrowser, riskyIPAddress, mcasSuspiciousInboxManipulationRules, suspiciousInboxForwarding, and anomalousUserActivity. If the risk detection is a premium detection, will show generic. For more information about each value, see riskEventType values.</summary>
         public string RiskEventType { get; set; }
         /// <summary>Level of the detected risk. Possible values are: low, medium, high, hidden, none, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RiskLevel? RiskLevel { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RiskLevel? RiskLevel { get; set; }
         /// <summary>The state of a detected risky user or sign-in. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RiskState? RiskState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RiskState? RiskState { get; set; }
         /// <summary>Source of the risk detection. For example, activeDirectory.</summary>
         public string Source { get; set; }
         /// <summary>Indicates the type of token issuer for the detected sign-in risk. Possible values are: AzureAD, ADFederationServices, UnknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TokenIssuerType? TokenIssuerType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TokenIssuerType? TokenIssuerType { get; set; }
         /// <summary>The user principal name (UPN) of the user.</summary>
         public string UserDisplayName { get; set; }
         /// <summary>Unique ID of the user.</summary>

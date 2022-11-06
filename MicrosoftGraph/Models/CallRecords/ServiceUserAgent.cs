@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class ServiceUserAgent : UserAgent, IParsable {
         /// <summary>The role property</summary>
         public ServiceRole? Role { get; set; }

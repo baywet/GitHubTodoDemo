@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class MediaStream : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecords.AudioCodec? AudioCodec { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.AudioCodec? AudioCodec { get; set; }
         /// <summary>Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio.</summary>
         public float? AverageAudioDegradation { get; set; }
         /// <summary>Average jitter for the stream computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as &apos;PT1S&apos;, where &apos;P&apos; is the duration designator, &apos;T&apos; is the time designator, and &apos;S&apos; is the second designator.</summary>
@@ -60,7 +60,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         /// <summary>Unique identifier for the stream.</summary>
         public string StreamId { get; set; }
         /// <summary>Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecords.VideoCodec? VideoCodec { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.VideoCodec? VideoCodec { get; set; }
         /// <summary>True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise.</summary>
         public bool? WasMediaBypassed { get; set; }
         /// <summary>

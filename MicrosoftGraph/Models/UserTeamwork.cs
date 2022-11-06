@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UserTeamwork : Entity, IParsable {
         /// <summary>The list of associatedTeamInfo objects that a user is associated with.</summary>
         public List<AssociatedTeamInfo> AssociatedTeams { get; set; }

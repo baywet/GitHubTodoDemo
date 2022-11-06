@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class EducationUser : Entity, IParsable {
         /// <summary>True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter.</summary>
@@ -47,7 +47,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two can be specified together; for example: DisablePasswordExpiration, DisableStrongPassword.</summary>
         public string PasswordPolicies { get; set; }
         /// <summary>Specifies the password profile for the user. The profile contains the user&apos;s password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PasswordProfile PasswordProfile { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile PasswordProfile { get; set; }
         /// <summary>The preferred language for the user that should follow the ISO 639-1 code, for example, en-US.</summary>
         public string PreferredLanguage { get; set; }
         /// <summary>The primaryRole property</summary>
@@ -77,7 +77,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A two-letter country code (ISO standard 3166). Required for users who will be assigned licenses due to a legal requirement to check for availability of services in countries or regions. Examples include: US, JP, and GB. Not nullable. Supports $filter.</summary>
         public string UsageLocation { get; set; }
         /// <summary>The directory user that corresponds to this user.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.User User { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.User User { get; set; }
         /// <summary>The user principal name (UPN) of the user. The UPN is an internet-style login name for the user based on the internet standard RFC 822. By convention, this should map to the user&apos;s email name. The general format is alias@domain, where domain must be present in the tenant&apos;s collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of the organization. Supports $filter and $orderby.</summary>
         public string UserPrincipalName { get; set; }
         /// <summary>A string value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter.</summary>
@@ -121,7 +121,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"officeLocation", n => { OfficeLocation = n.GetStringValue(); } },
                 {"onPremisesInfo", n => { OnPremisesInfo = n.GetObjectValue<EducationOnPremisesInfo>(EducationOnPremisesInfo.CreateFromDiscriminatorValue); } },
                 {"passwordPolicies", n => { PasswordPolicies = n.GetStringValue(); } },
-                {"passwordProfile", n => { PasswordProfile = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PasswordProfile>(GithubTodoDemo.MicrosoftGraph.Models.PasswordProfile.CreateFromDiscriminatorValue); } },
+                {"passwordProfile", n => { PasswordProfile = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile>(GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile.CreateFromDiscriminatorValue); } },
                 {"preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
                 {"primaryRole", n => { PrimaryRole = n.GetEnumValue<EducationUserRole>(); } },
                 {"provisionedPlans", n => { ProvisionedPlans = n.GetCollectionOfObjectValues<ProvisionedPlan>(ProvisionedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -136,7 +136,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"taughtClasses", n => { TaughtClasses = n.GetCollectionOfObjectValues<EducationClass>(EducationClass.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"teacher", n => { Teacher = n.GetObjectValue<EducationTeacher>(EducationTeacher.CreateFromDiscriminatorValue); } },
                 {"usageLocation", n => { UsageLocation = n.GetStringValue(); } },
-                {"user", n => { User = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.User>(GithubTodoDemo.MicrosoftGraph.Models.User.CreateFromDiscriminatorValue); } },
+                {"user", n => { User = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.User>(GitHubTodoDemo.MicrosoftGraph.Models.User.CreateFromDiscriminatorValue); } },
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
                 {"userType", n => { UserType = n.GetStringValue(); } },
             };
@@ -168,7 +168,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("officeLocation", OfficeLocation);
             writer.WriteObjectValue<EducationOnPremisesInfo>("onPremisesInfo", OnPremisesInfo);
             writer.WriteStringValue("passwordPolicies", PasswordPolicies);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PasswordProfile>("passwordProfile", PasswordProfile);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile>("passwordProfile", PasswordProfile);
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
             writer.WriteEnumValue<EducationUserRole>("primaryRole", PrimaryRole);
             writer.WriteCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", ProvisionedPlans);
@@ -183,7 +183,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<EducationClass>("taughtClasses", TaughtClasses);
             writer.WriteObjectValue<EducationTeacher>("teacher", Teacher);
             writer.WriteStringValue("usageLocation", UsageLocation);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.User>("user", User);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.User>("user", User);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
             writer.WriteStringValue("userType", UserType);
         }

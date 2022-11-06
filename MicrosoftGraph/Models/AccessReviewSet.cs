@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AccessReviewSet : Entity, IParsable {
         /// <summary>Represents the template and scheduling for an access review.</summary>
         public List<AccessReviewScheduleDefinition> Definitions { get; set; }

@@ -1,11 +1,11 @@
-using GithubTodoDemo.GitHub.Repos.Item.Item;
+using GitHubTodoDemo.GitHub.Repos.Item.Item;
 using Microsoft.Kiota.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item {
+namespace GitHubTodoDemo.GitHub.Repos.Item {
     /// <summary>Builds and executes requests for operations under \repos\{owner}</summary>
     public class WithOwnerItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>
@@ -14,7 +14,7 @@ namespace GithubTodoDemo.GitHub.Repos.Item {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the GithubTodoDemo.GitHub.repos.item.item collection</summary>
+        /// <summary>Gets an item from the GitHubTodoDemo.GitHub.repos.item.item collection</summary>
         public WithRepoItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("repo", position);

@@ -1,14 +1,14 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Contains properties used to assign a eBook to a group.</summary>
     public class ManagedEBookAssignment : Entity, IParsable {
         /// <summary>Possible values for the install intent chosen by the admin.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.InstallIntent? InstallIntent { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.InstallIntent? InstallIntent { get; set; }
         /// <summary>The assignment target for eBook.</summary>
         public DeviceAndAppManagementAssignmentTarget Target { get; set; }
         /// <summary>

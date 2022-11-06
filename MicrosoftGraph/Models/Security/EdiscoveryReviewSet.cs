@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryReviewSet : DataSet, IParsable {
         /// <summary>Represents queries within the review set.</summary>
         public List<EdiscoveryReviewSetQuery> Queries { get; set; }

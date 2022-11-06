@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Win32LobAppRegistryRule : Win32LobAppRule, IParsable {
         /// <summary>A value indicating whether to search the 32-bit registry on 64-bit systems.</summary>
         public bool? Check32BitOn64System { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Device compliance setting State for a given device.</summary>
     public class DeviceComplianceSettingState : Entity, IParsable {
         /// <summary>The DateTime when device compliance grace period expires</summary>

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Windows Information Protection AppLearning Summary entity.</summary>
     public class WindowsInformationProtectionAppLearningSummary : Entity, IParsable {
         /// <summary>Application Name</summary>
         public string ApplicationName { get; set; }
         /// <summary>Possible types of Application</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ApplicationType? ApplicationType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ApplicationType? ApplicationType { get; set; }
         /// <summary>Device Count</summary>
         public int? DeviceCount { get; set; }
         /// <summary>

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookFunctionResult : Entity, IParsable {
         /// <summary>The error property</summary>
         public string Error { get; set; }

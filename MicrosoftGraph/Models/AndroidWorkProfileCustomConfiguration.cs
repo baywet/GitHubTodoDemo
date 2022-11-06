@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AndroidWorkProfileCustomConfiguration : DeviceConfiguration, IParsable {
         /// <summary>OMA settings. This collection can contain a maximum of 500 elements.</summary>
         public List<OmaSetting> OmaSettings { get; set; }

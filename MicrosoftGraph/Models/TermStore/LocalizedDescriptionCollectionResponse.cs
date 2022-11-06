@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     public class LocalizedDescriptionCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<LocalizedDescription> Value { get; set; }

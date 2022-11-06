@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
     public class ExternalConnectionCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<ExternalConnection> Value { get; set; }

@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models.TermStore;
+using GitHubTodoDemo.MicrosoftGraph.Models.TermStore;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Site : BaseItem, IParsable {
         /// <summary>Analytics about the view activities that took place in this site.</summary>
         public ItemAnalytics Analytics { get; set; }
@@ -15,9 +15,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The full title for the site. Read-only.</summary>
         public string DisplayName { get; set; }
         /// <summary>The default drive (document library) for this site.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
         /// <summary>The collection of drives (document libraries) under this site.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.Drive> Drives { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.Drive> Drives { get; set; }
         /// <summary>The error property</summary>
         public PublicError Error { get; set; }
         /// <summary>The externalColumns property</summary>
@@ -27,17 +27,17 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The collection of lists under this site.</summary>
         public List<List> Lists { get; set; }
         /// <summary>Calls the OneNote service for notebook related operations.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Onenote Onenote { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Onenote Onenote { get; set; }
         /// <summary>The collection of long-running operations on the site.</summary>
         public List<RichLongRunningOperation> Operations { get; set; }
         /// <summary>The permissions associated with the site. Nullable.</summary>
         public List<Permission> Permissions { get; set; }
         /// <summary>If present, indicates that this is the root site in the site collection. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Root Root { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Root Root { get; set; }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
         /// <summary>Provides details about the site&apos;s site collection. Available only on the root site. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SiteCollection SiteCollection { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SiteCollection SiteCollection { get; set; }
         /// <summary>The collection of the sub-sites under this site.</summary>
         public List<Site> Sites { get; set; }
         /// <summary>The default termStore under this site.</summary>
@@ -67,18 +67,18 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"columns", n => { Columns = n.GetCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"contentTypes", n => { ContentTypes = n.GetCollectionOfObjectValues<ContentType>(ContentType.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"drive", n => { Drive = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Drive>(GithubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue); } },
-                {"drives", n => { Drives = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Drive>(GithubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"drive", n => { Drive = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Drive>(GitHubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue); } },
+                {"drives", n => { Drives = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Drive>(GitHubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"error", n => { Error = n.GetObjectValue<PublicError>(PublicError.CreateFromDiscriminatorValue); } },
                 {"externalColumns", n => { ExternalColumns = n.GetCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"items", n => { Items = n.GetCollectionOfObjectValues<BaseItem>(BaseItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"lists", n => { Lists = n.GetCollectionOfObjectValues<List>(List.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"onenote", n => { Onenote = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Onenote>(GithubTodoDemo.MicrosoftGraph.Models.Onenote.CreateFromDiscriminatorValue); } },
+                {"onenote", n => { Onenote = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Onenote>(GitHubTodoDemo.MicrosoftGraph.Models.Onenote.CreateFromDiscriminatorValue); } },
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<RichLongRunningOperation>(RichLongRunningOperation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"permissions", n => { Permissions = n.GetCollectionOfObjectValues<Permission>(Permission.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"root", n => { Root = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Root>(GithubTodoDemo.MicrosoftGraph.Models.Root.CreateFromDiscriminatorValue); } },
-                {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GithubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
-                {"siteCollection", n => { SiteCollection = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SiteCollection>(GithubTodoDemo.MicrosoftGraph.Models.SiteCollection.CreateFromDiscriminatorValue); } },
+                {"root", n => { Root = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Root>(GitHubTodoDemo.MicrosoftGraph.Models.Root.CreateFromDiscriminatorValue); } },
+                {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
+                {"siteCollection", n => { SiteCollection = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SiteCollection>(GitHubTodoDemo.MicrosoftGraph.Models.SiteCollection.CreateFromDiscriminatorValue); } },
                 {"sites", n => { Sites = n.GetCollectionOfObjectValues<Site>(Site.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"termStore", n => { TermStore = n.GetObjectValue<Store>(Store.CreateFromDiscriminatorValue); } },
                 {"termStores", n => { TermStores = n.GetCollectionOfObjectValues<Store>(Store.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -95,18 +95,18 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<ColumnDefinition>("columns", Columns);
             writer.WriteCollectionOfObjectValues<ContentType>("contentTypes", ContentTypes);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Drive>("drive", Drive);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Drive>("drives", Drives);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Drive>("drive", Drive);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Drive>("drives", Drives);
             writer.WriteObjectValue<PublicError>("error", Error);
             writer.WriteCollectionOfObjectValues<ColumnDefinition>("externalColumns", ExternalColumns);
             writer.WriteCollectionOfObjectValues<BaseItem>("items", Items);
             writer.WriteCollectionOfObjectValues<List>("lists", Lists);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Onenote>("onenote", Onenote);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Onenote>("onenote", Onenote);
             writer.WriteCollectionOfObjectValues<RichLongRunningOperation>("operations", Operations);
             writer.WriteCollectionOfObjectValues<Permission>("permissions", Permissions);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Root>("root", Root);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SiteCollection>("siteCollection", SiteCollection);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Root>("root", Root);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SiteCollection>("siteCollection", SiteCollection);
             writer.WriteCollectionOfObjectValues<Site>("sites", Sites);
             writer.WriteObjectValue<Store>("termStore", TermStore);
             writer.WriteCollectionOfObjectValues<Store>("termStores", TermStores);

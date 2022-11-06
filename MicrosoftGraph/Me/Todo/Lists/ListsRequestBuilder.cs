@@ -1,6 +1,6 @@
-using GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item;
-using GithubTodoDemo.MicrosoftGraph.Models;
-using GithubTodoDemo.MicrosoftGraph.Models.ODataErrors;
+using GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item;
+using GitHubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists {
+namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class ListsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
@@ -18,7 +18,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the GithubTodoDemo.MicrosoftGraph.me.todo.lists.item collection</summary>
+        /// <summary>Gets an item from the GitHubTodoDemo.MicrosoftGraph.me.todo.lists.item collection</summary>
         public TodoTaskListItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("todoTaskList%2Did", position);
@@ -97,31 +97,29 @@ namespace GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists {
         /// Get a list of the todoTaskList objects and their properties.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<TodoTaskListCollectionResponse> GetAsync(Action<ListsRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<TodoTaskListCollectionResponse> GetAsync(Action<ListsRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<TodoTaskListCollectionResponse>(requestInfo, TodoTaskListCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<TodoTaskListCollectionResponse>(requestInfo, TodoTaskListCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Create a new lists object.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<TodoTaskList> PostAsync(TodoTaskList body, Action<ListsRequestBuilderPostRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<TodoTaskList> PostAsync(TodoTaskList body, Action<ListsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<TodoTaskList>(requestInfo, TodoTaskList.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<TodoTaskList>(requestInfo, TodoTaskList.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Get a list of the todoTaskList objects and their properties.</summary>
         public class ListsRequestBuilderGetQueryParameters {

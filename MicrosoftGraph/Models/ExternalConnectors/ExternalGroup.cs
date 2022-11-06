@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class ExternalGroup : Entity, IParsable {
         /// <summary>The description of the external group. Optional.</summary>

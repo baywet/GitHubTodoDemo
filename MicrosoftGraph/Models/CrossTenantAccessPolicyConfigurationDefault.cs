@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CrossTenantAccessPolicyConfigurationDefault : Entity, IParsable {
         /// <summary>Defines your default configuration for users from other organizations accessing your resources via Azure AD B2B collaboration.</summary>
         public CrossTenantAccessPolicyB2BSetting B2bCollaborationInbound { get; set; }

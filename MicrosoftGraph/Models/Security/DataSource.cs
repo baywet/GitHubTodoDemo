@@ -1,14 +1,14 @@
-using GithubTodoDemo.MicrosoftGraph.Models.Security;
+using GitHubTodoDemo.MicrosoftGraph.Models.Security;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class DataSource : Entity, IParsable {
         /// <summary>The user who created the dataSource.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.IdentitySet CreatedBy { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet CreatedBy { get; set; }
         /// <summary>The date and time the dataSource was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The display name of the dataSource. This will be the name of the SharePoint site.</summary>
@@ -40,7 +40,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GithubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                {"createdBy", n => { CreatedBy = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"holdStatus", n => { HoldStatus = n.GetEnumValue<DataSourceHoldStatus>(); } },
@@ -53,7 +53,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>("createdBy", CreatedBy);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteEnumValue<DataSourceHoldStatus>("holdStatus", HoldStatus);

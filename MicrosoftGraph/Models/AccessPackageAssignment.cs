@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AccessPackageAssignment : Entity, IParsable {
         /// <summary>Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AccessPackage AccessPackage { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage AccessPackage { get; set; }
         /// <summary>Read-only. Supports $filter (eq) on the id property and $expand query parameters.</summary>
         public AccessPackageAssignmentPolicy AssignmentPolicy { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
@@ -38,7 +38,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"accessPackage", n => { AccessPackage = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AccessPackage>(GithubTodoDemo.MicrosoftGraph.Models.AccessPackage.CreateFromDiscriminatorValue); } },
+                {"accessPackage", n => { AccessPackage = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage>(GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage.CreateFromDiscriminatorValue); } },
                 {"assignmentPolicy", n => { AssignmentPolicy = n.GetObjectValue<AccessPackageAssignmentPolicy>(AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue); } },
                 {"expiredDateTime", n => { ExpiredDateTime = n.GetDateTimeOffsetValue(); } },
                 {"schedule", n => { Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
@@ -54,7 +54,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AccessPackage>("accessPackage", AccessPackage);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage>("accessPackage", AccessPackage);
             writer.WriteObjectValue<AccessPackageAssignmentPolicy>("assignmentPolicy", AssignmentPolicy);
             writer.WriteDateTimeOffsetValue("expiredDateTime", ExpiredDateTime);
             writer.WriteObjectValue<EntitlementManagementSchedule>("schedule", Schedule);

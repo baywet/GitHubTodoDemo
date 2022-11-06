@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AzureActiveDirectoryTenant : IdentitySource, IParsable {
         /// <summary>The name of the Azure Active Directory tenant. Read only.</summary>
         public string DisplayName { get; set; }

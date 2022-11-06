@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DeviceCompliancePolicyDeviceStateSummary : Entity, IParsable {
         /// <summary>Number of compliant devices</summary>
         public int? CompliantDeviceCount { get; set; }

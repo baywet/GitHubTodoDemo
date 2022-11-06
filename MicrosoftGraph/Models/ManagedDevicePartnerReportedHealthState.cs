@@ -1,4 +1,4 @@
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public enum ManagedDevicePartnerReportedHealthState {
         /// <summary>Device health state is not yet reported</summary>

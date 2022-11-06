@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
     public class Schema : Entity, IParsable {
         /// <summary>Must be set to microsoft.graph.externalConnector.externalItem. Required.</summary>
         public string BaseType { get; set; }

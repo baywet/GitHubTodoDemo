@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationExternalResource : EducationResource, IParsable {
         /// <summary>Location of the resource. Required</summary>
         public string WebUrl { get; set; }

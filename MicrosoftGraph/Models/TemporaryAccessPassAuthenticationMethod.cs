@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TemporaryAccessPassAuthenticationMethod : AuthenticationMethod, IParsable {
         /// <summary>The date and time when the Temporary Access Pass was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }

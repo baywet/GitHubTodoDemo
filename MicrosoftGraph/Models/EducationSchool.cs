@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationSchool : EducationOrganization, IParsable {
         /// <summary>Address of the school.</summary>
         public PhysicalAddress Address { get; set; }
         /// <summary>The underlying administrativeUnit for this school.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit AdministrativeUnit { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit AdministrativeUnit { get; set; }
         /// <summary>Classes taught at the school. Nullable.</summary>
         public List<EducationClass> Classes { get; set; }
         /// <summary>Entity who created the school.</summary>
@@ -53,7 +53,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"address", n => { Address = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
-                {"administrativeUnit", n => { AdministrativeUnit = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit>(GithubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit.CreateFromDiscriminatorValue); } },
+                {"administrativeUnit", n => { AdministrativeUnit = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit>(GitHubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit.CreateFromDiscriminatorValue); } },
                 {"classes", n => { Classes = n.GetCollectionOfObjectValues<EducationClass>(EducationClass.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"externalId", n => { ExternalId = n.GetStringValue(); } },
@@ -76,7 +76,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<PhysicalAddress>("address", Address);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit>("administrativeUnit", AdministrativeUnit);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit>("administrativeUnit", AdministrativeUnit);
             writer.WriteCollectionOfObjectValues<EducationClass>("classes", Classes);
             writer.WriteObjectValue<IdentitySet>("createdBy", CreatedBy);
             writer.WriteStringValue("externalId", ExternalId);

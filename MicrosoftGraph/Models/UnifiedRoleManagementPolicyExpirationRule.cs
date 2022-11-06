@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UnifiedRoleManagementPolicyExpirationRule : UnifiedRoleManagementPolicyRule, IParsable {
         /// <summary>Indicates whether expiration is required or if it&apos;s a permanently active assignment or eligibility.</summary>
         public bool? IsExpirationRequired { get; set; }

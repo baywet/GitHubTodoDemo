@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AccessPackageSubject : Entity, IParsable {
         /// <summary>The connected organization of the subject. Read-only. Nullable.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ConnectedOrganization ConnectedOrganization { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ConnectedOrganization ConnectedOrganization { get; set; }
         /// <summary>The display name of the subject.</summary>
         public string DisplayName { get; set; }
         /// <summary>The email address of the subject.</summary>
@@ -38,7 +38,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"connectedOrganization", n => { ConnectedOrganization = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ConnectedOrganization>(GithubTodoDemo.MicrosoftGraph.Models.ConnectedOrganization.CreateFromDiscriminatorValue); } },
+                {"connectedOrganization", n => { ConnectedOrganization = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ConnectedOrganization>(GitHubTodoDemo.MicrosoftGraph.Models.ConnectedOrganization.CreateFromDiscriminatorValue); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"email", n => { Email = n.GetStringValue(); } },
                 {"objectId", n => { ObjectId = n.GetStringValue(); } },
@@ -54,7 +54,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ConnectedOrganization>("connectedOrganization", ConnectedOrganization);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ConnectedOrganization>("connectedOrganization", ConnectedOrganization);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("objectId", ObjectId);

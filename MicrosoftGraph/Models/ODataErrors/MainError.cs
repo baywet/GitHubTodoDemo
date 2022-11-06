@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.ODataErrors {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors {
     public class MainError : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.ODataErrors {
         /// <summary>The details property</summary>
         public List<ErrorDetails> Details { get; set; }
         /// <summary>The innererror property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError Innererror { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError Innererror { get; set; }
         /// <summary>The message property</summary>
         public string Message { get; set; }
         /// <summary>The target property</summary>
@@ -38,7 +38,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.ODataErrors {
             return new Dictionary<string, Action<IParseNode>> {
                 {"code", n => { Code = n.GetStringValue(); } },
                 {"details", n => { Details = n.GetCollectionOfObjectValues<ErrorDetails>(ErrorDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"innererror", n => { Innererror = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError>(GithubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError.CreateFromDiscriminatorValue); } },
+                {"innererror", n => { Innererror = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError>(GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError.CreateFromDiscriminatorValue); } },
                 {"message", n => { Message = n.GetStringValue(); } },
                 {"target", n => { Target = n.GetStringValue(); } },
             };
@@ -51,7 +51,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.ODataErrors {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteCollectionOfObjectValues<ErrorDetails>("details", Details);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError>("innererror", Innererror);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError>("innererror", Innererror);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("target", Target);
             writer.WriteAdditionalData(AdditionalData);

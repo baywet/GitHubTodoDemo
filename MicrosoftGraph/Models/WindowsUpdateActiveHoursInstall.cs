@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WindowsUpdateActiveHoursInstall : WindowsUpdateInstallScheduleType, IParsable {
         /// <summary>Active Hours End</summary>
         public Time? ActiveHoursEnd { get; set; }

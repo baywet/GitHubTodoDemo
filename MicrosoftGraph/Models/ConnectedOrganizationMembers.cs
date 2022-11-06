@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ConnectedOrganizationMembers : SubjectSet, IParsable {
         /// <summary>The ID of the connected organization in entitlement management.</summary>
         public string ConnectedOrganizationId { get; set; }

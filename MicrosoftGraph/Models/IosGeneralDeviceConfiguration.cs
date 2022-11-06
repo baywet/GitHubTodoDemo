@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosGeneralDeviceConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Indicates whether or not to allow account modification when the device is in supervised mode.</summary>
         public bool? AccountBlockModification { get; set; }
@@ -182,23 +182,23 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Apps rating as in media content</summary>
         public RatingAppsType? MediaContentRatingApps { get; set; }
         /// <summary>Media content rating settings for Australia</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingAustralia MediaContentRatingAustralia { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingAustralia MediaContentRatingAustralia { get; set; }
         /// <summary>Media content rating settings for Canada</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingCanada MediaContentRatingCanada { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingCanada MediaContentRatingCanada { get; set; }
         /// <summary>Media content rating settings for France</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingFrance MediaContentRatingFrance { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingFrance MediaContentRatingFrance { get; set; }
         /// <summary>Media content rating settings for Germany</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingGermany MediaContentRatingGermany { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingGermany MediaContentRatingGermany { get; set; }
         /// <summary>Media content rating settings for Ireland</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingIreland MediaContentRatingIreland { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingIreland MediaContentRatingIreland { get; set; }
         /// <summary>Media content rating settings for Japan</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingJapan MediaContentRatingJapan { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingJapan MediaContentRatingJapan { get; set; }
         /// <summary>Media content rating settings for New Zealand</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingNewZealand MediaContentRatingNewZealand { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingNewZealand MediaContentRatingNewZealand { get; set; }
         /// <summary>Media content rating settings for United Kingdom</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedKingdom MediaContentRatingUnitedKingdom { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedKingdom MediaContentRatingUnitedKingdom { get; set; }
         /// <summary>Media content rating settings for United States</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedStates MediaContentRatingUnitedStates { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedStates MediaContentRatingUnitedStates { get; set; }
         /// <summary>Indicates whether or not to block the user from using the Messages app on the supervised device.</summary>
         public bool? MessagesBlocked { get; set; }
         /// <summary>List of managed apps and the network rules that applies to them. This collection can contain a maximum of 1000 elements.</summary>
@@ -374,15 +374,15 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"lockScreenBlockPassbook", n => { LockScreenBlockPassbook = n.GetBoolValue(); } },
                 {"lockScreenBlockTodayView", n => { LockScreenBlockTodayView = n.GetBoolValue(); } },
                 {"mediaContentRatingApps", n => { MediaContentRatingApps = n.GetEnumValue<RatingAppsType>(); } },
-                {"mediaContentRatingAustralia", n => { MediaContentRatingAustralia = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingAustralia>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingAustralia.CreateFromDiscriminatorValue); } },
-                {"mediaContentRatingCanada", n => { MediaContentRatingCanada = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingCanada>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingCanada.CreateFromDiscriminatorValue); } },
-                {"mediaContentRatingFrance", n => { MediaContentRatingFrance = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingFrance>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingFrance.CreateFromDiscriminatorValue); } },
-                {"mediaContentRatingGermany", n => { MediaContentRatingGermany = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingGermany>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingGermany.CreateFromDiscriminatorValue); } },
-                {"mediaContentRatingIreland", n => { MediaContentRatingIreland = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingIreland>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingIreland.CreateFromDiscriminatorValue); } },
-                {"mediaContentRatingJapan", n => { MediaContentRatingJapan = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingJapan>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingJapan.CreateFromDiscriminatorValue); } },
-                {"mediaContentRatingNewZealand", n => { MediaContentRatingNewZealand = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingNewZealand>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingNewZealand.CreateFromDiscriminatorValue); } },
-                {"mediaContentRatingUnitedKingdom", n => { MediaContentRatingUnitedKingdom = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedKingdom>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedKingdom.CreateFromDiscriminatorValue); } },
-                {"mediaContentRatingUnitedStates", n => { MediaContentRatingUnitedStates = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedStates>(GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedStates.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingAustralia", n => { MediaContentRatingAustralia = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingAustralia>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingAustralia.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingCanada", n => { MediaContentRatingCanada = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingCanada>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingCanada.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingFrance", n => { MediaContentRatingFrance = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingFrance>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingFrance.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingGermany", n => { MediaContentRatingGermany = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingGermany>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingGermany.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingIreland", n => { MediaContentRatingIreland = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingIreland>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingIreland.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingJapan", n => { MediaContentRatingJapan = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingJapan>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingJapan.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingNewZealand", n => { MediaContentRatingNewZealand = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingNewZealand>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingNewZealand.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingUnitedKingdom", n => { MediaContentRatingUnitedKingdom = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedKingdom>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedKingdom.CreateFromDiscriminatorValue); } },
+                {"mediaContentRatingUnitedStates", n => { MediaContentRatingUnitedStates = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedStates>(GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedStates.CreateFromDiscriminatorValue); } },
                 {"messagesBlocked", n => { MessagesBlocked = n.GetBoolValue(); } },
                 {"networkUsageRules", n => { NetworkUsageRules = n.GetCollectionOfObjectValues<IosNetworkUsageRule>(IosNetworkUsageRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"notificationsBlockSettingsModification", n => { NotificationsBlockSettingsModification = n.GetBoolValue(); } },
@@ -514,15 +514,15 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("lockScreenBlockPassbook", LockScreenBlockPassbook);
             writer.WriteBoolValue("lockScreenBlockTodayView", LockScreenBlockTodayView);
             writer.WriteEnumValue<RatingAppsType>("mediaContentRatingApps", MediaContentRatingApps);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingAustralia>("mediaContentRatingAustralia", MediaContentRatingAustralia);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingCanada>("mediaContentRatingCanada", MediaContentRatingCanada);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingFrance>("mediaContentRatingFrance", MediaContentRatingFrance);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingGermany>("mediaContentRatingGermany", MediaContentRatingGermany);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingIreland>("mediaContentRatingIreland", MediaContentRatingIreland);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingJapan>("mediaContentRatingJapan", MediaContentRatingJapan);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingNewZealand>("mediaContentRatingNewZealand", MediaContentRatingNewZealand);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedKingdom>("mediaContentRatingUnitedKingdom", MediaContentRatingUnitedKingdom);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedStates>("mediaContentRatingUnitedStates", MediaContentRatingUnitedStates);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingAustralia>("mediaContentRatingAustralia", MediaContentRatingAustralia);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingCanada>("mediaContentRatingCanada", MediaContentRatingCanada);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingFrance>("mediaContentRatingFrance", MediaContentRatingFrance);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingGermany>("mediaContentRatingGermany", MediaContentRatingGermany);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingIreland>("mediaContentRatingIreland", MediaContentRatingIreland);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingJapan>("mediaContentRatingJapan", MediaContentRatingJapan);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingNewZealand>("mediaContentRatingNewZealand", MediaContentRatingNewZealand);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedKingdom>("mediaContentRatingUnitedKingdom", MediaContentRatingUnitedKingdom);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MediaContentRatingUnitedStates>("mediaContentRatingUnitedStates", MediaContentRatingUnitedStates);
             writer.WriteBoolValue("messagesBlocked", MessagesBlocked);
             writer.WriteCollectionOfObjectValues<IosNetworkUsageRule>("networkUsageRules", NetworkUsageRules);
             writer.WriteBoolValue("notificationsBlockSettingsModification", NotificationsBlockSettingsModification);

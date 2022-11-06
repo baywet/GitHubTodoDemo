@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryReviewTag : Tag, IParsable {
         /// <summary>Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Security.ChildSelectability? ChildSelectability { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Security.ChildSelectability? ChildSelectability { get; set; }
         /// <summary>Returns the tags that are a child of a tag.</summary>
         public List<EdiscoveryReviewTag> ChildTags { get; set; }
         /// <summary>Returns the parent tag of the specified tag.</summary>

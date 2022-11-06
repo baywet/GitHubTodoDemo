@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PlannerTaskDetails : Entity, IParsable {
         /// <summary>The collection of checklist items on the task.</summary>
         public PlannerChecklistItems Checklist { get; set; }

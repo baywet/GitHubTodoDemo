@@ -1,12 +1,12 @@
-using GithubTodoDemo.GitHub.Repos.Item.Item.Commits;
-using GithubTodoDemo.GitHub.Repos.Item.Item.Pulls;
+using GitHubTodoDemo.GitHub.Repos.Item.Item.Commits;
+using GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls;
 using Microsoft.Kiota.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item {
     /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}</summary>
     public class WithRepoItemRequestBuilder {
         /// <summary>The commits property</summary>

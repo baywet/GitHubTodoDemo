@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ManagedAndroidStoreApp : ManagedApp, IParsable {
         /// <summary>The Android AppStoreUrl.</summary>
         public string AppStoreUrl { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CrossTenantAccessPolicyTargetConfiguration : IAdditionalDataHolder, IParsable {
         /// <summary>Defines whether access is allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.</summary>
         public CrossTenantAccessPolicyTargetConfigurationAccessType? AccessType { get; set; }

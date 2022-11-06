@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class SignIn : Entity, IParsable {
         /// <summary>App name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).</summary>
@@ -15,13 +15,13 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Identifies the client used for the sign-in activity. Modern authentication clients include Browser and modern clients. Legacy authentication clients include Exchange ActiveSync, IMAP, MAPI, SMTP, POP, and other clients. Supports $filter (eq operator only).</summary>
         public string ClientAppUsed { get; set; }
         /// <summary>Reports status of an activated conditional access policy. Possible values are: success, failure, notApplied, and unknownFutureValue. Supports $filter (eq operator only).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ConditionalAccessStatus? ConditionalAccessStatus { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ConditionalAccessStatus? ConditionalAccessStatus { get; set; }
         /// <summary>The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity. Supports $filter (eq operator only).</summary>
         public string CorrelationId { get; set; }
         /// <summary>Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as 2014-01-01T00:00:00Z. Supports $orderby and $filter (eq, le, and ge operators only).</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Device information from where the sign-in occurred; includes device ID, operating system, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSytem properties.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DeviceDetail DeviceDetail { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DeviceDetail DeviceDetail { get; set; }
         /// <summary>IP address of the client used to sign in. Supports $filter (eq and startsWith operators only).</summary>
         public string IpAddress { get; set; }
         /// <summary>Indicates if a sign-in is interactive or not.</summary>
@@ -33,7 +33,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>ID of the resource that the user signed into. Supports $filter (eq operator only).</summary>
         public string ResourceId { get; set; }
         /// <summary>Provides the &apos;reason&apos; behind a specific state of a risky user, sign-in or a risk event. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far.  Supports $filter (eq operator only).Note: Details for this property require an Azure AD Premium P2 license. Other licenses return the value hidden.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RiskDetail? RiskDetail { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RiskDetail? RiskDetail { get; set; }
         /// <summary>Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue. Supports $filter (eq operator only).</summary>
         public List<RiskEventType?> RiskEventTypes { get; set; }
         /// <summary>The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).</summary>
@@ -43,7 +43,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Risk level during sign-in. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection.  Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned hidden.</summary>
         public RiskLevel? RiskLevelDuringSignIn { get; set; }
         /// <summary>Reports status of the risky user, sign-in, or a risk event. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. Supports $filter (eq operator only).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RiskState? RiskState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RiskState? RiskState { get; set; }
         /// <summary>Sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property.</summary>
         public SignInStatus Status { get; set; }
         /// <summary>Display name of the user that initiated the sign-in. Supports $filter (eq and startsWith operators only).</summary>
@@ -78,7 +78,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"conditionalAccessStatus", n => { ConditionalAccessStatus = n.GetEnumValue<ConditionalAccessStatus>(); } },
                 {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deviceDetail", n => { DeviceDetail = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DeviceDetail>(GithubTodoDemo.MicrosoftGraph.Models.DeviceDetail.CreateFromDiscriminatorValue); } },
+                {"deviceDetail", n => { DeviceDetail = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DeviceDetail>(GitHubTodoDemo.MicrosoftGraph.Models.DeviceDetail.CreateFromDiscriminatorValue); } },
                 {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
                 {"isInteractive", n => { IsInteractive = n.GetBoolValue(); } },
                 {"location", n => { Location = n.GetObjectValue<SignInLocation>(SignInLocation.CreateFromDiscriminatorValue); } },
@@ -110,7 +110,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", ConditionalAccessStatus);
             writer.WriteStringValue("correlationId", CorrelationId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DeviceDetail>("deviceDetail", DeviceDetail);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DeviceDetail>("deviceDetail", DeviceDetail);
             writer.WriteStringValue("ipAddress", IpAddress);
             writer.WriteBoolValue("isInteractive", IsInteractive);
             writer.WriteObjectValue<SignInLocation>("location", Location);

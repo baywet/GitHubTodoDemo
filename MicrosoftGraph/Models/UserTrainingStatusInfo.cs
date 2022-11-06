@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UserTrainingStatusInfo : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -16,7 +16,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TrainingStatus? TrainingStatus { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TrainingStatus? TrainingStatus { get; set; }
         /// <summary>
         /// Instantiates a new userTrainingStatusInfo and sets the default values.
         /// </summary>

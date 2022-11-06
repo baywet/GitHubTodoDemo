@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryCase : Case, IParsable {
         /// <summary>The user who closed the case.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.IdentitySet ClosedBy { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet ClosedBy { get; set; }
         /// <summary>The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? ClosedDateTime { get; set; }
         /// <summary>Returns a list of case ediscoveryCustodian objects for this case.</summary>
@@ -44,7 +44,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"closedBy", n => { ClosedBy = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GithubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                {"closedBy", n => { ClosedBy = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 {"closedDateTime", n => { ClosedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"custodians", n => { Custodians = n.GetCollectionOfObjectValues<EdiscoveryCustodian>(EdiscoveryCustodian.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"externalId", n => { ExternalId = n.GetStringValue(); } },
@@ -63,7 +63,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>("closedBy", ClosedBy);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>("closedBy", ClosedBy);
             writer.WriteDateTimeOffsetValue("closedDateTime", ClosedDateTime);
             writer.WriteCollectionOfObjectValues<EdiscoveryCustodian>("custodians", Custodians);
             writer.WriteStringValue("externalId", ExternalId);

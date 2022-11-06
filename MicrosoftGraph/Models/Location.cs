@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Location : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -17,7 +17,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Optional email address of the location.</summary>
         public string LocationEmailAddress { get; set; }
         /// <summary>The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.LocationType? LocationType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.LocationType? LocationType { get; set; }
         /// <summary>Optional URI representing the location.</summary>
         public string LocationUri { get; set; }
         /// <summary>The OdataType property</summary>

@@ -3,18 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ServiceHealthIssuePost : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The published time of the post.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>The content of the service issue post.</summary>
+        /// <summary>The content of the service issue post. The supported value for the contentType property is html.</summary>
         public ItemBody Description { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PostType? PostType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PostType? PostType { get; set; }
         /// <summary>
         /// Instantiates a new serviceHealthIssuePost and sets the default values.
         /// </summary>

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainDnsMxRecord : DomainDnsRecord, IParsable {
         /// <summary>Value used when configuring the answer/destination/value of the MX record at the DNS host.</summary>
         public string MailExchange { get; set; }

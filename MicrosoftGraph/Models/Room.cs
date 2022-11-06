@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Room : Place, IParsable {
         /// <summary>Specifies the name of the audio device in the room.</summary>
         public string AudioDeviceName { get; set; }
         /// <summary>Type of room. Possible values are standard, and reserved.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.BookingType? BookingType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.BookingType? BookingType { get; set; }
         /// <summary>Specifies the building name or building number that the room is in.</summary>
         public string Building { get; set; }
         /// <summary>Specifies the capacity of the room.</summary>

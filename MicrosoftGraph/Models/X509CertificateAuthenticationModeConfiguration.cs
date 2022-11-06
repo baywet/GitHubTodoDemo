@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class X509CertificateAuthenticationModeConfiguration : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
-        /// <summary>The rules property</summary>
+        /// <summary>Rules are configured in addition to the authentication mode to bind a specific x509CertificateRuleType to an x509CertificateAuthenticationMode. For example, bind the policyOID with identifier 1.32.132.343 to x509CertificateMultiFactor authentication mode.</summary>
         public List<X509CertificateRule> Rules { get; set; }
-        /// <summary>The x509CertificateAuthenticationDefaultMode property</summary>
+        /// <summary>The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.</summary>
         public X509CertificateAuthenticationMode? X509CertificateAuthenticationDefaultMode { get; set; }
         /// <summary>
         /// Instantiates a new x509CertificateAuthenticationModeConfiguration and sets the default values.

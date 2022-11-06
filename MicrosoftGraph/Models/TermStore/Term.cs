@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     public class Term : Entity, IParsable {
         /// <summary>Children of current term.</summary>
         public List<Term> Children { get; set; }
@@ -16,11 +16,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
         /// <summary>Last date and time of term modification. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Collection of properties on the term.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.KeyValue> Properties { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue> Properties { get; set; }
         /// <summary>To indicate which terms are related to the current term as either pinned or reused.</summary>
         public List<Relation> Relations { get; set; }
         /// <summary>The [set] in which the term is created.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TermStore.Set Set { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set Set { get; set; }
         /// <summary>
         /// Instantiates a new term and sets the default values.
         /// </summary>
@@ -45,9 +45,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
                 {"descriptions", n => { Descriptions = n.GetCollectionOfObjectValues<LocalizedDescription>(LocalizedDescription.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"labels", n => { Labels = n.GetCollectionOfObjectValues<LocalizedLabel>(LocalizedLabel.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"properties", n => { Properties = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.KeyValue>(GithubTodoDemo.MicrosoftGraph.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"properties", n => { Properties = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue>(GitHubTodoDemo.MicrosoftGraph.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"relations", n => { Relations = n.GetCollectionOfObjectValues<Relation>(Relation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"set", n => { Set = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TermStore.Set>(GithubTodoDemo.MicrosoftGraph.Models.TermStore.Set.CreateFromDiscriminatorValue); } },
+                {"set", n => { Set = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set>(GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -62,9 +62,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.TermStore {
             writer.WriteCollectionOfObjectValues<LocalizedDescription>("descriptions", Descriptions);
             writer.WriteCollectionOfObjectValues<LocalizedLabel>("labels", Labels);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.KeyValue>("properties", Properties);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue>("properties", Properties);
             writer.WriteCollectionOfObjectValues<Relation>("relations", Relations);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TermStore.Set>("set", Set);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set>("set", Set);
         }
     }
 }

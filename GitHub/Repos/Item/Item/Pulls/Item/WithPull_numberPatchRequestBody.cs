@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item {
     public class WithPull_numberPatchRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,7 +11,7 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item {
         public string Base { get; set; }
         /// <summary>The contents of the pull request.</summary>
         public string Body { get; set; }
-        /// <summary>Indicates whether [maintainers can modify](https://docs.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
+        /// <summary>Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
         public bool? Maintainer_can_modify { get; set; }
         /// <summary>State of this Pull Request. Either `open` or `closed`.</summary>
         public WithPull_numberPatchRequestBody_state? State { get; set; }

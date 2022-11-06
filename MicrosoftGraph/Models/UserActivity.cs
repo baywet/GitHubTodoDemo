@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class UserActivity : Entity, IParsable {
         /// <summary>Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.</summary>
@@ -29,7 +29,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Set by the server. DateTime in UTC when the object was modified on the server.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Status? Status { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Status? Status { get; set; }
         /// <summary>Optional. The timezone in which the user&apos;s device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.</summary>
         public string UserTimezone { get; set; }
         /// <summary>The visualElements property</summary>

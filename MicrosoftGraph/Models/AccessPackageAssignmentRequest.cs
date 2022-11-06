@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class AccessPackageAssignmentRequest : Entity, IParsable {
         /// <summary>The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AccessPackage AccessPackage { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage AccessPackage { get; set; }
         /// <summary>For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created.  For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.</summary>
         public AccessPackageAssignment Assignment { get; set; }
         /// <summary>The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
@@ -43,7 +43,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"accessPackage", n => { AccessPackage = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AccessPackage>(GithubTodoDemo.MicrosoftGraph.Models.AccessPackage.CreateFromDiscriminatorValue); } },
+                {"accessPackage", n => { AccessPackage = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage>(GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage.CreateFromDiscriminatorValue); } },
                 {"assignment", n => { Assignment = n.GetObjectValue<AccessPackageAssignment>(AccessPackageAssignment.CreateFromDiscriminatorValue); } },
                 {"completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -61,7 +61,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AccessPackage>("accessPackage", AccessPackage);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage>("accessPackage", AccessPackage);
             writer.WriteObjectValue<AccessPackageAssignment>("assignment", Assignment);
             writer.WriteDateTimeOffsetValue("completedDateTime", CompletedDateTime);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);

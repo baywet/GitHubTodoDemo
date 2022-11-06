@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles.</summary>
     public class RoleAssignment : Entity, IParsable {
         /// <summary>Description of the Role Assignment.</summary>
@@ -14,7 +14,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>List of ids of role scope member security groups.  These are IDs from Azure Active Directory.</summary>
         public List<string> ResourceScopes { get; set; }
         /// <summary>Role definition this assignment is part of.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RoleDefinition RoleDefinition { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RoleDefinition RoleDefinition { get; set; }
         /// <summary>
         /// Instantiates a new roleAssignment and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"resourceScopes", n => { ResourceScopes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.RoleDefinition>(GithubTodoDemo.MicrosoftGraph.Models.RoleDefinition.CreateFromDiscriminatorValue); } },
+                {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.RoleDefinition>(GitHubTodoDemo.MicrosoftGraph.Models.RoleDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfPrimitiveValues<string>("resourceScopes", ResourceScopes);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.RoleDefinition>("roleDefinition", RoleDefinition);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.RoleDefinition>("roleDefinition", RoleDefinition);
         }
     }
 }

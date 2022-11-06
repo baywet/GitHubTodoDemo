@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ConditionalAccessRoot : Entity, IParsable {
         /// <summary>Read-only. Nullable. Returns a collection of the specified authentication context class references.</summary>
         public List<AuthenticationContextClassReference> AuthenticationContextClassReferences { get; set; }
@@ -11,6 +11,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public List<NamedLocation> NamedLocations { get; set; }
         /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.</summary>
         public List<ConditionalAccessPolicy> Policies { get; set; }
+        /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access templates.</summary>
+        public List<ConditionalAccessTemplate> Templates { get; set; }
         /// <summary>
         /// Instantiates a new conditionalAccessRoot and sets the default values.
         /// </summary>
@@ -33,6 +35,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<AuthenticationContextClassReference>(AuthenticationContextClassReference.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"namedLocations", n => { NamedLocations = n.GetCollectionOfObjectValues<NamedLocation>(NamedLocation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"policies", n => { Policies = n.GetCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"templates", n => { Templates = n.GetCollectionOfObjectValues<ConditionalAccessTemplate>(ConditionalAccessTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -45,6 +48,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", AuthenticationContextClassReferences);
             writer.WriteCollectionOfObjectValues<NamedLocation>("namedLocations", NamedLocations);
             writer.WriteCollectionOfObjectValues<ConditionalAccessPolicy>("policies", Policies);
+            writer.WriteCollectionOfObjectValues<ConditionalAccessTemplate>("templates", Templates);
         }
     }
 }

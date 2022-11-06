@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Printer : PrinterBase, IParsable {
         /// <summary>The connectors that are associated with the printer.</summary>
         public List<PrintConnector> Connectors { get; set; }

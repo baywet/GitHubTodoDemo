@@ -1,16 +1,16 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class TeamInfo : Entity, IParsable {
         /// <summary>The name of the team.</summary>
         public string DisplayName { get; set; }
         /// <summary>The team property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Team Team { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Team Team { get; set; }
         /// <summary>The ID of the Azure Active Directory tenant.</summary>
         public string TenantId { get; set; }
         /// <summary>
@@ -38,7 +38,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"team", n => { Team = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Team>(GithubTodoDemo.MicrosoftGraph.Models.Team.CreateFromDiscriminatorValue); } },
+                {"team", n => { Team = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Team>(GitHubTodoDemo.MicrosoftGraph.Models.Team.CreateFromDiscriminatorValue); } },
                 {"tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
@@ -50,7 +50,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Team>("team", Team);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Team>("team", Team);
             writer.WriteStringValue("tenantId", TenantId);
         }
     }

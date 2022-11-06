@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SubjectRightsRequest : Entity, IParsable {
         /// <summary>Identity that the request is assigned to.</summary>
         public Identity AssignedTo { get; set; }
@@ -14,9 +14,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Information about the data subject.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DataSubject DataSubject { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DataSubject DataSubject { get; set; }
         /// <summary>The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DataSubjectType? DataSubjectType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DataSubjectType? DataSubjectType { get; set; }
         /// <summary>Description for the request.</summary>
         public string Description { get; set; }
         /// <summary>The name of the request.</summary>
@@ -40,7 +40,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The status of the request.. Possible values are: active, closed, unknownFutureValue.</summary>
         public SubjectRightsRequestStatus? Status { get; set; }
         /// <summary>Information about the Microsoft Teams team that was created for the request.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Team Team { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Team Team { get; set; }
         /// <summary>The type of the request. Possible values are: export, delete,  access, tagForAction, unknownFutureValue.</summary>
         public SubjectRightsRequestType? Type { get; set; }
         /// <summary>
@@ -66,7 +66,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"closedDateTime", n => { ClosedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"dataSubject", n => { DataSubject = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DataSubject>(GithubTodoDemo.MicrosoftGraph.Models.DataSubject.CreateFromDiscriminatorValue); } },
+                {"dataSubject", n => { DataSubject = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DataSubject>(GitHubTodoDemo.MicrosoftGraph.Models.DataSubject.CreateFromDiscriminatorValue); } },
                 {"dataSubjectType", n => { DataSubjectType = n.GetEnumValue<DataSubjectType>(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -79,7 +79,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"regulations", n => { Regulations = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"stages", n => { Stages = n.GetCollectionOfObjectValues<SubjectRightsRequestStageDetail>(SubjectRightsRequestStageDetail.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"status", n => { Status = n.GetEnumValue<SubjectRightsRequestStatus>(); } },
-                {"team", n => { Team = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Team>(GithubTodoDemo.MicrosoftGraph.Models.Team.CreateFromDiscriminatorValue); } },
+                {"team", n => { Team = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Team>(GitHubTodoDemo.MicrosoftGraph.Models.Team.CreateFromDiscriminatorValue); } },
                 {"type", n => { Type = n.GetEnumValue<SubjectRightsRequestType>(); } },
             };
         }
@@ -94,7 +94,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteDateTimeOffsetValue("closedDateTime", ClosedDateTime);
             writer.WriteObjectValue<IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DataSubject>("dataSubject", DataSubject);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DataSubject>("dataSubject", DataSubject);
             writer.WriteEnumValue<DataSubjectType>("dataSubjectType", DataSubjectType);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
@@ -107,7 +107,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("regulations", Regulations);
             writer.WriteCollectionOfObjectValues<SubjectRightsRequestStageDetail>("stages", Stages);
             writer.WriteEnumValue<SubjectRightsRequestStatus>("status", Status);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Team>("team", Team);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Team>("team", Team);
             writer.WriteEnumValue<SubjectRightsRequestType>("type", Type);
         }
     }

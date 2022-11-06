@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ParticipantJoiningNotification : Entity, IParsable {
         /// <summary>The call property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Call Call { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Call Call { get; set; }
         /// <summary>
         /// Instantiates a new ParticipantJoiningNotification and sets the default values.
         /// </summary>
@@ -26,7 +26,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"call", n => { Call = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Call>(GithubTodoDemo.MicrosoftGraph.Models.Call.CreateFromDiscriminatorValue); } },
+                {"call", n => { Call = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Call>(GitHubTodoDemo.MicrosoftGraph.Models.Call.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Call>("call", Call);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Call>("call", Call);
         }
     }
 }

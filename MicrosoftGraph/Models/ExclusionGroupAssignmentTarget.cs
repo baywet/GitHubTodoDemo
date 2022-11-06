@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ExclusionGroupAssignmentTarget : GroupAssignmentTarget, IParsable {
         /// <summary>
         /// Instantiates a new ExclusionGroupAssignmentTarget and sets the default values.

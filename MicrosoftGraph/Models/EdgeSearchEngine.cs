@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EdgeSearchEngine : EdgeSearchEngineBase, IParsable {
         /// <summary>Allows IT admind to set a predefined default search engine for MDM-Controlled devices</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.EdgeSearchEngineType? EdgeSearchEngineType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.EdgeSearchEngineType? EdgeSearchEngineType { get; set; }
         /// <summary>
         /// Instantiates a new EdgeSearchEngine and sets the default values.
         /// </summary>

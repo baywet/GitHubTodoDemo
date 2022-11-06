@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Windows10TeamGeneralConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Indicates whether or not to Block Azure Operational Insights.</summary>
         public bool? AzureOperationalInsightsBlockTelemetry { get; set; }
@@ -23,7 +23,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether or not to Block wireless projection.</summary>
         public bool? MiracastBlocked { get; set; }
         /// <summary>Possible values for Miracast channel.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MiracastChannel? MiracastChannel { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MiracastChannel? MiracastChannel { get; set; }
         /// <summary>Indicates whether or not to require a pin for wireless projection.</summary>
         public bool? MiracastRequirePin { get; set; }
         /// <summary>Specifies whether to disable the &apos;My meetings and files&apos; feature in the Start menu, which shows the signed-in user&apos;s meetings and files from Office 365.</summary>
@@ -45,7 +45,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether or not to Block the welcome screen from waking up automatically when someone enters the room.</summary>
         public bool? WelcomeScreenBlockAutomaticWakeUp { get; set; }
         /// <summary>Possible values for welcome screen meeting information.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.WelcomeScreenMeetingInformation? WelcomeScreenMeetingInformation { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.WelcomeScreenMeetingInformation? WelcomeScreenMeetingInformation { get; set; }
         /// <summary>
         /// Instantiates a new Windows10TeamGeneralConfiguration and sets the default values.
         /// </summary>

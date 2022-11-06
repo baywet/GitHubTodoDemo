@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WindowsInformationProtection : ManagedAppPolicy, IParsable {
         /// <summary>Navigation property to list of security groups targeted for policy.</summary>
         public List<TargetedManagedAppPolicyAssignment> Assignments { get; set; }

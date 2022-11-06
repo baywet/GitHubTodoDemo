@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TokenMeetingInfo : MeetingInfo, IParsable {
         /// <summary>The token used to join the call.</summary>
         public string Token { get; set; }

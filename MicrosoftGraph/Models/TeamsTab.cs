@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class TeamsTab : Entity, IParsable {
         /// <summary>Container for custom settings applied to a tab. The tab is considered configured only once this property is set.</summary>
@@ -11,7 +11,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Name of the tab.</summary>
         public string DisplayName { get; set; }
         /// <summary>The application that is linked to the tab. This cannot be changed after tab creation.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TeamsApp TeamsApp { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TeamsApp TeamsApp { get; set; }
         /// <summary>Deep link URL of the tab instance. Read only.</summary>
         public string WebUrl { get; set; }
         /// <summary>
@@ -35,7 +35,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"configuration", n => { Configuration = n.GetObjectValue<TeamsTabConfiguration>(TeamsTabConfiguration.CreateFromDiscriminatorValue); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"teamsApp", n => { TeamsApp = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TeamsApp>(GithubTodoDemo.MicrosoftGraph.Models.TeamsApp.CreateFromDiscriminatorValue); } },
+                {"teamsApp", n => { TeamsApp = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TeamsApp>(GitHubTodoDemo.MicrosoftGraph.Models.TeamsApp.CreateFromDiscriminatorValue); } },
                 {"webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
@@ -48,7 +48,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             base.Serialize(writer);
             writer.WriteObjectValue<TeamsTabConfiguration>("configuration", Configuration);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TeamsApp>("teamsApp", TeamsApp);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TeamsApp>("teamsApp", TeamsApp);
             writer.WriteStringValue("webUrl", WebUrl);
         }
     }

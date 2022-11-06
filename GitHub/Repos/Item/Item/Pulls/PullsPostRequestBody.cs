@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls {
     public class PullsPostRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,15 +11,15 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls {
         public string Base { get; set; }
         /// <summary>The contents of the pull request.</summary>
         public string Body { get; set; }
-        /// <summary>Indicates whether the pull request is a draft. See &quot;[Draft Pull Requests](https://docs.github.com/en/articles/about-pull-requests#draft-pull-requests)&quot; in the GitHub Help documentation to learn more.</summary>
+        /// <summary>Indicates whether the pull request is a draft. See &quot;[Draft Pull Requests](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests)&quot; in the GitHub Help documentation to learn more.</summary>
         public bool? Draft { get; set; }
         /// <summary>The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.</summary>
         public string Head { get; set; }
-        /// <summary>An issue in the repository to convert to a pull request. The issue title, body, and comments will become the title, body, and comments on the new pull request. Required unless `title` is specified.</summary>
+        /// <summary>The issue property</summary>
         public int? Issue { get; set; }
-        /// <summary>Indicates whether [maintainers can modify](https://docs.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
+        /// <summary>Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
         public bool? Maintainer_can_modify { get; set; }
-        /// <summary>The title of the new pull request. Required unless `issue` is specified.</summary>
+        /// <summary>The title of the new pull request.</summary>
         public string Title { get; set; }
         /// <summary>
         /// Instantiates a new pullsPostRequestBody and sets the default values.

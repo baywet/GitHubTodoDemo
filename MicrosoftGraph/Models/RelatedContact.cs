@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RelatedContact : IAdditionalDataHolder, IParsable {
         /// <summary>Indicates whether the user has been consented to access student data.</summary>
         public bool? AccessConsent { get; set; }

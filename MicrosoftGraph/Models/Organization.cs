@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Organization : DirectoryObject, IParsable {
         /// <summary>The collection of service plans associated with the tenant. Not nullable.</summary>
         public List<AssignedPlan> AssignedPlans { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Telephone number for the organization. Although this is a string collection, only one number can be set for this property.</summary>
         public List<string> BusinessPhones { get; set; }
         /// <summary>Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.CertificateBasedAuthConfiguration> CertificateBasedAuthConfiguration { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.CertificateBasedAuthConfiguration> CertificateBasedAuthConfiguration { get; set; }
         /// <summary>City name of the address for the organization.</summary>
         public string City { get; set; }
         /// <summary>Country/region name of the address for the organization.</summary>
@@ -38,7 +38,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.</summary>
         public string PreferredLanguage { get; set; }
         /// <summary>The privacy profile of an organization.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PrivacyProfile PrivacyProfile { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PrivacyProfile PrivacyProfile { get; set; }
         /// <summary>Not nullable.</summary>
         public List<ProvisionedPlan> ProvisionedPlans { get; set; }
         /// <summary>The securityComplianceNotificationMails property</summary>
@@ -77,7 +77,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"assignedPlans", n => { AssignedPlans = n.GetCollectionOfObjectValues<AssignedPlan>(AssignedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"branding", n => { Branding = n.GetObjectValue<OrganizationalBranding>(OrganizationalBranding.CreateFromDiscriminatorValue); } },
                 {"businessPhones", n => { BusinessPhones = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"certificateBasedAuthConfiguration", n => { CertificateBasedAuthConfiguration = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.CertificateBasedAuthConfiguration>(GithubTodoDemo.MicrosoftGraph.Models.CertificateBasedAuthConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"certificateBasedAuthConfiguration", n => { CertificateBasedAuthConfiguration = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.CertificateBasedAuthConfiguration>(GitHubTodoDemo.MicrosoftGraph.Models.CertificateBasedAuthConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"city", n => { City = n.GetStringValue(); } },
                 {"country", n => { Country = n.GetStringValue(); } },
                 {"countryLetterCode", n => { CountryLetterCode = n.GetStringValue(); } },
@@ -90,7 +90,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
                 {"postalCode", n => { PostalCode = n.GetStringValue(); } },
                 {"preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
-                {"privacyProfile", n => { PrivacyProfile = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PrivacyProfile>(GithubTodoDemo.MicrosoftGraph.Models.PrivacyProfile.CreateFromDiscriminatorValue); } },
+                {"privacyProfile", n => { PrivacyProfile = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PrivacyProfile>(GitHubTodoDemo.MicrosoftGraph.Models.PrivacyProfile.CreateFromDiscriminatorValue); } },
                 {"provisionedPlans", n => { ProvisionedPlans = n.GetCollectionOfObjectValues<ProvisionedPlan>(ProvisionedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"securityComplianceNotificationMails", n => { SecurityComplianceNotificationMails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"securityComplianceNotificationPhones", n => { SecurityComplianceNotificationPhones = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -111,7 +111,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<AssignedPlan>("assignedPlans", AssignedPlans);
             writer.WriteObjectValue<OrganizationalBranding>("branding", Branding);
             writer.WriteCollectionOfPrimitiveValues<string>("businessPhones", BusinessPhones);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.CertificateBasedAuthConfiguration>("certificateBasedAuthConfiguration", CertificateBasedAuthConfiguration);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.CertificateBasedAuthConfiguration>("certificateBasedAuthConfiguration", CertificateBasedAuthConfiguration);
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("country", Country);
             writer.WriteStringValue("countryLetterCode", CountryLetterCode);
@@ -124,7 +124,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("onPremisesSyncEnabled", OnPremisesSyncEnabled);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PrivacyProfile>("privacyProfile", PrivacyProfile);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PrivacyProfile>("privacyProfile", PrivacyProfile);
             writer.WriteCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", ProvisionedPlans);
             writer.WriteCollectionOfPrimitiveValues<string>("securityComplianceNotificationMails", SecurityComplianceNotificationMails);
             writer.WriteCollectionOfPrimitiveValues<string>("securityComplianceNotificationPhones", SecurityComplianceNotificationPhones);

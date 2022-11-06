@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SingleServicePrincipal : SubjectSet, IParsable {
         /// <summary>Description of this service principal.</summary>
         public string Description { get; set; }

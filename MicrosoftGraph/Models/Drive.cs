@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Drive : BaseItem, IParsable {
         /// <summary>Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.</summary>
         public List<DriveItem> Bundles { get; set; }
@@ -14,15 +14,15 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>All items contained in the drive. Read-only. Nullable.</summary>
         public List<DriveItem> Items { get; set; }
         /// <summary>For drives in SharePoint, the underlying document library list. Read-only. Nullable.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.List List { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.List List { get; set; }
         /// <summary>Optional. The user account that owns the drive. Read-only.</summary>
         public IdentitySet Owner { get; set; }
         /// <summary>Optional. Information about the drive&apos;s storage space quota. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Quota Quota { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Quota Quota { get; set; }
         /// <summary>The root folder of the drive. Read-only.</summary>
         public DriveItem Root { get; set; }
         /// <summary>The sharePointIds property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SharepointIds SharePointIds { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds SharePointIds { get; set; }
         /// <summary>Collection of common folders available in OneDrive. Read-only. Nullable.</summary>
         public List<DriveItem> Special { get; set; }
         /// <summary>If present, indicates that this is a system-managed drive. Read-only.</summary>
@@ -50,11 +50,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"driveType", n => { DriveType = n.GetStringValue(); } },
                 {"following", n => { Following = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"items", n => { Items = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"list", n => { List = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.List>(GithubTodoDemo.MicrosoftGraph.Models.List.CreateFromDiscriminatorValue); } },
+                {"list", n => { List = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.List>(GitHubTodoDemo.MicrosoftGraph.Models.List.CreateFromDiscriminatorValue); } },
                 {"owner", n => { Owner = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"quota", n => { Quota = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Quota>(GithubTodoDemo.MicrosoftGraph.Models.Quota.CreateFromDiscriminatorValue); } },
+                {"quota", n => { Quota = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Quota>(GitHubTodoDemo.MicrosoftGraph.Models.Quota.CreateFromDiscriminatorValue); } },
                 {"root", n => { Root = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
-                {"sharePointIds", n => { SharePointIds = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GithubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
+                {"sharePointIds", n => { SharePointIds = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
                 {"special", n => { Special = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"system", n => { System = n.GetObjectValue<SystemFacet>(SystemFacet.CreateFromDiscriminatorValue); } },
             };
@@ -70,11 +70,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("driveType", DriveType);
             writer.WriteCollectionOfObjectValues<DriveItem>("following", Following);
             writer.WriteCollectionOfObjectValues<DriveItem>("items", Items);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.List>("list", List);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.List>("list", List);
             writer.WriteObjectValue<IdentitySet>("owner", Owner);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Quota>("quota", Quota);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Quota>("quota", Quota);
             writer.WriteObjectValue<DriveItem>("root", Root);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharePointIds", SharePointIds);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharePointIds", SharePointIds);
             writer.WriteCollectionOfObjectValues<DriveItem>("special", Special);
             writer.WriteObjectValue<SystemFacet>("system", System);
         }

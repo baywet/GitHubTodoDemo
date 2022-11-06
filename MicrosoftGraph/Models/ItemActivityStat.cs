@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ItemActivityStat : Entity, IParsable {
         /// <summary>Statistics about the access actions in this interval. Read-only.</summary>
         public ItemActionStat Access { get; set; }
@@ -18,7 +18,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>When the interval ends. Read-only.</summary>
         public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>Indicates that the statistics in this interval are based on incomplete data. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.IncompleteData IncompleteData { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.IncompleteData IncompleteData { get; set; }
         /// <summary>Indicates whether the item is &apos;trending.&apos; Read-only.</summary>
         public bool? IsTrending { get; set; }
         /// <summary>Statistics about the move actions in this interval. Read-only.</summary>
@@ -50,7 +50,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"delete", n => { Delete = n.GetObjectValue<ItemActionStat>(ItemActionStat.CreateFromDiscriminatorValue); } },
                 {"edit", n => { Edit = n.GetObjectValue<ItemActionStat>(ItemActionStat.CreateFromDiscriminatorValue); } },
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"incompleteData", n => { IncompleteData = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IncompleteData>(GithubTodoDemo.MicrosoftGraph.Models.IncompleteData.CreateFromDiscriminatorValue); } },
+                {"incompleteData", n => { IncompleteData = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IncompleteData>(GitHubTodoDemo.MicrosoftGraph.Models.IncompleteData.CreateFromDiscriminatorValue); } },
                 {"isTrending", n => { IsTrending = n.GetBoolValue(); } },
                 {"move", n => { Move = n.GetObjectValue<ItemActionStat>(ItemActionStat.CreateFromDiscriminatorValue); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
@@ -69,7 +69,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteObjectValue<ItemActionStat>("delete", Delete);
             writer.WriteObjectValue<ItemActionStat>("edit", Edit);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IncompleteData>("incompleteData", IncompleteData);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IncompleteData>("incompleteData", IncompleteData);
             writer.WriteBoolValue("isTrending", IsTrending);
             writer.WriteObjectValue<ItemActionStat>("move", Move);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);

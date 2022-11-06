@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models.Security;
+using GitHubTodoDemo.MicrosoftGraph.Models.Security;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Case : Entity, IParsable {
         /// <summary>The createdDateTime property</summary>
@@ -14,7 +14,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The displayName property</summary>
         public string DisplayName { get; set; }
         /// <summary>The lastModifiedBy property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.IdentitySet LastModifiedBy { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet LastModifiedBy { get; set; }
         /// <summary>The lastModifiedDateTime property</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The status property</summary>
@@ -45,7 +45,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GithubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"status", n => { Status = n.GetEnumValue<CaseStatus>(); } },
             };
@@ -60,7 +60,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>("lastModifiedBy", LastModifiedBy);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteEnumValue<CaseStatus>("status", Status);
         }

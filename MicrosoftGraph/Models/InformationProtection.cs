@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class InformationProtection : Entity, IParsable {
         /// <summary>The bitlocker property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Bitlocker Bitlocker { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Bitlocker Bitlocker { get; set; }
         /// <summary>The threatAssessmentRequests property</summary>
         public List<ThreatAssessmentRequest> ThreatAssessmentRequests { get; set; }
         /// <summary>
@@ -28,7 +28,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"bitlocker", n => { Bitlocker = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Bitlocker>(GithubTodoDemo.MicrosoftGraph.Models.Bitlocker.CreateFromDiscriminatorValue); } },
+                {"bitlocker", n => { Bitlocker = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Bitlocker>(GitHubTodoDemo.MicrosoftGraph.Models.Bitlocker.CreateFromDiscriminatorValue); } },
                 {"threatAssessmentRequests", n => { ThreatAssessmentRequests = n.GetCollectionOfObjectValues<ThreatAssessmentRequest>(ThreatAssessmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -39,7 +39,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Bitlocker>("bitlocker", Bitlocker);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Bitlocker>("bitlocker", Bitlocker);
             writer.WriteCollectionOfObjectValues<ThreatAssessmentRequest>("threatAssessmentRequests", ThreatAssessmentRequests);
         }
     }

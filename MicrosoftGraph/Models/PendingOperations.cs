@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PendingOperations : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>A property that indicates that an operation that might update the binary content of a file is pending completion.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PendingContentUpdate PendingContentUpdate { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PendingContentUpdate PendingContentUpdate { get; set; }
         /// <summary>
         /// Instantiates a new pendingOperations and sets the default values.
         /// </summary>
@@ -32,7 +32,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"pendingContentUpdate", n => { PendingContentUpdate = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PendingContentUpdate>(GithubTodoDemo.MicrosoftGraph.Models.PendingContentUpdate.CreateFromDiscriminatorValue); } },
+                {"pendingContentUpdate", n => { PendingContentUpdate = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PendingContentUpdate>(GitHubTodoDemo.MicrosoftGraph.Models.PendingContentUpdate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PendingContentUpdate>("pendingContentUpdate", PendingContentUpdate);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PendingContentUpdate>("pendingContentUpdate", PendingContentUpdate);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

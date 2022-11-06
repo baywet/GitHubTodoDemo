@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainDnsTxtRecord : DomainDnsRecord, IParsable {
         /// <summary>Value used when configuring the text property at the DNS host.</summary>
         public string Text { get; set; }

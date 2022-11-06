@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class EdiscoveryNoncustodialDataSource : DataSourceContainer, IParsable {
         /// <summary>User source or SharePoint site data source as non-custodial data source.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Security.DataSource DataSource { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Security.DataSource DataSource { get; set; }
         /// <summary>Operation entity that represents the latest indexing for the non-custodial data source.</summary>
         public EdiscoveryIndexOperation LastIndexOperation { get; set; }
         /// <summary>
@@ -29,7 +29,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"dataSource", n => { DataSource = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Security.DataSource>(GithubTodoDemo.MicrosoftGraph.Models.Security.DataSource.CreateFromDiscriminatorValue); } },
+                {"dataSource", n => { DataSource = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Security.DataSource>(GitHubTodoDemo.MicrosoftGraph.Models.Security.DataSource.CreateFromDiscriminatorValue); } },
                 {"lastIndexOperation", n => { LastIndexOperation = n.GetObjectValue<EdiscoveryIndexOperation>(EdiscoveryIndexOperation.CreateFromDiscriminatorValue); } },
             };
         }
@@ -40,7 +40,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Security.DataSource>("dataSource", DataSource);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Security.DataSource>("dataSource", DataSource);
             writer.WriteObjectValue<EdiscoveryIndexOperation>("lastIndexOperation", LastIndexOperation);
         }
     }

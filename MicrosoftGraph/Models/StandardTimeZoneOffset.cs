@@ -1,18 +1,18 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class StandardTimeZoneOffset : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Represents the nth occurrence of the day of week that the transition from daylight saving time to standard time occurs.</summary>
         public int? DayOccurrence { get; set; }
         /// <summary>Represents the day of the week when the transition from daylight saving time to standard time.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DayOfWeek? DayOfWeek { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DayOfWeek? DayOfWeek { get; set; }
         /// <summary>Represents the month of the year when the transition from daylight saving time to standard time occurs.</summary>
         public int? Month { get; set; }
         /// <summary>The OdataType property</summary>

@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class InvitationParticipantInfo : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The hidden property</summary>
+        /// <summary>Optional. Whether to hide the participant from the roster.</summary>
         public bool? Hidden { get; set; }
         /// <summary>The identity property</summary>
         public IdentitySet Identity { get; set; }
@@ -15,7 +15,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string OdataType { get; set; }
         /// <summary>Optional. The ID of the target participant.</summary>
         public string ParticipantId { get; set; }
-        /// <summary>The removeFromDefaultAudioRoutingGroup property</summary>
+        /// <summary>Optional. Whether to remove them from the main mixer.</summary>
         public bool? RemoveFromDefaultAudioRoutingGroup { get; set; }
         /// <summary>Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.</summary>
         public string ReplacesCallId { get; set; }

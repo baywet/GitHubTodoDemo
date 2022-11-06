@@ -1,4 +1,4 @@
-using GithubTodoDemo.GitHub.Repos;
+using GitHubTodoDemo.GitHub.Repos;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Text;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.GitHub {
+namespace GitHubTodoDemo.GitHub {
     /// <summary>The main entry point of the SDK, exposes the configuration and the fluent API.</summary>
     public class GitHubClient {
         /// <summary>Path parameters for the request</summary>

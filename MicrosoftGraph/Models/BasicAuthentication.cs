@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BasicAuthentication : ApiAuthenticationConfigurationBase, IParsable {
         /// <summary>The password. It is not returned in the responses.</summary>
         public string Password { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ChannelDescriptionUpdatedEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>The updated description of the channel.</summary>
         public string ChannelDescription { get; set; }

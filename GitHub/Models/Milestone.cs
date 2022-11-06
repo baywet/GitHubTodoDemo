@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>A collection of related issues and pull requests.</summary>
-    public class NullableMilestone : IAdditionalDataHolder, IParsable {
+    public class Milestone : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The closed_at property</summary>
@@ -14,8 +14,8 @@ namespace GithubTodoDemo.GitHub.Models {
         public int? Closed_issues { get; set; }
         /// <summary>The created_at property</summary>
         public DateTimeOffset? Created_at { get; set; }
-        /// <summary>Simple User</summary>
-        public NullableSimpleUser Creator { get; set; }
+        /// <summary>The creator property</summary>
+        public SimpleUser Creator { get; set; }
         /// <summary>The description property</summary>
         public string Description { get; set; }
         /// <summary>The due_on property</summary>
@@ -33,7 +33,7 @@ namespace GithubTodoDemo.GitHub.Models {
         /// <summary>The open_issues property</summary>
         public int? Open_issues { get; set; }
         /// <summary>The state of the milestone.</summary>
-        public NullableMilestone_state? State { get; set; }
+        public Milestone_state? State { get; set; }
         /// <summary>The title of the milestone.</summary>
         public string Title { get; set; }
         /// <summary>The updated_at property</summary>
@@ -41,19 +41,19 @@ namespace GithubTodoDemo.GitHub.Models {
         /// <summary>The url property</summary>
         public string Url { get; set; }
         /// <summary>
-        /// Instantiates a new nullableMilestone and sets the default values.
+        /// Instantiates a new Milestone and sets the default values.
         /// </summary>
-        public NullableMilestone() {
+        public Milestone() {
             AdditionalData = new Dictionary<string, object>();
-            State = NullableMilestone_state.Open;
+            State = Milestone_state.Open;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
-        public static NullableMilestone CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static Milestone CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NullableMilestone();
+            return new Milestone();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"closed_at", n => { Closed_at = n.GetDateTimeOffsetValue(); } },
                 {"closed_issues", n => { Closed_issues = n.GetIntValue(); } },
                 {"created_at", n => { Created_at = n.GetDateTimeOffsetValue(); } },
-                {"creator", n => { Creator = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                {"creator", n => { Creator = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"due_on", n => { Due_on = n.GetDateTimeOffsetValue(); } },
                 {"html_url", n => { Html_url = n.GetStringValue(); } },
@@ -72,7 +72,7 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"node_id", n => { Node_id = n.GetStringValue(); } },
                 {"number", n => { Number = n.GetIntValue(); } },
                 {"open_issues", n => { Open_issues = n.GetIntValue(); } },
-                {"state", n => { State = n.GetEnumValue<NullableMilestone_state>(); } },
+                {"state", n => { State = n.GetEnumValue<Milestone_state>(); } },
                 {"title", n => { Title = n.GetStringValue(); } },
                 {"updated_at", n => { Updated_at = n.GetDateTimeOffsetValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
@@ -87,7 +87,7 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteDateTimeOffsetValue("closed_at", Closed_at);
             writer.WriteIntValue("closed_issues", Closed_issues);
             writer.WriteDateTimeOffsetValue("created_at", Created_at);
-            writer.WriteObjectValue<NullableSimpleUser>("creator", Creator);
+            writer.WriteObjectValue<SimpleUser>("creator", Creator);
             writer.WriteStringValue("description", Description);
             writer.WriteDateTimeOffsetValue("due_on", Due_on);
             writer.WriteStringValue("html_url", Html_url);
@@ -96,7 +96,7 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("node_id", Node_id);
             writer.WriteIntValue("number", Number);
             writer.WriteIntValue("open_issues", Open_issues);
-            writer.WriteEnumValue<NullableMilestone_state>("state", State);
+            writer.WriteEnumValue<Milestone_state>("state", State);
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", Updated_at);
             writer.WriteStringValue("url", Url);

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class ServiceEndpoint : Endpoint, IParsable {
         /// <summary>
         /// Instantiates a new ServiceEndpoint and sets the default values.

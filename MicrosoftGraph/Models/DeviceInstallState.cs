@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Contains properties for the installation state for a device.</summary>
     public class DeviceInstallState : Entity, IParsable {
         /// <summary>Device Id.</summary>
@@ -13,7 +13,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The error code for install failures.</summary>
         public string ErrorCode { get; set; }
         /// <summary>Possible values for install state.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.InstallState? InstallState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.InstallState? InstallState { get; set; }
         /// <summary>Last sync date and time.</summary>
         public DateTimeOffset? LastSyncDateTime { get; set; }
         /// <summary>OS Description.</summary>

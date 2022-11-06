@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Represents an operation applied against an app registration.</summary>
     public class ManagedAppOperation : Entity, IParsable {
         /// <summary>The operation name.</summary>

@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UserScopeTeamsAppInstallation : TeamsAppInstallation, IParsable {
         /// <summary>The chat between the user and Teams app.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Chat Chat { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Chat Chat { get; set; }
         /// <summary>
         /// Instantiates a new UserScopeTeamsAppInstallation and sets the default values.
         /// </summary>
@@ -26,7 +26,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"chat", n => { Chat = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Chat>(GithubTodoDemo.MicrosoftGraph.Models.Chat.CreateFromDiscriminatorValue); } },
+                {"chat", n => { Chat = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Chat>(GitHubTodoDemo.MicrosoftGraph.Models.Chat.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Chat>("chat", Chat);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Chat>("chat", Chat);
         }
     }
 }

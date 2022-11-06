@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AndroidGeneralDeviceConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Indicates whether or not to block clipboard sharing to copy and paste between applications.</summary>
         public bool? AppsBlockClipboardSharing { get; set; }
@@ -98,7 +98,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether or not to block popups within the web browser.</summary>
         public bool? WebBrowserBlockPopups { get; set; }
         /// <summary>Web Browser Cookie Settings.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.WebBrowserCookieSettings? WebBrowserCookieSettings { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.WebBrowserCookieSettings? WebBrowserCookieSettings { get; set; }
         /// <summary>Indicates whether or not to block syncing Wi-Fi.</summary>
         public bool? WiFiBlocked { get; set; }
         /// <summary>

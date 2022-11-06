@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Windows10EndpointProtectionConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)</summary>
         public bool? ApplicationGuardAllowPersistence { get; set; }
@@ -34,7 +34,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Allows the admin to require encryption to be turned on using BitLocker.</summary>
         public bool? BitLockerEncryptDevice { get; set; }
         /// <summary>BitLocker Removable Drive Policy.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.BitLockerRemovableDrivePolicy BitLockerRemovableDrivePolicy { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.BitLockerRemovableDrivePolicy BitLockerRemovableDrivePolicy { get; set; }
         /// <summary>List of folder paths to be added to the list of protected folders</summary>
         public List<string> DefenderAdditionalGuardedFolders { get; set; }
         /// <summary>List of exe files and folders to be excluded from attack surface reduction rules</summary>
@@ -110,7 +110,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"bitLockerDisableWarningForOtherDiskEncryption", n => { BitLockerDisableWarningForOtherDiskEncryption = n.GetBoolValue(); } },
                 {"bitLockerEnableStorageCardEncryptionOnMobile", n => { BitLockerEnableStorageCardEncryptionOnMobile = n.GetBoolValue(); } },
                 {"bitLockerEncryptDevice", n => { BitLockerEncryptDevice = n.GetBoolValue(); } },
-                {"bitLockerRemovableDrivePolicy", n => { BitLockerRemovableDrivePolicy = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.BitLockerRemovableDrivePolicy>(GithubTodoDemo.MicrosoftGraph.Models.BitLockerRemovableDrivePolicy.CreateFromDiscriminatorValue); } },
+                {"bitLockerRemovableDrivePolicy", n => { BitLockerRemovableDrivePolicy = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.BitLockerRemovableDrivePolicy>(GitHubTodoDemo.MicrosoftGraph.Models.BitLockerRemovableDrivePolicy.CreateFromDiscriminatorValue); } },
                 {"defenderAdditionalGuardedFolders", n => { DefenderAdditionalGuardedFolders = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"defenderAttackSurfaceReductionExcludedPaths", n => { DefenderAttackSurfaceReductionExcludedPaths = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"defenderExploitProtectionXml", n => { DefenderExploitProtectionXml = n.GetByteArrayValue(); } },
@@ -155,7 +155,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("bitLockerDisableWarningForOtherDiskEncryption", BitLockerDisableWarningForOtherDiskEncryption);
             writer.WriteBoolValue("bitLockerEnableStorageCardEncryptionOnMobile", BitLockerEnableStorageCardEncryptionOnMobile);
             writer.WriteBoolValue("bitLockerEncryptDevice", BitLockerEncryptDevice);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.BitLockerRemovableDrivePolicy>("bitLockerRemovableDrivePolicy", BitLockerRemovableDrivePolicy);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.BitLockerRemovableDrivePolicy>("bitLockerRemovableDrivePolicy", BitLockerRemovableDrivePolicy);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderAdditionalGuardedFolders", DefenderAdditionalGuardedFolders);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderAttackSurfaceReductionExcludedPaths", DefenderAttackSurfaceReductionExcludedPaths);
             writer.WriteByteArrayValue("defenderExploitProtectionXml", DefenderExploitProtectionXml);

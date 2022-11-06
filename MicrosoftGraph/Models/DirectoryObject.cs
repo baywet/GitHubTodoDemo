@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DirectoryObject : Entity, IParsable {
         /// <summary>Conceptual container for user and group directory objects.</summary>
         public List<AdministrativeUnit> AdministrativeUnits { get; set; }

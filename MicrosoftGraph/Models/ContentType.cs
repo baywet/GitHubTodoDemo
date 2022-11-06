@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class ContentType : Entity, IParsable {
         /// <summary>List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.</summary>
@@ -21,7 +21,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The descriptive text for the item.</summary>
         public string Description { get; set; }
         /// <summary>Document Set metadata.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DocumentSet DocumentSet { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DocumentSet DocumentSet { get; set; }
         /// <summary>Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.</summary>
         public DocumentSetContent DocumentTemplate { get; set; }
         /// <summary>The name of the group this content type belongs to. Helps organize related content types.</summary>
@@ -70,7 +70,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"columnPositions", n => { ColumnPositions = n.GetCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"columns", n => { Columns = n.GetCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
-                {"documentSet", n => { DocumentSet = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DocumentSet>(GithubTodoDemo.MicrosoftGraph.Models.DocumentSet.CreateFromDiscriminatorValue); } },
+                {"documentSet", n => { DocumentSet = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DocumentSet>(GitHubTodoDemo.MicrosoftGraph.Models.DocumentSet.CreateFromDiscriminatorValue); } },
                 {"documentTemplate", n => { DocumentTemplate = n.GetObjectValue<DocumentSetContent>(DocumentSetContent.CreateFromDiscriminatorValue); } },
                 {"group", n => { Group = n.GetStringValue(); } },
                 {"hidden", n => { Hidden = n.GetBoolValue(); } },
@@ -98,7 +98,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<ColumnDefinition>("columnPositions", ColumnPositions);
             writer.WriteCollectionOfObjectValues<ColumnDefinition>("columns", Columns);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DocumentSet>("documentSet", DocumentSet);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DocumentSet>("documentSet", DocumentSet);
             writer.WriteObjectValue<DocumentSetContent>("documentTemplate", DocumentTemplate);
             writer.WriteStringValue("group", Group);
             writer.WriteBoolValue("hidden", Hidden);

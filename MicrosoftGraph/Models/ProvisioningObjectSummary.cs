@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class ProvisioningObjectSummary : Entity, IParsable {
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
@@ -21,9 +21,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Details of each property that was modified in this provisioning action on this object.</summary>
         public List<ModifiedProperty> ModifiedProperties { get; set; }
         /// <summary>Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ProvisioningAction? ProvisioningAction { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningAction? ProvisioningAction { get; set; }
         /// <summary>Details of provisioning status.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo ProvisioningStatusInfo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo ProvisioningStatusInfo { get; set; }
         /// <summary>Details of each step in provisioning.</summary>
         public List<ProvisioningStep> ProvisioningSteps { get; set; }
         /// <summary>Represents the service principal used for provisioning.</summary>
@@ -65,7 +65,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"jobId", n => { JobId = n.GetStringValue(); } },
                 {"modifiedProperties", n => { ModifiedProperties = n.GetCollectionOfObjectValues<ModifiedProperty>(ModifiedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"provisioningAction", n => { ProvisioningAction = n.GetEnumValue<ProvisioningAction>(); } },
-                {"provisioningStatusInfo", n => { ProvisioningStatusInfo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo>(GithubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo.CreateFromDiscriminatorValue); } },
+                {"provisioningStatusInfo", n => { ProvisioningStatusInfo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo>(GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo.CreateFromDiscriminatorValue); } },
                 {"provisioningSteps", n => { ProvisioningSteps = n.GetCollectionOfObjectValues<ProvisioningStep>(ProvisioningStep.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"servicePrincipal", n => { ServicePrincipal = n.GetObjectValue<ProvisioningServicePrincipal>(ProvisioningServicePrincipal.CreateFromDiscriminatorValue); } },
                 {"sourceIdentity", n => { SourceIdentity = n.GetObjectValue<ProvisionedIdentity>(ProvisionedIdentity.CreateFromDiscriminatorValue); } },
@@ -90,7 +90,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("jobId", JobId);
             writer.WriteCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", ModifiedProperties);
             writer.WriteEnumValue<ProvisioningAction>("provisioningAction", ProvisioningAction);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo>("provisioningStatusInfo", ProvisioningStatusInfo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo>("provisioningStatusInfo", ProvisioningStatusInfo);
             writer.WriteCollectionOfObjectValues<ProvisioningStep>("provisioningSteps", ProvisioningSteps);
             writer.WriteObjectValue<ProvisioningServicePrincipal>("servicePrincipal", ServicePrincipal);
             writer.WriteObjectValue<ProvisionedIdentity>("sourceIdentity", SourceIdentity);

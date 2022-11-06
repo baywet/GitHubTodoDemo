@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Entity representing a job to export a report</summary>
     public class DeviceManagementExportJob : Entity, IParsable {
         /// <summary>Time that the exported report expires</summary>

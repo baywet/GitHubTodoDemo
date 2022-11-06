@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationAssignmentIndividualRecipient : EducationAssignmentRecipient, IParsable {
         /// <summary>A collection of IDs of the recipients.</summary>
         public List<string> Recipients { get; set; }

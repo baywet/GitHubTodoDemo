@@ -3,20 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class TeamworkTag : Entity, IParsable {
-        /// <summary>The description property</summary>
+        /// <summary>The description of the tag as it will appear to the user in Microsoft Teams.</summary>
         public string Description { get; set; }
-        /// <summary>The displayName property</summary>
+        /// <summary>The name of the tag as it will appear to the user in Microsoft Teams.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The memberCount property</summary>
+        /// <summary>The number of users assigned to the tag.</summary>
         public int? MemberCount { get; set; }
-        /// <summary>The members property</summary>
+        /// <summary>Users assigned to the tag.</summary>
         public List<TeamworkTagMember> Members { get; set; }
-        /// <summary>The tagType property</summary>
+        /// <summary>The type of the tag. Default is standard.</summary>
         public TeamworkTagType? TagType { get; set; }
-        /// <summary>The teamId property</summary>
+        /// <summary>ID of the team in which the tag is defined.</summary>
         public string TeamId { get; set; }
         /// <summary>
         /// Instantiates a new teamworkTag and sets the default values.

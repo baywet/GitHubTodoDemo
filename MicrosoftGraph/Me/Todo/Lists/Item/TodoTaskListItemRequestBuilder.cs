@@ -1,11 +1,11 @@
-using GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item.Tasks;
+using GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item.Tasks;
 using Microsoft.Kiota.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item {
+namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item {
     /// <summary>Builds and executes requests for operations under \me\todo\lists\{todoTaskList-id}</summary>
     public class TodoTaskListItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

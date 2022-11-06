@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>A termsAndConditionsAcceptanceStatus entity represents the acceptance status of a given Terms and Conditions (T&amp;C) policy by a given user. Users must accept the most up-to-date version of the terms in order to retain access to the Company Portal.</summary>
     public class TermsAndConditionsAcceptanceStatus : Entity, IParsable {
         /// <summary>DateTime when the terms were last accepted by the user.</summary>
@@ -11,7 +11,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Most recent version number of the T&amp;C accepted by the user.</summary>
         public int? AcceptedVersion { get; set; }
         /// <summary>Navigation link to the terms and conditions that are assigned.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TermsAndConditions TermsAndConditions { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TermsAndConditions TermsAndConditions { get; set; }
         /// <summary>Display name of the user whose acceptance the entity represents.</summary>
         public string UserDisplayName { get; set; }
         /// <summary>The userPrincipalName of the User that accepted the term.</summary>
@@ -37,7 +37,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"acceptedDateTime", n => { AcceptedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"acceptedVersion", n => { AcceptedVersion = n.GetIntValue(); } },
-                {"termsAndConditions", n => { TermsAndConditions = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TermsAndConditions>(GithubTodoDemo.MicrosoftGraph.Models.TermsAndConditions.CreateFromDiscriminatorValue); } },
+                {"termsAndConditions", n => { TermsAndConditions = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TermsAndConditions>(GitHubTodoDemo.MicrosoftGraph.Models.TermsAndConditions.CreateFromDiscriminatorValue); } },
                 {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
@@ -51,7 +51,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("acceptedDateTime", AcceptedDateTime);
             writer.WriteIntValue("acceptedVersion", AcceptedVersion);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TermsAndConditions>("termsAndConditions", TermsAndConditions);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TermsAndConditions>("termsAndConditions", TermsAndConditions);
             writer.WriteStringValue("userDisplayName", UserDisplayName);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
         }

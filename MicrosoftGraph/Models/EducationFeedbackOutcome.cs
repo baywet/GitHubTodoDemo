@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationFeedbackOutcome : EducationOutcome, IParsable {
         /// <summary>Teacher&apos;s written feedback to the student.</summary>
         public EducationFeedback Feedback { get; set; }

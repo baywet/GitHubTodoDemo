@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainDnsUnavailableRecord : DomainDnsRecord, IParsable {
         /// <summary>Provides the reason why the DomainDnsUnavailableRecord entity is returned.</summary>
         public string Description { get; set; }

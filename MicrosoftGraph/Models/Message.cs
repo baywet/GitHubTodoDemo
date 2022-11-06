@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Message : OutlookItem, IParsable {
         /// <summary>The fileAttachment and itemAttachment attachments for the message.</summary>
         public List<Attachment> Attachments { get; set; }
@@ -29,7 +29,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether the message has attachments. This property doesn&apos;t include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as &lt;IMG src=&apos;cid:image001.jpg@01D26CD8.6C05F070&apos;&gt;.</summary>
         public bool? HasAttachments { get; set; }
         /// <summary>The importance property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Importance? Importance { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Importance? Importance { get; set; }
         /// <summary>The inferenceClassification property</summary>
         public InferenceClassificationType? InferenceClassification { get; set; }
         /// <summary>The internetMessageHeaders property</summary>

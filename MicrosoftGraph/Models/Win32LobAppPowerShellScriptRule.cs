@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Win32LobAppPowerShellScriptRule : Win32LobAppRule, IParsable {
         /// <summary>The script output comparison value. Do not specify a value if the rule is used for detection.</summary>
         public string ComparisonValue { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OnenoteOperation : Operation, IParsable {
         /// <summary>The error returned by the operation.</summary>
         public OnenoteOperationError Error { get; set; }

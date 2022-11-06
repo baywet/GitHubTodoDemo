@@ -1,16 +1,16 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class TeamsAppInstallation : Entity, IParsable {
         /// <summary>The app that is installed.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TeamsApp TeamsApp { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TeamsApp TeamsApp { get; set; }
         /// <summary>The details of this version of the app.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TeamsAppDefinition TeamsAppDefinition { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TeamsAppDefinition TeamsAppDefinition { get; set; }
         /// <summary>
         /// Instantiates a new teamsAppInstallation and sets the default values.
         /// </summary>
@@ -34,8 +34,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"teamsApp", n => { TeamsApp = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TeamsApp>(GithubTodoDemo.MicrosoftGraph.Models.TeamsApp.CreateFromDiscriminatorValue); } },
-                {"teamsAppDefinition", n => { TeamsAppDefinition = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TeamsAppDefinition>(GithubTodoDemo.MicrosoftGraph.Models.TeamsAppDefinition.CreateFromDiscriminatorValue); } },
+                {"teamsApp", n => { TeamsApp = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TeamsApp>(GitHubTodoDemo.MicrosoftGraph.Models.TeamsApp.CreateFromDiscriminatorValue); } },
+                {"teamsAppDefinition", n => { TeamsAppDefinition = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TeamsAppDefinition>(GitHubTodoDemo.MicrosoftGraph.Models.TeamsAppDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -45,8 +45,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TeamsApp>("teamsApp", TeamsApp);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TeamsAppDefinition>("teamsAppDefinition", TeamsAppDefinition);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TeamsApp>("teamsApp", TeamsApp);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TeamsAppDefinition>("teamsAppDefinition", TeamsAppDefinition);
         }
     }
 }

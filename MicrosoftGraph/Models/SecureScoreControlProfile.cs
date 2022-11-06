@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class SecureScoreControlProfile : Entity, IParsable {
         /// <summary>Control action type (Config, Review, Behavior).</summary>
@@ -13,7 +13,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>GUID string for tenant ID.</summary>
         public string AzureTenantId { get; set; }
         /// <summary>The complianceInformation property</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.ComplianceInformation> ComplianceInformation { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.ComplianceInformation> ComplianceInformation { get; set; }
         /// <summary>Control action category (Identity, Data, Device, Apps, Infrastructure).</summary>
         public string ControlCategory { get; set; }
         /// <summary>The controlStateUpdates property</summary>
@@ -66,7 +66,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"actionType", n => { ActionType = n.GetStringValue(); } },
                 {"actionUrl", n => { ActionUrl = n.GetStringValue(); } },
                 {"azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
-                {"complianceInformation", n => { ComplianceInformation = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.ComplianceInformation>(GithubTodoDemo.MicrosoftGraph.Models.ComplianceInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"complianceInformation", n => { ComplianceInformation = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.ComplianceInformation>(GitHubTodoDemo.MicrosoftGraph.Models.ComplianceInformation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"controlCategory", n => { ControlCategory = n.GetStringValue(); } },
                 {"controlStateUpdates", n => { ControlStateUpdates = n.GetCollectionOfObjectValues<SecureScoreControlStateUpdate>(SecureScoreControlStateUpdate.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deprecated", n => { Deprecated = n.GetBoolValue(); } },
@@ -94,7 +94,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("actionType", ActionType);
             writer.WriteStringValue("actionUrl", ActionUrl);
             writer.WriteStringValue("azureTenantId", AzureTenantId);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.ComplianceInformation>("complianceInformation", ComplianceInformation);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.ComplianceInformation>("complianceInformation", ComplianceInformation);
             writer.WriteStringValue("controlCategory", ControlCategory);
             writer.WriteCollectionOfObjectValues<SecureScoreControlStateUpdate>("controlStateUpdates", ControlStateUpdates);
             writer.WriteBoolValue("deprecated", Deprecated);

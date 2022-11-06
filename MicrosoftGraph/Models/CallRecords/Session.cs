@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Session : Entity, IParsable {
         /// <summary>Endpoint that answered the session.</summary>
@@ -13,7 +13,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         /// <summary>UTC time when the last user left the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>Failure information associated with the session if the session failed.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecords.FailureInfo FailureInfo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.FailureInfo FailureInfo { get; set; }
         /// <summary>List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.</summary>
         public List<Modality?> Modalities { get; set; }
         /// <summary>The list of segments involved in the session. Read-only. Nullable.</summary>
@@ -42,7 +42,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
                 {"callee", n => { Callee = n.GetObjectValue<Endpoint>(Endpoint.CreateFromDiscriminatorValue); } },
                 {"caller", n => { Caller = n.GetObjectValue<Endpoint>(Endpoint.CreateFromDiscriminatorValue); } },
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"failureInfo", n => { FailureInfo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.CallRecords.FailureInfo>(GithubTodoDemo.MicrosoftGraph.Models.CallRecords.FailureInfo.CreateFromDiscriminatorValue); } },
+                {"failureInfo", n => { FailureInfo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.FailureInfo>(GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.FailureInfo.CreateFromDiscriminatorValue); } },
                 {"modalities", n => { Modalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
                 {"segments", n => { Segments = n.GetCollectionOfObjectValues<Segment>(Segment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
@@ -58,7 +58,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
             writer.WriteObjectValue<Endpoint>("callee", Callee);
             writer.WriteObjectValue<Endpoint>("caller", Caller);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.CallRecords.FailureInfo>("failureInfo", FailureInfo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.FailureInfo>("failureInfo", FailureInfo);
             writer.WriteCollectionOfEnumValues<Modality>("modalities", Modalities);
             writer.WriteCollectionOfObjectValues<Segment>("segments", Segments);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);

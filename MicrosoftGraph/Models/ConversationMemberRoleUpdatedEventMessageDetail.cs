@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ConversationMemberRoleUpdatedEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>Roles for the coversation member user.</summary>
         public List<string> ConversationMemberRoles { get; set; }

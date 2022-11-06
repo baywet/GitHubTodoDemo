@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SignInLocation : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.</summary>
         public string CountryOrRegion { get; set; }
         /// <summary>Provides the latitude, longitude and altitude where the sign-in originated.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.GeoCoordinates GeoCoordinates { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.GeoCoordinates GeoCoordinates { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.</summary>
@@ -39,7 +39,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"city", n => { City = n.GetStringValue(); } },
                 {"countryOrRegion", n => { CountryOrRegion = n.GetStringValue(); } },
-                {"geoCoordinates", n => { GeoCoordinates = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.GeoCoordinates>(GithubTodoDemo.MicrosoftGraph.Models.GeoCoordinates.CreateFromDiscriminatorValue); } },
+                {"geoCoordinates", n => { GeoCoordinates = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.GeoCoordinates>(GitHubTodoDemo.MicrosoftGraph.Models.GeoCoordinates.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"state", n => { State = n.GetStringValue(); } },
             };
@@ -52,7 +52,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("countryOrRegion", CountryOrRegion);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.GeoCoordinates>("geoCoordinates", GeoCoordinates);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.GeoCoordinates>("geoCoordinates", GeoCoordinates);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("state", State);
             writer.WriteAdditionalData(AdditionalData);

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CallRecordingEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>Unique identifier of the call.</summary>
         public string CallId { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Duration of the call recording.</summary>
         public TimeSpan? CallRecordingDuration { get; set; }
         /// <summary>Status of the call recording. Possible values are: success, failure, initial, chunkFinished, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecordingStatus? CallRecordingStatus { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecordingStatus? CallRecordingStatus { get; set; }
         /// <summary>Call recording URL.</summary>
         public string CallRecordingUrl { get; set; }
         /// <summary>Initiator of the event.</summary>

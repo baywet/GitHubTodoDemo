@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IdentitySecurityDefaultsEnforcementPolicy : PolicyBase, IParsable {
         /// <summary>If set to true, Azure Active Directory security defaults is enabled for the tenant.</summary>
         public bool? IsEnabled { get; set; }

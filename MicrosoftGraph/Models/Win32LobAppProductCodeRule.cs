@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Win32LobAppProductCodeRule : Win32LobAppRule, IParsable {
         /// <summary>The product code of the app.</summary>
         public string ProductCode { get; set; }

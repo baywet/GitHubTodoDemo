@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Participant : Entity, IParsable {
         /// <summary>The info property</summary>
@@ -17,7 +17,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A blob of data provided by the participant in the roster.</summary>
         public string Metadata { get; set; }
         /// <summary>Information about whether the participant has recording capability.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RecordingInfo RecordingInfo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RecordingInfo RecordingInfo { get; set; }
         /// <summary>
         /// Instantiates a new participant and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"isMuted", n => { IsMuted = n.GetBoolValue(); } },
                 {"mediaStreams", n => { MediaStreams = n.GetCollectionOfObjectValues<MediaStream>(MediaStream.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"metadata", n => { Metadata = n.GetStringValue(); } },
-                {"recordingInfo", n => { RecordingInfo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.RecordingInfo>(GithubTodoDemo.MicrosoftGraph.Models.RecordingInfo.CreateFromDiscriminatorValue); } },
+                {"recordingInfo", n => { RecordingInfo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.RecordingInfo>(GitHubTodoDemo.MicrosoftGraph.Models.RecordingInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("isMuted", IsMuted);
             writer.WriteCollectionOfObjectValues<MediaStream>("mediaStreams", MediaStreams);
             writer.WriteStringValue("metadata", Metadata);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.RecordingInfo>("recordingInfo", RecordingInfo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.RecordingInfo>("recordingInfo", RecordingInfo);
         }
     }
 }

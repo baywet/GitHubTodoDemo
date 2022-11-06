@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ReportRoot : Entity, IParsable {
         /// <summary>The dailyPrintUsageByPrinter property</summary>
         public List<PrintUsageByPrinter> DailyPrintUsageByPrinter { get; set; }

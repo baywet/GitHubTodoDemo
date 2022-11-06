@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Initiator : Identity, IParsable {
         /// <summary>Type of initiator. Possible values are: user, application, system, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.InitiatorType? InitiatorType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.InitiatorType? InitiatorType { get; set; }
         /// <summary>
         /// Instantiates a new Initiator and sets the default values.
         /// </summary>

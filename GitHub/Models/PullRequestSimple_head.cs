@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     public class PullRequestSimple_head : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -15,8 +15,8 @@ namespace GithubTodoDemo.GitHub.Models {
         public Repository Repo { get; set; }
         /// <summary>The sha property</summary>
         public string Sha { get; set; }
-        /// <summary>Simple User</summary>
-        public NullableSimpleUser User { get; set; }
+        /// <summary>The user property</summary>
+        public SimpleUser User { get; set; }
         /// <summary>
         /// Instantiates a new PullRequestSimple_head and sets the default values.
         /// </summary>
@@ -40,7 +40,7 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"ref", n => { Ref = n.GetStringValue(); } },
                 {"repo", n => { Repo = n.GetObjectValue<Repository>(Repository.CreateFromDiscriminatorValue); } },
                 {"sha", n => { Sha = n.GetStringValue(); } },
-                {"user", n => { User = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                {"user", n => { User = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("ref", Ref);
             writer.WriteObjectValue<Repository>("repo", Repo);
             writer.WriteStringValue("sha", Sha);
-            writer.WriteObjectValue<NullableSimpleUser>("user", User);
+            writer.WriteObjectValue<SimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CalendarSharingMessageAction : IAdditionalDataHolder, IParsable {
         /// <summary>The action property</summary>
         public CalendarSharingAction? Action { get; set; }

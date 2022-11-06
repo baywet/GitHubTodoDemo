@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class List : BaseItem, IParsable {
         /// <summary>The collection of field definitions for this list.</summary>
         public List<ColumnDefinition> Columns { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The displayable title of the list.</summary>
         public string DisplayName { get; set; }
         /// <summary>Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
         /// <summary>All items contained in the list.</summary>
         public List<ListItem> Items { get; set; }
         /// <summary>Provides additional details about the list.</summary>
@@ -20,7 +20,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The collection of long-running operations on the list.</summary>
         public List<RichLongRunningOperation> Operations { get; set; }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
         /// <summary>The set of subscriptions on the list.</summary>
         public List<Subscription> Subscriptions { get; set; }
         /// <summary>If present, indicates that this is a system-managed list. Read-only.</summary>
@@ -47,11 +47,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"columns", n => { Columns = n.GetCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"contentTypes", n => { ContentTypes = n.GetCollectionOfObjectValues<ContentType>(ContentType.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"drive", n => { Drive = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Drive>(GithubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue); } },
+                {"drive", n => { Drive = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Drive>(GitHubTodoDemo.MicrosoftGraph.Models.Drive.CreateFromDiscriminatorValue); } },
                 {"items", n => { Items = n.GetCollectionOfObjectValues<ListItem>(ListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"list", n => { List_prop = n.GetObjectValue<ListInfo>(ListInfo.CreateFromDiscriminatorValue); } },
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<RichLongRunningOperation>(RichLongRunningOperation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GithubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
+                {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
                 {"subscriptions", n => { Subscriptions = n.GetCollectionOfObjectValues<Subscription>(Subscription.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"system", n => { System = n.GetObjectValue<SystemFacet>(SystemFacet.CreateFromDiscriminatorValue); } },
             };
@@ -66,11 +66,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<ColumnDefinition>("columns", Columns);
             writer.WriteCollectionOfObjectValues<ContentType>("contentTypes", ContentTypes);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Drive>("drive", Drive);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Drive>("drive", Drive);
             writer.WriteCollectionOfObjectValues<ListItem>("items", Items);
             writer.WriteObjectValue<ListInfo>("list", List_prop);
             writer.WriteCollectionOfObjectValues<RichLongRunningOperation>("operations", Operations);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
             writer.WriteCollectionOfObjectValues<Subscription>("subscriptions", Subscriptions);
             writer.WriteObjectValue<SystemFacet>("system", System);
         }

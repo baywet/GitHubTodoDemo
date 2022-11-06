@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ChangeNotification : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The changeType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ChangeType? ChangeType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ChangeType? ChangeType { get; set; }
         /// <summary>Value of the clientState property sent in the subscription request (if any). The maximum length is 255 characters. The client can check whether the change notification came from the service by comparing the values of the clientState property. The value of the clientState property sent with the subscription is compared with the value of the clientState property received with each change notification. Optional.</summary>
         public string ClientState { get; set; }
         /// <summary>(Preview) Encrypted content attached with the change notification. Only provided if encryptionCertificate and includeResourceData were defined during the subscription request and if the resource supports it. Optional.</summary>
@@ -22,7 +22,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The URI of the resource that emitted the change notification relative to https://graph.microsoft.com. Required.</summary>
         public string Resource { get; set; }
         /// <summary>The content of this property depends on the type of resource being subscribed to. Optional.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResourceData ResourceData { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResourceData ResourceData { get; set; }
         /// <summary>The expiration time for the subscription. Required.</summary>
         public DateTimeOffset? SubscriptionExpirationDateTime { get; set; }
         /// <summary>The unique identifier of the subscription that generated the notification.Required.</summary>
@@ -56,7 +56,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"lifecycleEvent", n => { LifecycleEvent = n.GetEnumValue<LifecycleEventType>(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"resource", n => { Resource = n.GetStringValue(); } },
-                {"resourceData", n => { ResourceData = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResourceData>(GithubTodoDemo.MicrosoftGraph.Models.ResourceData.CreateFromDiscriminatorValue); } },
+                {"resourceData", n => { ResourceData = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResourceData>(GitHubTodoDemo.MicrosoftGraph.Models.ResourceData.CreateFromDiscriminatorValue); } },
                 {"subscriptionExpirationDateTime", n => { SubscriptionExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
                 {"tenantId", n => { TenantId = n.GetStringValue(); } },
@@ -75,7 +75,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteEnumValue<LifecycleEventType>("lifecycleEvent", LifecycleEvent);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("resource", Resource);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResourceData>("resourceData", ResourceData);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResourceData>("resourceData", ResourceData);
             writer.WriteDateTimeOffsetValue("subscriptionExpirationDateTime", SubscriptionExpirationDateTime);
             writer.WriteStringValue("subscriptionId", SubscriptionId);
             writer.WriteStringValue("tenantId", TenantId);

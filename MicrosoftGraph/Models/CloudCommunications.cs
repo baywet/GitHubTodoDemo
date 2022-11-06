@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models.CallRecords;
+using GitHubTodoDemo.MicrosoftGraph.Models.CallRecords;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CloudCommunications : Entity, IParsable {
         /// <summary>The callRecords property</summary>
         public List<CallRecord> CallRecords { get; set; }

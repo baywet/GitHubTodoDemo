@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainDnsSrvRecord : DomainDnsRecord, IParsable {
         /// <summary>Value to use when configuring the Target property of the SRV record at the DNS host.</summary>
         public string NameTarget { get; set; }

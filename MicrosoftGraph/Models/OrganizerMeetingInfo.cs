@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OrganizerMeetingInfo : MeetingInfo, IParsable {
         /// <summary>The organizer property</summary>
         public IdentitySet Organizer { get; set; }

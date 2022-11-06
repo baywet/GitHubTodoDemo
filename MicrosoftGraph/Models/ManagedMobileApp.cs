@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>The identifier for the deployment an app.</summary>
     public class ManagedMobileApp : Entity, IParsable {
         /// <summary>The identifier for an app with it&apos;s operating system type.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier MobileAppIdentifier { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier MobileAppIdentifier { get; set; }
         /// <summary>Version of the entity.</summary>
         public string Version { get; set; }
         /// <summary>
@@ -29,7 +29,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"mobileAppIdentifier", n => { MobileAppIdentifier = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier>(GithubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier.CreateFromDiscriminatorValue); } },
+                {"mobileAppIdentifier", n => { MobileAppIdentifier = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier>(GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier.CreateFromDiscriminatorValue); } },
                 {"version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -40,7 +40,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier>("mobileAppIdentifier", MobileAppIdentifier);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier>("mobileAppIdentifier", MobileAppIdentifier);
             writer.WriteStringValue("version", Version);
         }
     }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AndroidLobApp : MobileLobApp, IParsable {
         /// <summary>The value for the minimum applicable operating system.</summary>
         public AndroidMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosVppApp : MobileApp, IParsable {
         /// <summary>The applicable iOS Device Type.</summary>
         public IosDeviceType ApplicableDeviceType { get; set; }
@@ -20,7 +20,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The number of VPP licenses in use.</summary>
         public int? UsedLicenseCount { get; set; }
         /// <summary>Possible types of an Apple Volume Purchase Program token.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.VppTokenAccountType? VppTokenAccountType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.VppTokenAccountType? VppTokenAccountType { get; set; }
         /// <summary>The Apple Id associated with the given Apple Volume Purchase Program Token.</summary>
         public string VppTokenAppleId { get; set; }
         /// <summary>The organization associated with the Apple Volume Purchase Program Token</summary>

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrintService : Entity, IParsable {
         /// <summary>Endpoints that can be used to access the service. Read-only. Nullable.</summary>
         public List<PrintServiceEndpoint> Endpoints { get; set; }

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>Basic Error</summary>
     public class BasicError : ApiException, IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -13,10 +13,6 @@ namespace GithubTodoDemo.GitHub.Models {
         public string Documentation_url { get; set; }
         /// <summary>The message property</summary>
         public string Message { get; set; }
-        /// <summary>The status property</summary>
-        public string Status { get; set; }
-        /// <summary>The url property</summary>
-        public string Url { get; set; }
         /// <summary>
         /// Instantiates a new BasicError and sets the default values.
         /// </summary>
@@ -38,8 +34,6 @@ namespace GithubTodoDemo.GitHub.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"documentation_url", n => { Documentation_url = n.GetStringValue(); } },
                 {"message", n => { Message = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -50,8 +44,6 @@ namespace GithubTodoDemo.GitHub.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("documentation_url", Documentation_url);
             writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("status", Status);
-            writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

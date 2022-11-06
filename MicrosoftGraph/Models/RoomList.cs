@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RoomList : Place, IParsable {
         /// <summary>The email address of the room list.</summary>
         public string EmailAddress { get; set; }

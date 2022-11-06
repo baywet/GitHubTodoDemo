@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ToneInfo : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>An incremental identifier used for ordering DTMF events.</summary>
         public long? SequenceId { get; set; }
         /// <summary>The tone property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Tone? Tone { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Tone? Tone { get; set; }
         /// <summary>
         /// Instantiates a new toneInfo and sets the default values.
         /// </summary>

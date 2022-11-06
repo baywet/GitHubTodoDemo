@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DeleteUserFromSharedAppleDeviceActionResult : DeviceActionResult, IParsable {
         /// <summary>User principal name of the user to be deleted</summary>
         public string UserPrincipalName { get; set; }

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class AudioRoutingGroup : Entity, IParsable {
         /// <summary>The receivers property</summary>
         public List<string> Receivers { get; set; }
         /// <summary>The routingMode property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RoutingMode? RoutingMode { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RoutingMode? RoutingMode { get; set; }
         /// <summary>The sources property</summary>
         public List<string> Sources { get; set; }
         /// <summary>

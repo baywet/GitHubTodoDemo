@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class CalendarPermission : Entity, IParsable {
         /// <summary>List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.</summary>
         public List<CalendarRoleType?> AllowedRoles { get; set; }
         /// <summary>Represents a sharee or delegate who has access to the calendar. For the &apos;My Organization&apos; sharee, the address property is null. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.EmailAddress EmailAddress { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.EmailAddress EmailAddress { get; set; }
         /// <summary>True if the user in context (sharee or delegate) is inside the same organization as the calendar owner.</summary>
         public bool? IsInsideOrganization { get; set; }
         /// <summary>True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The &apos;My organization&apos; user determines the permissions other people within your organization have to the given calendar. You cannot remove &apos;My organization&apos; as a sharee to a calendar.</summary>
@@ -36,7 +36,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"allowedRoles", n => { AllowedRoles = n.GetCollectionOfEnumValues<CalendarRoleType>()?.ToList(); } },
-                {"emailAddress", n => { EmailAddress = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.EmailAddress>(GithubTodoDemo.MicrosoftGraph.Models.EmailAddress.CreateFromDiscriminatorValue); } },
+                {"emailAddress", n => { EmailAddress = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.EmailAddress>(GitHubTodoDemo.MicrosoftGraph.Models.EmailAddress.CreateFromDiscriminatorValue); } },
                 {"isInsideOrganization", n => { IsInsideOrganization = n.GetBoolValue(); } },
                 {"isRemovable", n => { IsRemovable = n.GetBoolValue(); } },
                 {"role", n => { Role = n.GetEnumValue<CalendarRoleType>(); } },
@@ -50,7 +50,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfEnumValues<CalendarRoleType>("allowedRoles", AllowedRoles);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.EmailAddress>("emailAddress", EmailAddress);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.EmailAddress>("emailAddress", EmailAddress);
             writer.WriteBoolValue("isInsideOrganization", IsInsideOrganization);
             writer.WriteBoolValue("isRemovable", IsRemovable);
             writer.WriteEnumValue<CalendarRoleType>("role", Role);

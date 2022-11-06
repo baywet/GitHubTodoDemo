@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IPv6CidrRange : IpRange, IParsable {
         /// <summary>IPv6 address in CIDR notation. Not nullable.</summary>
         public string CidrAddress { get; set; }

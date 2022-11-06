@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ItemReference : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -22,7 +22,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A unique identifier for a shared resource that can be accessed via the [Shares][] API.</summary>
         public string ShareId { get; set; }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
         /// <summary>For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.</summary>
         public string SiteId { get; set; }
         /// <summary>
@@ -52,7 +52,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"path", n => { PathObject = n.GetStringValue(); } },
                 {"shareId", n => { ShareId = n.GetStringValue(); } },
-                {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GithubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
+                {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
                 {"siteId", n => { SiteId = n.GetStringValue(); } },
             };
         }
@@ -69,7 +69,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("path", PathObject);
             writer.WriteStringValue("shareId", ShareId);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
             writer.WriteStringValue("siteId", SiteId);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class CasesRoot : Entity, IParsable {
         /// <summary>The ediscoveryCases property</summary>
         public List<EdiscoveryCase> EdiscoveryCases { get; set; }

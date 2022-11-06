@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SharedWithChannelTeamInfo : TeamInfo, IParsable {
         /// <summary>A collection of team members who have access to the shared channel.</summary>
         public List<ConversationMember> AllowedMembers { get; set; }

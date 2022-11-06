@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
+namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
     public class ReviewsPostRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -13,7 +13,7 @@ namespace GithubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         public List<ReviewsPostRequestBody_comments> Comments { get; set; }
         /// <summary>The SHA of the commit that needs a review. Not using the latest commit SHA may render your review comment outdated if a subsequent commit modifies the line you specify as the `position`. Defaults to the most recent commit in the pull request when you do not specify a value.</summary>
         public string Commit_id { get; set; }
-        /// <summary>The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/pulls#submit-a-review-for-a-pull-request) when you are ready.</summary>
+        /// <summary>The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/reference/pulls#submit-a-review-for-a-pull-request) when you are ready.</summary>
         public ReviewsPostRequestBody_event? Event { get; set; }
         /// <summary>
         /// Instantiates a new reviewsPostRequestBody and sets the default values.

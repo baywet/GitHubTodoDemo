@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
     public class ConnectionOperation : Entity, IParsable {
         /// <summary>If status is failed, provides more information about the error that caused the failure.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PublicError Error { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PublicError Error { get; set; }
         /// <summary>Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.</summary>
         public ConnectionOperationStatus? Status { get; set; }
         /// <summary>
@@ -28,7 +28,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"error", n => { Error = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PublicError>(GithubTodoDemo.MicrosoftGraph.Models.PublicError.CreateFromDiscriminatorValue); } },
+                {"error", n => { Error = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PublicError>(GitHubTodoDemo.MicrosoftGraph.Models.PublicError.CreateFromDiscriminatorValue); } },
                 {"status", n => { Status = n.GetEnumValue<ConnectionOperationStatus>(); } },
             };
         }
@@ -39,7 +39,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PublicError>("error", Error);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PublicError>("error", Error);
             writer.WriteEnumValue<ConnectionOperationStatus>("status", Status);
         }
     }

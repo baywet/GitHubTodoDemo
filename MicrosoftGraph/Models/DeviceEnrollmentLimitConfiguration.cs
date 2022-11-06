@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DeviceEnrollmentLimitConfiguration : DeviceEnrollmentConfiguration, IParsable {
         /// <summary>The maximum number of devices that a user can enroll</summary>
         public int? Limit { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ApplePushNotificationCertificate : Entity, IParsable {
         /// <summary>Apple Id of the account used to create the MDM push certificate.</summary>
         public string AppleIdentifier { get; set; }
@@ -11,6 +11,10 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string Certificate { get; set; }
         /// <summary>Certificate serial number. This property is read-only.</summary>
         public string CertificateSerialNumber { get; private set; }
+        /// <summary>The reason the certificate upload failed.</summary>
+        public string CertificateUploadFailureReason { get; set; }
+        /// <summary>The certificate upload status.</summary>
+        public string CertificateUploadStatus { get; set; }
         /// <summary>The expiration date and time for Apple push notification certificate.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>Last modified date and time for Apple push notification certificate.</summary>
@@ -39,6 +43,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"appleIdentifier", n => { AppleIdentifier = n.GetStringValue(); } },
                 {"certificate", n => { Certificate = n.GetStringValue(); } },
                 {"certificateSerialNumber", n => { CertificateSerialNumber = n.GetStringValue(); } },
+                {"certificateUploadFailureReason", n => { CertificateUploadFailureReason = n.GetStringValue(); } },
+                {"certificateUploadStatus", n => { CertificateUploadStatus = n.GetStringValue(); } },
                 {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"topicIdentifier", n => { TopicIdentifier = n.GetStringValue(); } },
@@ -53,6 +59,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             base.Serialize(writer);
             writer.WriteStringValue("appleIdentifier", AppleIdentifier);
             writer.WriteStringValue("certificate", Certificate);
+            writer.WriteStringValue("certificateUploadFailureReason", CertificateUploadFailureReason);
+            writer.WriteStringValue("certificateUploadStatus", CertificateUploadStatus);
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("topicIdentifier", TopicIdentifier);

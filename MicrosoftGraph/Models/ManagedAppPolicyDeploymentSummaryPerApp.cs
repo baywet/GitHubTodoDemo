@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Represents policy deployment summary per app.</summary>
     public class ManagedAppPolicyDeploymentSummaryPerApp : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -11,7 +11,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of users the policy is applied.</summary>
         public int? ConfigurationAppliedUserCount { get; set; }
         /// <summary>Deployment of an app.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier MobileAppIdentifier { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier MobileAppIdentifier { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>
@@ -35,7 +35,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"configurationAppliedUserCount", n => { ConfigurationAppliedUserCount = n.GetIntValue(); } },
-                {"mobileAppIdentifier", n => { MobileAppIdentifier = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier>(GithubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier.CreateFromDiscriminatorValue); } },
+                {"mobileAppIdentifier", n => { MobileAppIdentifier = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier>(GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -46,7 +46,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("configurationAppliedUserCount", ConfigurationAppliedUserCount);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier>("mobileAppIdentifier", MobileAppIdentifier);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier>("mobileAppIdentifier", MobileAppIdentifier);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BookingStaffMember : BookingStaffMemberBase, IParsable {
         /// <summary>True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member&apos;s availability in their personal calendar in Microsoft 365, before making a booking.</summary>
         public bool? AvailabilityIsAffectedByPersonalCalendar { get; set; }
@@ -11,6 +11,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string DisplayName { get; set; }
         /// <summary>The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required.</summary>
         public string EmailAddress { get; set; }
+        /// <summary>The isEmailNotificationEnabled property</summary>
+        public bool? IsEmailNotificationEnabled { get; set; }
         /// <summary>The role property</summary>
         public BookingStaffRole? Role { get; set; }
         /// <summary>The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.</summary>
@@ -41,6 +43,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"availabilityIsAffectedByPersonalCalendar", n => { AvailabilityIsAffectedByPersonalCalendar = n.GetBoolValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
+                {"isEmailNotificationEnabled", n => { IsEmailNotificationEnabled = n.GetBoolValue(); } },
                 {"role", n => { Role = n.GetEnumValue<BookingStaffRole>(); } },
                 {"timeZone", n => { TimeZone = n.GetStringValue(); } },
                 {"useBusinessHours", n => { UseBusinessHours = n.GetBoolValue(); } },
@@ -57,6 +60,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("availabilityIsAffectedByPersonalCalendar", AvailabilityIsAffectedByPersonalCalendar);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("emailAddress", EmailAddress);
+            writer.WriteBoolValue("isEmailNotificationEnabled", IsEmailNotificationEnabled);
             writer.WriteEnumValue<BookingStaffRole>("role", Role);
             writer.WriteStringValue("timeZone", TimeZone);
             writer.WriteBoolValue("useBusinessHours", UseBusinessHours);

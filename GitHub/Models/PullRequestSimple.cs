@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>Pull Request Simple</summary>
     public class PullRequestSimple : IAdditionalDataHolder, IParsable {
         /// <summary>The _links property</summary>
@@ -12,14 +12,14 @@ namespace GithubTodoDemo.GitHub.Models {
         public string Active_lock_reason { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Simple User</summary>
-        public NullableSimpleUser Assignee { get; set; }
+        /// <summary>The assignee property</summary>
+        public SimpleUser Assignee { get; set; }
         /// <summary>The assignees property</summary>
         public List<SimpleUser> Assignees { get; set; }
         /// <summary>How the author is associated with the repository.</summary>
-        public AuthorAssociation? Author_association { get; set; }
+        public GitHubTodoDemo.GitHub.Models.Author_association? Author_association { get; set; }
         /// <summary>The status of auto merging a pull request.</summary>
-        public AutoMerge Auto_merge { get; set; }
+        public GitHubTodoDemo.GitHub.Models.Auto_merge Auto_merge { get; set; }
         /// <summary>The base property</summary>
         public PullRequestSimple_base Base { get; set; }
         /// <summary>The body property</summary>
@@ -52,8 +52,8 @@ namespace GithubTodoDemo.GitHub.Models {
         public string Merge_commit_sha { get; set; }
         /// <summary>The merged_at property</summary>
         public DateTimeOffset? Merged_at { get; set; }
-        /// <summary>A collection of related issues and pull requests.</summary>
-        public NullableMilestone Milestone { get; set; }
+        /// <summary>The milestone property</summary>
+        public GitHubTodoDemo.GitHub.Models.Milestone Milestone { get; set; }
         /// <summary>The node_id property</summary>
         public string Node_id { get; set; }
         /// <summary>The number property</summary>
@@ -63,7 +63,7 @@ namespace GithubTodoDemo.GitHub.Models {
         /// <summary>The requested_reviewers property</summary>
         public List<SimpleUser> Requested_reviewers { get; set; }
         /// <summary>The requested_teams property</summary>
-        public List<Team> Requested_teams { get; set; }
+        public List<TeamSimple> Requested_teams { get; set; }
         /// <summary>The review_comment_url property</summary>
         public string Review_comment_url { get; set; }
         /// <summary>The review_comments_url property</summary>
@@ -78,8 +78,8 @@ namespace GithubTodoDemo.GitHub.Models {
         public DateTimeOffset? Updated_at { get; set; }
         /// <summary>The url property</summary>
         public string Url { get; set; }
-        /// <summary>Simple User</summary>
-        public NullableSimpleUser User { get; set; }
+        /// <summary>The user property</summary>
+        public SimpleUser User { get; set; }
         /// <summary>
         /// Instantiates a new PullRequestSimple and sets the default values.
         /// </summary>
@@ -101,10 +101,10 @@ namespace GithubTodoDemo.GitHub.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"_links", n => { _links = n.GetObjectValue<PullRequestSimple__links>(PullRequestSimple__links.CreateFromDiscriminatorValue); } },
                 {"active_lock_reason", n => { Active_lock_reason = n.GetStringValue(); } },
-                {"assignee", n => { Assignee = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                {"assignee", n => { Assignee = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
                 {"assignees", n => { Assignees = n.GetCollectionOfObjectValues<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"author_association", n => { Author_association = n.GetEnumValue<AuthorAssociation>(); } },
-                {"auto_merge", n => { Auto_merge = n.GetObjectValue<AutoMerge>(AutoMerge.CreateFromDiscriminatorValue); } },
+                {"author_association", n => { Author_association = n.GetEnumValue<Author_association>(); } },
+                {"auto_merge", n => { Auto_merge = n.GetObjectValue<GitHubTodoDemo.GitHub.Models.Auto_merge>(GitHubTodoDemo.GitHub.Models.Auto_merge.CreateFromDiscriminatorValue); } },
                 {"base", n => { Base = n.GetObjectValue<PullRequestSimple_base>(PullRequestSimple_base.CreateFromDiscriminatorValue); } },
                 {"body", n => { Body = n.GetStringValue(); } },
                 {"closed_at", n => { Closed_at = n.GetDateTimeOffsetValue(); } },
@@ -121,12 +121,12 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"locked", n => { Locked = n.GetBoolValue(); } },
                 {"merge_commit_sha", n => { Merge_commit_sha = n.GetStringValue(); } },
                 {"merged_at", n => { Merged_at = n.GetDateTimeOffsetValue(); } },
-                {"milestone", n => { Milestone = n.GetObjectValue<NullableMilestone>(NullableMilestone.CreateFromDiscriminatorValue); } },
+                {"milestone", n => { Milestone = n.GetObjectValue<GitHubTodoDemo.GitHub.Models.Milestone>(GitHubTodoDemo.GitHub.Models.Milestone.CreateFromDiscriminatorValue); } },
                 {"node_id", n => { Node_id = n.GetStringValue(); } },
                 {"number", n => { Number = n.GetIntValue(); } },
                 {"patch_url", n => { Patch_url = n.GetStringValue(); } },
                 {"requested_reviewers", n => { Requested_reviewers = n.GetCollectionOfObjectValues<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"requested_teams", n => { Requested_teams = n.GetCollectionOfObjectValues<Team>(Team.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"requested_teams", n => { Requested_teams = n.GetCollectionOfObjectValues<TeamSimple>(TeamSimple.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"review_comment_url", n => { Review_comment_url = n.GetStringValue(); } },
                 {"review_comments_url", n => { Review_comments_url = n.GetStringValue(); } },
                 {"state", n => { State = n.GetStringValue(); } },
@@ -134,7 +134,7 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"title", n => { Title = n.GetStringValue(); } },
                 {"updated_at", n => { Updated_at = n.GetDateTimeOffsetValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
-                {"user", n => { User = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                {"user", n => { User = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -145,10 +145,10 @@ namespace GithubTodoDemo.GitHub.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<PullRequestSimple__links>("_links", _links);
             writer.WriteStringValue("active_lock_reason", Active_lock_reason);
-            writer.WriteObjectValue<NullableSimpleUser>("assignee", Assignee);
+            writer.WriteObjectValue<SimpleUser>("assignee", Assignee);
             writer.WriteCollectionOfObjectValues<SimpleUser>("assignees", Assignees);
-            writer.WriteEnumValue<AuthorAssociation>("author_association", Author_association);
-            writer.WriteObjectValue<AutoMerge>("auto_merge", Auto_merge);
+            writer.WriteEnumValue<Author_association>("author_association", Author_association);
+            writer.WriteObjectValue<GitHubTodoDemo.GitHub.Models.Auto_merge>("auto_merge", Auto_merge);
             writer.WriteObjectValue<PullRequestSimple_base>("base", Base);
             writer.WriteStringValue("body", Body);
             writer.WriteDateTimeOffsetValue("closed_at", Closed_at);
@@ -165,12 +165,12 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteBoolValue("locked", Locked);
             writer.WriteStringValue("merge_commit_sha", Merge_commit_sha);
             writer.WriteDateTimeOffsetValue("merged_at", Merged_at);
-            writer.WriteObjectValue<NullableMilestone>("milestone", Milestone);
+            writer.WriteObjectValue<GitHubTodoDemo.GitHub.Models.Milestone>("milestone", Milestone);
             writer.WriteStringValue("node_id", Node_id);
             writer.WriteIntValue("number", Number);
             writer.WriteStringValue("patch_url", Patch_url);
             writer.WriteCollectionOfObjectValues<SimpleUser>("requested_reviewers", Requested_reviewers);
-            writer.WriteCollectionOfObjectValues<Team>("requested_teams", Requested_teams);
+            writer.WriteCollectionOfObjectValues<TeamSimple>("requested_teams", Requested_teams);
             writer.WriteStringValue("review_comment_url", Review_comment_url);
             writer.WriteStringValue("review_comments_url", Review_comments_url);
             writer.WriteStringValue("state", State);
@@ -178,7 +178,7 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", Updated_at);
             writer.WriteStringValue("url", Url);
-            writer.WriteObjectValue<NullableSimpleUser>("user", User);
+            writer.WriteObjectValue<SimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

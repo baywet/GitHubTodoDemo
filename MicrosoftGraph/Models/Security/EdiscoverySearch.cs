@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoverySearch : Search, IParsable {
         /// <summary>Adds an additional source to the eDiscovery search.</summary>
         public List<DataSource> AdditionalSources { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>Custodian sources that are included in the eDiscovery search.</summary>
         public List<DataSource> CustodianSources { get; set; }
         /// <summary>When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Security.DataSourceScopes? DataSourceScopes { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Security.DataSourceScopes? DataSourceScopes { get; set; }
         /// <summary>The last estimate operation associated with the eDiscovery search.</summary>
         public EdiscoveryEstimateOperation LastEstimateStatisticsOperation { get; set; }
         /// <summary>noncustodialDataSource sources that are included in the eDiscovery search</summary>

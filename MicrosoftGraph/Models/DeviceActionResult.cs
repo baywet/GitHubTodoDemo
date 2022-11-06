@@ -1,16 +1,16 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Device action result</summary>
     public class DeviceActionResult : IAdditionalDataHolder, IParsable {
         /// <summary>Action name</summary>
         public string ActionName { get; set; }
         /// <summary>State of the action on the device</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ActionState? ActionState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ActionState? ActionState { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Time the action state was last updated</summary>

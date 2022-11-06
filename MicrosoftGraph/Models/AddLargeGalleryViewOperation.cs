@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AddLargeGalleryViewOperation : CommsOperation, IParsable {
         /// <summary>
         /// Instantiates a new AddLargeGalleryViewOperation and sets the default values.

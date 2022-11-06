@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ClientCertificateAuthentication : ApiAuthenticationConfigurationBase, IParsable {
         /// <summary>The list of certificates uploaded for this API connector.</summary>
         public List<Pkcs12CertificateInformation> CertificateList { get; set; }

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>Pull Request Review Request</summary>
     public class PullRequestReviewRequest : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The teams property</summary>
-        public List<Team> Teams { get; set; }
+        public List<TeamSimple> Teams { get; set; }
         /// <summary>The users property</summary>
         public List<SimpleUser> Users { get; set; }
         /// <summary>
@@ -31,7 +31,7 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"teams", n => { Teams = n.GetCollectionOfObjectValues<Team>(Team.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"teams", n => { Teams = n.GetCollectionOfObjectValues<TeamSimple>(TeamSimple.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"users", n => { Users = n.GetCollectionOfObjectValues<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -41,7 +41,7 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<Team>("teams", Teams);
+            writer.WriteCollectionOfObjectValues<TeamSimple>("teams", Teams);
             writer.WriteCollectionOfObjectValues<SimpleUser>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }

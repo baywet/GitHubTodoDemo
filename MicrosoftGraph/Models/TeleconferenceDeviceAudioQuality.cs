@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TeleconferenceDeviceAudioQuality : TeleconferenceDeviceMediaQuality, IParsable {
         /// <summary>
         /// Instantiates a new TeleconferenceDeviceAudioQuality and sets the default values.

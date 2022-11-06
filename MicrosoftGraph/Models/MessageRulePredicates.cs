@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MessageRulePredicates : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -20,7 +20,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.</summary>
         public List<string> HeaderContains { get; set; }
         /// <summary>The importance that is stamped on an incoming message in order for the condition or exception to apply: low, normal, high.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Importance? Importance { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Importance? Importance { get; set; }
         /// <summary>Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.</summary>
         public bool? IsApprovalRequest { get; set; }
         /// <summary>Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.</summary>
@@ -44,7 +44,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.</summary>
         public bool? IsVoicemail { get; set; }
         /// <summary>Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MessageActionFlag? MessageActionFlag { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MessageActionFlag? MessageActionFlag { get; set; }
         /// <summary>Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.</summary>
         public bool? NotSentToMe { get; set; }
         /// <summary>The OdataType property</summary>
@@ -54,7 +54,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.</summary>
         public List<string> SenderContains { get; set; }
         /// <summary>Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Sensitivity? Sensitivity { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Sensitivity? Sensitivity { get; set; }
         /// <summary>Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.</summary>
         public bool? SentCcMe { get; set; }
         /// <summary>Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.</summary>

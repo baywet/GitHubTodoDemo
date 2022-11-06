@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Pkcs12Certificate : ApiAuthenticationConfigurationBase, IParsable {
         /// <summary>The password for the pfx file. Required. If no password is used, you must still provide a value of &apos;&apos;.</summary>
         public string Password { get; set; }

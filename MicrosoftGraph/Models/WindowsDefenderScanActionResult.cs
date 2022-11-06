@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WindowsDefenderScanActionResult : DeviceActionResult, IParsable {
         /// <summary>Scan type either full scan or quick scan</summary>
         public string ScanType { get; set; }

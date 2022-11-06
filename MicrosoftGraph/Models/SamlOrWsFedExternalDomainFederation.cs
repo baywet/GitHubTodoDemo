@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SamlOrWsFedExternalDomainFederation : SamlOrWsFedProvider, IParsable {
         /// <summary>Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).</summary>
         public List<ExternalDomainName> Domains { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationMediaResource : EducationResource, IParsable {
         /// <summary>Location of the file on shared point folder. Required</summary>
         public string FileUrl { get; set; }

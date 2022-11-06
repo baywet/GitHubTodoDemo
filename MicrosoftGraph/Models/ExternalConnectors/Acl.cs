@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
     public class Acl : IAdditionalDataHolder, IParsable {
         /// <summary>The accessType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.AccessType? AccessType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.AccessType? AccessType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>

@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace GithubTodoDemo.GitHubAuthentication;
+namespace GitHubTodoDemo.GitHubAuthentication;
 
 public class GitHubAccessCodeResponse {
 	[JsonPropertyName("access_token")]

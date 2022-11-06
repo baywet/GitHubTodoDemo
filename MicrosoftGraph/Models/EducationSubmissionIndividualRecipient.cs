@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationSubmissionIndividualRecipient : EducationSubmissionRecipient, IParsable {
         /// <summary>User ID of the user to whom the submission is assigned.</summary>
         public string UserId { get; set; }

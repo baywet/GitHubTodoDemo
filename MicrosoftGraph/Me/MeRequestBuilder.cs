@@ -1,11 +1,11 @@
-using GithubTodoDemo.MicrosoftGraph.Me.Todo;
+using GitHubTodoDemo.MicrosoftGraph.Me.Todo;
 using Microsoft.Kiota.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GithubTodoDemo.MicrosoftGraph.Me {
+namespace GitHubTodoDemo.MicrosoftGraph.Me {
     /// <summary>Builds and executes requests for operations under \me</summary>
     public class MeRequestBuilder {
         /// <summary>Path parameters for the request</summary>

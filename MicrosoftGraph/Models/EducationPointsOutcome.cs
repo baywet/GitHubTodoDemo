@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationPointsOutcome : EducationOutcome, IParsable {
         /// <summary>The numeric grade the teacher has given the student for this assignment.</summary>
         public EducationAssignmentPointsGrade Points { get; set; }

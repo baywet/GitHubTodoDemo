@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class TeamworkTagMember : Entity, IParsable {
-        /// <summary>The displayName property</summary>
+        /// <summary>The member&apos;s display name.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The tenantId property</summary>
+        /// <summary>The ID of the tenant that the tag member is a part of.</summary>
         public string TenantId { get; set; }
-        /// <summary>The userId property</summary>
+        /// <summary>The user ID of the member.</summary>
         public string UserId { get; set; }
         /// <summary>
         /// Instantiates a new teamworkTagMember and sets the default values.

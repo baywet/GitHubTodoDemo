@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Fido2AuthenticationMethod : AuthenticationMethod, IParsable {
         /// <summary>Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator.</summary>
         public string AaGuid { get; set; }
         /// <summary>The attestation certificate(s) attached to this security key.</summary>
         public List<string> AttestationCertificates { get; set; }
         /// <summary>The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AttestationLevel? AttestationLevel { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AttestationLevel? AttestationLevel { get; set; }
         /// <summary>The timestamp when this key was registered to the user.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The display name of the key as given by the user.</summary>

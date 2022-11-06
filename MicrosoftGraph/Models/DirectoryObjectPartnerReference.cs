@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DirectoryObjectPartnerReference : DirectoryObject, IParsable {
         /// <summary>Description of the object returned. Read-only.</summary>
         public string Description { get; set; }

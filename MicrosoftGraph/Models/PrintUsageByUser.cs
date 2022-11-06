@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrintUsageByUser : PrintUsage, IParsable {
         /// <summary>The UPN of the user represented by these statistics.</summary>
         public string UserPrincipalName { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosManagedAppRegistration : ManagedAppRegistration, IParsable {
         /// <summary>
         /// Instantiates a new IosManagedAppRegistration and sets the default values.

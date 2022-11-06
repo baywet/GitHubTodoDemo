@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosStoreAppAssignmentSettings : MobileAppAssignmentSettings, IParsable {
         /// <summary>The VPN Configuration Id to apply for this app.</summary>
         public string VpnConfigurationId { get; set; }

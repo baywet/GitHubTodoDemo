@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrinterCreateOperation : PrintOperation, IParsable {
         /// <summary>The signed certificate created during the registration process. Read-only.</summary>
         public string Certificate { get; set; }
         /// <summary>The created printer entity. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Printer Printer { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Printer Printer { get; set; }
         /// <summary>
         /// Instantiates a new PrinterCreateOperation and sets the default values.
         /// </summary>
@@ -29,7 +29,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"certificate", n => { Certificate = n.GetStringValue(); } },
-                {"printer", n => { Printer = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Printer>(GithubTodoDemo.MicrosoftGraph.Models.Printer.CreateFromDiscriminatorValue); } },
+                {"printer", n => { Printer = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Printer>(GitHubTodoDemo.MicrosoftGraph.Models.Printer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("certificate", Certificate);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Printer>("printer", Printer);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Printer>("printer", Printer);
         }
     }
 }

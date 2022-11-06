@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Trending : Entity, IParsable {
         /// <summary>The lastModifiedDateTime property</summary>
@@ -11,9 +11,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Used for navigating to the trending document.</summary>
         public Entity Resource { get; set; }
         /// <summary>Reference properties of the trending document, such as the url and type of the document.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResourceReference ResourceReference { get; private set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResourceReference ResourceReference { get; private set; }
         /// <summary>Properties that you can use to visualize the document in your experience.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResourceVisualization ResourceVisualization { get; private set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResourceVisualization ResourceVisualization { get; private set; }
         /// <summary>Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.</summary>
         public double? Weight { get; set; }
         /// <summary>
@@ -37,8 +37,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
-                {"resourceReference", n => { ResourceReference = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResourceReference>(GithubTodoDemo.MicrosoftGraph.Models.ResourceReference.CreateFromDiscriminatorValue); } },
-                {"resourceVisualization", n => { ResourceVisualization = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResourceVisualization>(GithubTodoDemo.MicrosoftGraph.Models.ResourceVisualization.CreateFromDiscriminatorValue); } },
+                {"resourceReference", n => { ResourceReference = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResourceReference>(GitHubTodoDemo.MicrosoftGraph.Models.ResourceReference.CreateFromDiscriminatorValue); } },
+                {"resourceVisualization", n => { ResourceVisualization = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResourceVisualization>(GitHubTodoDemo.MicrosoftGraph.Models.ResourceVisualization.CreateFromDiscriminatorValue); } },
                 {"weight", n => { Weight = n.GetDoubleValue(); } },
             };
         }

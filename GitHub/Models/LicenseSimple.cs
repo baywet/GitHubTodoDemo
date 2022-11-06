@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>License Simple</summary>
-    public class NullableLicenseSimple : IAdditionalDataHolder, IParsable {
+    public class LicenseSimple : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The html_url property</summary>
@@ -21,18 +21,18 @@ namespace GithubTodoDemo.GitHub.Models {
         /// <summary>The url property</summary>
         public string Url { get; set; }
         /// <summary>
-        /// Instantiates a new nullableLicenseSimple and sets the default values.
+        /// Instantiates a new LicenseSimple and sets the default values.
         /// </summary>
-        public NullableLicenseSimple() {
+        public LicenseSimple() {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
-        public static NullableLicenseSimple CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static LicenseSimple CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NullableLicenseSimple();
+            return new LicenseSimple();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -1,13 +1,13 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IdentityUserFlow : Entity, IParsable {
         /// <summary>The userFlowType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.UserFlowType? UserFlowType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.UserFlowType? UserFlowType { get; set; }
         /// <summary>The userFlowTypeVersion property</summary>
         public float? UserFlowTypeVersion { get; set; }
         /// <summary>

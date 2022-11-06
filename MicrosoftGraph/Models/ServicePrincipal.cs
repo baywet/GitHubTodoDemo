@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ServicePrincipal : DirectoryObject, IParsable {
         /// <summary>true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled { get; set; }
@@ -82,7 +82,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The resource-specific application permissions exposed by this application. Currently, resource-specific permissions are only supported for Teams apps accessing to specific chats and teams using Microsoft Graph. Read-only.</summary>
         public List<ResourceSpecificPermission> ResourceSpecificApplicationPermissions { get; set; }
         /// <summary>The collection for settings related to saml single sign-on.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SamlSingleSignOnSettings SamlSingleSignOnSettings { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SamlSingleSignOnSettings SamlSingleSignOnSettings { get; set; }
         /// <summary>Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the &apos;aud&apos; claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> ServicePrincipalNames { get; set; }
         /// <summary>Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use.</summary>
@@ -100,7 +100,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The transitiveMemberOf property</summary>
         public List<DirectoryObject> TransitiveMemberOf { get; set; }
         /// <summary>Specifies the verified publisher of the application which this service principal represents.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher VerifiedPublisher { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher VerifiedPublisher { get; set; }
         /// <summary>
         /// Instantiates a new ServicePrincipal and sets the default values.
         /// </summary>
@@ -158,7 +158,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"preferredTokenSigningKeyThumbprint", n => { PreferredTokenSigningKeyThumbprint = n.GetStringValue(); } },
                 {"replyUrls", n => { ReplyUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"resourceSpecificApplicationPermissions", n => { ResourceSpecificApplicationPermissions = n.GetCollectionOfObjectValues<ResourceSpecificPermission>(ResourceSpecificPermission.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"samlSingleSignOnSettings", n => { SamlSingleSignOnSettings = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SamlSingleSignOnSettings>(GithubTodoDemo.MicrosoftGraph.Models.SamlSingleSignOnSettings.CreateFromDiscriminatorValue); } },
+                {"samlSingleSignOnSettings", n => { SamlSingleSignOnSettings = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SamlSingleSignOnSettings>(GitHubTodoDemo.MicrosoftGraph.Models.SamlSingleSignOnSettings.CreateFromDiscriminatorValue); } },
                 {"servicePrincipalNames", n => { ServicePrincipalNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"servicePrincipalType", n => { ServicePrincipalType = n.GetStringValue(); } },
                 {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
@@ -167,7 +167,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>(GithubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
+                {"verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>(GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -215,7 +215,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("preferredTokenSigningKeyThumbprint", PreferredTokenSigningKeyThumbprint);
             writer.WriteCollectionOfPrimitiveValues<string>("replyUrls", ReplyUrls);
             writer.WriteCollectionOfObjectValues<ResourceSpecificPermission>("resourceSpecificApplicationPermissions", ResourceSpecificApplicationPermissions);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SamlSingleSignOnSettings>("samlSingleSignOnSettings", SamlSingleSignOnSettings);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SamlSingleSignOnSettings>("samlSingleSignOnSettings", SamlSingleSignOnSettings);
             writer.WriteCollectionOfPrimitiveValues<string>("servicePrincipalNames", ServicePrincipalNames);
             writer.WriteStringValue("servicePrincipalType", ServicePrincipalType);
             writer.WriteStringValue("signInAudience", SignInAudience);
@@ -224,7 +224,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
             writer.WriteCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", TransitiveMemberOf);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>("verifiedPublisher", VerifiedPublisher);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>("verifiedPublisher", VerifiedPublisher);
         }
     }
 }

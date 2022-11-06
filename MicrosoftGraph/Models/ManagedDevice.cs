@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Devices that are managed or pre-enrolled through Intune</summary>
     public class ManagedDevice : Entity, IParsable {
         /// <summary>Code that allows the Activation Lock on a device to be bypassed. This property is read-only.</summary>
@@ -17,13 +17,13 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The DateTime when device compliance grace period expires. This property is read-only.</summary>
         public DateTimeOffset? ComplianceGracePeriodExpirationDateTime { get; private set; }
         /// <summary>Compliance state.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ComplianceState? ComplianceState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ComplianceState? ComplianceState { get; set; }
         /// <summary>ConfigrMgr client enabled features. This property is read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ConfigurationManagerClientEnabledFeatures ConfigurationManagerClientEnabledFeatures { get; private set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ConfigurationManagerClientEnabledFeatures ConfigurationManagerClientEnabledFeatures { get; private set; }
         /// <summary>List of ComplexType deviceActionResult objects. This property is read-only.</summary>
         public List<DeviceActionResult> DeviceActionResults { get; private set; }
         /// <summary>Device category</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DeviceCategory DeviceCategory { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DeviceCategory DeviceCategory { get; set; }
         /// <summary>Device category display name. This property is read-only.</summary>
         public string DeviceCategoryDisplayName { get; private set; }
         /// <summary>Device compliance policy states for this device.</summary>
@@ -31,13 +31,13 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Device configuration states for this device.</summary>
         public List<DeviceConfigurationState> DeviceConfigurationStates { get; set; }
         /// <summary>Possible ways of adding a mobile device to management.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DeviceEnrollmentType? DeviceEnrollmentType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DeviceEnrollmentType? DeviceEnrollmentType { get; set; }
         /// <summary>The device health attestation state. This property is read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DeviceHealthAttestationState DeviceHealthAttestationState { get; private set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DeviceHealthAttestationState DeviceHealthAttestationState { get; private set; }
         /// <summary>Name of the device. This property is read-only.</summary>
         public string DeviceName { get; private set; }
         /// <summary>Device registration status.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DeviceRegistrationState? DeviceRegistrationState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DeviceRegistrationState? DeviceRegistrationState { get; set; }
         /// <summary>Whether the device is Exchange ActiveSync activated. This property is read-only.</summary>
         public bool? EasActivated { get; private set; }
         /// <summary>Exchange ActivationSync activation time of the device. This property is read-only.</summary>
@@ -73,9 +73,11 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Automatically generated name to identify a device. Can be overwritten to a user friendly name.</summary>
         public string ManagedDeviceName { get; set; }
         /// <summary>Owner type of device.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ManagedDeviceOwnerType? ManagedDeviceOwnerType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ManagedDeviceOwnerType? ManagedDeviceOwnerType { get; set; }
         /// <summary>The managementAgent property</summary>
         public ManagementAgentType? ManagementAgent { get; set; }
+        /// <summary>Reports device management certificate expiration date. This property is read-only.</summary>
+        public DateTimeOffset? ManagementCertificateExpirationDate { get; private set; }
         /// <summary>Manufacturer of the device. This property is read-only.</summary>
         public string Manufacturer { get; private set; }
         /// <summary>MEID. This property is read-only.</summary>
@@ -98,6 +100,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string RemoteAssistanceSessionErrorDetails { get; private set; }
         /// <summary>Url that allows a Remote Assistance session to be established with the device. This property is read-only.</summary>
         public string RemoteAssistanceSessionUrl { get; private set; }
+        /// <summary>Reports if the managed iOS device is user approval enrollment. This property is read-only.</summary>
+        public bool? RequireUserEnrollmentApproval { get; private set; }
         /// <summary>SerialNumber. This property is read-only.</summary>
         public string SerialNumber { get; private set; }
         /// <summary>Subscriber Carrier. This property is read-only.</summary>
@@ -112,6 +116,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string UserId { get; private set; }
         /// <summary>Device user principal name. This property is read-only.</summary>
         public string UserPrincipalName { get; private set; }
+        /// <summary>The primary users associated with the managed device.</summary>
+        public List<User> Users { get; set; }
         /// <summary>Wi-Fi MAC. This property is read-only.</summary>
         public string WiFiMacAddress { get; private set; }
         /// <summary>
@@ -139,14 +145,14 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"azureADRegistered", n => { AzureADRegistered = n.GetBoolValue(); } },
                 {"complianceGracePeriodExpirationDateTime", n => { ComplianceGracePeriodExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"complianceState", n => { ComplianceState = n.GetEnumValue<ComplianceState>(); } },
-                {"configurationManagerClientEnabledFeatures", n => { ConfigurationManagerClientEnabledFeatures = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ConfigurationManagerClientEnabledFeatures>(GithubTodoDemo.MicrosoftGraph.Models.ConfigurationManagerClientEnabledFeatures.CreateFromDiscriminatorValue); } },
+                {"configurationManagerClientEnabledFeatures", n => { ConfigurationManagerClientEnabledFeatures = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ConfigurationManagerClientEnabledFeatures>(GitHubTodoDemo.MicrosoftGraph.Models.ConfigurationManagerClientEnabledFeatures.CreateFromDiscriminatorValue); } },
                 {"deviceActionResults", n => { DeviceActionResults = n.GetCollectionOfObjectValues<DeviceActionResult>(DeviceActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deviceCategory", n => { DeviceCategory = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DeviceCategory>(GithubTodoDemo.MicrosoftGraph.Models.DeviceCategory.CreateFromDiscriminatorValue); } },
+                {"deviceCategory", n => { DeviceCategory = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DeviceCategory>(GitHubTodoDemo.MicrosoftGraph.Models.DeviceCategory.CreateFromDiscriminatorValue); } },
                 {"deviceCategoryDisplayName", n => { DeviceCategoryDisplayName = n.GetStringValue(); } },
                 {"deviceCompliancePolicyStates", n => { DeviceCompliancePolicyStates = n.GetCollectionOfObjectValues<DeviceCompliancePolicyState>(DeviceCompliancePolicyState.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceConfigurationStates", n => { DeviceConfigurationStates = n.GetCollectionOfObjectValues<DeviceConfigurationState>(DeviceConfigurationState.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deviceEnrollmentType", n => { DeviceEnrollmentType = n.GetEnumValue<DeviceEnrollmentType>(); } },
-                {"deviceHealthAttestationState", n => { DeviceHealthAttestationState = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DeviceHealthAttestationState>(GithubTodoDemo.MicrosoftGraph.Models.DeviceHealthAttestationState.CreateFromDiscriminatorValue); } },
+                {"deviceHealthAttestationState", n => { DeviceHealthAttestationState = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DeviceHealthAttestationState>(GitHubTodoDemo.MicrosoftGraph.Models.DeviceHealthAttestationState.CreateFromDiscriminatorValue); } },
                 {"deviceName", n => { DeviceName = n.GetStringValue(); } },
                 {"deviceRegistrationState", n => { DeviceRegistrationState = n.GetEnumValue<DeviceRegistrationState>(); } },
                 {"easActivated", n => { EasActivated = n.GetBoolValue(); } },
@@ -168,6 +174,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
                 {"managedDeviceOwnerType", n => { ManagedDeviceOwnerType = n.GetEnumValue<ManagedDeviceOwnerType>(); } },
                 {"managementAgent", n => { ManagementAgent = n.GetEnumValue<ManagementAgentType>(); } },
+                {"managementCertificateExpirationDate", n => { ManagementCertificateExpirationDate = n.GetDateTimeOffsetValue(); } },
                 {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 {"meid", n => { Meid = n.GetStringValue(); } },
                 {"model", n => { Model = n.GetStringValue(); } },
@@ -179,6 +186,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"physicalMemoryInBytes", n => { PhysicalMemoryInBytes = n.GetLongValue(); } },
                 {"remoteAssistanceSessionErrorDetails", n => { RemoteAssistanceSessionErrorDetails = n.GetStringValue(); } },
                 {"remoteAssistanceSessionUrl", n => { RemoteAssistanceSessionUrl = n.GetStringValue(); } },
+                {"requireUserEnrollmentApproval", n => { RequireUserEnrollmentApproval = n.GetBoolValue(); } },
                 {"serialNumber", n => { SerialNumber = n.GetStringValue(); } },
                 {"subscriberCarrier", n => { SubscriberCarrier = n.GetStringValue(); } },
                 {"totalStorageSpaceInBytes", n => { TotalStorageSpaceInBytes = n.GetLongValue(); } },
@@ -186,6 +194,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
                 {"userId", n => { UserId = n.GetStringValue(); } },
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                {"users", n => { Users = n.GetCollectionOfObjectValues<User>(User.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"wiFiMacAddress", n => { WiFiMacAddress = n.GetStringValue(); } },
             };
         }
@@ -197,7 +206,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<ComplianceState>("complianceState", ComplianceState);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.DeviceCategory>("deviceCategory", DeviceCategory);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.DeviceCategory>("deviceCategory", DeviceCategory);
             writer.WriteCollectionOfObjectValues<DeviceCompliancePolicyState>("deviceCompliancePolicyStates", DeviceCompliancePolicyStates);
             writer.WriteCollectionOfObjectValues<DeviceConfigurationState>("deviceConfigurationStates", DeviceConfigurationStates);
             writer.WriteEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", DeviceEnrollmentType);
@@ -209,6 +218,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteEnumValue<ManagementAgentType>("managementAgent", ManagementAgent);
             writer.WriteStringValue("notes", Notes);
             writer.WriteEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", PartnerReportedThreatState);
+            writer.WriteCollectionOfObjectValues<User>("users", Users);
         }
     }
 }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Entity which represents a connection to Mobile threat defense partner.</summary>
     public class MobileThreatDefenseConnector : Entity, IParsable {
         /// <summary>For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant</summary>

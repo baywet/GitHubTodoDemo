@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device.</summary>
     public class WindowsAutopilotDeviceIdentity : Entity, IParsable {
         /// <summary>Addressable user name.</summary>
@@ -13,7 +13,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Display Name</summary>
         public string DisplayName { get; set; }
         /// <summary>The enrollmentState property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.EnrollmentState? EnrollmentState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.EnrollmentState? EnrollmentState { get; set; }
         /// <summary>Group Tag of the Windows autopilot device.</summary>
         public string GroupTag { get; set; }
         /// <summary>Intune Last Contacted Date Time of the Windows autopilot device.</summary>

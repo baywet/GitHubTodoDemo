@@ -1,4 +1,4 @@
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public enum DeviceManagementExchangeConnectorType {
         /// <summary>Connects to on-premises Exchange Environment.</summary>

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Team : Entity, IParsable {
         /// <summary>List of channels either hosted in or shared with the team (incoming channels).</summary>
@@ -21,7 +21,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Settings to configure use of Giphy, memes, and stickers in the team.</summary>
         public TeamFunSettings FunSettings { get; set; }
         /// <summary>The group property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Group Group { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Group Group { get; set; }
         /// <summary>Settings to configure whether guests can create, update, or delete channels in the team.</summary>
         public TeamGuestSettings GuestSettings { get; set; }
         /// <summary>List of channels shared with the team.</summary>
@@ -45,12 +45,12 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The general channel for the team.</summary>
         public Channel PrimaryChannel { get; set; }
         /// <summary>The schedule of shifts for this team.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Schedule Schedule { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Schedule Schedule { get; set; }
         /// <summary>Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case.</summary>
         public TeamSpecialization? Specialization { get; set; }
         /// <summary>The summary property</summary>
         public TeamSummary Summary { get; set; }
-        /// <summary>The tags property</summary>
+        /// <summary>The tags associated with the team.</summary>
         public List<TeamworkTag> Tags { get; set; }
         /// <summary>The template this team was created from. See available templates.</summary>
         public TeamsTemplate Template { get; set; }
@@ -86,7 +86,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"funSettings", n => { FunSettings = n.GetObjectValue<TeamFunSettings>(TeamFunSettings.CreateFromDiscriminatorValue); } },
-                {"group", n => { Group = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Group>(GithubTodoDemo.MicrosoftGraph.Models.Group.CreateFromDiscriminatorValue); } },
+                {"group", n => { Group = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Group>(GitHubTodoDemo.MicrosoftGraph.Models.Group.CreateFromDiscriminatorValue); } },
                 {"guestSettings", n => { GuestSettings = n.GetObjectValue<TeamGuestSettings>(TeamGuestSettings.CreateFromDiscriminatorValue); } },
                 {"incomingChannels", n => { IncomingChannels = n.GetCollectionOfObjectValues<Channel>(Channel.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"installedApps", n => { InstalledApps = n.GetCollectionOfObjectValues<TeamsAppInstallation>(TeamsAppInstallation.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -98,7 +98,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<TeamsAsyncOperation>(TeamsAsyncOperation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"photo", n => { Photo = n.GetObjectValue<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue); } },
                 {"primaryChannel", n => { PrimaryChannel = n.GetObjectValue<Channel>(Channel.CreateFromDiscriminatorValue); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Schedule>(GithubTodoDemo.MicrosoftGraph.Models.Schedule.CreateFromDiscriminatorValue); } },
+                {"schedule", n => { Schedule = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Schedule>(GitHubTodoDemo.MicrosoftGraph.Models.Schedule.CreateFromDiscriminatorValue); } },
                 {"specialization", n => { Specialization = n.GetEnumValue<TeamSpecialization>(); } },
                 {"summary", n => { Summary = n.GetObjectValue<TeamSummary>(TeamSummary.CreateFromDiscriminatorValue); } },
                 {"tags", n => { Tags = n.GetCollectionOfObjectValues<TeamworkTag>(TeamworkTag.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -122,7 +122,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<TeamFunSettings>("funSettings", FunSettings);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Group>("group", Group);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Group>("group", Group);
             writer.WriteObjectValue<TeamGuestSettings>("guestSettings", GuestSettings);
             writer.WriteCollectionOfObjectValues<Channel>("incomingChannels", IncomingChannels);
             writer.WriteCollectionOfObjectValues<TeamsAppInstallation>("installedApps", InstalledApps);
@@ -134,7 +134,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<TeamsAsyncOperation>("operations", Operations);
             writer.WriteObjectValue<ProfilePhoto>("photo", Photo);
             writer.WriteObjectValue<Channel>("primaryChannel", PrimaryChannel);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Schedule>("schedule", Schedule);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Schedule>("schedule", Schedule);
             writer.WriteEnumValue<TeamSpecialization>("specialization", Specialization);
             writer.WriteObjectValue<TeamSummary>("summary", Summary);
             writer.WriteCollectionOfObjectValues<TeamworkTag>("tags", Tags);

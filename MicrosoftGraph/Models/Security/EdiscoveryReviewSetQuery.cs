@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryReviewSetQuery : Search, IParsable {
         /// <summary>
         /// Instantiates a new EdiscoveryReviewSetQuery and sets the default values.

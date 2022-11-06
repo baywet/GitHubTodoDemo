@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>The device configuration assignment entity assigns an AAD group to a specific device configuration.</summary>
     public class DeviceConfigurationAssignment : Entity, IParsable {
         /// <summary>The assignment target for the device configuration.</summary>

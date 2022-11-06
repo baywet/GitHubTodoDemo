@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class SharedInsight : Entity, IParsable {
         /// <summary>Details about the shared item. Read only.</summary>
@@ -13,9 +13,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.</summary>
         public Entity Resource { get; set; }
         /// <summary>Reference properties of the shared document, such as the url and type of the document. Read-only</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResourceReference ResourceReference { get; private set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResourceReference ResourceReference { get; private set; }
         /// <summary>Properties that you can use to visualize the document in your experience. Read-only</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResourceVisualization ResourceVisualization { get; private set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResourceVisualization ResourceVisualization { get; private set; }
         /// <summary>The sharingHistory property</summary>
         public List<SharingDetail> SharingHistory { get; set; }
         /// <summary>
@@ -40,8 +40,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"lastShared", n => { LastShared = n.GetObjectValue<SharingDetail>(SharingDetail.CreateFromDiscriminatorValue); } },
                 {"lastSharedMethod", n => { LastSharedMethod = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
                 {"resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
-                {"resourceReference", n => { ResourceReference = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResourceReference>(GithubTodoDemo.MicrosoftGraph.Models.ResourceReference.CreateFromDiscriminatorValue); } },
-                {"resourceVisualization", n => { ResourceVisualization = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResourceVisualization>(GithubTodoDemo.MicrosoftGraph.Models.ResourceVisualization.CreateFromDiscriminatorValue); } },
+                {"resourceReference", n => { ResourceReference = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResourceReference>(GitHubTodoDemo.MicrosoftGraph.Models.ResourceReference.CreateFromDiscriminatorValue); } },
+                {"resourceVisualization", n => { ResourceVisualization = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResourceVisualization>(GitHubTodoDemo.MicrosoftGraph.Models.ResourceVisualization.CreateFromDiscriminatorValue); } },
                 {"sharingHistory", n => { SharingHistory = n.GetCollectionOfObjectValues<SharingDetail>(SharingDetail.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }

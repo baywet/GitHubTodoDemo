@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class PrinterShare : PrinterBase, IParsable {
         /// <summary>If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.</summary>
@@ -15,7 +15,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The DateTimeOffset when the printer share was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The printer that this printer share is related to.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Printer Printer { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Printer Printer { get; set; }
         /// <summary>
         /// Instantiates a new printerShare and sets the default values.
         /// </summary>
@@ -39,7 +39,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"allowedGroups", n => { AllowedGroups = n.GetCollectionOfObjectValues<Group>(Group.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"allowedUsers", n => { AllowedUsers = n.GetCollectionOfObjectValues<User>(User.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"printer", n => { Printer = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Printer>(GithubTodoDemo.MicrosoftGraph.Models.Printer.CreateFromDiscriminatorValue); } },
+                {"printer", n => { Printer = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Printer>(GitHubTodoDemo.MicrosoftGraph.Models.Printer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<Group>("allowedGroups", AllowedGroups);
             writer.WriteCollectionOfObjectValues<User>("allowedUsers", AllowedUsers);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Printer>("printer", Printer);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Printer>("printer", Printer);
         }
     }
 }

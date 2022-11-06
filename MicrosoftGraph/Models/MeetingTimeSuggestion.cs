@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MeetingTimeSuggestion : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An array that shows the availability status of each attendee for this meeting suggestion.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability> AttendeeAvailability { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability> AttendeeAvailability { get; set; }
         /// <summary>A percentage that represents the likelhood of all the attendees attending.</summary>
         public double? Confidence { get; set; }
         /// <summary>An array that specifies the name and geographic location of each meeting location for this meeting suggestion.</summary>
@@ -43,7 +43,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"attendeeAvailability", n => { AttendeeAvailability = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability>(GithubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"attendeeAvailability", n => { AttendeeAvailability = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability>(GitHubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"confidence", n => { Confidence = n.GetDoubleValue(); } },
                 {"locations", n => { Locations = n.GetCollectionOfObjectValues<Location>(Location.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"meetingTimeSlot", n => { MeetingTimeSlot = n.GetObjectValue<TimeSlot>(TimeSlot.CreateFromDiscriminatorValue); } },
@@ -59,7 +59,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability>("attendeeAvailability", AttendeeAvailability);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability>("attendeeAvailability", AttendeeAvailability);
             writer.WriteDoubleValue("confidence", Confidence);
             writer.WriteCollectionOfObjectValues<Location>("locations", Locations);
             writer.WriteObjectValue<TimeSlot>("meetingTimeSlot", MeetingTimeSlot);

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IdentityBuiltInUserFlowAttribute : IdentityUserFlowAttribute, IParsable {
         /// <summary>
         /// Instantiates a new IdentityBuiltInUserFlowAttribute and sets the default values.

@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EventMessageResponse : EventMessage, IParsable {
         /// <summary>The proposedNewTime property</summary>
         public TimeSlot ProposedNewTime { get; set; }
         /// <summary>The responseType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResponseType? ResponseType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResponseType? ResponseType { get; set; }
         /// <summary>
         /// Instantiates a new EventMessageResponse and sets the default values.
         /// </summary>

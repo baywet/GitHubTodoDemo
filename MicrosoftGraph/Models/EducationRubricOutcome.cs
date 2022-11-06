@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationRubricOutcome : EducationOutcome, IParsable {
         /// <summary>A copy of the rubricQualityFeedback property that is made when the grade is released to the student.</summary>
         public List<RubricQualityFeedbackModel> PublishedRubricQualityFeedback { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Represents a particular service offered by a booking business.</summary>
     public class BookingService : Entity, IParsable {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
@@ -24,10 +24,14 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string Description { get; set; }
         /// <summary>A service name.</summary>
         public string DisplayName { get; set; }
+        /// <summary>The isAnonymousJoinEnabled property</summary>
+        public bool? IsAnonymousJoinEnabled { get; set; }
         /// <summary>True means this service is not available to customers for booking.</summary>
         public bool? IsHiddenFromCustomers { get; set; }
         /// <summary>True indicates that the appointments for the service will be held online. Default value is false.</summary>
         public bool? IsLocationOnline { get; set; }
+        /// <summary>The languageTag property</summary>
+        public string LanguageTag { get; set; }
         /// <summary>The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.</summary>
         public int? MaximumAttendeesCount { get; set; }
         /// <summary>Additional information about this service.</summary>
@@ -72,8 +76,10 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"defaultReminders", n => { DefaultReminders = n.GetCollectionOfObjectValues<BookingReminder>(BookingReminder.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"isAnonymousJoinEnabled", n => { IsAnonymousJoinEnabled = n.GetBoolValue(); } },
                 {"isHiddenFromCustomers", n => { IsHiddenFromCustomers = n.GetBoolValue(); } },
                 {"isLocationOnline", n => { IsLocationOnline = n.GetBoolValue(); } },
+                {"languageTag", n => { LanguageTag = n.GetStringValue(); } },
                 {"maximumAttendeesCount", n => { MaximumAttendeesCount = n.GetIntValue(); } },
                 {"notes", n => { Notes = n.GetStringValue(); } },
                 {"postBuffer", n => { PostBuffer = n.GetTimeSpanValue(); } },
@@ -100,8 +106,10 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<BookingReminder>("defaultReminders", DefaultReminders);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteBoolValue("isAnonymousJoinEnabled", IsAnonymousJoinEnabled);
             writer.WriteBoolValue("isHiddenFromCustomers", IsHiddenFromCustomers);
             writer.WriteBoolValue("isLocationOnline", IsLocationOnline);
+            writer.WriteStringValue("languageTag", LanguageTag);
             writer.WriteIntValue("maximumAttendeesCount", MaximumAttendeesCount);
             writer.WriteStringValue("notes", Notes);
             writer.WriteTimeSpanValue("postBuffer", PostBuffer);

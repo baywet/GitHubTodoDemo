@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class FileAttachment : Attachment, IParsable {
         /// <summary>The base64-encoded contents of the file.</summary>
         public byte[] ContentBytes { get; set; }

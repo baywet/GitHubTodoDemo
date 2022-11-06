@@ -1,15 +1,15 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Recipient : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The recipient&apos;s email address.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.EmailAddress EmailAddress { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.EmailAddress EmailAddress { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>
@@ -37,7 +37,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"emailAddress", n => { EmailAddress = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.EmailAddress>(GithubTodoDemo.MicrosoftGraph.Models.EmailAddress.CreateFromDiscriminatorValue); } },
+                {"emailAddress", n => { EmailAddress = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.EmailAddress>(GitHubTodoDemo.MicrosoftGraph.Models.EmailAddress.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -47,7 +47,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.EmailAddress>("emailAddress", EmailAddress);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.EmailAddress>("emailAddress", EmailAddress);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

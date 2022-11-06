@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class ChatMessage : Entity, IParsable {
         /// <summary>References to attached objects like files, tabs, meetings etc.</summary>
@@ -11,7 +11,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The body property</summary>
         public ItemBody Body { get; set; }
         /// <summary>If the message was sent in a channel, represents identity of the channel.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ChannelIdentity ChannelIdentity { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ChannelIdentity ChannelIdentity { get; set; }
         /// <summary>If the message was sent in a chat, represents the identity of the chat.</summary>
         public string ChatId { get; set; }
         /// <summary>Timestamp of when the chat message was created.</summary>
@@ -73,7 +73,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<ChatMessageAttachment>(ChatMessageAttachment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"channelIdentity", n => { ChannelIdentity = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ChannelIdentity>(GithubTodoDemo.MicrosoftGraph.Models.ChannelIdentity.CreateFromDiscriminatorValue); } },
+                {"channelIdentity", n => { ChannelIdentity = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ChannelIdentity>(GitHubTodoDemo.MicrosoftGraph.Models.ChannelIdentity.CreateFromDiscriminatorValue); } },
                 {"chatId", n => { ChatId = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -105,7 +105,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<ChatMessageAttachment>("attachments", Attachments);
             writer.WriteObjectValue<ItemBody>("body", Body);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ChannelIdentity>("channelIdentity", ChannelIdentity);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ChannelIdentity>("channelIdentity", ChannelIdentity);
             writer.WriteStringValue("chatId", ChatId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("deletedDateTime", DeletedDateTime);

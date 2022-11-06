@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EventMessageRequest : EventMessage, IParsable {
         /// <summary>True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.</summary>
         public bool? AllowNewTimeProposals { get; set; }
         /// <summary>The meetingRequestType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.MeetingRequestType? MeetingRequestType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.MeetingRequestType? MeetingRequestType { get; set; }
         /// <summary>If the meeting update changes the meeting end time, this property specifies the previous meeting end time.</summary>
         public DateTimeTimeZone PreviousEndDateTime { get; set; }
         /// <summary>If the meeting update changes the meeting location, this property specifies the previous meeting location.</summary>

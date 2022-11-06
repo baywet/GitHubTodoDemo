@@ -1,16 +1,16 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class CommsOperation : Entity, IParsable {
         /// <summary>Unique Client Context string. Max limit is 256 chars.</summary>
         public string ClientContext { get; set; }
         /// <summary>The result information. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResultInfo ResultInfo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo ResultInfo { get; set; }
         /// <summary>The status property</summary>
         public OperationStatus? Status { get; set; }
         /// <summary>
@@ -47,7 +47,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"clientContext", n => { ClientContext = n.GetStringValue(); } },
-                {"resultInfo", n => { ResultInfo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResultInfo>(GithubTodoDemo.MicrosoftGraph.Models.ResultInfo.CreateFromDiscriminatorValue); } },
+                {"resultInfo", n => { ResultInfo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo>(GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo.CreateFromDiscriminatorValue); } },
                 {"status", n => { Status = n.GetEnumValue<OperationStatus>(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("clientContext", ClientContext);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResultInfo>("resultInfo", ResultInfo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo>("resultInfo", ResultInfo);
             writer.WriteEnumValue<OperationStatus>("status", Status);
         }
     }

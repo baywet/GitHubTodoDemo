@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RecordingInfo : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>The recordingStatus property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RecordingStatus? RecordingStatus { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RecordingStatus? RecordingStatus { get; set; }
         /// <summary>
         /// Instantiates a new recordingInfo and sets the default values.
         /// </summary>

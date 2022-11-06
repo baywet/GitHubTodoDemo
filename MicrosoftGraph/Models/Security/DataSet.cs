@@ -1,13 +1,13 @@
-using GithubTodoDemo.MicrosoftGraph.Models.Security;
+using GitHubTodoDemo.MicrosoftGraph.Models.Security;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class DataSet : Entity, IParsable {
         /// <summary>The createdBy property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.IdentitySet CreatedBy { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet CreatedBy { get; set; }
         /// <summary>The createdDateTime property</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The displayName property</summary>
@@ -35,7 +35,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GithubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                {"createdBy", n => { CreatedBy = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
             };
@@ -47,7 +47,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>("createdBy", CreatedBy);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
         }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryAddToReviewSetOperation : CaseOperation, IParsable {
         /// <summary>eDiscovery review set to which items matching source collection query gets added.</summary>
         public EdiscoveryReviewSet ReviewSet { get; set; }

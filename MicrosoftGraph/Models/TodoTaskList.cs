@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class TodoTaskList : Entity, IParsable {
         /// <summary>The name of the task list.</summary>
@@ -17,7 +17,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The tasks in this task list. Read-only. Nullable.</summary>
         public List<TodoTask> Tasks { get; set; }
         /// <summary>The wellknownListName property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.WellknownListName? WellknownListName { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.WellknownListName? WellknownListName { get; set; }
         /// <summary>
         /// Instantiates a new todoTaskList and sets the default values.
         /// </summary>

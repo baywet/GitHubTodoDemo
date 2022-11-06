@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationTeamsAppResource : EducationResource, IParsable {
         /// <summary>The appIconWebUrl property</summary>
         public string AppIconWebUrl { get; set; }

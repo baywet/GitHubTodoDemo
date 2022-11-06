@@ -1,17 +1,17 @@
-using GithubTodoDemo.MicrosoftGraph.Models.CallRecords;
+using GitHubTodoDemo.MicrosoftGraph.Models.CallRecords;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class Endpoint : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>User-agent reported by this endpoint.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecords.UserAgent UserAgent { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.UserAgent UserAgent { get; set; }
         /// <summary>
         /// Instantiates a new endpoint and sets the default values.
         /// </summary>
@@ -38,7 +38,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"userAgent", n => { UserAgent = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.CallRecords.UserAgent>(GithubTodoDemo.MicrosoftGraph.Models.CallRecords.UserAgent.CreateFromDiscriminatorValue); } },
+                {"userAgent", n => { UserAgent = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.UserAgent>(GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.UserAgent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.CallRecords.UserAgent>("userAgent", UserAgent);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.UserAgent>("userAgent", UserAgent);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

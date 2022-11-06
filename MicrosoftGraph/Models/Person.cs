@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class Person : Entity, IParsable {
         /// <summary>The person&apos;s birthday.</summary>
@@ -27,7 +27,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Free-form notes that the user has taken about this person.</summary>
         public string PersonNotes { get; set; }
         /// <summary>The type of person.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PersonType PersonType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PersonType PersonType { get; set; }
         /// <summary>The person&apos;s phone numbers.</summary>
         public List<Phone> Phones { get; set; }
         /// <summary>The person&apos;s addresses.</summary>
@@ -73,7 +73,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"jobTitle", n => { JobTitle = n.GetStringValue(); } },
                 {"officeLocation", n => { OfficeLocation = n.GetStringValue(); } },
                 {"personNotes", n => { PersonNotes = n.GetStringValue(); } },
-                {"personType", n => { PersonType = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PersonType>(GithubTodoDemo.MicrosoftGraph.Models.PersonType.CreateFromDiscriminatorValue); } },
+                {"personType", n => { PersonType = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PersonType>(GitHubTodoDemo.MicrosoftGraph.Models.PersonType.CreateFromDiscriminatorValue); } },
                 {"phones", n => { Phones = n.GetCollectionOfObjectValues<Phone>(Phone.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"postalAddresses", n => { PostalAddresses = n.GetCollectionOfObjectValues<Location>(Location.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"profession", n => { Profession = n.GetStringValue(); } },
@@ -101,7 +101,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("jobTitle", JobTitle);
             writer.WriteStringValue("officeLocation", OfficeLocation);
             writer.WriteStringValue("personNotes", PersonNotes);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.PersonType>("personType", PersonType);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PersonType>("personType", PersonType);
             writer.WriteCollectionOfObjectValues<Phone>("phones", Phones);
             writer.WriteCollectionOfObjectValues<Location>("postalAddresses", PostalAddresses);
             writer.WriteStringValue("profession", Profession);

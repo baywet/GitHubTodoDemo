@@ -1,10 +1,10 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RiskyUser : Entity, IParsable {
         /// <summary>The activity related to user risk level change</summary>
         public List<RiskyUserHistoryItem> History { get; set; }
@@ -13,13 +13,13 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether a user&apos;s risky state is being processed by the backend.</summary>
         public bool? IsProcessing { get; set; }
         /// <summary>Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RiskDetail? RiskDetail { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RiskDetail? RiskDetail { get; set; }
         /// <summary>The date and time that the risky user was last updated.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? RiskLastUpdatedDateTime { get; set; }
         /// <summary>Level of the detected risky user. Possible values are: low, medium, high, hidden, none, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RiskLevel? RiskLevel { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RiskLevel? RiskLevel { get; set; }
         /// <summary>State of the user&apos;s risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.RiskState? RiskState { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.RiskState? RiskState { get; set; }
         /// <summary>Risky user display name.</summary>
         public string UserDisplayName { get; set; }
         /// <summary>Risky user principal name.</summary>

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class NetworkInfo : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -24,7 +24,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         /// <summary>The media access control (MAC) address of the media endpoint&apos;s network device.</summary>
         public string MacAddress { get; set; }
         /// <summary>The networkTransportProtocol property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecords.NetworkTransportProtocol? NetworkTransportProtocol { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.NetworkTransportProtocol? NetworkTransportProtocol { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>Network port number used by media endpoint.</summary>
@@ -44,7 +44,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         /// <summary>List of network trace route hops collected for this media stream.*</summary>
         public List<TraceRouteHop> TraceRouteHops { get; set; }
         /// <summary>The wifiBand property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecords.WifiBand? WifiBand { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.WifiBand? WifiBand { get; set; }
         /// <summary>Estimated remaining battery charge in percentage reported by the media endpoint.</summary>
         public int? WifiBatteryCharge { get; set; }
         /// <summary>WiFi channel used by the media endpoint.</summary>
@@ -54,7 +54,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         /// <summary>Version of the Microsoft WiFi driver used by the media endpoint.</summary>
         public string WifiMicrosoftDriverVersion { get; set; }
         /// <summary>The wifiRadioType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecords.WifiRadioType? WifiRadioType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.WifiRadioType? WifiRadioType { get; set; }
         /// <summary>WiFi signal strength in percentage reported by the media endpoint.</summary>
         public int? WifiSignalStrength { get; set; }
         /// <summary>Name of the WiFi driver used by the media endpoint. Value may be localized based on the language used by endpoint.</summary>

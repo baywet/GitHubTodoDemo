@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class ClientUserAgent : UserAgent, IParsable {
         /// <summary>The unique identifier of the Azure AD application used by this endpoint.</summary>
         public string AzureADAppId { get; set; }
@@ -12,7 +12,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         /// <summary>The platform property</summary>
         public ClientPlatform? Platform { get; set; }
         /// <summary>The productFamily property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.CallRecords.ProductFamily? ProductFamily { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.CallRecords.ProductFamily? ProductFamily { get; set; }
         /// <summary>
         /// Instantiates a new ClientUserAgent and sets the default values.
         /// </summary>

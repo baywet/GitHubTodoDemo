@@ -3,32 +3,39 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
-    public class Codespace_runtime_constraints : IAdditionalDataHolder, IParsable {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
+    public class ChatViewpoint : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The privacy settings a user can select from when forwarding a port.</summary>
-        public List<string> Allowed_port_privacy_settings { get; set; }
+        /// <summary>Indicates whether the chat is hidden for the current user.</summary>
+        public bool? IsHidden { get; set; }
+        /// <summary>Represents the dateTime up until which the current user has read chatMessages in a specific chat.</summary>
+        public DateTimeOffset? LastMessageReadDateTime { get; set; }
+        /// <summary>The OdataType property</summary>
+        public string OdataType { get; set; }
         /// <summary>
-        /// Instantiates a new Codespace_runtime_constraints and sets the default values.
+        /// Instantiates a new chatViewpoint and sets the default values.
         /// </summary>
-        public Codespace_runtime_constraints() {
+        public ChatViewpoint() {
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.chatViewpoint";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
-        public static Codespace_runtime_constraints CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static ChatViewpoint CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Codespace_runtime_constraints();
+            return new ChatViewpoint();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"allowed_port_privacy_settings", n => { Allowed_port_privacy_settings = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"isHidden", n => { IsHidden = n.GetBoolValue(); } },
+                {"lastMessageReadDateTime", n => { LastMessageReadDateTime = n.GetDateTimeOffsetValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -37,7 +44,9 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("allowed_port_privacy_settings", Allowed_port_privacy_settings);
+            writer.WriteBoolValue("isHidden", IsHidden);
+            writer.WriteDateTimeOffsetValue("lastMessageReadDateTime", LastMessageReadDateTime);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

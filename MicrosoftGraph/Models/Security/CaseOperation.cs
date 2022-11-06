@@ -1,23 +1,23 @@
-using GithubTodoDemo.MicrosoftGraph.Models.Security;
+using GitHubTodoDemo.MicrosoftGraph.Models.Security;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class CaseOperation : Entity, IParsable {
         /// <summary>The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData</summary>
         public CaseAction? Action { get; set; }
         /// <summary>The date and time the operation was completed.</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
         /// <summary>The user that created the operation.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.IdentitySet CreatedBy { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet CreatedBy { get; set; }
         /// <summary>The date and time the operation was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The progress of the operation.</summary>
         public int? PercentProgress { get; set; }
         /// <summary>Contains success and failure-specific result information.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResultInfo ResultInfo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo ResultInfo { get; set; }
         /// <summary>The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.</summary>
         public CaseOperationStatus? Status { get; set; }
         /// <summary>
@@ -49,10 +49,10 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"action", n => { Action = n.GetEnumValue<CaseAction>(); } },
                 {"completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"createdBy", n => { CreatedBy = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GithubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                {"createdBy", n => { CreatedBy = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"percentProgress", n => { PercentProgress = n.GetIntValue(); } },
-                {"resultInfo", n => { ResultInfo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResultInfo>(GithubTodoDemo.MicrosoftGraph.Models.ResultInfo.CreateFromDiscriminatorValue); } },
+                {"resultInfo", n => { ResultInfo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo>(GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo.CreateFromDiscriminatorValue); } },
                 {"status", n => { Status = n.GetEnumValue<CaseOperationStatus>(); } },
             };
         }
@@ -65,10 +65,10 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
             base.Serialize(writer);
             writer.WriteEnumValue<CaseAction>("action", Action);
             writer.WriteDateTimeOffsetValue("completedDateTime", CompletedDateTime);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>("createdBy", CreatedBy);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteIntValue("percentProgress", PercentProgress);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResultInfo>("resultInfo", ResultInfo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo>("resultInfo", ResultInfo);
             writer.WriteEnumValue<CaseOperationStatus>("status", Status);
         }
     }

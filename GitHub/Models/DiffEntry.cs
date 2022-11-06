@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>Diff Entry</summary>
     public class DiffEntry : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,7 +29,7 @@ namespace GithubTodoDemo.GitHub.Models {
         /// <summary>The sha property</summary>
         public string Sha { get; set; }
         /// <summary>The status property</summary>
-        public DiffEntry_status? Status { get; set; }
+        public string Status { get; set; }
         /// <summary>
         /// Instantiates a new DiffEntry and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"previous_filename", n => { Previous_filename = n.GetStringValue(); } },
                 {"raw_url", n => { Raw_url = n.GetStringValue(); } },
                 {"sha", n => { Sha = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<DiffEntry_status>(); } },
+                {"status", n => { Status = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("previous_filename", Previous_filename);
             writer.WriteStringValue("raw_url", Raw_url);
             writer.WriteStringValue("sha", Sha);
-            writer.WriteEnumValue<DiffEntry_status>("status", Status);
+            writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

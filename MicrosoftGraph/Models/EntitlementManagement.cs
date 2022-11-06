@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EntitlementManagement : Entity, IParsable {
         /// <summary>Approval stages for decisions associated with access package assignment requests.</summary>
         public List<Approval> AccessPackageAssignmentApprovals { get; set; }

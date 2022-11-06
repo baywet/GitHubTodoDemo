@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosHomeScreenApp : IosHomeScreenItem, IParsable {
         /// <summary>BundleID of the app if isWebClip is false or the URL of a web clip if isWebClip is true.</summary>
         public string BundleID { get; set; }

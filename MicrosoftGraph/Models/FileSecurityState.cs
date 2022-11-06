@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class FileSecurityState : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Complex type containing file hashes (cryptographic and location-sensitive).</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.FileHash FileHash { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.FileHash FileHash { get; set; }
         /// <summary>File name (without path).</summary>
         public string Name { get; set; }
         /// <summary>The OdataType property</summary>
@@ -37,7 +37,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"fileHash", n => { FileHash = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.FileHash>(GithubTodoDemo.MicrosoftGraph.Models.FileHash.CreateFromDiscriminatorValue); } },
+                {"fileHash", n => { FileHash = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.FileHash>(GitHubTodoDemo.MicrosoftGraph.Models.FileHash.CreateFromDiscriminatorValue); } },
                 {"name", n => { Name = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"path", n => { PathObject = n.GetStringValue(); } },
@@ -50,7 +50,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.FileHash>("fileHash", FileHash);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.FileHash>("fileHash", FileHash);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("path", PathObject);

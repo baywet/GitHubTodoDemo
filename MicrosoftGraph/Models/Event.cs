@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Event : OutlookItem, IParsable {
         /// <summary>true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.</summary>
         public bool? AllowNewTimeProposals { get; set; }
@@ -16,7 +16,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The preview of the message associated with the event. It is in text format.</summary>
         public string BodyPreview { get; set; }
         /// <summary>The calendar that contains the event. Navigation property. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Calendar Calendar { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Calendar Calendar { get; set; }
         /// <summary>The date, time, and time zone that the event ends. By default, the end time is in UTC.</summary>
         public DateTimeTimeZone End { get; set; }
         /// <summary>The collection of open extensions defined for the event. Nullable.</summary>
@@ -28,7 +28,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.</summary>
         public string ICalUId { get; set; }
         /// <summary>The importance property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Importance? Importance { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Importance? Importance { get; set; }
         /// <summary>The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.</summary>
         public List<Event> Instances { get; set; }
         /// <summary>The isAllDay property</summary>
@@ -44,9 +44,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The isReminderOn property</summary>
         public bool? IsReminderOn { get; set; }
         /// <summary>The location property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Location Location { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Location Location { get; set; }
         /// <summary>The locations property</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.Location> Locations { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.Location> Locations { get; set; }
         /// <summary>The collection of multi-value extended properties defined for the event. Read-only. Nullable.</summary>
         public List<MultiValueLegacyExtendedProperty> MultiValueExtendedProperties { get; set; }
         /// <summary>The onlineMeeting property</summary>
@@ -70,9 +70,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The responseRequested property</summary>
         public bool? ResponseRequested { get; set; }
         /// <summary>The responseStatus property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ResponseStatus ResponseStatus { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResponseStatus ResponseStatus { get; set; }
         /// <summary>The sensitivity property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Sensitivity? Sensitivity { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Sensitivity? Sensitivity { get; set; }
         /// <summary>The seriesMasterId property</summary>
         public string SeriesMasterId { get; set; }
         /// <summary>The showAs property</summary>
@@ -113,7 +113,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"attendees", n => { Attendees = n.GetCollectionOfObjectValues<Attendee>(Attendee.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
                 {"bodyPreview", n => { BodyPreview = n.GetStringValue(); } },
-                {"calendar", n => { Calendar = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Calendar>(GithubTodoDemo.MicrosoftGraph.Models.Calendar.CreateFromDiscriminatorValue); } },
+                {"calendar", n => { Calendar = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Calendar>(GitHubTodoDemo.MicrosoftGraph.Models.Calendar.CreateFromDiscriminatorValue); } },
                 {"end", n => { End = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"hasAttachments", n => { HasAttachments = n.GetBoolValue(); } },
@@ -127,8 +127,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"isOnlineMeeting", n => { IsOnlineMeeting = n.GetBoolValue(); } },
                 {"isOrganizer", n => { IsOrganizer = n.GetBoolValue(); } },
                 {"isReminderOn", n => { IsReminderOn = n.GetBoolValue(); } },
-                {"location", n => { Location = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Location>(GithubTodoDemo.MicrosoftGraph.Models.Location.CreateFromDiscriminatorValue); } },
-                {"locations", n => { Locations = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Location>(GithubTodoDemo.MicrosoftGraph.Models.Location.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"location", n => { Location = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Location>(GitHubTodoDemo.MicrosoftGraph.Models.Location.CreateFromDiscriminatorValue); } },
+                {"locations", n => { Locations = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Location>(GitHubTodoDemo.MicrosoftGraph.Models.Location.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"onlineMeeting", n => { OnlineMeeting = n.GetObjectValue<OnlineMeetingInfo>(OnlineMeetingInfo.CreateFromDiscriminatorValue); } },
                 {"onlineMeetingProvider", n => { OnlineMeetingProvider = n.GetEnumValue<OnlineMeetingProviderType>(); } },
@@ -140,7 +140,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
                 {"reminderMinutesBeforeStart", n => { ReminderMinutesBeforeStart = n.GetIntValue(); } },
                 {"responseRequested", n => { ResponseRequested = n.GetBoolValue(); } },
-                {"responseStatus", n => { ResponseStatus = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResponseStatus>(GithubTodoDemo.MicrosoftGraph.Models.ResponseStatus.CreateFromDiscriminatorValue); } },
+                {"responseStatus", n => { ResponseStatus = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResponseStatus>(GitHubTodoDemo.MicrosoftGraph.Models.ResponseStatus.CreateFromDiscriminatorValue); } },
                 {"sensitivity", n => { Sensitivity = n.GetEnumValue<Sensitivity>(); } },
                 {"seriesMasterId", n => { SeriesMasterId = n.GetStringValue(); } },
                 {"showAs", n => { ShowAs = n.GetEnumValue<FreeBusyStatus>(); } },
@@ -164,7 +164,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<Attendee>("attendees", Attendees);
             writer.WriteObjectValue<ItemBody>("body", Body);
             writer.WriteStringValue("bodyPreview", BodyPreview);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Calendar>("calendar", Calendar);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Calendar>("calendar", Calendar);
             writer.WriteObjectValue<DateTimeTimeZone>("end", End);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
             writer.WriteBoolValue("hasAttachments", HasAttachments);
@@ -178,8 +178,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("isOnlineMeeting", IsOnlineMeeting);
             writer.WriteBoolValue("isOrganizer", IsOrganizer);
             writer.WriteBoolValue("isReminderOn", IsReminderOn);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Location>("location", Location);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.Location>("locations", Locations);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Location>("location", Location);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.Location>("locations", Locations);
             writer.WriteCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", MultiValueExtendedProperties);
             writer.WriteObjectValue<OnlineMeetingInfo>("onlineMeeting", OnlineMeeting);
             writer.WriteEnumValue<OnlineMeetingProviderType>("onlineMeetingProvider", OnlineMeetingProvider);
@@ -191,7 +191,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteObjectValue<PatternedRecurrence>("recurrence", Recurrence);
             writer.WriteIntValue("reminderMinutesBeforeStart", ReminderMinutesBeforeStart);
             writer.WriteBoolValue("responseRequested", ResponseRequested);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ResponseStatus>("responseStatus", ResponseStatus);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResponseStatus>("responseStatus", ResponseStatus);
             writer.WriteEnumValue<Sensitivity>("sensitivity", Sensitivity);
             writer.WriteStringValue("seriesMasterId", SeriesMasterId);
             writer.WriteEnumValue<FreeBusyStatus>("showAs", ShowAs);

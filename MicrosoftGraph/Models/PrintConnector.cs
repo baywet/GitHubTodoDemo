@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrintConnector : Entity, IParsable {
         /// <summary>The connector&apos;s version.</summary>
         public string AppVersion { get; set; }

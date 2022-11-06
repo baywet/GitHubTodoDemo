@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>SharedPC Account Manager Policy. Only applies when the account manager is enabled.</summary>
     public class SharedPCAccountManagerPolicy : IAdditionalDataHolder, IParsable {
         /// <summary>Possible values for when accounts are deleted on a shared PC.</summary>

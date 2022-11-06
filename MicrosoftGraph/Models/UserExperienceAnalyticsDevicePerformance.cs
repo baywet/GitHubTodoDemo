@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UserExperienceAnalyticsDevicePerformance : Entity, IParsable {
-        /// <summary>Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999</summary>
+        /// <summary>Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999</summary>
         public double? AverageBlueScreens { get; set; }
-        /// <summary>Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999</summary>
+        /// <summary>Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999</summary>
         public double? AverageRestarts { get; set; }
-        /// <summary>Number of Blue Screens in the last 14 days. Valid values 0 to 9999999</summary>
+        /// <summary>Number of Blue Screens in the last 30 days. Valid values 0 to 9999999</summary>
         public int? BlueScreenCount { get; set; }
         /// <summary>The user experience analytics device boot score.</summary>
         public int? BootScore { get; set; }
@@ -22,7 +22,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The user experience analytics device name.</summary>
         public string DeviceName { get; set; }
         /// <summary>The diskType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.DiskType? DiskType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DiskType? DiskType { get; set; }
         /// <summary>The user experience analytics device group policy boot time in milliseconds.</summary>
         public int? GroupPolicyBootTimeInMs { get; set; }
         /// <summary>The user experience analytics device group policy login time in milliseconds.</summary>
@@ -41,7 +41,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         public string OperatingSystemVersion { get; set; }
         /// <summary>The user experience analytics responsive desktop time in milliseconds.</summary>
         public int? ResponsiveDesktopTimeInMs { get; set; }
-        /// <summary>Number of Restarts in the last 14 days. Valid values 0 to 9999999</summary>
+        /// <summary>Number of Restarts in the last 30 days. Valid values 0 to 9999999</summary>
         public int? RestartCount { get; set; }
         /// <summary>The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308</summary>
         public double? StartupPerformanceScore { get; set; }

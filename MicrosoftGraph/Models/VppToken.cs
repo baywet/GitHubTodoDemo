@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// <summary>You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens.</summary>
     public class VppToken : Entity, IParsable {
         /// <summary>The apple Id associated with the given Apple Volume Purchase Program Token.</summary>
@@ -27,7 +27,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.</summary>
         public string Token { get; set; }
         /// <summary>Possible types of an Apple Volume Purchase Program token.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.VppTokenAccountType? VppTokenAccountType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.VppTokenAccountType? VppTokenAccountType { get; set; }
         /// <summary>
         /// Instantiates a new vppToken and sets the default values.
         /// </summary>

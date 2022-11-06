@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Bundle : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If the bundle is an [album][], then the album property is included</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Album Album { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Album Album { get; set; }
         /// <summary>Number of children contained immediately within this container.</summary>
         public int? ChildCount { get; set; }
         /// <summary>The OdataType property</summary>
@@ -33,7 +33,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"album", n => { Album = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Album>(GithubTodoDemo.MicrosoftGraph.Models.Album.CreateFromDiscriminatorValue); } },
+                {"album", n => { Album = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Album>(GitHubTodoDemo.MicrosoftGraph.Models.Album.CreateFromDiscriminatorValue); } },
                 {"childCount", n => { ChildCount = n.GetIntValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -44,7 +44,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Album>("album", Album);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Album>("album", Album);
             writer.WriteIntValue("childCount", ChildCount);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

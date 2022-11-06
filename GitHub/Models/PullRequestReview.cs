@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
+namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>Pull Request Reviews are reviews on pull requests.</summary>
     public class PullRequestReview : IAdditionalDataHolder, IParsable {
         /// <summary>The _links property</summary>
@@ -11,7 +11,7 @@ namespace GithubTodoDemo.GitHub.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How the author is associated with the repository.</summary>
-        public AuthorAssociation? Author_association { get; set; }
+        public GitHubTodoDemo.GitHub.Models.Author_association? Author_association { get; set; }
         /// <summary>The text of the review.</summary>
         public string Body { get; set; }
         /// <summary>The body_html property</summary>
@@ -32,8 +32,8 @@ namespace GithubTodoDemo.GitHub.Models {
         public string State { get; set; }
         /// <summary>The submitted_at property</summary>
         public DateTimeOffset? Submitted_at { get; set; }
-        /// <summary>Simple User</summary>
-        public NullableSimpleUser User { get; set; }
+        /// <summary>The user property</summary>
+        public SimpleUser User { get; set; }
         /// <summary>
         /// Instantiates a new PullRequestReview and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace GithubTodoDemo.GitHub.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"_links", n => { _links = n.GetObjectValue<PullRequestReview__links>(PullRequestReview__links.CreateFromDiscriminatorValue); } },
-                {"author_association", n => { Author_association = n.GetEnumValue<AuthorAssociation>(); } },
+                {"author_association", n => { Author_association = n.GetEnumValue<Author_association>(); } },
                 {"body", n => { Body = n.GetStringValue(); } },
                 {"body_html", n => { Body_html = n.GetStringValue(); } },
                 {"body_text", n => { Body_text = n.GetStringValue(); } },
@@ -65,7 +65,7 @@ namespace GithubTodoDemo.GitHub.Models {
                 {"pull_request_url", n => { Pull_request_url = n.GetStringValue(); } },
                 {"state", n => { State = n.GetStringValue(); } },
                 {"submitted_at", n => { Submitted_at = n.GetDateTimeOffsetValue(); } },
-                {"user", n => { User = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                {"user", n => { User = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace GithubTodoDemo.GitHub.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<PullRequestReview__links>("_links", _links);
-            writer.WriteEnumValue<AuthorAssociation>("author_association", Author_association);
+            writer.WriteEnumValue<Author_association>("author_association", Author_association);
             writer.WriteStringValue("body", Body);
             writer.WriteStringValue("body_html", Body_html);
             writer.WriteStringValue("body_text", Body_text);
@@ -86,7 +86,7 @@ namespace GithubTodoDemo.GitHub.Models {
             writer.WriteStringValue("pull_request_url", Pull_request_url);
             writer.WriteStringValue("state", State);
             writer.WriteDateTimeOffsetValue("submitted_at", Submitted_at);
-            writer.WriteObjectValue<NullableSimpleUser>("user", User);
+            writer.WriteObjectValue<SimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

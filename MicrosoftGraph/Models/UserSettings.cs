@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UserSettings : Entity, IParsable {
         /// <summary>The contributionToContentDiscoveryAsOrganizationDisabled property</summary>
         public bool? ContributionToContentDiscoveryAsOrganizationDisabled { get; set; }
         /// <summary>The contributionToContentDiscoveryDisabled property</summary>
         public bool? ContributionToContentDiscoveryDisabled { get; set; }
         /// <summary>The shiftPreferences property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ShiftPreferences ShiftPreferences { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ShiftPreferences ShiftPreferences { get; set; }
         /// <summary>
         /// Instantiates a new userSettings and sets the default values.
         /// </summary>
@@ -32,7 +32,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"contributionToContentDiscoveryAsOrganizationDisabled", n => { ContributionToContentDiscoveryAsOrganizationDisabled = n.GetBoolValue(); } },
                 {"contributionToContentDiscoveryDisabled", n => { ContributionToContentDiscoveryDisabled = n.GetBoolValue(); } },
-                {"shiftPreferences", n => { ShiftPreferences = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ShiftPreferences>(GithubTodoDemo.MicrosoftGraph.Models.ShiftPreferences.CreateFromDiscriminatorValue); } },
+                {"shiftPreferences", n => { ShiftPreferences = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ShiftPreferences>(GitHubTodoDemo.MicrosoftGraph.Models.ShiftPreferences.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -44,7 +44,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             base.Serialize(writer);
             writer.WriteBoolValue("contributionToContentDiscoveryAsOrganizationDisabled", ContributionToContentDiscoveryAsOrganizationDisabled);
             writer.WriteBoolValue("contributionToContentDiscoveryDisabled", ContributionToContentDiscoveryDisabled);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ShiftPreferences>("shiftPreferences", ShiftPreferences);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ShiftPreferences>("shiftPreferences", ShiftPreferences);
         }
     }
 }

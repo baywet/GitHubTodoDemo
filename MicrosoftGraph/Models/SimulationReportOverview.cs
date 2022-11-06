@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SimulationReportOverview : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -14,9 +14,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of valid users in the attack simulation and training campaign.</summary>
         public int? ResolvedTargetsCount { get; set; }
         /// <summary>Summary of simulation events in the attack simulation and training campaign.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent SimulationEventsContent { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent SimulationEventsContent { get; set; }
         /// <summary>Summary of assigned trainings in the attack simulation and training campaign.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent TrainingEventsContent { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent TrainingEventsContent { get; set; }
         /// <summary>
         /// Instantiates a new simulationReportOverview and sets the default values.
         /// </summary>
@@ -40,8 +40,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"recommendedActions", n => { RecommendedActions = n.GetCollectionOfObjectValues<RecommendedAction>(RecommendedAction.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"resolvedTargetsCount", n => { ResolvedTargetsCount = n.GetIntValue(); } },
-                {"simulationEventsContent", n => { SimulationEventsContent = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent>(GithubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent.CreateFromDiscriminatorValue); } },
-                {"trainingEventsContent", n => { TrainingEventsContent = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent>(GithubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent.CreateFromDiscriminatorValue); } },
+                {"simulationEventsContent", n => { SimulationEventsContent = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent>(GitHubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent.CreateFromDiscriminatorValue); } },
+                {"trainingEventsContent", n => { TrainingEventsContent = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent>(GitHubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -53,8 +53,8 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<RecommendedAction>("recommendedActions", RecommendedActions);
             writer.WriteIntValue("resolvedTargetsCount", ResolvedTargetsCount);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent>("simulationEventsContent", SimulationEventsContent);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent>("trainingEventsContent", TrainingEventsContent);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent>("simulationEventsContent", SimulationEventsContent);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent>("trainingEventsContent", TrainingEventsContent);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

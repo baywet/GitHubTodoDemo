@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RichLongRunningOperation : LongRunningOperation, IParsable {
         /// <summary>Error that caused the operation to fail.</summary>
         public PublicError Error { get; set; }

@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
     /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
     public class ExternalItem : Entity, IParsable {
         /// <summary>An array of access control entries. Each entry specifies the access granted to a user or group. Required.</summary>
-        public List<GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Acl> Acl { get; set; }
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Acl> Acl { get; set; }
         /// <summary>A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.</summary>
         public ExternalItemContent Content { get; set; }
         /// <summary>A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Properties Properties { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Properties Properties { get; set; }
         /// <summary>
         /// Instantiates a new externalItem and sets the default values.
         /// </summary>
@@ -31,9 +31,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"acl", n => { Acl = n.GetCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Acl>(GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Acl.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"acl", n => { Acl = n.GetCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Acl>(GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Acl.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"content", n => { Content = n.GetObjectValue<ExternalItemContent>(ExternalItemContent.CreateFromDiscriminatorValue); } },
-                {"properties", n => { Properties = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Properties>(GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Properties.CreateFromDiscriminatorValue); } },
+                {"properties", n => { Properties = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Properties>(GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Properties.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -43,9 +43,9 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Acl>("acl", Acl);
+            writer.WriteCollectionOfObjectValues<GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Acl>("acl", Acl);
             writer.WriteObjectValue<ExternalItemContent>("content", Content);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Properties>("properties", Properties);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Properties>("properties", Properties);
         }
     }
 }

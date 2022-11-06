@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MicrosoftStoreForBusinessApp : MobileApp, IParsable {
         /// <summary>The licenseType property</summary>
         public MicrosoftStoreForBusinessLicenseType? LicenseType { get; set; }

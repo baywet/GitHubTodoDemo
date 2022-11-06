@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class ParticipantEndpoint : Endpoint, IParsable {
         /// <summary>The feedback provided by the user of this endpoint about the quality of the session.</summary>
         public UserFeedback Feedback { get; set; }
         /// <summary>Identity associated with the endpoint.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.IdentitySet Identity { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet Identity { get; set; }
         /// <summary>
         /// Instantiates a new ParticipantEndpoint and sets the default values.
         /// </summary>
@@ -29,7 +29,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"feedback", n => { Feedback = n.GetObjectValue<UserFeedback>(UserFeedback.CreateFromDiscriminatorValue); } },
-                {"identity", n => { Identity = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GithubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                {"identity", n => { Identity = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>(GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.CallRecords {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<UserFeedback>("feedback", Feedback);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.IdentitySet>("identity", Identity);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet>("identity", Identity);
         }
     }
 }

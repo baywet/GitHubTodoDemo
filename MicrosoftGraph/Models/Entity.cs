@@ -1,14 +1,14 @@
-using GithubTodoDemo.MicrosoftGraph.Models;
-using GithubTodoDemo.MicrosoftGraph.Models.CallRecords;
-using GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors;
-using GithubTodoDemo.MicrosoftGraph.Models.Security;
-using GithubTodoDemo.MicrosoftGraph.Models.TermStore;
+using GitHubTodoDemo.MicrosoftGraph.Models;
+using GitHubTodoDemo.MicrosoftGraph.Models.CallRecords;
+using GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors;
+using GitHubTodoDemo.MicrosoftGraph.Models.Security;
+using GitHubTodoDemo.MicrosoftGraph.Models.TermStore;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Entity : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -127,6 +127,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.chat" => new Chat(),
                 "#microsoft.graph.chatMessage" => new ChatMessage(),
                 "#microsoft.graph.chatMessageHostedContent" => new ChatMessageHostedContent(),
+                "#microsoft.graph.chatMessageInfo" => new ChatMessageInfo(),
                 "#microsoft.graph.checklistItem" => new ChecklistItem(),
                 "#microsoft.graph.claimsMappingPolicy" => new ClaimsMappingPolicy(),
                 "#microsoft.graph.cloudCommunications" => new CloudCommunications(),
@@ -136,6 +137,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.complianceManagementPartner" => new ComplianceManagementPartner(),
                 "#microsoft.graph.conditionalAccessPolicy" => new ConditionalAccessPolicy(),
                 "#microsoft.graph.conditionalAccessRoot" => new ConditionalAccessRoot(),
+                "#microsoft.graph.conditionalAccessTemplate" => new ConditionalAccessTemplate(),
                 "#microsoft.graph.connectedOrganization" => new ConnectedOrganization(),
                 "#microsoft.graph.contact" => new Contact(),
                 "#microsoft.graph.contactFolder" => new ContactFolder(),
@@ -241,7 +243,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.externalConnectors.externalConnection" => new ExternalConnection(),
                 "#microsoft.graph.externalConnectors.externalGroup" => new ExternalGroup(),
                 "#microsoft.graph.externalConnectors.externalItem" => new ExternalItem(),
-                "#microsoft.graph.externalConnectors.identity" => new GithubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Identity(),
+                "#microsoft.graph.externalConnectors.identity" => new GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors.Identity(),
                 "#microsoft.graph.externalConnectors.schema" => new Schema(),
                 "#microsoft.graph.externalDomainName" => new ExternalDomainName(),
                 "#microsoft.graph.featureRolloutPolicy" => new FeatureRolloutPolicy(),
@@ -451,7 +453,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.sectionGroup" => new SectionGroup(),
                 "#microsoft.graph.secureScore" => new SecureScore(),
                 "#microsoft.graph.secureScoreControlProfile" => new SecureScoreControlProfile(),
-                "#microsoft.graph.security" => new GithubTodoDemo.MicrosoftGraph.Models.Security.Security(),
+                "#microsoft.graph.security" => new GitHubTodoDemo.MicrosoftGraph.Models.Security.Security(),
                 "#microsoft.graph.security.case" => new Case(),
                 "#microsoft.graph.security.caseOperation" => new CaseOperation(),
                 "#microsoft.graph.security.casesRoot" => new CasesRoot(),
@@ -532,7 +534,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.termsAndConditionsAcceptanceStatus" => new TermsAndConditionsAcceptanceStatus(),
                 "#microsoft.graph.termsAndConditionsAssignment" => new TermsAndConditionsAssignment(),
                 "#microsoft.graph.termsOfUseContainer" => new TermsOfUseContainer(),
-                "#microsoft.graph.termStore.group" => new GithubTodoDemo.MicrosoftGraph.Models.TermStore.Group(),
+                "#microsoft.graph.termStore.group" => new GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Group(),
                 "#microsoft.graph.termStore.relation" => new Relation(),
                 "#microsoft.graph.termStore.set" => new Set(),
                 "#microsoft.graph.termStore.store" => new Store(),

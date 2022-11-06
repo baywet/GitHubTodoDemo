@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SiteCollection : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -14,7 +14,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>If present, indicates that this is a root site collection in SharePoint. Read-only.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Root Root { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Root Root { get; set; }
         /// <summary>
         /// Instantiates a new siteCollection and sets the default values.
         /// </summary>
@@ -38,7 +38,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"dataLocationCode", n => { DataLocationCode = n.GetStringValue(); } },
                 {"hostname", n => { Hostname = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"root", n => { Root = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Root>(GithubTodoDemo.MicrosoftGraph.Models.Root.CreateFromDiscriminatorValue); } },
+                {"root", n => { Root = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Root>(GitHubTodoDemo.MicrosoftGraph.Models.Root.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("dataLocationCode", DataLocationCode);
             writer.WriteStringValue("hostname", Hostname);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Root>("root", Root);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Root>("root", Root);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TargetResource : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates the visible name defined for the resource. Typically specified when the resource is created.</summary>
         public string DisplayName { get; set; }
         /// <summary>When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.GroupType? GroupType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.GroupType? GroupType { get; set; }
         /// <summary>Indicates the unique ID of the resource.</summary>
         public string Id { get; set; }
         /// <summary>Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type.</summary>

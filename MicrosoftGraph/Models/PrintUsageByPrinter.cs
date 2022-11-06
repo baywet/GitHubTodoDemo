@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrintUsageByPrinter : PrintUsage, IParsable {
         /// <summary>The printerId property</summary>
         public string PrinterId { get; set; }

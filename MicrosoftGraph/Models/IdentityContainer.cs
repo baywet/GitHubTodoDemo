@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IdentityContainer : Entity, IParsable {
         /// <summary>Represents entry point for API connectors.</summary>
         public List<IdentityApiConnector> ApiConnectors { get; set; }

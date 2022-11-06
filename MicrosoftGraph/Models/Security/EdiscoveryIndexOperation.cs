@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryIndexOperation : CaseOperation, IParsable {
         /// <summary>
         /// Instantiates a new ediscoveryIndexOperation and sets the default values.

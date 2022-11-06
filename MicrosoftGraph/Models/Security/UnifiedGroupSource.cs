@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
+namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class UnifiedGroupSource : DataSource, IParsable {
         /// <summary>The group property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.Group Group { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.Group Group { get; set; }
         /// <summary>Specifies which sources are included in this group. Possible values are: mailbox, site.</summary>
         public SourceType? IncludedSources { get; set; }
         /// <summary>
@@ -28,7 +28,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"group", n => { Group = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Group>(GithubTodoDemo.MicrosoftGraph.Models.Group.CreateFromDiscriminatorValue); } },
+                {"group", n => { Group = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Group>(GitHubTodoDemo.MicrosoftGraph.Models.Group.CreateFromDiscriminatorValue); } },
                 {"includedSources", n => { IncludedSources = n.GetEnumValue<SourceType>(); } },
             };
         }
@@ -39,7 +39,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models.Security {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.Group>("group", Group);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.Group>("group", Group);
             writer.WriteEnumValue<SourceType>("includedSources", IncludedSources);
         }
     }

@@ -3,20 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class InternalDomainFederation : SamlOrWsFedProvider, IParsable {
         /// <summary>URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Azure Active Directory (Azure AD). Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.</summary>
         public string ActiveSignInUri { get; set; }
         /// <summary>Determines whether Azure AD accepts the MFA performed by the federated IdP when a federated user accesses an application that is governed by a conditional access policy that requires MFA. The possible values are: acceptIfMfaDoneByFederatedIdp, enforceMfaByFederatedIdp, rejectMfaByFederatedIdp, unknownFutureValue. For more information, see federatedIdpMfaBehavior values.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.FederatedIdpMfaBehavior? FederatedIdpMfaBehavior { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.FederatedIdpMfaBehavior? FederatedIdpMfaBehavior { get; set; }
         /// <summary>If true, when SAML authentication requests are sent to the federated SAML IdP, Azure AD will sign those requests using the OrgID signing key. If false (default), the SAML authentication requests sent to the federated IdP are not signed.</summary>
         public bool? IsSignedAuthenticationRequestRequired { get; set; }
         /// <summary>Fallback token signing certificate that is used to sign tokens when the primary signing certificate expires. Formatted as Base64 encoded strings of the public portion of the federated IdP&apos;s token signing certificate. Needs to be compatible with the X509Certificate2 class. Much like the signingCertificate, the nextSigningCertificate property is used if a rollover is required outside of the auto-rollover update, a new federation service is being set up, or if the new token signing certificate is not present in the federation properties after the federation service certificate has been updated.</summary>
         public string NextSigningCertificate { get; set; }
         /// <summary>Sets the preferred behavior for the sign-in prompt. The possible values are: translateToFreshPasswordAuthentication, nativeSupport, disabled, unknownFutureValue.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PromptLoginBehavior? PromptLoginBehavior { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PromptLoginBehavior? PromptLoginBehavior { get; set; }
         /// <summary>Provides status and timestamp of the last update of the signing certificate.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.SigningCertificateUpdateStatus SigningCertificateUpdateStatus { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.SigningCertificateUpdateStatus SigningCertificateUpdateStatus { get; set; }
         /// <summary>URI that clients are redirected to when they sign out of Azure AD services. Corresponds to the LogOffUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.</summary>
         public string SignOutUri { get; set; }
         /// <summary>
@@ -43,7 +43,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"isSignedAuthenticationRequestRequired", n => { IsSignedAuthenticationRequestRequired = n.GetBoolValue(); } },
                 {"nextSigningCertificate", n => { NextSigningCertificate = n.GetStringValue(); } },
                 {"promptLoginBehavior", n => { PromptLoginBehavior = n.GetEnumValue<PromptLoginBehavior>(); } },
-                {"signingCertificateUpdateStatus", n => { SigningCertificateUpdateStatus = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SigningCertificateUpdateStatus>(GithubTodoDemo.MicrosoftGraph.Models.SigningCertificateUpdateStatus.CreateFromDiscriminatorValue); } },
+                {"signingCertificateUpdateStatus", n => { SigningCertificateUpdateStatus = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SigningCertificateUpdateStatus>(GitHubTodoDemo.MicrosoftGraph.Models.SigningCertificateUpdateStatus.CreateFromDiscriminatorValue); } },
                 {"signOutUri", n => { SignOutUri = n.GetStringValue(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteBoolValue("isSignedAuthenticationRequestRequired", IsSignedAuthenticationRequestRequired);
             writer.WriteStringValue("nextSigningCertificate", NextSigningCertificate);
             writer.WriteEnumValue<PromptLoginBehavior>("promptLoginBehavior", PromptLoginBehavior);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.SigningCertificateUpdateStatus>("signingCertificateUpdateStatus", SigningCertificateUpdateStatus);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SigningCertificateUpdateStatus>("signingCertificateUpdateStatus", SigningCertificateUpdateStatus);
             writer.WriteStringValue("signOutUri", SignOutUri);
         }
     }

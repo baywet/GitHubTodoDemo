@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CommsNotification : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The changeType property</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.ChangeType? ChangeType { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.ChangeType? ChangeType { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>URI of the resource that was changed.</summary>

@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UnifiedRoleAssignmentScheduleRequest : Request, IParsable {
         /// <summary>Represents the type of the operation on the role assignment request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign roles to principals.adminRemove: For administrators to remove principals from roles. adminUpdate: For administrators to change existing role assignments.adminExtend: For administrators to extend expiring assignments.adminRenew: For administrators to renew expired assignments.selfActivate: For principals to activate their assignments.selfDeactivate: For principals to deactivate their active assignments.selfExtend: For principals to request to extend their expiring assignments.selfRenew: For principals to request to renew their expired assignments.</summary>
         public UnifiedRoleScheduleRequestActions? Action { get; set; }
         /// <summary>If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it&apos;s null. Supports $expand.</summary>
         public UnifiedRoleEligibilitySchedule ActivatedUsing { get; set; }
         /// <summary>Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AppScope AppScope { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AppScope AppScope { get; set; }
         /// <summary>Identifier of the app-specific scope when the assignment is scoped to an app. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, ne, and on null values).</summary>
         public string AppScopeId { get; set; }
         /// <summary>The directory object that is the scope of the assignment. Read-only. Supports $expand.</summary>
@@ -36,7 +36,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Identifier of the schedule object that&apos;s linked to the assignment request. Supports $filter (eq, ne).</summary>
         public string TargetScheduleId { get; set; }
         /// <summary>Ticket details linked to the role assignment request including details of the ticket number and ticket system.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.TicketInfo TicketInfo { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.TicketInfo TicketInfo { get; set; }
         /// <summary>
         /// Instantiates a new UnifiedRoleAssignmentScheduleRequest and sets the default values.
         /// </summary>
@@ -58,7 +58,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"action", n => { Action = n.GetEnumValue<UnifiedRoleScheduleRequestActions>(); } },
                 {"activatedUsing", n => { ActivatedUsing = n.GetObjectValue<UnifiedRoleEligibilitySchedule>(UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue); } },
-                {"appScope", n => { AppScope = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AppScope>(GithubTodoDemo.MicrosoftGraph.Models.AppScope.CreateFromDiscriminatorValue); } },
+                {"appScope", n => { AppScope = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AppScope>(GitHubTodoDemo.MicrosoftGraph.Models.AppScope.CreateFromDiscriminatorValue); } },
                 {"appScopeId", n => { AppScopeId = n.GetStringValue(); } },
                 {"directoryScope", n => { DirectoryScope = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"directoryScopeId", n => { DirectoryScopeId = n.GetStringValue(); } },
@@ -71,7 +71,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
                 {"scheduleInfo", n => { ScheduleInfo = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
                 {"targetSchedule", n => { TargetSchedule = n.GetObjectValue<UnifiedRoleAssignmentSchedule>(UnifiedRoleAssignmentSchedule.CreateFromDiscriminatorValue); } },
                 {"targetScheduleId", n => { TargetScheduleId = n.GetStringValue(); } },
-                {"ticketInfo", n => { TicketInfo = n.GetObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TicketInfo>(GithubTodoDemo.MicrosoftGraph.Models.TicketInfo.CreateFromDiscriminatorValue); } },
+                {"ticketInfo", n => { TicketInfo = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TicketInfo>(GitHubTodoDemo.MicrosoftGraph.Models.TicketInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             base.Serialize(writer);
             writer.WriteEnumValue<UnifiedRoleScheduleRequestActions>("action", Action);
             writer.WriteObjectValue<UnifiedRoleEligibilitySchedule>("activatedUsing", ActivatedUsing);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.AppScope>("appScope", AppScope);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.AppScope>("appScope", AppScope);
             writer.WriteStringValue("appScopeId", AppScopeId);
             writer.WriteObjectValue<DirectoryObject>("directoryScope", DirectoryScope);
             writer.WriteStringValue("directoryScopeId", DirectoryScopeId);
@@ -96,7 +96,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
             writer.WriteObjectValue<RequestSchedule>("scheduleInfo", ScheduleInfo);
             writer.WriteObjectValue<UnifiedRoleAssignmentSchedule>("targetSchedule", TargetSchedule);
             writer.WriteStringValue("targetScheduleId", TargetScheduleId);
-            writer.WriteObjectValue<GithubTodoDemo.MicrosoftGraph.Models.TicketInfo>("ticketInfo", TicketInfo);
+            writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.TicketInfo>("ticketInfo", TicketInfo);
         }
     }
 }

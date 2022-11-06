@@ -1,47 +1,38 @@
+using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.GitHub.Models {
-    /// <summary>Code Of Conduct</summary>
-    public class CodeOfConduct : IAdditionalDataHolder, IParsable {
+namespace GitHubTodoDemo.GitHub.Models {
+    public class UpdateBranch415Error : ApiException, IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The body property</summary>
-        public string Body { get; set; }
-        /// <summary>The html_url property</summary>
-        public string Html_url { get; set; }
-        /// <summary>The key property</summary>
-        public string Key { get; set; }
-        /// <summary>The name property</summary>
-        public string Name { get; set; }
-        /// <summary>The url property</summary>
-        public string Url { get; set; }
+        /// <summary>The documentation_url property</summary>
+        public string Documentation_url { get; set; }
+        /// <summary>The message property</summary>
+        public string Message { get; set; }
         /// <summary>
-        /// Instantiates a new codeOfConduct and sets the default values.
+        /// Instantiates a new updateBranch415Error and sets the default values.
         /// </summary>
-        public CodeOfConduct() {
+        public UpdateBranch415Error() {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
-        public static CodeOfConduct CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static UpdateBranch415Error CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CodeOfConduct();
+            return new UpdateBranch415Error();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"body", n => { Body = n.GetStringValue(); } },
-                {"html_url", n => { Html_url = n.GetStringValue(); } },
-                {"key", n => { Key = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"url", n => { Url = n.GetStringValue(); } },
+                {"documentation_url", n => { Documentation_url = n.GetStringValue(); } },
+                {"message", n => { Message = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -50,11 +41,8 @@ namespace GithubTodoDemo.GitHub.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("body", Body);
-            writer.WriteStringValue("html_url", Html_url);
-            writer.WriteStringValue("key", Key);
-            writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("url", Url);
+            writer.WriteStringValue("documentation_url", Documentation_url);
+            writer.WriteStringValue("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

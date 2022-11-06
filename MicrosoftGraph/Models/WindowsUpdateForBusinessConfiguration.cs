@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GithubTodoDemo.MicrosoftGraph.Models {
+namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WindowsUpdateForBusinessConfiguration : DeviceConfiguration, IParsable {
         /// <summary>When TRUE, allows eligible Windows 10 devices to upgrade to Windows 11. When FALSE, implies the device stays on the existing operating system. Returned by default. Query parameters are not supported.</summary>
         public bool? AllowWindows11Upgrade { get; set; }
         /// <summary>Possible values for automatic update mode.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.AutomaticUpdateMode? AutomaticUpdateMode { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.AutomaticUpdateMode? AutomaticUpdateMode { get; set; }
         /// <summary>Auto restart required notification dismissal method</summary>
         public AutoRestartNotificationDismissalMethod? AutoRestartNotificationDismissal { get; set; }
         /// <summary>Which branch devices will receive their updates from</summary>
@@ -51,7 +51,7 @@ namespace GithubTodoDemo.MicrosoftGraph.Models {
         /// <summary>When TRUE the device should wait until deadline for rebooting outside of active hours. When FALSE the device should not wait until deadline for rebooting outside of active hours. Returned by default. Query parameters are not supported.</summary>
         public bool? PostponeRebootUntilAfterDeadline { get; set; }
         /// <summary>Possible values for pre-release features.</summary>
-        public GithubTodoDemo.MicrosoftGraph.Models.PrereleaseFeatures? PrereleaseFeatures { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.PrereleaseFeatures? PrereleaseFeatures { get; set; }
         /// <summary>Defer Quality Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.</summary>
         public int? QualityUpdatesDeferralPeriodInDays { get; set; }
         /// <summary>When TRUE, assigned devices are paused from receiving quality updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Quality Updates. Returned by default. Query parameters are not supported.</summary>
