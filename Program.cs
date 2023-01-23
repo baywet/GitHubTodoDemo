@@ -28,7 +28,16 @@ var graphRequestAdapter = new HttpClientRequestAdapter(graphAuthenticationProvid
 
 var graphClient = new MicrosoftGraphClient(graphRequestAdapter);
 var todoLists = await graphClient.Me.Todo.Lists.GetAsync();
-var todoList = todoLists.Value.First();
+var todoList = todoLists?.Value?.FirstOrDefault();
+
+if(todoList == null || string.IsNullOrEmpty(todoList.Id)) {
+	await Console.Error.WriteLineAsync("No todo list found. Exiting.");
+	return;
+}
+if (pullRequests == null) {
+	await Console.Error.WriteLineAsync("No pull requests found. Exiting.");
+	return;
+}
 
 foreach(var pullRequest in pullRequests) {
 	var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(
@@ -37,7 +46,7 @@ foreach(var pullRequest in pullRequests) {
 			Title = pullRequest.Title,
 			DueDateTime = new DateTimeTimeZone {
 				OdataType = null,
-				DateTime = pullRequest.Created_at.Value.Add(TimeSpan.FromDays(7)).ToString("o"),
+				DateTime = pullRequest.Created_at?.Add(TimeSpan.FromDays(7)).ToString("o"),
 				TimeZone = "UTC"
 			},
 			Importance = Importance.High,
@@ -49,5 +58,5 @@ foreach(var pullRequest in pullRequests) {
 				}
 			}
 	});
-	Console.WriteLine($"Added task {addedTask.Title} to your todo list");
+	Console.WriteLine($"Added task {addedTask?.Title} to your todo list");
 }

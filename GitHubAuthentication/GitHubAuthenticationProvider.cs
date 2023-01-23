@@ -23,7 +23,7 @@ public class GitHubAuthenticationProvider : IAuthenticationProvider
 	public IAccessTokenProvider AccessTokenProvider {get; private set;}
     private const string AuthorizationHeaderKey = "Authorization";
     private const string ClaimsKey = "claims";
-	public async Task AuthenticateRequestAsync(RequestInformation request, Dictionary<string, object> additionalAuthenticationContext = null, CancellationToken cancellationToken = default) {
+	public async Task AuthenticateRequestAsync(RequestInformation request, Dictionary<string, object>? additionalAuthenticationContext = null, CancellationToken cancellationToken = default) {
 		if(request == null) throw new ArgumentNullException(nameof(request));
 		request.Headers.Add("User-Agent", "GithubTodoDemo/1.0.0");
         if(additionalAuthenticationContext != null &&
