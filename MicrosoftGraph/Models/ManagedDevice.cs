@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Devices that are managed or pre-enrolled through Intune</summary>
+    /// <summary>
+    /// Devices that are managed or pre-enrolled through Intune
+    /// </summary>
     public class ManagedDevice : Entity, IParsable {
-        /// <summary>Code that allows the Activation Lock on a device to be bypassed. This property is read-only.</summary>
+        /// <summary>The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
         public string ActivationLockBypassCode { get; private set; }
         /// <summary>Android security patch level. This property is read-only.</summary>
         public string AndroidSecurityPatchLevel { get; private set; }
@@ -48,7 +50,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string EmailAddress { get; private set; }
         /// <summary>Enrollment time of the device. This property is read-only.</summary>
         public DateTimeOffset? EnrolledDateTime { get; private set; }
-        /// <summary>Ethernet MAC. This property is read-only.</summary>
+        /// <summary>Ethernet MAC. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
         public string EthernetMacAddress { get; private set; }
         /// <summary>Device Exchange Access State.</summary>
         public DeviceManagementExchangeAccessState? ExchangeAccessState { get; set; }
@@ -56,9 +58,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public DeviceManagementExchangeAccessStateReason? ExchangeAccessStateReason { get; set; }
         /// <summary>Last time the device contacted Exchange. This property is read-only.</summary>
         public DateTimeOffset? ExchangeLastSuccessfulSyncDateTime { get; private set; }
-        /// <summary>Free Storage in Bytes. This property is read-only.</summary>
+        /// <summary>Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.</summary>
         public long? FreeStorageSpaceInBytes { get; private set; }
-        /// <summary>Integrated Circuit Card Identifier, it is A SIM card&apos;s unique identification number. This property is read-only.</summary>
+        /// <summary>Integrated Circuit Card Identifier, it is A SIM card&apos;s unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
         public string Iccid { get; private set; }
         /// <summary>IMEI. This property is read-only.</summary>
         public string Imei { get; private set; }
@@ -84,7 +86,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string Meid { get; private set; }
         /// <summary>Model of the device. This property is read-only.</summary>
         public string Model { get; private set; }
-        /// <summary>Notes on the device created by IT Admin</summary>
+        /// <summary>Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported.</summary>
         public string Notes { get; set; }
         /// <summary>Operating system of the device. Windows, iOS, etc. This property is read-only.</summary>
         public string OperatingSystem { get; private set; }
@@ -94,7 +96,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public ManagedDevicePartnerReportedHealthState? PartnerReportedThreatState { get; set; }
         /// <summary>Phone number of the device. This property is read-only.</summary>
         public string PhoneNumber { get; private set; }
-        /// <summary>Total Memory in Bytes. This property is read-only.</summary>
+        /// <summary>Total Memory in Bytes. Return default value 0 in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. Default value is 0. Read-only. This property is read-only.</summary>
         public long? PhysicalMemoryInBytes { get; private set; }
         /// <summary>An error string that identifies issues when creating Remote Assistance session objects. This property is read-only.</summary>
         public string RemoteAssistanceSessionErrorDetails { get; private set; }
@@ -108,7 +110,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string SubscriberCarrier { get; private set; }
         /// <summary>Total Storage in Bytes. This property is read-only.</summary>
         public long? TotalStorageSpaceInBytes { get; private set; }
-        /// <summary>Unique Device Identifier for iOS and macOS devices. This property is read-only.</summary>
+        /// <summary>Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
         public string Udid { get; private set; }
         /// <summary>User display name. This property is read-only.</summary>
         public string UserDisplayName { get; private set; }
@@ -121,15 +123,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Wi-Fi MAC. This property is read-only.</summary>
         public string WiFiMacAddress { get; private set; }
         /// <summary>
-        /// Instantiates a new managedDevice and sets the default values.
-        /// </summary>
-        public ManagedDevice() : base() {
-            OdataType = "#microsoft.graph.managedDevice";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new ManagedDevice CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ManagedDevice();
@@ -200,8 +196,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

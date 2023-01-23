@@ -27,8 +27,8 @@ namespace GitHubTodoDemo.GitHub.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static ValidationError_errors CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ValidationError_errors();
@@ -48,8 +48,8 @@ namespace GitHubTodoDemo.GitHub.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
@@ -60,7 +60,9 @@ namespace GitHubTodoDemo.GitHub.Models {
             writer.WriteObjectValue<Pulls>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
-        /// <summary>Composed type wrapper for classes string, integer, string</summary>
+        /// <summary>
+        /// Composed type wrapper for classes string, integer, string
+        /// </summary>
         public class Pulls : IAdditionalDataHolder, IParsable {
             /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
             public IDictionary<string, object> AdditionalData { get; set; }
@@ -78,8 +80,8 @@ namespace GitHubTodoDemo.GitHub.Models {
             }
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             /// </summary>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static Pulls CreateFromDiscriminatorValue(IParseNode parseNode) {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
@@ -100,8 +102,8 @@ namespace GitHubTodoDemo.GitHub.Models {
             }
             /// <summary>
             /// Serializes information the current object
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
             /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
             public void Serialize(ISerializationWriter writer) {
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(Integer != null) {

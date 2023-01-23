@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class AccessPackageAssignmentRequest : Entity, IParsable {
         /// <summary>The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.AccessPackage AccessPackage { get; set; }
@@ -16,7 +18,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.</summary>
         public AccessPackageSubject Requestor { get; set; }
-        /// <summary>The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.</summary>
+        /// <summary>The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.</summary>
         public AccessPackageRequestType? RequestType { get; set; }
         /// <summary>The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.</summary>
         public EntitlementManagementSchedule Schedule { get; set; }
@@ -25,15 +27,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>More information on the request processing status. Read-only.</summary>
         public string Status { get; set; }
         /// <summary>
-        /// Instantiates a new accessPackageAssignmentRequest and sets the default values.
-        /// </summary>
-        public AccessPackageAssignmentRequest() : base() {
-            OdataType = "#microsoft.graph.accessPackageAssignmentRequest";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new AccessPackageAssignmentRequest CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AccessPackageAssignmentRequest();
@@ -56,8 +52,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

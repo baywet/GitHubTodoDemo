@@ -1,4 +1,3 @@
-using GitHubTodoDemo.MicrosoftGraph.Models.Security;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -21,15 +20,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.</summary>
         public CaseOperationStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new caseOperation and sets the default values.
-        /// </summary>
-        public CaseOperation() : base() {
-            OdataType = "#microsoft.graph.security.caseOperation";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new CaseOperation CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
@@ -38,6 +31,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
                 "#microsoft.graph.security.ediscoveryEstimateOperation" => new EdiscoveryEstimateOperation(),
                 "#microsoft.graph.security.ediscoveryHoldOperation" => new EdiscoveryHoldOperation(),
                 "#microsoft.graph.security.ediscoveryIndexOperation" => new EdiscoveryIndexOperation(),
+                "#microsoft.graph.security.ediscoveryPurgeDataOperation" => new EdiscoveryPurgeDataOperation(),
                 "#microsoft.graph.security.ediscoveryTagOperation" => new EdiscoveryTagOperation(),
                 _ => new CaseOperation(),
             };
@@ -58,8 +52,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

@@ -16,15 +16,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user.</summary>
         public List<string> TargetTypes { get; set; }
         /// <summary>
-        /// Instantiates a new SchemaExtension and sets the default values.
-        /// </summary>
-        public SchemaExtension() : base() {
-            OdataType = "#microsoft.graph.schemaExtension";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new SchemaExtension CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SchemaExtension();
@@ -43,8 +37,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

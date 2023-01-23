@@ -2,7 +2,7 @@
   "descriptionHash": "1EFAFFF5C432BBA863FCC46203B1982192740A9FD497716EA0BA145C8742B4F499F185FBD5C032A8384A3A37E6581370FE127D1072D1E817B2476E29C0576B1A",
   "descriptionLocation": "https://api.apis.guru/v2/specs/github.com/api.github.com/1.1.4/openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "0.7.1.0",
+  "kiotaVersion": "0.10.0.0",
   "clientClassName": "GitHubClient",
   "clientNamespaceName": "GitHubTodoDemo.GitHub",
   "language": "CSharp",
@@ -30,5 +30,6 @@
   "excludePatterns": [
     "**/comments/**",
     "**/comments"
-  ]
+  ],
+  "disabledValidationRules": []
 }

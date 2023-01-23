@@ -30,7 +30,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The name of the image file of the parent process.</summary>
         public string ParentProcessName { get; set; }
         /// <summary>Full path, including filename.</summary>
-        public string PathObject { get; set; }
+        public string Path { get; set; }
         /// <summary>The Process ID (PID) of the process.</summary>
         public int? ProcessId { get; set; }
         /// <summary>
@@ -38,12 +38,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public Process() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.process";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static Process CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Process();
@@ -64,14 +63,14 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"parentProcessCreatedDateTime", n => { ParentProcessCreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"parentProcessId", n => { ParentProcessId = n.GetIntValue(); } },
                 {"parentProcessName", n => { ParentProcessName = n.GetStringValue(); } },
-                {"path", n => { PathObject = n.GetStringValue(); } },
+                {"path", n => { Path = n.GetStringValue(); } },
                 {"processId", n => { ProcessId = n.GetIntValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("accountName", AccountName);
@@ -85,7 +84,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteDateTimeOffsetValue("parentProcessCreatedDateTime", ParentProcessCreatedDateTime);
             writer.WriteIntValue("parentProcessId", ParentProcessId);
             writer.WriteStringValue("parentProcessName", ParentProcessName);
-            writer.WriteStringValue("path", PathObject);
+            writer.WriteStringValue("path", Path);
             writer.WriteIntValue("processId", ProcessId);
             writer.WriteAdditionalData(AdditionalData);
         }

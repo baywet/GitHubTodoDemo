@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class Channel : Entity, IParsable {
         /// <summary>Read only. Timestamp at which the channel was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Optional textual description for the channel.</summary>
         public string Description { get; set; }
-        /// <summary>Channel name as it will appear to the user in Microsoft Teams.</summary>
+        /// <summary>Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters.</summary>
         public string DisplayName { get; set; }
         /// <summary>The email address for sending messages to the channel. Read-only.</summary>
         public string Email { get; set; }
@@ -33,15 +35,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.</summary>
         public string WebUrl { get; set; }
         /// <summary>
-        /// Instantiates a new channel and sets the default values.
-        /// </summary>
-        public Channel() : base() {
-            OdataType = "#microsoft.graph.channel";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new Channel CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Channel();
@@ -68,8 +64,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

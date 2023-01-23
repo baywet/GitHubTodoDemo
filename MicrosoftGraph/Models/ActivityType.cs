@@ -4,5 +4,6 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         Signin,
         User,
         UnknownFutureValue,
+        ServicePrincipal,
     }
 }

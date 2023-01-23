@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class Team : Entity, IParsable {
         /// <summary>List of channels either hosted in or shared with the team (incoming channels).</summary>
         public List<Channel> AllChannels { get; set; }
@@ -61,15 +63,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.</summary>
         public string WebUrl { get; set; }
         /// <summary>
-        /// Instantiates a new team and sets the default values.
-        /// </summary>
-        public Team() : base() {
-            OdataType = "#microsoft.graph.team";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new Team CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Team();
@@ -110,8 +106,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

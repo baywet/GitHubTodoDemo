@@ -9,7 +9,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
-    /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\reviews</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\reviews
+    /// </summary>
     public class ReviewsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -25,9 +27,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         } }
         /// <summary>
         /// Instantiates a new ReviewsRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public ReviewsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -38,9 +40,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         }
         /// <summary>
         /// Instantiates a new ReviewsRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public ReviewsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -52,8 +54,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         }
         /// <summary>
         /// The list of reviews returns in chronological order.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<ReviewsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -72,9 +74,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         }
         /// <summary>
         /// This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;[Abuse rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#abuse-rate-limits)&quot; and &quot;[Dealing with abuse rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)&quot; for details.Pull request reviews created in the `PENDING` state do not include the `submitted_at` property in the response.**Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://docs.github.com/rest/overview/media-types#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://docs.github.com/rest/reference/pulls#get-a-pull-request) endpoint.The `position` value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
-        /// <param name="body"></param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePostRequestInformation(ReviewsPostRequestBody body, Action<ReviewsRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -94,9 +96,10 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         }
         /// <summary>
         /// The list of reviews returns in chronological order.
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#list-reviews-for-a-pull-request" />
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<List<PullRequestReview>> GetAsync(Action<ReviewsRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var collectionResult = await RequestAdapter.SendCollectionAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, default, cancellationToken);
@@ -104,10 +107,11 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         }
         /// <summary>
         /// This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;[Abuse rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#abuse-rate-limits)&quot; and &quot;[Dealing with abuse rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)&quot; for details.Pull request reviews created in the `PENDING` state do not include the `submitted_at` property in the response.**Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://docs.github.com/rest/overview/media-types#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://docs.github.com/rest/reference/pulls#get-a-pull-request) endpoint.The `position` value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
-        /// <param name="body"></param>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#create-a-review-for-a-pull-request" />
+        /// </summary>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<PullRequestReview> PostAsync(ReviewsPostRequestBody body, Action<ReviewsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
@@ -117,17 +121,21 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
             };
             return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>The list of reviews returns in chronological order.</summary>
+        /// <summary>
+        /// The list of reviews returns in chronological order.
+        /// </summary>
         public class ReviewsRequestBuilderGetQueryParameters {
             /// <summary>Page number of the results to fetch.</summary>
             public int? Page { get; set; }
             /// <summary>Results per page (max 100).</summary>
             public int? Per_page { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ReviewsRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -137,13 +145,15 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
             /// </summary>
             public ReviewsRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ReviewsRequestBuilderPostRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -151,7 +161,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
             /// </summary>
             public ReviewsRequestBuilderPostRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

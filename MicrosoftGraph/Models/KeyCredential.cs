@@ -7,7 +7,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class KeyCredential : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Custom key identifier</summary>
+        /// <summary>A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate.</summary>
         public byte[] CustomKeyIdentifier { get; set; }
         /// <summary>Friendly name for the key. Optional.</summary>
         public string DisplayName { get; set; }
@@ -16,7 +16,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The certificate&apos;s raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.</summary>
         public byte[] Key { get; set; }
         /// <summary>The unique identifier (GUID) for the key.</summary>
-        public string KeyId { get; set; }
+        public Guid? KeyId { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -30,12 +30,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public KeyCredential() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.keyCredential";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static KeyCredential CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new KeyCredential();
@@ -49,7 +48,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
                 {"key", n => { Key = n.GetByteArrayValue(); } },
-                {"keyId", n => { KeyId = n.GetStringValue(); } },
+                {"keyId", n => { KeyId = n.GetGuidValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 {"type", n => { Type = n.GetStringValue(); } },
@@ -58,15 +57,15 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteByteArrayValue("customKeyIdentifier", CustomKeyIdentifier);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
             writer.WriteByteArrayValue("key", Key);
-            writer.WriteStringValue("keyId", KeyId);
+            writer.WriteGuidValue("keyId", KeyId);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("type", Type);

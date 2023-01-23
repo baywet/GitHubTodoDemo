@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ServicePrincipal : DirectoryObject, IParsable {
-        /// <summary>true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).</summary>
+        /// <summary>true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled { get; set; }
         /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its &apos;FileHandler&apos; functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.</summary>
         public List<AddIn> AddIns { get; set; }
@@ -20,7 +20,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith).</summary>
         public string ApplicationTemplateId { get; set; }
         /// <summary>Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).</summary>
-        public string AppOwnerOrganizationId { get; set; }
+        public Guid? AppOwnerOrganizationId { get; set; }
         /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.</summary>
         public List<AppRoleAssignment> AppRoleAssignedTo { get; set; }
         /// <summary>Specifies whether users or other service principals need to be granted an app role assignment for this service principal before users can sign in or apps can get tokens. The default value is false. Not nullable. Supports $filter (eq, ne, NOT).</summary>
@@ -43,7 +43,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string DisplayName { get; set; }
         /// <summary>The endpoints property</summary>
         public List<Endpoint> Endpoints { get; set; }
-        /// <summary>Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).</summary>
+        /// <summary>Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).</summary>
         public List<FederatedIdentityCredential> FederatedIdentityCredentials { get; set; }
         /// <summary>Home page or landing page of the application.</summary>
         public string Homepage { get; set; }
@@ -67,9 +67,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public List<OAuth2PermissionGrant> Oauth2PermissionGrants { get; set; }
         /// <summary>The delegated permissions exposed by the application. For more information see the oauth2PermissionScopes property on the application entity&apos;s api property. Not nullable.</summary>
         public List<PermissionScope> Oauth2PermissionScopes { get; set; }
-        /// <summary>Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).</summary>
         public List<DirectoryObject> OwnedObjects { get; set; }
-        /// <summary>Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).</summary>
         public List<DirectoryObject> Owners { get; set; }
         /// <summary>The collection of password credentials associated with the application. Not nullable.</summary>
         public List<PasswordCredential> PasswordCredentials { get; set; }
@@ -92,7 +92,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Custom strings that can be used to categorize and identify the service principal. Not nullable. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> Tags { get; set; }
         /// <summary>Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.</summary>
-        public string TokenEncryptionKeyId { get; set; }
+        public Guid? TokenEncryptionKeyId { get; set; }
         /// <summary>The tokenIssuancePolicies assigned to this service principal.</summary>
         public List<TokenIssuancePolicy> TokenIssuancePolicies { get; set; }
         /// <summary>The tokenLifetimePolicies assigned to this service principal.</summary>
@@ -109,8 +109,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new ServicePrincipal CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ServicePrincipal();
@@ -127,7 +127,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
                 {"appId", n => { AppId = n.GetStringValue(); } },
                 {"applicationTemplateId", n => { ApplicationTemplateId = n.GetStringValue(); } },
-                {"appOwnerOrganizationId", n => { AppOwnerOrganizationId = n.GetStringValue(); } },
+                {"appOwnerOrganizationId", n => { AppOwnerOrganizationId = n.GetGuidValue(); } },
                 {"appRoleAssignedTo", n => { AppRoleAssignedTo = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"appRoleAssignmentRequired", n => { AppRoleAssignmentRequired = n.GetBoolValue(); } },
                 {"appRoleAssignments", n => { AppRoleAssignments = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -163,7 +163,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"servicePrincipalType", n => { ServicePrincipalType = n.GetStringValue(); } },
                 {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
                 {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetStringValue(); } },
+                {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -172,8 +172,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
@@ -184,7 +184,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("appDisplayName", AppDisplayName);
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("applicationTemplateId", ApplicationTemplateId);
-            writer.WriteStringValue("appOwnerOrganizationId", AppOwnerOrganizationId);
+            writer.WriteGuidValue("appOwnerOrganizationId", AppOwnerOrganizationId);
             writer.WriteCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignedTo", AppRoleAssignedTo);
             writer.WriteBoolValue("appRoleAssignmentRequired", AppRoleAssignmentRequired);
             writer.WriteCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", AppRoleAssignments);
@@ -220,7 +220,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("servicePrincipalType", ServicePrincipalType);
             writer.WriteStringValue("signInAudience", SignInAudience);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteStringValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
+            writer.WriteGuidValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
             writer.WriteCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", TransitiveMemberOf);

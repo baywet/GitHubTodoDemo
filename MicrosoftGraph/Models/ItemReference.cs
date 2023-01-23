@@ -18,7 +18,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>Path that can be used to navigate to the item. Read-only.</summary>
-        public string PathObject { get; set; }
+        public string Path { get; set; }
         /// <summary>A unique identifier for a shared resource that can be accessed via the [Shares][] API.</summary>
         public string ShareId { get; set; }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
@@ -30,12 +30,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public ItemReference() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.itemReference";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static ItemReference CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ItemReference();
@@ -50,7 +49,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"id", n => { Id = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"path", n => { PathObject = n.GetStringValue(); } },
+                {"path", n => { Path = n.GetStringValue(); } },
                 {"shareId", n => { ShareId = n.GetStringValue(); } },
                 {"sharepointIds", n => { SharepointIds = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>(GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
                 {"siteId", n => { SiteId = n.GetStringValue(); } },
@@ -58,8 +57,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("driveId", DriveId);
@@ -67,7 +66,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteStringValue("path", PathObject);
+            writer.WriteStringValue("path", Path);
             writer.WriteStringValue("shareId", ShareId);
             writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds>("sharepointIds", SharepointIds);
             writer.WriteStringValue("siteId", SiteId);

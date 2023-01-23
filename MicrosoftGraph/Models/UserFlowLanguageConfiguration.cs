@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class UserFlowLanguageConfiguration : Entity, IParsable {
         /// <summary>Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.</summary>
         public List<UserFlowLanguagePage> DefaultPages { get; set; }
@@ -15,15 +17,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).</summary>
         public List<UserFlowLanguagePage> OverridesPages { get; set; }
         /// <summary>
-        /// Instantiates a new userFlowLanguageConfiguration and sets the default values.
-        /// </summary>
-        public UserFlowLanguageConfiguration() : base() {
-            OdataType = "#microsoft.graph.userFlowLanguageConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new UserFlowLanguageConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UserFlowLanguageConfiguration();
@@ -41,8 +37,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

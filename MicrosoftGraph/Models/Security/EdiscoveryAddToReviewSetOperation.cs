@@ -10,15 +10,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>eDiscovery search that gets added to review set.</summary>
         public EdiscoverySearch Search { get; set; }
         /// <summary>
-        /// Instantiates a new EdiscoveryAddToReviewSetOperation and sets the default values.
-        /// </summary>
-        public EdiscoveryAddToReviewSetOperation() : base() {
-            OdataType = "#microsoft.graph.security.ediscoveryAddToReviewSetOperation";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new EdiscoveryAddToReviewSetOperation CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EdiscoveryAddToReviewSetOperation();
@@ -34,8 +28,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

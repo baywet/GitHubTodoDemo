@@ -14,15 +14,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A boolean value the represents the visibility of a chart title object.</summary>
         public bool? Visible { get; set; }
         /// <summary>
-        /// Instantiates a new workbookChartTitle and sets the default values.
-        /// </summary>
-        public WorkbookChartTitle() : base() {
-            OdataType = "#microsoft.graph.workbookChartTitle";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new WorkbookChartTitle CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new WorkbookChartTitle();
@@ -40,8 +34,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

@@ -10,15 +10,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents a collection of access review history data and the scopes used to collect that data.</summary>
         public List<AccessReviewHistoryDefinition> HistoryDefinitions { get; set; }
         /// <summary>
-        /// Instantiates a new AccessReviewSet and sets the default values.
-        /// </summary>
-        public AccessReviewSet() : base() {
-            OdataType = "#microsoft.graph.accessReviewSet";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new AccessReviewSet CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AccessReviewSet();
@@ -34,8 +28,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

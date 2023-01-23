@@ -13,6 +13,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         Hidden,
         AdminConfirmedUserCompromised,
         UnknownFutureValue,
+        AdminConfirmedServicePrincipalCompromised,
+        AdminDismissedAllRiskForServicePrincipal,
         M365DAdminDismissedDetection,
     }
 }

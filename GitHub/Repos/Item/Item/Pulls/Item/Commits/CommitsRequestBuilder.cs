@@ -8,7 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Commits {
-    /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\commits</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\commits
+    /// </summary>
     public class CommitsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -18,9 +20,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Commits {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new CommitsRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public CommitsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -31,9 +33,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Commits {
         }
         /// <summary>
         /// Instantiates a new CommitsRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public CommitsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -45,8 +47,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Commits {
         }
         /// <summary>
         /// Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the [List commits](https://docs.github.com/rest/reference/repos#list-commits) endpoint.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<CommitsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -65,25 +67,30 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Commits {
         }
         /// <summary>
         /// Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the [List commits](https://docs.github.com/rest/reference/repos#list-commits) endpoint.
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls/#list-commits-on-a-pull-request" />
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<List<Commit>> GetAsync(Action<CommitsRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var collectionResult = await RequestAdapter.SendCollectionAsync<Commit>(requestInfo, Commit.CreateFromDiscriminatorValue, default, cancellationToken);
             return collectionResult.ToList();
         }
-        /// <summary>Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the [List commits](https://docs.github.com/rest/reference/repos#list-commits) endpoint.</summary>
+        /// <summary>
+        /// Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the [List commits](https://docs.github.com/rest/reference/repos#list-commits) endpoint.
+        /// </summary>
         public class CommitsRequestBuilderGetQueryParameters {
             /// <summary>Page number of the results to fetch.</summary>
             public int? Page { get; set; }
             /// <summary>Results per page (max 100).</summary>
             public int? Per_page { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class CommitsRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -93,7 +100,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Commits {
             /// </summary>
             public CommitsRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

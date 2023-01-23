@@ -6,9 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo {
-    /// <summary>Builds and executes requests for operations under \me\todo</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \me\todo
+    /// </summary>
     public class TodoRequestBuilder {
-        /// <summary>The lists property</summary>
+        /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
         public ListsRequestBuilder Lists { get =>
             new ListsRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -20,9 +22,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new TodoRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public TodoRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -33,9 +35,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo {
         }
         /// <summary>
         /// Instantiates a new TodoRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public TodoRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));

@@ -9,5 +9,6 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         AddToReviewSet,
         HoldUpdate,
         UnknownFutureValue,
+        PurgeData,
     }
 }

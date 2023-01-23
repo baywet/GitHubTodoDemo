@@ -22,15 +22,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
         /// <summary>The [set] in which the term is created.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set Set { get; set; }
         /// <summary>
-        /// Instantiates a new term and sets the default values.
-        /// </summary>
-        public Term() : base() {
-            OdataType = "#microsoft.graph.termStore.term";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new Term CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Term();
@@ -52,8 +46,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

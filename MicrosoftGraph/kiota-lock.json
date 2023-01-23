@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "D906A0E8AD2C917A3918A871E9AC73BAFEE59A7A5A1AD75D0607D4FCA5714BF2F2DE51A08C0FF28EF142714F4347487A0315F5D4645F7338FD0CCFBC8D4E9677",
+  "descriptionHash": "4D1CEFEA19714BEF89EE7CD451556CC3B0BB83D386D1CC9FB21590DD69AB110E0DF31DBE9034BABD74F8A4A807422D3CCDD5441B68CD0C3F64F4355C7A331D9C",
   "descriptionLocation": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "0.7.1.0",
+  "kiotaVersion": "0.10.0.0",
   "clientClassName": "MicrosoftGraphClient",
   "clientNamespaceName": "GitHubTodoDemo.MicrosoftGraph",
   "language": "CSharp",
@@ -27,5 +27,6 @@
     "/me/todo/**/tasks",
     "/me/todo/lists"
   ],
-  "excludePatterns": []
+  "excludePatterns": [],
+  "disabledValidationRules": []
 }

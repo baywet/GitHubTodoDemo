@@ -20,7 +20,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The Vpp token&apos;s organization name.</summary>
         public string VppOrganizationName { get; set; }
         /// <summary>The Vpp token ID.</summary>
-        public string VppTokenId { get; set; }
+        public Guid? VppTokenId { get; set; }
         /// <summary>
         /// Instantiates a new IosVppEBook and sets the default values.
         /// </summary>
@@ -29,8 +29,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new IosVppEBook CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new IosVppEBook();
@@ -47,13 +47,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
                 {"usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
                 {"vppOrganizationName", n => { VppOrganizationName = n.GetStringValue(); } },
-                {"vppTokenId", n => { VppTokenId = n.GetStringValue(); } },
+                {"vppTokenId", n => { VppTokenId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
@@ -64,7 +64,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteIntValue("totalLicenseCount", TotalLicenseCount);
             writer.WriteIntValue("usedLicenseCount", UsedLicenseCount);
             writer.WriteStringValue("vppOrganizationName", VppOrganizationName);
-            writer.WriteStringValue("vppTokenId", VppTokenId);
+            writer.WriteGuidValue("vppTokenId", VppTokenId);
         }
     }
 }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Entity representing a job to export a report</summary>
+    /// <summary>
+    /// Entity representing a job to export a report
+    /// </summary>
     public class DeviceManagementExportJob : Entity, IParsable {
         /// <summary>Time that the exported report expires</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
@@ -27,15 +29,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Temporary location of the exported report</summary>
         public string Url { get; set; }
         /// <summary>
-        /// Instantiates a new deviceManagementExportJob and sets the default values.
-        /// </summary>
-        public DeviceManagementExportJob() : base() {
-            OdataType = "#microsoft.graph.deviceManagementExportJob";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new DeviceManagementExportJob CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceManagementExportJob();
@@ -59,8 +55,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

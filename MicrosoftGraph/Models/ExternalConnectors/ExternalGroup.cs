@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class ExternalGroup : Entity, IParsable {
         /// <summary>The description of the external group. Optional.</summary>
         public string Description { get; set; }
@@ -13,15 +15,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
         /// <summary>A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.</summary>
         public List<Identity> Members { get; set; }
         /// <summary>
-        /// Instantiates a new externalGroup and sets the default values.
-        /// </summary>
-        public ExternalGroup() : base() {
-            OdataType = "#microsoft.graph.externalConnectors.externalGroup";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new ExternalGroup CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ExternalGroup();
@@ -38,8 +34,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

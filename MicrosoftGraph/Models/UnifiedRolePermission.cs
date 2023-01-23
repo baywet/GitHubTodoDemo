@@ -9,7 +9,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set of tasks that can be performed on a resource. Required.</summary>
         public List<string> AllowedResourceActions { get; set; }
-        /// <summary>Optional constraints that must be met for the permission to be effective.</summary>
+        /// <summary>Optional constraints that must be met for the permission to be effective. Not supported for custom roles.</summary>
         public string Condition { get; set; }
         /// <summary>Set of tasks that may not be performed on a resource. Not yet supported.</summary>
         public List<string> ExcludedResourceActions { get; set; }
@@ -20,12 +20,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public UnifiedRolePermission() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.unifiedRolePermission";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static UnifiedRolePermission CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UnifiedRolePermission();
@@ -43,8 +42,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowedResourceActions", AllowedResourceActions);

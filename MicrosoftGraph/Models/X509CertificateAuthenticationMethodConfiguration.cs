@@ -9,7 +9,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public X509CertificateAuthenticationModeConfiguration AuthenticationModeConfiguration { get; set; }
         /// <summary>Defines fields in the X.509 certificate that map to attributes of the Azure AD user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.</summary>
         public List<X509CertificateUserBinding> CertificateUserBindings { get; set; }
-        /// <summary>A collection of users or groups who are enabled to use the authentication method.</summary>
+        /// <summary>A collection of groups that are enabled to use the authentication method.</summary>
         public List<AuthenticationMethodTarget> IncludeTargets { get; set; }
         /// <summary>
         /// Instantiates a new X509CertificateAuthenticationMethodConfiguration and sets the default values.
@@ -19,8 +19,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new X509CertificateAuthenticationMethodConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new X509CertificateAuthenticationMethodConfiguration();
@@ -37,8 +37,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

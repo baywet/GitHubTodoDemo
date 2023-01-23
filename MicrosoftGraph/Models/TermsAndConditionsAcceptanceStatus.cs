@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>A termsAndConditionsAcceptanceStatus entity represents the acceptance status of a given Terms and Conditions (T&amp;C) policy by a given user. Users must accept the most up-to-date version of the terms in order to retain access to the Company Portal.</summary>
+    /// <summary>
+    /// A termsAndConditionsAcceptanceStatus entity represents the acceptance status of a given Terms and Conditions (T&amp;C) policy by a given user. Users must accept the most up-to-date version of the terms in order to retain access to the Company Portal.
+    /// </summary>
     public class TermsAndConditionsAcceptanceStatus : Entity, IParsable {
         /// <summary>DateTime when the terms were last accepted by the user.</summary>
         public DateTimeOffset? AcceptedDateTime { get; set; }
@@ -17,15 +19,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The userPrincipalName of the User that accepted the term.</summary>
         public string UserPrincipalName { get; set; }
         /// <summary>
-        /// Instantiates a new termsAndConditionsAcceptanceStatus and sets the default values.
-        /// </summary>
-        public TermsAndConditionsAcceptanceStatus() : base() {
-            OdataType = "#microsoft.graph.termsAndConditionsAcceptanceStatus";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new TermsAndConditionsAcceptanceStatus CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new TermsAndConditionsAcceptanceStatus();
@@ -44,8 +40,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

@@ -19,7 +19,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public GitHubTodoDemo.MicrosoftGraph.Models.Certification Certification { get; set; }
         /// <summary>The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>Supports $filter (eq when counting empty collections). Read-only.</summary>
+        /// <summary>Supports $filter (/$count eq 0, /$count ne 0). Read-only.</summary>
         public DirectoryObject CreatedOnBehalfOf { get; set; }
         /// <summary>The defaultRedirectUri property</summary>
         public string DefaultRedirectUri { get; set; }
@@ -29,9 +29,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string DisabledByMicrosoftStatus { get; set; }
         /// <summary>The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName { get; set; }
-        /// <summary>Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).</summary>
+        /// <summary>Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).</summary>
         public List<ExtensionProperty> ExtensionProperties { get; set; }
-        /// <summary>Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).</summary>
+        /// <summary>Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).</summary>
         public List<FederatedIdentityCredential> FederatedIdentityCredentials { get; set; }
         /// <summary>Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).</summary>
         public string GroupMembershipClaims { get; set; }
@@ -55,7 +55,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public bool? Oauth2RequirePostResponse { get; set; }
         /// <summary>Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.OptionalClaims OptionalClaims { get; set; }
-        /// <summary>Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).</summary>
+        /// <summary>Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).</summary>
         public List<DirectoryObject> Owners { get; set; }
         /// <summary>Specifies parental control settings for an application.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.ParentalControlSettings ParentalControlSettings { get; set; }
@@ -65,20 +65,20 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public PublicClientApplication PublicClient { get; set; }
         /// <summary>The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application&apos;s publisher domain. Supports $filter (eq, ne, ge, le, startsWith).</summary>
         public string PublisherDomain { get; set; }
-        /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).</summary>
+        /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).</summary>
         public List<GitHubTodoDemo.MicrosoftGraph.Models.RequiredResourceAccess> RequiredResourceAccess { get; set; }
         /// <summary>The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.</summary>
         public string SamlMetadataUrl { get; set; }
         /// <summary>References application or service contact information from a Service or Asset Management database. Nullable.</summary>
         public string ServiceManagementReference { get; set; }
-        /// <summary>Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).</summary>
+        /// <summary>Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. The value for this property has implications on other app object properties. As a result, if you change this property, you may need to change other properties first. For more information, see Validation differences for signInAudience.Supports $filter (eq, ne, not).</summary>
         public string SignInAudience { get; set; }
         /// <summary>Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens.</summary>
         public SpaApplication Spa { get; set; }
         /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> Tags { get; set; }
         /// <summary>Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.</summary>
-        public string TokenEncryptionKeyId { get; set; }
+        public Guid? TokenEncryptionKeyId { get; set; }
         /// <summary>The tokenIssuancePolicies property</summary>
         public List<TokenIssuancePolicy> TokenIssuancePolicies { get; set; }
         /// <summary>The tokenLifetimePolicies property</summary>
@@ -95,8 +95,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new Application CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Application();
@@ -142,7 +142,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
                 {"spa", n => { Spa = n.GetObjectValue<SpaApplication>(SpaApplication.CreateFromDiscriminatorValue); } },
                 {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetStringValue(); } },
+                {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>(GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
@@ -151,8 +151,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
@@ -192,7 +192,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("signInAudience", SignInAudience);
             writer.WriteObjectValue<SpaApplication>("spa", Spa);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteStringValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
+            writer.WriteGuidValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
             writer.WriteCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
             writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.VerifiedPublisher>("verifiedPublisher", VerifiedPublisher);

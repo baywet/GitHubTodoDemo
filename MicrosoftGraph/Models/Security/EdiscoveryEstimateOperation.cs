@@ -20,15 +20,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The estimated size of unindexed items for the collection.</summary>
         public long? UnindexedItemsSize { get; set; }
         /// <summary>
-        /// Instantiates a new ediscoveryEstimateOperation and sets the default values.
-        /// </summary>
-        public EdiscoveryEstimateOperation() : base() {
-            OdataType = "#microsoft.graph.security.ediscoveryEstimateOperation";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new EdiscoveryEstimateOperation CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EdiscoveryEstimateOperation();
@@ -49,8 +43,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

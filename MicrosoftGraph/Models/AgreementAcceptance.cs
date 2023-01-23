@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class AgreementAcceptance : Entity, IParsable {
         /// <summary>The identifier of the agreement file accepted by the user.</summary>
         public string AgreementFileId { get; set; }
@@ -12,13 +14,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string AgreementId { get; set; }
         /// <summary>The display name of the device used for accepting the agreement.</summary>
         public string DeviceDisplayName { get; set; }
-        /// <summary>The unique identifier of the device used for accepting the agreement.</summary>
+        /// <summary>The unique identifier of the device used for accepting the agreement. Supports $filter (eq) and eq for null values.</summary>
         public string DeviceId { get; set; }
         /// <summary>The operating system used to accept the agreement.</summary>
         public string DeviceOSType { get; set; }
         /// <summary>The operating system version of the device used to accept the agreement.</summary>
         public string DeviceOSVersion { get; set; }
-        /// <summary>The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and eq for null values.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? RecordedDateTime { get; set; }
@@ -28,20 +30,14 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string UserDisplayName { get; set; }
         /// <summary>Email of the user when the acceptance was recorded.</summary>
         public string UserEmail { get; set; }
-        /// <summary>The identifier of the user who accepted the agreement.</summary>
+        /// <summary>The identifier of the user who accepted the agreement. Supports $filter (eq).</summary>
         public string UserId { get; set; }
         /// <summary>UPN of the user when the acceptance was recorded.</summary>
         public string UserPrincipalName { get; set; }
         /// <summary>
-        /// Instantiates a new agreementAcceptance and sets the default values.
-        /// </summary>
-        public AgreementAcceptance() : base() {
-            OdataType = "#microsoft.graph.agreementAcceptance";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new AgreementAcceptance CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AgreementAcceptance();
@@ -68,8 +64,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

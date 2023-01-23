@@ -20,12 +20,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors {
         /// </summary>
         public InnerError() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.InnerError";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static InnerError CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new InnerError();
@@ -43,8 +42,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client-request-id", ClientRequestId);

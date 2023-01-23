@@ -10,15 +10,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents a tenant&apos;s customizable terms of use agreement that&apos;s created and managed with Azure Active Directory (Azure AD).</summary>
         public List<Agreement> Agreements { get; set; }
         /// <summary>
-        /// Instantiates a new TermsOfUseContainer and sets the default values.
-        /// </summary>
-        public TermsOfUseContainer() : base() {
-            OdataType = "#microsoft.graph.termsOfUseContainer";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new TermsOfUseContainer CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new TermsOfUseContainer();
@@ -34,8 +28,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

@@ -10,15 +10,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only.</summary>
         public WorkbookChartFont Font { get; set; }
         /// <summary>
-        /// Instantiates a new workbookChartLegendFormat and sets the default values.
-        /// </summary>
-        public WorkbookChartLegendFormat() : base() {
-            OdataType = "#microsoft.graph.workbookChartLegendFormat";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new WorkbookChartLegendFormat CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new WorkbookChartLegendFormat();
@@ -34,8 +28,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

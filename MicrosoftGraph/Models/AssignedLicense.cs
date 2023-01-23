@@ -8,22 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A collection of the unique identifiers for plans that have been disabled.</summary>
-        public List<string> DisabledPlans { get; set; }
+        public List<Guid?> DisabledPlans { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>The unique identifier for the SKU.</summary>
-        public string SkuId { get; set; }
+        public Guid? SkuId { get; set; }
         /// <summary>
         /// Instantiates a new assignedLicense and sets the default values.
         /// </summary>
         public AssignedLicense() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.assignedLicense";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static AssignedLicense CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AssignedLicense();
@@ -33,20 +32,20 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"disabledPlans", n => { DisabledPlans = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"disabledPlans", n => { DisabledPlans = n.GetCollectionOfPrimitiveValues<Guid?>()?.ToList(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"skuId", n => { SkuId = n.GetStringValue(); } },
+                {"skuId", n => { SkuId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("disabledPlans", DisabledPlans);
+            writer.WriteCollectionOfPrimitiveValues<Guid?>("disabledPlans", DisabledPlans);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteStringValue("skuId", SkuId);
+            writer.WriteGuidValue("skuId", SkuId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

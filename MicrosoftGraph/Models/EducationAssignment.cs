@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationAssignment : Entity, IParsable {
-        /// <summary>Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.</summary>
+        /// <summary>Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students.</summary>
         public EducationAddedStudentAction? AddedStudentAction { get; set; }
         /// <summary>Optional field to control the assignment behavior  for adding assignments to students&apos; and teachers&apos; calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.</summary>
         public EducationAddToCalendarOptions? AddToCalendarAction { get; set; }
@@ -33,6 +33,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string DisplayName { get; set; }
         /// <summary>Date when the students assignment is due.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? DueDateTime { get; set; }
+        /// <summary>Folder URL where all the feedback file resources for this assignment are stored.</summary>
+        public string FeedbackResourcesFolderUrl { get; private set; }
         /// <summary>How the assignment will be graded.</summary>
         public EducationAssignmentGradeType Grading { get; set; }
         /// <summary>Instructions for the assignment.  This along with the display name tell the student what to do.</summary>
@@ -56,15 +58,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The deep link URL for the given assignment.</summary>
         public string WebUrl { get; private set; }
         /// <summary>
-        /// Instantiates a new EducationAssignment and sets the default values.
-        /// </summary>
-        public EducationAssignment() : base() {
-            OdataType = "#microsoft.graph.educationAssignment";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new EducationAssignment CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new EducationAssignment();
@@ -88,6 +84,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"dueDateTime", n => { DueDateTime = n.GetDateTimeOffsetValue(); } },
+                {"feedbackResourcesFolderUrl", n => { FeedbackResourcesFolderUrl = n.GetStringValue(); } },
                 {"grading", n => { Grading = n.GetObjectValue<EducationAssignmentGradeType>(EducationAssignmentGradeType.CreateFromDiscriminatorValue); } },
                 {"instructions", n => { Instructions = n.GetObjectValue<EducationItemBody>(EducationItemBody.CreateFromDiscriminatorValue); } },
                 {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
@@ -103,8 +100,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

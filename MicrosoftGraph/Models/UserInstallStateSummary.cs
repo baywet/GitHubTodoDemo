@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Contains properties for the installation state summary for a user.</summary>
+    /// <summary>
+    /// Contains properties for the installation state summary for a user.
+    /// </summary>
     public class UserInstallStateSummary : Entity, IParsable {
         /// <summary>The install state of the eBook.</summary>
         public List<DeviceInstallState> DeviceStates { get; set; }
@@ -17,15 +19,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>User name.</summary>
         public string UserName { get; set; }
         /// <summary>
-        /// Instantiates a new userInstallStateSummary and sets the default values.
-        /// </summary>
-        public UserInstallStateSummary() : base() {
-            OdataType = "#microsoft.graph.userInstallStateSummary";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new UserInstallStateSummary CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UserInstallStateSummary();
@@ -44,8 +40,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

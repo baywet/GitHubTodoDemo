@@ -8,7 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
-    /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\files</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\files
+    /// </summary>
     public class FilesRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -18,9 +20,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new FilesRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -31,9 +33,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
         }
         /// <summary>
         /// Instantiates a new FilesRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -45,8 +47,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
         }
         /// <summary>
         /// **Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<FilesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -65,9 +67,10 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
         }
         /// <summary>
         /// **Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls/#list-pull-requests-files" />
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<List<DiffEntry>> GetAsync(Action<FilesRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -77,17 +80,21 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
             var collectionResult = await RequestAdapter.SendCollectionAsync<DiffEntry>(requestInfo, DiffEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
             return collectionResult.ToList();
         }
-        /// <summary>**Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.</summary>
+        /// <summary>
+        /// **Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.
+        /// </summary>
         public class FilesRequestBuilderGetQueryParameters {
             /// <summary>Page number of the results to fetch.</summary>
             public int? Page { get; set; }
             /// <summary>Results per page (max 100).</summary>
             public int? Per_page { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class FilesRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -97,7 +104,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
             /// </summary>
             public FilesRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

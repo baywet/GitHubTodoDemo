@@ -16,15 +16,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The userFlowIdentityProviders property</summary>
         public List<IdentityProviderBase> UserFlowIdentityProviders { get; set; }
         /// <summary>
-        /// Instantiates a new B2xIdentityUserFlow and sets the default values.
-        /// </summary>
-        public B2xIdentityUserFlow() : base() {
-            OdataType = "#microsoft.graph.b2xIdentityUserFlow";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new B2xIdentityUserFlow CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new B2xIdentityUserFlow();
@@ -43,8 +37,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

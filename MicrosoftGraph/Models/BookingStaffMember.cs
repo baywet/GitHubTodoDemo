@@ -11,7 +11,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string DisplayName { get; set; }
         /// <summary>The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required.</summary>
         public string EmailAddress { get; set; }
-        /// <summary>The isEmailNotificationEnabled property</summary>
+        /// <summary>True indicates that a staff member will be notified via email when a booking assigned to them is created or changed.</summary>
         public bool? IsEmailNotificationEnabled { get; set; }
         /// <summary>The role property</summary>
         public BookingStaffRole? Role { get; set; }
@@ -29,8 +29,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new BookingStaffMember CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new BookingStaffMember();
@@ -52,8 +52,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

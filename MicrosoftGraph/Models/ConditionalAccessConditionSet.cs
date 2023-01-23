@@ -21,25 +21,24 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string OdataType { get; set; }
         /// <summary>Platforms included in and excluded from the policy.</summary>
         public ConditionalAccessPlatforms Platforms { get; set; }
-        /// <summary>The servicePrincipalRiskLevels property</summary>
+        /// <summary>Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.</summary>
         public List<RiskLevel?> ServicePrincipalRiskLevels { get; set; }
         /// <summary>Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</summary>
         public List<RiskLevel?> SignInRiskLevels { get; set; }
         /// <summary>User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</summary>
         public List<RiskLevel?> UserRiskLevels { get; set; }
-        /// <summary>Users, groups, and roles included in and excluded from the policy. Required.</summary>
+        /// <summary>Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.</summary>
         public ConditionalAccessUsers Users { get; set; }
         /// <summary>
         /// Instantiates a new conditionalAccessConditionSet and sets the default values.
         /// </summary>
         public ConditionalAccessConditionSet() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.conditionalAccessConditionSet";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static ConditionalAccessConditionSet CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ConditionalAccessConditionSet();
@@ -64,8 +63,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ConditionalAccessApplications>("applications", Applications);

@@ -4,55 +4,56 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Contains properties for the minimum operating system required for an Android mobile app.</summary>
+    /// <summary>
+    /// Contains properties for the minimum operating system required for an Android mobile app.
+    /// </summary>
     public class AndroidMinimumOperatingSystem : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
-        /// <summary>Version 10.0 or later.</summary>
+        /// <summary>When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V10_0 { get; set; }
-        /// <summary>Version 11.0 or later.</summary>
+        /// <summary>When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V11_0 { get; set; }
-        /// <summary>Version 4.0 or later.</summary>
+        /// <summary>When TRUE, only Version 4.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V4_0 { get; set; }
-        /// <summary>Version 4.0.3 or later.</summary>
+        /// <summary>When TRUE, only Version 4.0.3 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V4_0_3 { get; set; }
-        /// <summary>Version 4.1 or later.</summary>
+        /// <summary>When TRUE, only Version 4.1 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V4_1 { get; set; }
-        /// <summary>Version 4.2 or later.</summary>
+        /// <summary>When TRUE, only Version 4.2 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V4_2 { get; set; }
-        /// <summary>Version 4.3 or later.</summary>
+        /// <summary>When TRUE, only Version 4.3 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V4_3 { get; set; }
-        /// <summary>Version 4.4 or later.</summary>
+        /// <summary>When TRUE, only Version 4.4 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V4_4 { get; set; }
-        /// <summary>Version 5.0 or later.</summary>
+        /// <summary>When TRUE, only Version 5.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V5_0 { get; set; }
-        /// <summary>Version 5.1 or later.</summary>
+        /// <summary>When TRUE, only Version 5.1 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V5_1 { get; set; }
-        /// <summary>Version 6.0 or later.</summary>
+        /// <summary>When TRUE, only Version 6.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V6_0 { get; set; }
-        /// <summary>Version 7.0 or later.</summary>
+        /// <summary>When TRUE, only Version 7.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V7_0 { get; set; }
-        /// <summary>Version 7.1 or later.</summary>
+        /// <summary>When TRUE, only Version 7.1 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V7_1 { get; set; }
-        /// <summary>Version 8.0 or later.</summary>
+        /// <summary>When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V8_0 { get; set; }
-        /// <summary>Version 8.1 or later.</summary>
+        /// <summary>When TRUE, only Version 8.1 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V8_1 { get; set; }
-        /// <summary>Version 9.0 or later.</summary>
+        /// <summary>When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.</summary>
         public bool? V9_0 { get; set; }
         /// <summary>
         /// Instantiates a new androidMinimumOperatingSystem and sets the default values.
         /// </summary>
         public AndroidMinimumOperatingSystem() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.androidMinimumOperatingSystem";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static AndroidMinimumOperatingSystem CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AndroidMinimumOperatingSystem();
@@ -83,8 +84,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>SharedPC Account Manager Policy. Only applies when the account manager is enabled.</summary>
+    /// <summary>
+    /// SharedPC Account Manager Policy. Only applies when the account manager is enabled.
+    /// </summary>
     public class SharedPCAccountManagerPolicy : IAdditionalDataHolder, IParsable {
         /// <summary>Possible values for when accounts are deleted on a shared PC.</summary>
         public SharedPCAccountDeletionPolicyType? AccountDeletionPolicy { get; set; }
@@ -23,12 +25,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public SharedPCAccountManagerPolicy() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.sharedPCAccountManagerPolicy";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static SharedPCAccountManagerPolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SharedPCAccountManagerPolicy();
@@ -47,8 +48,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<SharedPCAccountDeletionPolicyType>("accountDeletionPolicy", AccountDeletionPolicy);

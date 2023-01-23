@@ -4,20 +4,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile.</summary>
+    /// <summary>
+    /// Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile.
+    /// </summary>
     public class MobileAppContent : Entity, IParsable {
+        /// <summary>The collection of contained apps in a MobileLobApp acting as a package.</summary>
+        public List<MobileContainedApp> ContainedApps { get; set; }
         /// <summary>The list of files for this app content version.</summary>
         public List<MobileAppContentFile> Files { get; set; }
         /// <summary>
-        /// Instantiates a new mobileAppContent and sets the default values.
-        /// </summary>
-        public MobileAppContent() : base() {
-            OdataType = "#microsoft.graph.mobileAppContent";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new MobileAppContent CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new MobileAppContent();
@@ -27,16 +25,18 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"containedApps", n => { ContainedApps = n.GetCollectionOfObjectValues<MobileContainedApp>(MobileContainedApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"files", n => { Files = n.GetCollectionOfObjectValues<MobileAppContentFile>(MobileAppContentFile.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<MobileContainedApp>("containedApps", ContainedApps);
             writer.WriteCollectionOfObjectValues<MobileAppContentFile>("files", Files);
         }
     }

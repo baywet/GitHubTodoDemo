@@ -14,7 +14,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The provisioning status of the service plan. The possible values are:Success - Service is fully provisioned.Disabled - Service has been disabled.ErrorStatus - The service plan has not been provisioned and is in an error state.PendingInput - Service is not yet provisioned; awaiting service confirmation.PendingActivation - Service is provisioned but requires explicit activation by administrator (for example, Intune_O365 service plan)PendingProvisioning - Microsoft has added a new service to the product SKU and it has not been activated in the tenant, yet.</summary>
         public string ProvisioningStatus { get; set; }
         /// <summary>The unique identifier of the service plan.</summary>
-        public string ServicePlanId { get; set; }
+        public Guid? ServicePlanId { get; set; }
         /// <summary>The name of the service plan.</summary>
         public string ServicePlanName { get; set; }
         /// <summary>
@@ -22,12 +22,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public ServicePlanInfo() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.servicePlanInfo";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static ServicePlanInfo CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ServicePlanInfo();
@@ -40,20 +39,20 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"appliesTo", n => { AppliesTo = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"provisioningStatus", n => { ProvisioningStatus = n.GetStringValue(); } },
-                {"servicePlanId", n => { ServicePlanId = n.GetStringValue(); } },
+                {"servicePlanId", n => { ServicePlanId = n.GetGuidValue(); } },
                 {"servicePlanName", n => { ServicePlanName = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("appliesTo", AppliesTo);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("provisioningStatus", ProvisioningStatus);
-            writer.WriteStringValue("servicePlanId", ServicePlanId);
+            writer.WriteGuidValue("servicePlanId", ServicePlanId);
             writer.WriteStringValue("servicePlanName", ServicePlanName);
             writer.WriteAdditionalData(AdditionalData);
         }

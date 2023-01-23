@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Entity which represents a connection to device management partner.</summary>
+    /// <summary>
+    /// Entity which represents a connection to device management partner.
+    /// </summary>
     public class DeviceManagementPartner : Entity, IParsable {
         /// <summary>Partner display name</summary>
         public string DisplayName { get; set; }
@@ -23,15 +25,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>DateTime in UTC when PartnerDevices will be removed</summary>
         public DateTimeOffset? WhenPartnerDevicesWillBeRemovedDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new deviceManagementPartner and sets the default values.
-        /// </summary>
-        public DeviceManagementPartner() : base() {
-            OdataType = "#microsoft.graph.deviceManagementPartner";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new DeviceManagementPartner CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceManagementPartner();
@@ -53,8 +49,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

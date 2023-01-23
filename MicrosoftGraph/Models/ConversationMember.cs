@@ -1,11 +1,12 @@
-using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class ConversationMember : Entity, IParsable {
         /// <summary>The display name of the user.</summary>
         public string DisplayName { get; set; }
@@ -14,20 +15,18 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The timestamp denoting how far back a conversation&apos;s history is shared with the conversation member. This property is settable only for members of a chat.</summary>
         public DateTimeOffset? VisibleHistoryStartDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new conversationMember and sets the default values.
-        /// </summary>
-        public ConversationMember() : base() {
-            OdataType = "#microsoft.graph.conversationMember";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new ConversationMember CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.aadUserConversationMember" => new AadUserConversationMember(),
+                "#microsoft.graph.anonymousGuestConversationMember" => new AnonymousGuestConversationMember(),
+                "#microsoft.graph.microsoftAccountUserConversationMember" => new MicrosoftAccountUserConversationMember(),
+                "#microsoft.graph.skypeForBusinessUserConversationMember" => new SkypeForBusinessUserConversationMember(),
+                "#microsoft.graph.skypeUserConversationMember" => new SkypeUserConversationMember(),
                 _ => new ConversationMember(),
             };
         }
@@ -43,8 +42,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

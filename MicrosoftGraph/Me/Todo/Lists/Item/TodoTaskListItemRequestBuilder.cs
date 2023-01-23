@@ -6,13 +6,15 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item {
-    /// <summary>Builds and executes requests for operations under \me\todo\lists\{todoTaskList-id}</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \me\todo\lists\{todoTaskList-id}
+    /// </summary>
     public class TodoTaskListItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The tasks property</summary>
+        /// <summary>Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.</summary>
         public TasksRequestBuilder Tasks { get =>
             new TasksRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -20,9 +22,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new TodoTaskListItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public TodoTaskListItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -33,9 +35,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item {
         }
         /// <summary>
         /// Instantiates a new TodoTaskListItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public TodoTaskListItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));

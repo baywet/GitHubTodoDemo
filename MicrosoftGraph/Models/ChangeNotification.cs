@@ -26,20 +26,19 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The expiration time for the subscription. Required.</summary>
         public DateTimeOffset? SubscriptionExpirationDateTime { get; set; }
         /// <summary>The unique identifier of the subscription that generated the notification.Required.</summary>
-        public string SubscriptionId { get; set; }
+        public Guid? SubscriptionId { get; set; }
         /// <summary>The unique identifier of the tenant from which the change notification originated. Required.</summary>
-        public string TenantId { get; set; }
+        public Guid? TenantId { get; set; }
         /// <summary>
         /// Instantiates a new changeNotification and sets the default values.
         /// </summary>
         public ChangeNotification() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.changeNotification";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static ChangeNotification CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ChangeNotification();
@@ -58,14 +57,14 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"resource", n => { Resource = n.GetStringValue(); } },
                 {"resourceData", n => { ResourceData = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResourceData>(GitHubTodoDemo.MicrosoftGraph.Models.ResourceData.CreateFromDiscriminatorValue); } },
                 {"subscriptionExpirationDateTime", n => { SubscriptionExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                {"subscriptionId", n => { SubscriptionId = n.GetGuidValue(); } },
+                {"tenantId", n => { TenantId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<ChangeType>("changeType", ChangeType);
@@ -77,8 +76,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("resource", Resource);
             writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ResourceData>("resourceData", ResourceData);
             writer.WriteDateTimeOffsetValue("subscriptionExpirationDateTime", SubscriptionExpirationDateTime);
-            writer.WriteStringValue("subscriptionId", SubscriptionId);
-            writer.WriteStringValue("tenantId", TenantId);
+            writer.WriteGuidValue("subscriptionId", SubscriptionId);
+            writer.WriteGuidValue("tenantId", TenantId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -7,7 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item {
-    /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}
+    /// </summary>
     public class WithRepoItemRequestBuilder {
         /// <summary>The commits property</summary>
         public CommitsRequestBuilder Commits { get =>
@@ -25,9 +27,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new WithRepoItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public WithRepoItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -38,9 +40,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item {
         }
         /// <summary>
         /// Instantiates a new WithRepoItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public WithRepoItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));

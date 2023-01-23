@@ -8,7 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
-    /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\merge</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\merge
+    /// </summary>
     public class MergeRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -18,9 +20,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new MergeRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public MergeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -31,9 +33,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         }
         /// <summary>
         /// Instantiates a new MergeRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public MergeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -43,6 +45,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<MergeRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -59,9 +62,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         }
         /// <summary>
         /// This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;[Abuse rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#abuse-rate-limits)&quot; and &quot;[Dealing with abuse rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-abuse-rate-limits)&quot; for details.
-        /// <param name="body"></param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePutRequestInformation(MergePutRequestBody body, Action<MergeRequestBuilderPutRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -79,16 +82,22 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
             }
             return requestInfo;
         }
+        /// <summary>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls/#check-if-a-pull-request-has-been-merged" />
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task GetAsync(Action<MergeRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken);
         }
         /// <summary>
         /// This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;[Abuse rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#abuse-rate-limits)&quot; and &quot;[Dealing with abuse rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-abuse-rate-limits)&quot; for details.
-        /// <param name="body"></param>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls/#merge-a-pull-request" />
+        /// </summary>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<PullRequestMergeResult> PutAsync(MergePutRequestBody body, Action<MergeRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePutRequestInformation(body, requestConfiguration);
@@ -101,10 +110,12 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
             };
             return await RequestAdapter.SendAsync<PullRequestMergeResult>(requestInfo, PullRequestMergeResult.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class MergeRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -112,13 +123,15 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
             /// </summary>
             public MergeRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class MergeRequestBuilderPutRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -126,7 +139,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
             /// </summary>
             public MergeRequestBuilderPutRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

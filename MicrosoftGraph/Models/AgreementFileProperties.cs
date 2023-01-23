@@ -1,4 +1,3 @@
-using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -21,15 +20,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The language of the agreement file in the format &apos;languagecode2-country/regioncode2&apos;. &apos;languagecode2&apos; is a lowercase two-letter code derived from ISO 639-1, while &apos;country/regioncode2&apos; is derived from ISO 3166 and usually consists of two uppercase letters, or a BCP-47 language tag. For example, U.S. English is en-US. Read-only.</summary>
         public string Language { get; set; }
         /// <summary>
-        /// Instantiates a new agreementFileProperties and sets the default values.
-        /// </summary>
-        public AgreementFileProperties() : base() {
-            OdataType = "#microsoft.graph.agreementFileProperties";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new AgreementFileProperties CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
@@ -56,8 +49,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

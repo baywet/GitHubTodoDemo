@@ -12,15 +12,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.</summary>
         public SelfServiceSignUpAuthenticationFlowConfiguration SelfServiceSignUp { get; set; }
         /// <summary>
-        /// Instantiates a new authenticationFlowsPolicy and sets the default values.
-        /// </summary>
-        public AuthenticationFlowsPolicy() : base() {
-            OdataType = "#microsoft.graph.authenticationFlowsPolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new AuthenticationFlowsPolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AuthenticationFlowsPolicy();
@@ -37,8 +31,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

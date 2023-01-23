@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Imported windows autopilot devices.</summary>
+    /// <summary>
+    /// Imported windows autopilot devices.
+    /// </summary>
     public class ImportedWindowsAutopilotDeviceIdentity : Entity, IParsable {
         /// <summary>UPN of the user the device will be assigned</summary>
         public string AssignedUserPrincipalName { get; set; }
@@ -21,15 +23,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Current state of the imported device.</summary>
         public ImportedWindowsAutopilotDeviceIdentityState State { get; set; }
         /// <summary>
-        /// Instantiates a new importedWindowsAutopilotDeviceIdentity and sets the default values.
-        /// </summary>
-        public ImportedWindowsAutopilotDeviceIdentity() : base() {
-            OdataType = "#microsoft.graph.importedWindowsAutopilotDeviceIdentity";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new ImportedWindowsAutopilotDeviceIdentity CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ImportedWindowsAutopilotDeviceIdentity();
@@ -50,8 +46,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

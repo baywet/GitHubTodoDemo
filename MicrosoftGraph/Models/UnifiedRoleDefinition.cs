@@ -24,15 +24,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates version of the role definition. Read-only when isBuiltIn is true.</summary>
         public string Version { get; set; }
         /// <summary>
-        /// Instantiates a new unifiedRoleDefinition and sets the default values.
-        /// </summary>
-        public UnifiedRoleDefinition() : base() {
-            OdataType = "#microsoft.graph.unifiedRoleDefinition";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new UnifiedRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new UnifiedRoleDefinition();
@@ -55,8 +49,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

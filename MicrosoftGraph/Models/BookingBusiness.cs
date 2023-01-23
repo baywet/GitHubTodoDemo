@@ -27,7 +27,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string Email { get; set; }
         /// <summary>The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only.</summary>
         public bool? IsPublished { get; private set; }
-        /// <summary>The languageTag property</summary>
+        /// <summary>The language of the self-service booking page.</summary>
         public string LanguageTag { get; set; }
         /// <summary>The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page.</summary>
         public string Phone { get; set; }
@@ -42,15 +42,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page.</summary>
         public string WebSiteUrl { get; set; }
         /// <summary>
-        /// Instantiates a new BookingBusiness and sets the default values.
-        /// </summary>
-        public BookingBusiness() : base() {
-            OdataType = "#microsoft.graph.bookingBusiness";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new BookingBusiness CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new BookingBusiness();
@@ -82,8 +76,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

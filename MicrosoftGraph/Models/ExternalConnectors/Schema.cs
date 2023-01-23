@@ -10,15 +10,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
         /// <summary>The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.</summary>
         public List<Property> Properties { get; set; }
         /// <summary>
-        /// Instantiates a new schema and sets the default values.
-        /// </summary>
-        public Schema() : base() {
-            OdataType = "#microsoft.graph.externalConnectors.schema";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new Schema CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Schema();
@@ -34,8 +28,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

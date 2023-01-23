@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>The text content of a Notification Message Template for the specified locale.</summary>
+    /// <summary>
+    /// The text content of a Notification Message Template for the specified locale.
+    /// </summary>
     public class LocalizedNotificationMessage : Entity, IParsable {
         /// <summary>Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message.</summary>
         public bool? IsDefault { get; set; }
@@ -17,15 +19,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The Message Template Subject.</summary>
         public string Subject { get; set; }
         /// <summary>
-        /// Instantiates a new localizedNotificationMessage and sets the default values.
-        /// </summary>
-        public LocalizedNotificationMessage() : base() {
-            OdataType = "#microsoft.graph.localizedNotificationMessage";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new LocalizedNotificationMessage CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new LocalizedNotificationMessage();
@@ -44,8 +40,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

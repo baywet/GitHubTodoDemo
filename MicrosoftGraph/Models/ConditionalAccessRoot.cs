@@ -14,15 +14,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access templates.</summary>
         public List<ConditionalAccessTemplate> Templates { get; set; }
         /// <summary>
-        /// Instantiates a new conditionalAccessRoot and sets the default values.
-        /// </summary>
-        public ConditionalAccessRoot() : base() {
-            OdataType = "#microsoft.graph.conditionalAccessRoot";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new ConditionalAccessRoot CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ConditionalAccessRoot();
@@ -40,8 +34,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

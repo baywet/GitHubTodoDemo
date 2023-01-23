@@ -8,7 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
-    /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\requested_reviewers</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\requested_reviewers
+    /// </summary>
     public class Requested_reviewersRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -18,9 +20,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new Requested_reviewersRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public Requested_reviewersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -31,9 +33,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
         }
         /// <summary>
         /// Instantiates a new Requested_reviewersRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public Requested_reviewersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -43,6 +45,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateDeleteRequestInformation(Requested_reviewersDeleteRequestBody body, Action<Requested_reviewersRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -59,6 +63,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             }
             return requestInfo;
         }
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<Requested_reviewersRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -77,9 +82,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
         }
         /// <summary>
         /// This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;[Abuse rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#abuse-rate-limits)&quot; and &quot;[Dealing with abuse rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-abuse-rate-limits)&quot; for details.
-        /// <param name="body"></param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePostRequestInformation(Requested_reviewersPostRequestBody body, Action<Requested_reviewersRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -97,6 +102,12 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             }
             return requestInfo;
         }
+        /// <summary>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request" />
+        /// </summary>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Stream> DeleteAsync(Requested_reviewersDeleteRequestBody body, Action<Requested_reviewersRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreateDeleteRequestInformation(body, requestConfiguration);
@@ -105,16 +116,22 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
+        /// <summary>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#list-requested-reviewers-for-a-pull-request" />
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<PullRequestReviewRequest> GetAsync(Action<Requested_reviewersRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<PullRequestReviewRequest>(requestInfo, PullRequestReviewRequest.CreateFromDiscriminatorValue, default, cancellationToken);
         }
         /// <summary>
         /// This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;[Abuse rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#abuse-rate-limits)&quot; and &quot;[Dealing with abuse rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-abuse-rate-limits)&quot; for details.
-        /// <param name="body"></param>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#request-reviewers-for-a-pull-request" />
+        /// </summary>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<PullRequestSimple> PostAsync(Requested_reviewersPostRequestBody body, Action<Requested_reviewersRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
@@ -123,10 +140,12 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             };
             return await RequestAdapter.SendAsync<PullRequestSimple>(requestInfo, PullRequestSimple.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class Requested_reviewersRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -134,7 +153,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             /// </summary>
             public Requested_reviewersRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
         public class Requested_reviewersRequestBuilderGetQueryParameters {
@@ -143,10 +162,12 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             /// <summary>Results per page (max 100).</summary>
             public int? Per_page { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class Requested_reviewersRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -156,13 +177,15 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             /// </summary>
             public Requested_reviewersRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class Requested_reviewersRequestBuilderPostRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -170,7 +193,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
             /// </summary>
             public Requested_reviewersRequestBuilderPostRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

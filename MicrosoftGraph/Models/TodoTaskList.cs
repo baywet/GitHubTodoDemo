@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class TodoTaskList : Entity, IParsable {
         /// <summary>The name of the task list.</summary>
         public string DisplayName { get; set; }
@@ -19,15 +21,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The wellknownListName property</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.WellknownListName? WellknownListName { get; set; }
         /// <summary>
-        /// Instantiates a new todoTaskList and sets the default values.
-        /// </summary>
-        public TodoTaskList() : base() {
-            OdataType = "#microsoft.graph.todoTaskList";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new TodoTaskList CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new TodoTaskList();
@@ -47,8 +43,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

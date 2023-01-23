@@ -12,7 +12,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The permission&apos;s title, intended to be read by an administrator granting the permission on behalf of all users.</summary>
         public string AdminConsentDisplayName { get; set; }
         /// <summary>Unique delegated permission identifier inside the collection of delegated permissions defined for a resource application.</summary>
-        public string Id { get; set; }
+        public Guid? Id { get; set; }
         /// <summary>When creating or updating a permission, this property must be set to true (which is the default). To delete a permission, this property must first be set to false.  At that point, in a subsequent call, the permission may be removed.</summary>
         public bool? IsEnabled { get; set; }
         /// <summary>The OdataType property</summary>
@@ -32,12 +32,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public PermissionScope() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.permissionScope";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static PermissionScope CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new PermissionScope();
@@ -49,7 +48,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"adminConsentDescription", n => { AdminConsentDescription = n.GetStringValue(); } },
                 {"adminConsentDisplayName", n => { AdminConsentDisplayName = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
+                {"id", n => { Id = n.GetGuidValue(); } },
                 {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"origin", n => { Origin = n.GetStringValue(); } },
@@ -61,13 +60,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("adminConsentDescription", AdminConsentDescription);
             writer.WriteStringValue("adminConsentDisplayName", AdminConsentDisplayName);
-            writer.WriteStringValue("id", Id);
+            writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("isEnabled", IsEnabled);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("origin", Origin);

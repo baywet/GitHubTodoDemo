@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Contains properties for the installation state for a device.</summary>
+    /// <summary>
+    /// Contains properties for the installation state for a device.
+    /// </summary>
     public class DeviceInstallState : Entity, IParsable {
         /// <summary>Device Id.</summary>
         public string DeviceId { get; set; }
@@ -23,15 +25,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Device User Name.</summary>
         public string UserName { get; set; }
         /// <summary>
-        /// Instantiates a new deviceInstallState and sets the default values.
-        /// </summary>
-        public DeviceInstallState() : base() {
-            OdataType = "#microsoft.graph.deviceInstallState";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new DeviceInstallState CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceInstallState();
@@ -53,8 +49,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

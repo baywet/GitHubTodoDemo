@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance.</summary>
+    /// <summary>
+    /// Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance.
+    /// </summary>
     public class NotificationMessageTemplate : Entity, IParsable {
         /// <summary>Branding Options for the Message Template. Branding is defined in the Intune Admin Console.</summary>
         public NotificationTemplateBrandingOptions? BrandingOptions { get; set; }
@@ -17,15 +19,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The list of localized messages for this Notification Message Template.</summary>
         public List<LocalizedNotificationMessage> LocalizedNotificationMessages { get; set; }
         /// <summary>
-        /// Instantiates a new notificationMessageTemplate and sets the default values.
-        /// </summary>
-        public NotificationMessageTemplate() : base() {
-            OdataType = "#microsoft.graph.notificationMessageTemplate";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new NotificationMessageTemplate CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new NotificationMessageTemplate();
@@ -44,8 +40,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

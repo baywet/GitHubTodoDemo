@@ -7,9 +7,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BookingAppointment : Entity, IParsable {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
         public string AdditionalInformation { get; set; }
-        /// <summary>The anonymousJoinWebUrl property</summary>
+        /// <summary>The URL of the meeting to join anonymously.</summary>
         public string AnonymousJoinWebUrl { get; set; }
-        /// <summary>It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.</summary>
+        /// <summary>A collection of customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.</summary>
         public List<BookingCustomerInformationBase> Customers { get; set; }
         /// <summary>The time zone of the customer. For a list of possible values, see dateTimeTimeZone.</summary>
         public string CustomerTimeZone { get; set; }
@@ -54,15 +54,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The startDateTime property</summary>
         public DateTimeTimeZone StartDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new BookingAppointment and sets the default values.
-        /// </summary>
-        public BookingAppointment() : base() {
-            OdataType = "#microsoft.graph.bookingAppointment";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new BookingAppointment CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new BookingAppointment();
@@ -100,8 +94,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class PlannerPlan : Entity, IParsable {
         /// <summary>Read-only. Nullable. Collection of buckets in the plan.</summary>
         public List<PlannerBucket> Buckets { get; set; }
-        /// <summary>Identifies the container of the plan. After it is set, this property can’t be updated. Required.</summary>
+        /// <summary>Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it is set, this property can’t be updated. Required.</summary>
         public PlannerPlanContainer Container { get; set; }
         /// <summary>Read-only. The user who created the plan.</summary>
         public IdentitySet CreatedBy { get; set; }
@@ -23,15 +25,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Required. Title of the plan.</summary>
         public string Title { get; set; }
         /// <summary>
-        /// Instantiates a new plannerPlan and sets the default values.
-        /// </summary>
-        public PlannerPlan() : base() {
-            OdataType = "#microsoft.graph.plannerPlan";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new PlannerPlan CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new PlannerPlan();
@@ -53,8 +49,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

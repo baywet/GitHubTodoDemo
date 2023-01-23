@@ -9,7 +9,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public int? DefaultLength { get; set; }
         /// <summary>Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.</summary>
         public int? DefaultLifetimeInMinutes { get; set; }
-        /// <summary>A collection of users or groups who are enabled to use the authentication method.</summary>
+        /// <summary>A collection of groups that are enabled to use the authentication method.</summary>
         public List<AuthenticationMethodTarget> IncludeTargets { get; set; }
         /// <summary>If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable.</summary>
         public bool? IsUsableOnce { get; set; }
@@ -25,8 +25,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new TemporaryAccessPassAuthenticationMethodConfiguration CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new TemporaryAccessPassAuthenticationMethodConfiguration();
@@ -46,8 +46,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

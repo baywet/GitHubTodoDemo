@@ -1,4 +1,3 @@
-using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -37,15 +36,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates the publishing state of an app.</summary>
         public MobileAppPublishingState? PublishingState { get; set; }
         /// <summary>
-        /// Instantiates a new MobileApp and sets the default values.
-        /// </summary>
-        public MobileApp() : base() {
-            OdataType = "#microsoft.graph.mobileApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new MobileApp CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
@@ -55,6 +48,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.iosLobApp" => new IosLobApp(),
                 "#microsoft.graph.iosStoreApp" => new IosStoreApp(),
                 "#microsoft.graph.iosVppApp" => new IosVppApp(),
+                "#microsoft.graph.macOSLobApp" => new MacOSLobApp(),
+                "#microsoft.graph.macOSMicrosoftEdgeApp" => new MacOSMicrosoftEdgeApp(),
                 "#microsoft.graph.macOSOfficeSuiteApp" => new MacOSOfficeSuiteApp(),
                 "#microsoft.graph.managedAndroidLobApp" => new ManagedAndroidLobApp(),
                 "#microsoft.graph.managedAndroidStoreApp" => new ManagedAndroidStoreApp(),
@@ -66,6 +61,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.mobileLobApp" => new MobileLobApp(),
                 "#microsoft.graph.webApp" => new WebApp(),
                 "#microsoft.graph.win32LobApp" => new Win32LobApp(),
+                "#microsoft.graph.windowsMicrosoftEdgeApp" => new WindowsMicrosoftEdgeApp(),
                 "#microsoft.graph.windowsMobileMSI" => new WindowsMobileMSI(),
                 "#microsoft.graph.windowsUniversalAppX" => new WindowsUniversalAppX(),
                 _ => new MobileApp(),
@@ -95,8 +91,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

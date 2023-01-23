@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Represents a particular service offered by a booking business.</summary>
+    /// <summary>
+    /// Represents a particular service offered by a booking business.
+    /// </summary>
     public class BookingService : Entity, IParsable {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
         public string AdditionalInformation { get; set; }
@@ -24,13 +26,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string Description { get; set; }
         /// <summary>A service name.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The isAnonymousJoinEnabled property</summary>
+        /// <summary>True if the URL to join the appointment anonymously (anonymousJoinWebUrl) will be generated for the appointment booked for this service.</summary>
         public bool? IsAnonymousJoinEnabled { get; set; }
         /// <summary>True means this service is not available to customers for booking.</summary>
         public bool? IsHiddenFromCustomers { get; set; }
         /// <summary>True indicates that the appointments for the service will be held online. Default value is false.</summary>
         public bool? IsLocationOnline { get; set; }
-        /// <summary>The languageTag property</summary>
+        /// <summary>The language of the self-service booking page.</summary>
         public string LanguageTag { get; set; }
         /// <summary>The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.</summary>
         public int? MaximumAttendeesCount { get; set; }
@@ -49,15 +51,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The URL a customer uses to access the service.</summary>
         public string WebUrl { get; private set; }
         /// <summary>
-        /// Instantiates a new bookingService and sets the default values.
-        /// </summary>
-        public BookingService() : base() {
-            OdataType = "#microsoft.graph.bookingService";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new BookingService CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new BookingService();
@@ -92,8 +88,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

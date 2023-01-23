@@ -19,22 +19,16 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string InviteRedeemUrl { get; set; }
         /// <summary>The URL the user should be redirected to once the invitation is redeemed. Required.</summary>
         public string InviteRedirectUrl { get; set; }
-        /// <summary>The resetRedemption property</summary>
+        /// <summary>Reset the user&apos;s redemption status and reinvite a user while retaining their user identifier, group memberships, and app assignments. This property allows you to enable a user to sign-in using a different email address from the one in the previous invitation. For more information about using this property, see Reset redemption status for a guest user.</summary>
         public bool? ResetRedemption { get; set; }
         /// <summary>Indicates whether an email should be sent to the user being invited. The default is false.</summary>
         public bool? SendInvitationMessage { get; set; }
         /// <summary>The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error.</summary>
         public string Status { get; set; }
         /// <summary>
-        /// Instantiates a new Invitation and sets the default values.
-        /// </summary>
-        public Invitation() : base() {
-            OdataType = "#microsoft.graph.invitation";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new Invitation CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Invitation();
@@ -58,8 +52,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

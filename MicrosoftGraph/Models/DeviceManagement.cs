@@ -7,6 +7,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DeviceManagement : Entity, IParsable {
         /// <summary>Apple push notification certificate.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.ApplePushNotificationCertificate ApplePushNotificationCertificate { get; set; }
+        /// <summary>The Audit Events</summary>
+        public List<AuditEvent> AuditEvents { get; set; }
         /// <summary>The list of Compliance Management Partners configured by the tenant.</summary>
         public List<ComplianceManagementPartner> ComplianceManagementPartners { get; set; }
         /// <summary>The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access</summary>
@@ -34,7 +36,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Collection of imported Windows autopilot devices.</summary>
         public List<ImportedWindowsAutopilotDeviceIdentity> ImportedWindowsAutopilotDeviceIdentities { get; set; }
         /// <summary>Intune Account Id for given tenant</summary>
-        public string IntuneAccountId { get; set; }
+        public Guid? IntuneAccountId { get; set; }
         /// <summary>intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.IntuneBrand IntuneBrand { get; set; }
         /// <summary>The IOS software update installation statuses for this account.</summary>
@@ -76,15 +78,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The windows information protection network learning summaries.</summary>
         public List<WindowsInformationProtectionNetworkLearningSummary> WindowsInformationProtectionNetworkLearningSummaries { get; set; }
         /// <summary>
-        /// Instantiates a new DeviceManagement and sets the default values.
-        /// </summary>
-        public DeviceManagement() : base() {
-            OdataType = "#microsoft.graph.deviceManagement";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new DeviceManagement CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceManagement();
@@ -95,6 +91,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"applePushNotificationCertificate", n => { ApplePushNotificationCertificate = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ApplePushNotificationCertificate>(GitHubTodoDemo.MicrosoftGraph.Models.ApplePushNotificationCertificate.CreateFromDiscriminatorValue); } },
+                {"auditEvents", n => { AuditEvents = n.GetCollectionOfObjectValues<AuditEvent>(AuditEvent.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"complianceManagementPartners", n => { ComplianceManagementPartners = n.GetCollectionOfObjectValues<ComplianceManagementPartner>(ComplianceManagementPartner.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"conditionalAccessSettings", n => { ConditionalAccessSettings = n.GetObjectValue<OnPremisesConditionalAccessSettings>(OnPremisesConditionalAccessSettings.CreateFromDiscriminatorValue); } },
                 {"detectedApps", n => { DetectedApps = n.GetCollectionOfObjectValues<DetectedApp>(DetectedApp.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -108,7 +105,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"deviceManagementPartners", n => { DeviceManagementPartners = n.GetCollectionOfObjectValues<DeviceManagementPartner>(DeviceManagementPartner.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"exchangeConnectors", n => { ExchangeConnectors = n.GetCollectionOfObjectValues<DeviceManagementExchangeConnector>(DeviceManagementExchangeConnector.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"importedWindowsAutopilotDeviceIdentities", n => { ImportedWindowsAutopilotDeviceIdentities = n.GetCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(ImportedWindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"intuneAccountId", n => { IntuneAccountId = n.GetStringValue(); } },
+                {"intuneAccountId", n => { IntuneAccountId = n.GetGuidValue(); } },
                 {"intuneBrand", n => { IntuneBrand = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IntuneBrand>(GitHubTodoDemo.MicrosoftGraph.Models.IntuneBrand.CreateFromDiscriminatorValue); } },
                 {"iosUpdateStatuses", n => { IosUpdateStatuses = n.GetCollectionOfObjectValues<IosUpdateDeviceStatus>(IosUpdateDeviceStatus.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"managedDeviceOverview", n => { ManagedDeviceOverview = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ManagedDeviceOverview>(GitHubTodoDemo.MicrosoftGraph.Models.ManagedDeviceOverview.CreateFromDiscriminatorValue); } },
@@ -133,12 +130,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ApplePushNotificationCertificate>("applePushNotificationCertificate", ApplePushNotificationCertificate);
+            writer.WriteCollectionOfObjectValues<AuditEvent>("auditEvents", AuditEvents);
             writer.WriteCollectionOfObjectValues<ComplianceManagementPartner>("complianceManagementPartners", ComplianceManagementPartners);
             writer.WriteObjectValue<OnPremisesConditionalAccessSettings>("conditionalAccessSettings", ConditionalAccessSettings);
             writer.WriteCollectionOfObjectValues<DetectedApp>("detectedApps", DetectedApps);
@@ -152,7 +150,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<DeviceManagementPartner>("deviceManagementPartners", DeviceManagementPartners);
             writer.WriteCollectionOfObjectValues<DeviceManagementExchangeConnector>("exchangeConnectors", ExchangeConnectors);
             writer.WriteCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", ImportedWindowsAutopilotDeviceIdentities);
-            writer.WriteStringValue("intuneAccountId", IntuneAccountId);
+            writer.WriteGuidValue("intuneAccountId", IntuneAccountId);
             writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.IntuneBrand>("intuneBrand", IntuneBrand);
             writer.WriteCollectionOfObjectValues<IosUpdateDeviceStatus>("iosUpdateStatuses", IosUpdateStatuses);
             writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.ManagedDeviceOverview>("managedDeviceOverview", ManagedDeviceOverview);

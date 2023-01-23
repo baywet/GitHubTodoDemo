@@ -21,6 +21,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string CountryLetterCode { get; set; }
         /// <summary>Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
+        /// <summary>Two-letter ISO 3166 country code indicating the default service usage location of an organization.</summary>
+        public string DefaultUsageLocation { get; set; }
         /// <summary>The display name for the tenant.</summary>
         public string DisplayName { get; set; }
         /// <summary>The collection of open extensions defined for the organization. Read-only. Nullable.</summary>
@@ -33,6 +35,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public DateTimeOffset? OnPremisesLastSyncDateTime { get; set; }
         /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
+        /// <summary>The partnerTenantType property</summary>
+        public GitHubTodoDemo.MicrosoftGraph.Models.PartnerTenantType? PartnerTenantType { get; set; }
         /// <summary>Postal code of the address for the organization.</summary>
         public string PostalCode { get; set; }
         /// <summary>The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.</summary>
@@ -63,8 +67,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new Organization CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Organization();
@@ -82,12 +86,14 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"country", n => { Country = n.GetStringValue(); } },
                 {"countryLetterCode", n => { CountryLetterCode = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"defaultUsageLocation", n => { DefaultUsageLocation = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"marketingNotificationEmails", n => { MarketingNotificationEmails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"mobileDeviceManagementAuthority", n => { MobileDeviceManagementAuthority = n.GetEnumValue<MdmAuthority>(); } },
                 {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
+                {"partnerTenantType", n => { PartnerTenantType = n.GetEnumValue<PartnerTenantType>(); } },
                 {"postalCode", n => { PostalCode = n.GetStringValue(); } },
                 {"preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
                 {"privacyProfile", n => { PrivacyProfile = n.GetObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PrivacyProfile>(GitHubTodoDemo.MicrosoftGraph.Models.PrivacyProfile.CreateFromDiscriminatorValue); } },
@@ -103,8 +109,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
@@ -116,12 +122,14 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteStringValue("country", Country);
             writer.WriteStringValue("countryLetterCode", CountryLetterCode);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
+            writer.WriteStringValue("defaultUsageLocation", DefaultUsageLocation);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
             writer.WriteCollectionOfPrimitiveValues<string>("marketingNotificationEmails", MarketingNotificationEmails);
             writer.WriteEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", MobileDeviceManagementAuthority);
             writer.WriteDateTimeOffsetValue("onPremisesLastSyncDateTime", OnPremisesLastSyncDateTime);
             writer.WriteBoolValue("onPremisesSyncEnabled", OnPremisesSyncEnabled);
+            writer.WriteEnumValue<PartnerTenantType>("partnerTenantType", PartnerTenantType);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
             writer.WriteObjectValue<GitHubTodoDemo.MicrosoftGraph.Models.PrivacyProfile>("privacyProfile", PrivacyProfile);

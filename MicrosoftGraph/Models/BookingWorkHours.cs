@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>This type represents the set of working hours in a single day of the week.</summary>
+    /// <summary>
+    /// This type represents the set of working hours in a single day of the week.
+    /// </summary>
     public class BookingWorkHours : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The day property</summary>
-        public DayOfWeek? Day { get; set; }
+        public DayOfWeekObject? Day { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>A list of start/end times during a day.</summary>
@@ -19,12 +21,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public BookingWorkHours() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.bookingWorkHours";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static BookingWorkHours CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new BookingWorkHours();
@@ -34,18 +35,18 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"day", n => { Day = n.GetEnumValue<DayOfWeek>(); } },
+                {"day", n => { Day = n.GetEnumValue<DayOfWeekObject>(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"timeSlots", n => { TimeSlots = n.GetCollectionOfObjectValues<BookingWorkTimeSlot>(BookingWorkTimeSlot.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<DayOfWeek>("day", Day);
+            writer.WriteEnumValue<DayOfWeekObject>("day", Day);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<BookingWorkTimeSlot>("timeSlots", TimeSlots);
             writer.WriteAdditionalData(AdditionalData);

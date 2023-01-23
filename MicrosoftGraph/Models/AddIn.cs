@@ -8,7 +8,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id property</summary>
-        public string Id { get; set; }
+        public Guid? Id { get; set; }
         /// <summary>The OdataType property</summary>
         public string OdataType { get; set; }
         /// <summary>The properties property</summary>
@@ -20,12 +20,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public AddIn() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.addIn";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static AddIn CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AddIn();
@@ -35,7 +34,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"id", n => { Id = n.GetStringValue(); } },
+                {"id", n => { Id = n.GetGuidValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"properties", n => { Properties = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"type", n => { Type = n.GetStringValue(); } },
@@ -43,11 +42,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("id", Id);
+            writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<KeyValue>("properties", Properties);
             writer.WriteStringValue("type", Type);

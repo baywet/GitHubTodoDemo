@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
+    /// </summary>
     public class SecureScoreControlProfile : Entity, IParsable {
         /// <summary>Control action type (Config, Review, Behavior).</summary>
         public string ActionType { get; set; }
@@ -12,11 +14,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public string ActionUrl { get; set; }
         /// <summary>GUID string for tenant ID.</summary>
         public string AzureTenantId { get; set; }
-        /// <summary>The complianceInformation property</summary>
+        /// <summary>The collection of compliance information associated with secure score control</summary>
         public List<GitHubTodoDemo.MicrosoftGraph.Models.ComplianceInformation> ComplianceInformation { get; set; }
         /// <summary>Control action category (Identity, Data, Device, Apps, Infrastructure).</summary>
         public string ControlCategory { get; set; }
-        /// <summary>The controlStateUpdates property</summary>
+        /// <summary>Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update).</summary>
         public List<SecureScoreControlStateUpdate> ControlStateUpdates { get; set; }
         /// <summary>Flag to indicate if a control is depreciated.</summary>
         public bool? Deprecated { get; set; }
@@ -38,22 +40,16 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public List<string> Threats { get; set; }
         /// <summary>The tier property</summary>
         public string Tier { get; set; }
-        /// <summary>Title of the control.</summary>
+        /// <summary>The title property</summary>
         public string Title { get; set; }
         /// <summary>The userImpact property</summary>
         public string UserImpact { get; set; }
         /// <summary>The vendorInformation property</summary>
         public SecurityVendorInformation VendorInformation { get; set; }
         /// <summary>
-        /// Instantiates a new secureScoreControlProfile and sets the default values.
-        /// </summary>
-        public SecureScoreControlProfile() : base() {
-            OdataType = "#microsoft.graph.secureScoreControlProfile";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new SecureScoreControlProfile CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new SecureScoreControlProfile();
@@ -86,8 +82,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

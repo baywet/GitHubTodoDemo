@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Contains properties for a single installer file that is associated with a given mobileAppContent version.</summary>
+    /// <summary>
+    /// Contains properties for a single installer file that is associated with a given mobileAppContent version.
+    /// </summary>
     public class MobileAppContentFile : Entity, IParsable {
         /// <summary>The Azure Storage URI.</summary>
         public string AzureStorageUri { get; set; }
@@ -25,15 +27,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Contains properties for upload request states.</summary>
         public MobileAppContentFileUploadState? UploadState { get; set; }
         /// <summary>
-        /// Instantiates a new mobileAppContentFile and sets the default values.
-        /// </summary>
-        public MobileAppContentFile() : base() {
-            OdataType = "#microsoft.graph.mobileAppContentFile";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new MobileAppContentFile CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new MobileAppContentFile();
@@ -56,8 +52,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

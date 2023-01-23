@@ -1,4 +1,3 @@
-using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -12,7 +11,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents the nth occurrence of the day of week that the transition from daylight saving time to standard time occurs.</summary>
         public int? DayOccurrence { get; set; }
         /// <summary>Represents the day of the week when the transition from daylight saving time to standard time.</summary>
-        public GitHubTodoDemo.MicrosoftGraph.Models.DayOfWeek? DayOfWeek { get; set; }
+        public GitHubTodoDemo.MicrosoftGraph.Models.DayOfWeekObject? DayOfWeekObject { get; set; }
         /// <summary>Represents the month of the year when the transition from daylight saving time to standard time occurs.</summary>
         public int? Month { get; set; }
         /// <summary>The OdataType property</summary>
@@ -26,12 +25,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public StandardTimeZoneOffset() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.standardTimeZoneOffset";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static StandardTimeZoneOffset CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
@@ -46,7 +44,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"dayOccurrence", n => { DayOccurrence = n.GetIntValue(); } },
-                {"dayOfWeek", n => { DayOfWeek = n.GetEnumValue<DayOfWeek>(); } },
+                {"dayOfWeek", n => { DayOfWeekObject = n.GetEnumValue<DayOfWeekObject>(); } },
                 {"month", n => { Month = n.GetIntValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"time", n => { Time = n.GetTimeValue(); } },
@@ -55,12 +53,12 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("dayOccurrence", DayOccurrence);
-            writer.WriteEnumValue<DayOfWeek>("dayOfWeek", DayOfWeek);
+            writer.WriteEnumValue<DayOfWeekObject>("dayOfWeek", DayOfWeekObject);
             writer.WriteIntValue("month", Month);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteTimeValue("time", Time);

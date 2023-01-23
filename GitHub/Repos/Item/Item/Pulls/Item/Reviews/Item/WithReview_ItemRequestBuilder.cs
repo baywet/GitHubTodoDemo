@@ -10,7 +10,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
-    /// <summary>Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\reviews\{review_id}</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\reviews\{review_id}
+    /// </summary>
     public class WithReview_ItemRequestBuilder {
         /// <summary>The dismissals property</summary>
         public DismissalsRequestBuilder Dismissals { get =>
@@ -28,9 +30,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new WithReview_ItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public WithReview_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -41,9 +43,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
         }
         /// <summary>
         /// Instantiates a new WithReview_ItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public WithReview_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -53,6 +55,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateDeleteRequestInformation(Action<WithReview_ItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.DELETE,
@@ -68,6 +71,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             }
             return requestInfo;
         }
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<WithReview_ItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -85,9 +89,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
         }
         /// <summary>
         /// Update the review summary comment with new text.
-        /// <param name="body"></param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePutRequestInformation(WithReview_PutRequestBody body, Action<WithReview_ItemRequestBuilderPutRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -105,6 +109,11 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             }
             return requestInfo;
         }
+        /// <summary>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#delete-a-pending-review-for-a-pull-request" />
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<PullRequestReview> DeleteAsync(Action<WithReview_ItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -113,6 +122,11 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             };
             return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
+        /// <summary>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#get-a-review-for-a-pull-request" />
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<PullRequestReview> GetAsync(Action<WithReview_ItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -122,10 +136,11 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
         }
         /// <summary>
         /// Update the review summary comment with new text.
-        /// <param name="body"></param>
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#update-a-review-for-a-pull-request" />
+        /// </summary>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<PullRequestReview> PutAsync(WithReview_PutRequestBody body, Action<WithReview_ItemRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePutRequestInformation(body, requestConfiguration);
@@ -134,10 +149,12 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             };
             return await RequestAdapter.SendAsync<PullRequestReview>(requestInfo, PullRequestReview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class WithReview_ItemRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -145,13 +162,15 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             /// </summary>
             public WithReview_ItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class WithReview_ItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -159,13 +178,15 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             /// </summary>
             public WithReview_ItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class WithReview_ItemRequestBuilderPutRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -173,7 +194,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews.Item {
             /// </summary>
             public WithReview_ItemRequestBuilderPutRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

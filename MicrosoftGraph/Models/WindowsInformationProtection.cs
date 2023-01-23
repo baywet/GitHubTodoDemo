@@ -1,4 +1,3 @@
-using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -53,7 +52,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don&apos;t revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently.</summary>
         public bool? RevokeOnUnenrollDisabled { get; set; }
         /// <summary>TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access</summary>
-        public string RightsManagementServicesTemplateId { get; set; }
+        public Guid? RightsManagementServicesTemplateId { get; set; }
         /// <summary>Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary</summary>
         public List<WindowsInformationProtectionResourceCollection> SmbAutoEncryptedFileExtensions { get; set; }
         /// <summary>
@@ -64,8 +63,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new WindowsInformationProtection CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
@@ -103,14 +102,14 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 {"protectedApps", n => { ProtectedApps = n.GetCollectionOfObjectValues<WindowsInformationProtectionApp>(WindowsInformationProtectionApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"protectionUnderLockConfigRequired", n => { ProtectionUnderLockConfigRequired = n.GetBoolValue(); } },
                 {"revokeOnUnenrollDisabled", n => { RevokeOnUnenrollDisabled = n.GetBoolValue(); } },
-                {"rightsManagementServicesTemplateId", n => { RightsManagementServicesTemplateId = n.GetStringValue(); } },
+                {"rightsManagementServicesTemplateId", n => { RightsManagementServicesTemplateId = n.GetGuidValue(); } },
                 {"smbAutoEncryptedFileExtensions", n => { SmbAutoEncryptedFileExtensions = n.GetCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(WindowsInformationProtectionResourceCollection.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
@@ -137,7 +136,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
             writer.WriteCollectionOfObjectValues<WindowsInformationProtectionApp>("protectedApps", ProtectedApps);
             writer.WriteBoolValue("protectionUnderLockConfigRequired", ProtectionUnderLockConfigRequired);
             writer.WriteBoolValue("revokeOnUnenrollDisabled", RevokeOnUnenrollDisabled);
-            writer.WriteStringValue("rightsManagementServicesTemplateId", RightsManagementServicesTemplateId);
+            writer.WriteGuidValue("rightsManagementServicesTemplateId", RightsManagementServicesTemplateId);
             writer.WriteCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("smbAutoEncryptedFileExtensions", SmbAutoEncryptedFileExtensions);
         }
     }

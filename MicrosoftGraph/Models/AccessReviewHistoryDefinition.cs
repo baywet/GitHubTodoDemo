@@ -26,15 +26,9 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue.</summary>
         public AccessReviewHistoryStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new AccessReviewHistoryDefinition and sets the default values.
-        /// </summary>
-        public AccessReviewHistoryDefinition() : base() {
-            OdataType = "#microsoft.graph.accessReviewHistoryDefinition";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new AccessReviewHistoryDefinition CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new AccessReviewHistoryDefinition();
@@ -58,8 +52,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

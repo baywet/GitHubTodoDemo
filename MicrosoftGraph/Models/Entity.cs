@@ -1,4 +1,3 @@
-using GitHubTodoDemo.MicrosoftGraph.Models;
 using GitHubTodoDemo.MicrosoftGraph.Models.CallRecords;
 using GitHubTodoDemo.MicrosoftGraph.Models.ExternalConnectors;
 using GitHubTodoDemo.MicrosoftGraph.Models.Security;
@@ -21,12 +20,11 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// </summary>
         public Entity() {
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.entity";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static Entity CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
@@ -68,6 +66,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.androidWorkProfileCompliancePolicy" => new AndroidWorkProfileCompliancePolicy(),
                 "#microsoft.graph.androidWorkProfileCustomConfiguration" => new AndroidWorkProfileCustomConfiguration(),
                 "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration" => new AndroidWorkProfileGeneralDeviceConfiguration(),
+                "#microsoft.graph.anonymousGuestConversationMember" => new AnonymousGuestConversationMember(),
                 "#microsoft.graph.appCatalogs" => new AppCatalogs(),
                 "#microsoft.graph.appConsentApprovalRoute" => new AppConsentApprovalRoute(),
                 "#microsoft.graph.appConsentRequest" => new AppConsentRequest(),
@@ -87,6 +86,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.attackSimulationRoot" => new AttackSimulationRoot(),
                 "#microsoft.graph.attendanceRecord" => new AttendanceRecord(),
                 "#microsoft.graph.audioRoutingGroup" => new AudioRoutingGroup(),
+                "#microsoft.graph.auditEvent" => new AuditEvent(),
                 "#microsoft.graph.auditLogRoot" => new AuditLogRoot(),
                 "#microsoft.graph.authentication" => new Authentication(),
                 "#microsoft.graph.authenticationContextClassReference" => new AuthenticationContextClassReference(),
@@ -216,6 +216,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.educationCategory" => new EducationCategory(),
                 "#microsoft.graph.educationClass" => new EducationClass(),
                 "#microsoft.graph.educationFeedbackOutcome" => new EducationFeedbackOutcome(),
+                "#microsoft.graph.educationFeedbackResourceOutcome" => new EducationFeedbackResourceOutcome(),
                 "#microsoft.graph.educationOrganization" => new EducationOrganization(),
                 "#microsoft.graph.educationOutcome" => new EducationOutcome(),
                 "#microsoft.graph.educationPointsOutcome" => new EducationPointsOutcome(),
@@ -272,7 +273,6 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.importedWindowsAutopilotDeviceIdentityUpload" => new ImportedWindowsAutopilotDeviceIdentityUpload(),
                 "#microsoft.graph.inferenceClassification" => new InferenceClassification(),
                 "#microsoft.graph.inferenceClassificationOverride" => new InferenceClassificationOverride(),
-                "#microsoft.graph.informationProtection" => new InformationProtection(),
                 "#microsoft.graph.internalDomainFederation" => new InternalDomainFederation(),
                 "#microsoft.graph.invitation" => new Invitation(),
                 "#microsoft.graph.inviteParticipantsOperation" => new InviteParticipantsOperation(),
@@ -307,6 +307,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.macOSCustomConfiguration" => new MacOSCustomConfiguration(),
                 "#microsoft.graph.macOSDeviceFeaturesConfiguration" => new MacOSDeviceFeaturesConfiguration(),
                 "#microsoft.graph.macOSGeneralDeviceConfiguration" => new MacOSGeneralDeviceConfiguration(),
+                "#microsoft.graph.macOSLobApp" => new MacOSLobApp(),
+                "#microsoft.graph.macOSMicrosoftEdgeApp" => new MacOSMicrosoftEdgeApp(),
                 "#microsoft.graph.macOSOfficeSuiteApp" => new MacOSOfficeSuiteApp(),
                 "#microsoft.graph.mailAssessmentRequest" => new MailAssessmentRequest(),
                 "#microsoft.graph.mailFolder" => new MailFolder(),
@@ -340,6 +342,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.meetingAttendanceReport" => new MeetingAttendanceReport(),
                 "#microsoft.graph.message" => new Message(),
                 "#microsoft.graph.messageRule" => new MessageRule(),
+                "#microsoft.graph.microsoftAccountUserConversationMember" => new MicrosoftAccountUserConversationMember(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethod" => new MicrosoftAuthenticatorAuthenticationMethod(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration" => new MicrosoftAuthenticatorAuthenticationMethodConfiguration(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget" => new MicrosoftAuthenticatorAuthenticationMethodTarget(),
@@ -349,6 +352,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.mobileAppCategory" => new MobileAppCategory(),
                 "#microsoft.graph.mobileAppContent" => new MobileAppContent(),
                 "#microsoft.graph.mobileAppContentFile" => new MobileAppContentFile(),
+                "#microsoft.graph.mobileContainedApp" => new MobileContainedApp(),
                 "#microsoft.graph.mobileLobApp" => new MobileLobApp(),
                 "#microsoft.graph.mobileThreatDefenseConnector" => new MobileThreatDefenseConnector(),
                 "#microsoft.graph.multiValueLegacyExtendedProperty" => new MultiValueLegacyExtendedProperty(),
@@ -430,12 +434,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.recordOperation" => new RecordOperation(),
                 "#microsoft.graph.referenceAttachment" => new ReferenceAttachment(),
                 "#microsoft.graph.remoteAssistancePartner" => new RemoteAssistancePartner(),
-                "#microsoft.graph.reportRoot" => new ReportRoot(),
                 "#microsoft.graph.request" => new Request(),
                 "#microsoft.graph.resourceOperation" => new ResourceOperation(),
                 "#microsoft.graph.resourceSpecificPermissionGrant" => new ResourceSpecificPermissionGrant(),
                 "#microsoft.graph.richLongRunningOperation" => new RichLongRunningOperation(),
                 "#microsoft.graph.riskDetection" => new RiskDetection(),
+                "#microsoft.graph.riskyServicePrincipal" => new RiskyServicePrincipal(),
+                "#microsoft.graph.riskyServicePrincipalHistoryItem" => new RiskyServicePrincipalHistoryItem(),
                 "#microsoft.graph.riskyUser" => new RiskyUser(),
                 "#microsoft.graph.riskyUserHistoryItem" => new RiskyUserHistoryItem(),
                 "#microsoft.graph.roleAssignment" => new RoleAssignment(),
@@ -454,6 +459,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.secureScore" => new SecureScore(),
                 "#microsoft.graph.secureScoreControlProfile" => new SecureScoreControlProfile(),
                 "#microsoft.graph.security" => new GitHubTodoDemo.MicrosoftGraph.Models.Security.Security(),
+                "#microsoft.graph.security.alert" => new GitHubTodoDemo.MicrosoftGraph.Models.Security.Alert(),
                 "#microsoft.graph.security.case" => new Case(),
                 "#microsoft.graph.security.caseOperation" => new CaseOperation(),
                 "#microsoft.graph.security.casesRoot" => new CasesRoot(),
@@ -468,11 +474,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.security.ediscoveryHoldOperation" => new EdiscoveryHoldOperation(),
                 "#microsoft.graph.security.ediscoveryIndexOperation" => new EdiscoveryIndexOperation(),
                 "#microsoft.graph.security.ediscoveryNoncustodialDataSource" => new EdiscoveryNoncustodialDataSource(),
+                "#microsoft.graph.security.ediscoveryPurgeDataOperation" => new EdiscoveryPurgeDataOperation(),
                 "#microsoft.graph.security.ediscoveryReviewSet" => new EdiscoveryReviewSet(),
                 "#microsoft.graph.security.ediscoveryReviewSetQuery" => new EdiscoveryReviewSetQuery(),
                 "#microsoft.graph.security.ediscoveryReviewTag" => new EdiscoveryReviewTag(),
                 "#microsoft.graph.security.ediscoverySearch" => new EdiscoverySearch(),
                 "#microsoft.graph.security.ediscoveryTagOperation" => new EdiscoveryTagOperation(),
+                "#microsoft.graph.security.incident" => new Incident(),
                 "#microsoft.graph.security.search" => new Search(),
                 "#microsoft.graph.security.siteSource" => new SiteSource(),
                 "#microsoft.graph.security.tag" => new Tag(),
@@ -485,6 +493,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.serviceHealth" => new ServiceHealth(),
                 "#microsoft.graph.serviceHealthIssue" => new ServiceHealthIssue(),
                 "#microsoft.graph.servicePrincipal" => new ServicePrincipal(),
+                "#microsoft.graph.servicePrincipalRiskDetection" => new ServicePrincipalRiskDetection(),
                 "#microsoft.graph.serviceUpdateMessage" => new ServiceUpdateMessage(),
                 "#microsoft.graph.settingStateDeviceSummary" => new SettingStateDeviceSummary(),
                 "#microsoft.graph.sharedDriveItem" => new SharedDriveItem(),
@@ -499,6 +508,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.simulationAutomationRun" => new SimulationAutomationRun(),
                 "#microsoft.graph.singleValueLegacyExtendedProperty" => new SingleValueLegacyExtendedProperty(),
                 "#microsoft.graph.site" => new Site(),
+                "#microsoft.graph.skypeForBusinessUserConversationMember" => new SkypeForBusinessUserConversationMember(),
+                "#microsoft.graph.skypeUserConversationMember" => new SkypeUserConversationMember(),
                 "#microsoft.graph.socialIdentityProvider" => new SocialIdentityProvider(),
                 "#microsoft.graph.softwareOathAuthenticationMethod" => new SoftwareOathAuthenticationMethod(),
                 "#microsoft.graph.softwareUpdateStatusSummary" => new SoftwareUpdateStatusSummary(),
@@ -604,11 +615,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.windowsInformationProtectionAppLockerFile" => new WindowsInformationProtectionAppLockerFile(),
                 "#microsoft.graph.windowsInformationProtectionNetworkLearningSummary" => new WindowsInformationProtectionNetworkLearningSummary(),
                 "#microsoft.graph.windowsInformationProtectionPolicy" => new WindowsInformationProtectionPolicy(),
+                "#microsoft.graph.windowsMicrosoftEdgeApp" => new WindowsMicrosoftEdgeApp(),
                 "#microsoft.graph.windowsMobileMSI" => new WindowsMobileMSI(),
                 "#microsoft.graph.windowsPhone81CompliancePolicy" => new WindowsPhone81CompliancePolicy(),
                 "#microsoft.graph.windowsPhone81CustomConfiguration" => new WindowsPhone81CustomConfiguration(),
                 "#microsoft.graph.windowsPhone81GeneralConfiguration" => new WindowsPhone81GeneralConfiguration(),
                 "#microsoft.graph.windowsUniversalAppX" => new WindowsUniversalAppX(),
+                "#microsoft.graph.windowsUniversalAppXContainedApp" => new WindowsUniversalAppXContainedApp(),
                 "#microsoft.graph.windowsUpdateForBusinessConfiguration" => new WindowsUpdateForBusinessConfiguration(),
                 "#microsoft.graph.workbook" => new Workbook(),
                 "#microsoft.graph.workbookApplication" => new WorkbookApplication(),
@@ -672,8 +685,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);

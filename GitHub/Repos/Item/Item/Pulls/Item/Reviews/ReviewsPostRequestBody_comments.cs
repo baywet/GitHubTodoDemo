@@ -12,7 +12,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         /// <summary>The line property</summary>
         public int? Line { get; set; }
         /// <summary>The relative path to the file that necessitates a review comment.</summary>
-        public string PathObject { get; set; }
+        public string Path { get; set; }
         /// <summary>The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.</summary>
         public int? Position { get; set; }
         /// <summary>The side property</summary>
@@ -29,8 +29,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static ReviewsPostRequestBody_comments CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ReviewsPostRequestBody_comments();
@@ -42,7 +42,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
             return new Dictionary<string, Action<IParseNode>> {
                 {"body", n => { Body = n.GetStringValue(); } },
                 {"line", n => { Line = n.GetIntValue(); } },
-                {"path", n => { PathObject = n.GetStringValue(); } },
+                {"path", n => { Path = n.GetStringValue(); } },
                 {"position", n => { Position = n.GetIntValue(); } },
                 {"side", n => { Side = n.GetStringValue(); } },
                 {"start_line", n => { Start_line = n.GetIntValue(); } },
@@ -51,13 +51,13 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("body", Body);
             writer.WriteIntValue("line", Line);
-            writer.WriteStringValue("path", PathObject);
+            writer.WriteStringValue("path", Path);
             writer.WriteIntValue("position", Position);
             writer.WriteStringValue("side", Side);
             writer.WriteIntValue("start_line", Start_line);

@@ -17,7 +17,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public List<AgreementAcceptance> AgreementAcceptances { get; set; }
         /// <summary>Represents the app roles a user has been granted for an application. Supports $expand.</summary>
         public List<AppRoleAssignment> AppRoleAssignments { get; set; }
-        /// <summary>The licenses that are assigned to the user, including inherited (group-based) licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, and counting empty collections).</summary>
+        /// <summary>The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn&apos;t differentiate directly-assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly-assigned and inherited licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, /$count eq 0, /$count ne 0).</summary>
         public List<AssignedLicense> AssignedLicenses { get; set; }
         /// <summary>The plans that are assigned to the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq and not).</summary>
         public List<AssignedPlan> AssignedPlans { get; set; }
@@ -51,7 +51,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public List<Contact> Contacts { get; set; }
         /// <summary>The country/region in which the user is located; for example, US or UK. Maximum length is 128 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
         public string Country { get; set; }
-        /// <summary>The created date of the user object. Read-only. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).</summary>
+        /// <summary>The date and time the user was created, in ISO 8601 format and in UTC time. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Azure AD. Property is null for some users created before June 2018 and on-premises users that were synced to Azure AD before June 2018. Read-only.  Read-only. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Directory objects that were created by the user. Read-only. Nullable.</summary>
         public List<DirectoryObject> CreatedObjects { get; set; }
@@ -115,7 +115,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public DateTimeOffset? LastPasswordChangeDateTime { get; set; }
         /// <summary>Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult and Adult. Refer to the legal age group property definitions for further information. Returned only on $select.</summary>
         public string LegalAgeGroupClassification { get; set; }
-        /// <summary>State of license assignments for this user. Read-only. Returned only on $select.</summary>
+        /// <summary>State of license assignments for this user. Also indicates licenses that are directly-assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select.</summary>
         public List<LicenseAssignmentState> LicenseAssignmentStates { get; set; }
         /// <summary>A collection of this user&apos;s license details. Read-only.</summary>
         public List<GitHubTodoDemo.MicrosoftGraph.Models.LicenseDetails> LicenseDetails { get; set; }
@@ -169,17 +169,17 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public bool? OnPremisesSyncEnabled { get; set; }
         /// <summary>Contains the on-premises userPrincipalName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith).</summary>
         public string OnPremisesUserPrincipalName { get; set; }
-        /// <summary>A list of additional email addresses for the user; for example: [&apos;bob@contoso.com&apos;, &apos;Robert@fabrikam.com&apos;]. NOTE: This property cannot contain accent characters. Returned only on $select. Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).</summary>
+        /// <summary>A list of additional email addresses for the user; for example: [&apos;bob@contoso.com&apos;, &apos;Robert@fabrikam.com&apos;]. NOTE: This property cannot contain accent characters. Returned only on $select. Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0).</summary>
         public List<string> OtherMails { get; set; }
         /// <summary>The outlook property</summary>
         public OutlookUser Outlook { get; set; }
-        /// <summary>Devices that are owned by the user. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Devices that are owned by the user. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).</summary>
         public List<DirectoryObject> OwnedDevices { get; set; }
         /// <summary>Directory objects that are owned by the user. Read-only. Nullable. Supports $expand.</summary>
         public List<DirectoryObject> OwnedObjects { get; set; }
         /// <summary>Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two may be specified together; for example: DisablePasswordExpiration, DisableStrongPassword. Returned only on $select. For more information on the default password policies, see Azure AD pasword policies. Supports $filter (ne, not, and eq on null values).</summary>
         public string PasswordPolicies { get; set; }
-        /// <summary>Specifies the password profile for the user. The profile contains the user’s password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. NOTE: For Azure B2C tenants, the forceChangePasswordNextSignIn property should be set to false and instead use custom policies and user flows to force password reset at first logon. See Force password reset at first logon.Returned only on $select. Supports $filter (eq, ne, not, in, and eq on null values).</summary>
+        /// <summary>Specifies the password profile for the user. The profile contains the user’s password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Returned only on $select. Supports $filter (eq, ne, not, in, and eq on null values).</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.PasswordProfile PasswordProfile { get; set; }
         /// <summary>A list for the user to enumerate their past projects. Returned only on $select.</summary>
         public List<string> PastProjects { get; set; }
@@ -203,7 +203,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         public GitHubTodoDemo.MicrosoftGraph.Models.Presence Presence { get; set; }
         /// <summary>The plans that are provisioned for the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le).</summary>
         public List<ProvisionedPlan> ProvisionedPlans { get; set; }
-        /// <summary>For example: [&apos;SMTP: bob@contoso.com&apos;, &apos;smtp: bob@sales.contoso.com&apos;]. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).</summary>
+        /// <summary>For example: [&apos;SMTP: bob@contoso.com&apos;, &apos;smtp: bob@sales.contoso.com&apos;]. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).</summary>
         public List<string> ProxyAddresses { get; set; }
         /// <summary>Devices that are registered for the user. Read-only. Nullable. Supports $expand.</summary>
         public List<DirectoryObject> RegisteredDevices { get; set; }
@@ -249,8 +249,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new User CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new User();
@@ -382,8 +382,8 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
