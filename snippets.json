@@ -2,6 +2,14 @@
   "Todo Tasks From PRs": {
     "prefix": "todo",
     "body": [
+      "if(todoList == null || string.IsNullOrEmpty(todoList.Id)) {",
+      "await Console.Error.WriteLineAsync(\"No todo list found. Exiting.\");",
+      "return;",
+      "}",
+      "if (pullRequests == null) {",
+      "await Console.Error.WriteLineAsync(\"No pull requests found. Exiting.\");",
+      "return;",
+      "}",
       "foreach(var pullRequest in pullRequests) {",
       "var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(",
       "new TodoTask() {",
@@ -9,7 +17,7 @@
       "Title = pullRequest.Title,",
       "DueDateTime = new DateTimeTimeZone {",
       "OdataType = null,",
-      "DateTime = pullRequest.Created_at.Value.Add(TimeSpan.FromDays(7)).ToString(\"o\"),",
+      "DateTime = pullRequest.Created_at?.Add(TimeSpan.FromDays(7)).ToString(\"o\"),",
       "TimeZone = \"UTC\"",
       "},",
       "Importance = Importance.High,",
@@ -21,7 +29,7 @@
       "}",
       "}",
       "});",
-      "Console.WriteLine($\"Added task {addedTask.Title} to your todo list\");",
+      "Console.WriteLine($\"Added task {addedTask?.Title} to your todo list\");",
       "}"
     ],
     "description": "Creates a todo task for each pull request"

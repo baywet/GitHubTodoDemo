@@ -20,7 +20,6 @@
 1. Add the following to the CSproj in a property group tag
 
    ```xml
-   <Nullable>disable</Nullable>
    <NoWarn>0114</NoWarn>
    <RootNamespace>GitHubTodoDemo</RootNamespace>
    ```
@@ -63,8 +62,8 @@
 ## Demo - Adding the client for Tasks
 
 1. `kiota search todo`
-1. `kiota show -k msgraph::microsoft-graph -i /me/todo/**/tasks -i /me/todo/lists`
-1. `kiota show -k msgraph::microsoft-graph -i /me/todo/**/tasks -i /me/todo/lists -e **/*delta* -e **/*count`
+1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i /me/todo/**/tasks -i /me/todo/lists`
+1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i /me/todo/**/tasks -i /me/todo/lists -e **/*delta* -e **/*count`
 1. `kiota generate -l CSharp -n "$projectName.MicrosoftGraph" -o $PWD/MicrosoftGraph -c MicrosoftGraphClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i /me/todo/**/tasks -i /me/todo/lists -e **/*delta* -e **/*count`
 
 ## Demo - Getting pull requests from GitHub
@@ -87,7 +86,7 @@
 
    ```CSharp
    var todoLists = await graphClient.Me.Todo.Lists.GetAsync();
-   var todoList = todoLists.Value.First();
+   var todoList = todoLists?.Value?.FirstOrDefault();
    var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(new TodoTask() { Title = "Test task" });
    ```
 
@@ -124,28 +123,37 @@ var graphRequestAdapter = new HttpClientRequestAdapter(graphAuthenticationProvid
 
 var graphClient = new MicrosoftGraphClient(graphRequestAdapter);
 var todoLists = await graphClient.Me.Todo.Lists.GetAsync();
-var todoList = todoLists.Value.First();
+var todoList = todoLists?.Value?.FirstOrDefault();
+
+if(todoList == null || string.IsNullOrEmpty(todoList.Id)) {
+ await Console.Error.WriteLineAsync("No todo list found. Exiting.");
+ return;
+}
+if (pullRequests == null) {
+ await Console.Error.WriteLineAsync("No pull requests found. Exiting.");
+ return;
+}
 
 foreach(var pullRequest in pullRequests) {
-   var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(
-     new TodoTask() {
-      OdataType = null,
-      Title = pullRequest.Title,
-      DueDateTime = new DateTimeTimeZone {
-         OdataType = null,
-         DateTime = pullRequest.Created_at.Value.Add(TimeSpan.FromDays(7)).ToString("o"),
-         TimeZone = "UTC"
-      },
-      Importance = Importance.High,
-      LinkedResources = new List<LinkedResource> {
-         new LinkedResource {
-           OdataType = null,
-           WebUrl = pullRequest.Html_url,
-           ApplicationName = "GitHub",
-         }
-      }
-   });
-   Console.WriteLine($"Added task {addedTask.Title} to your todo list");
+ var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(
+  new TodoTask() {
+   OdataType = null,
+   Title = pullRequest.Title,
+   DueDateTime = new DateTimeTimeZone {
+    OdataType = null,
+    DateTime = pullRequest.Created_at?.Add(TimeSpan.FromDays(7)).ToString("o"),
+    TimeZone = "UTC"
+   },
+   Importance = Importance.High,
+   LinkedResources = new List<LinkedResource> {
+    new LinkedResource {
+     OdataType = null,
+     WebUrl = pullRequest.Html_url,
+     ApplicationName = "GitHub",
+    }
+   }
+ });
+ Console.WriteLine($"Added task {addedTask?.Title} to your todo list");
 }
 ```
 
