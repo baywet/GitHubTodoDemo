@@ -470,7 +470,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.sectionGroup" => new SectionGroup(),
                 "#microsoft.graph.secureScore" => new SecureScore(),
                 "#microsoft.graph.secureScoreControlProfile" => new SecureScoreControlProfile(),
-                "#microsoft.graph.security" => new Security(),
+                "#microsoft.graph.security" => new GitHubTodoDemo.MicrosoftGraph.Models.Security.Security(),
                 "#microsoft.graph.security.alert" => new GitHubTodoDemo.MicrosoftGraph.Models.Security.Alert(),
                 "#microsoft.graph.security.case" => new Case(),
                 "#microsoft.graph.security.caseOperation" => new CaseOperation(),
