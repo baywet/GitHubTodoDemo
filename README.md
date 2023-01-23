@@ -1,4 +1,4 @@
-# GitHub To-Do console app integration demo with Kiota
+# GitHub To-Do console app integration demo with Kiota 1
 
 ## Pre-reqs
 
