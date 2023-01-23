@@ -22,7 +22,8 @@ var tokenCredential = new DeviceCodeCredential(
     {
         Console.WriteLine(deviceCodeInfo.Message);
         return Task.FromResult(0);
-});
+	}
+);
 var graphAuthenticationProvider = new AzureIdentityAuthenticationProvider(tokenCredential, new string[] {"graph.microsoft.com"}, scopes: new string[] { "Tasks.ReadWrite"});
 var graphRequestAdapter = new HttpClientRequestAdapter(graphAuthenticationProvider);
 
@@ -42,17 +43,14 @@ if (pullRequests == null) {
 foreach(var pullRequest in pullRequests) {
 	var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(
 		new TodoTask() {
-			OdataType = null,
 			Title = pullRequest.Title,
 			DueDateTime = new DateTimeTimeZone {
-				OdataType = null,
 				DateTime = pullRequest.Created_at?.Add(TimeSpan.FromDays(7)).ToString("o"),
 				TimeZone = "UTC"
 			},
 			Importance = Importance.High,
 			LinkedResources = new List<LinkedResource> {
 				new LinkedResource {
-					OdataType = null,
 					WebUrl = pullRequest.Html_url,
 					ApplicationName = "GitHub",
 				}
