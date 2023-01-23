@@ -8,21 +8,69 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Hypermedia Link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Link? Comments { get; set; }
+#nullable restore
+#else
         public Link Comments { get; set; }
+#endif
         /// <summary>Hypermedia Link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Link? Commits { get; set; }
+#nullable restore
+#else
         public Link Commits { get; set; }
+#endif
         /// <summary>Hypermedia Link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Link? Html { get; set; }
+#nullable restore
+#else
         public Link Html { get; set; }
+#endif
         /// <summary>Hypermedia Link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Link? Issue { get; set; }
+#nullable restore
+#else
         public Link Issue { get; set; }
+#endif
         /// <summary>Hypermedia Link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Link? Review_comment { get; set; }
+#nullable restore
+#else
         public Link Review_comment { get; set; }
+#endif
         /// <summary>Hypermedia Link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Link? Review_comments { get; set; }
+#nullable restore
+#else
         public Link Review_comments { get; set; }
+#endif
         /// <summary>Hypermedia Link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Link? Self { get; set; }
+#nullable restore
+#else
         public Link Self { get; set; }
+#endif
         /// <summary>Hypermedia Link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Link? Statuses { get; set; }
+#nullable restore
+#else
         public Link Statuses { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PullRequestSimple__links and sets the default values.
         /// </summary>

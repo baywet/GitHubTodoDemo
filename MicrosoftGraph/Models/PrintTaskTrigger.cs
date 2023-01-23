@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class PrintTaskTrigger : Entity, IParsable {
         /// <summary>The definition property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrintTaskDefinition? Definition { get; set; }
+#nullable restore
+#else
         public PrintTaskDefinition Definition { get; set; }
+#endif
         /// <summary>The event property</summary>
         public PrintEvent? Event { get; set; }
         /// <summary>

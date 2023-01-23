@@ -13,9 +13,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of users the policy is applied.</summary>
         public int? ConfigurationAppliedUserCount { get; set; }
         /// <summary>Deployment of an app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier? MobileAppIdentifier { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier MobileAppIdentifier { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new managedAppPolicyDeploymentSummaryPerApp and sets the default values.
         /// </summary>

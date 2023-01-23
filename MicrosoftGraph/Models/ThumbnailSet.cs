@@ -4,18 +4,39 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ThumbnailSet : Entity, IParsable {
         /// <summary>A 1920x1920 scaled thumbnail.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Thumbnail? Large { get; set; }
+#nullable restore
+#else
         public Thumbnail Large { get; set; }
+#endif
         /// <summary>A 176x176 scaled thumbnail.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Thumbnail? Medium { get; set; }
+#nullable restore
+#else
         public Thumbnail Medium { get; set; }
+#endif
         /// <summary>A 48x48 cropped thumbnail.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Thumbnail? Small { get; set; }
+#nullable restore
+#else
         public Thumbnail Small { get; set; }
+#endif
         /// <summary>A custom thumbnail image or the original image used to generate other thumbnails.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Thumbnail? Source { get; set; }
+#nullable restore
+#else
         public Thumbnail Source { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

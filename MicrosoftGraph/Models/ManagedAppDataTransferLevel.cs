@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Data can be transferred from/to these classes of apps</summary>
     public enum ManagedAppDataTransferLevel {
         /// <summary>All apps.</summary>
         AllApps,

@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ManagedDeviceOverview : Entity, IParsable {
         /// <summary>Distribution of Exchange Access State in Intune</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.DeviceExchangeAccessStateSummary? DeviceExchangeAccessStateSummary { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.DeviceExchangeAccessStateSummary DeviceExchangeAccessStateSummary { get; set; }
+#endif
         /// <summary>Device operating system summary.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.DeviceOperatingSystemSummary? DeviceOperatingSystemSummary { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.DeviceOperatingSystemSummary DeviceOperatingSystemSummary { get; set; }
+#endif
         /// <summary>The number of devices enrolled in both MDM and EAS</summary>
         public int? DualEnrolledDeviceCount { get; set; }
         /// <summary>Total enrolled device count. Does not include PC devices managed via Intune PC Agent</summary>

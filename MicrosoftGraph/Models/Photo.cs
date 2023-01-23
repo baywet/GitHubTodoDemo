@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Camera manufacturer. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CameraMake { get; set; }
+#nullable restore
+#else
         public string CameraMake { get; set; }
+#endif
         /// <summary>Camera model. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CameraModel { get; set; }
+#nullable restore
+#else
         public string CameraModel { get; set; }
+#endif
         /// <summary>The denominator for the exposure time fraction from the camera. Read-only.</summary>
         public double? ExposureDenominator { get; set; }
         /// <summary>The numerator for the exposure time fraction from the camera. Read-only.</summary>
@@ -22,7 +34,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The ISO value from the camera. Read-only.</summary>
         public int? Iso { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The orientation value from the camera. Writable on OneDrive Personal.</summary>
         public int? Orientation { get; set; }
         /// <summary>Represents the date and time the photo was taken. Read-only.</summary>

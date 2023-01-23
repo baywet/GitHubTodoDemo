@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values for the install intent chosen by the admin.</summary>
     public enum InstallIntent {
         /// <summary>Available install intent.</summary>
         Available,

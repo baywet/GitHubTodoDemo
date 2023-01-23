@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The errorInformation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ProvisioningErrorInfo? ErrorInformation { get; set; }
+#nullable restore
+#else
         public ProvisioningErrorInfo ErrorInformation { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Possible values are: success, warning, failure, skipped, unknownFutureValue.</summary>
         public ProvisioningResult? Status { get; set; }
         /// <summary>

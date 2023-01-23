@@ -8,13 +8,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The geographic region code for where this site collection resides. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DataLocationCode { get; set; }
+#nullable restore
+#else
         public string DataLocationCode { get; set; }
+#endif
         /// <summary>The hostname for the site collection. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Hostname { get; set; }
+#nullable restore
+#else
         public string Hostname { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>If present, indicates that this is a root site collection in SharePoint. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Root? Root { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Root Root { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new siteCollection and sets the default values.
         /// </summary>

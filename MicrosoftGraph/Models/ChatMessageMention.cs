@@ -10,11 +10,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding &lt;at id=&apos;{index}&apos;&gt; tag in the message body.</summary>
         public int? Id { get; set; }
         /// <summary>The entity (user, application, team, or channel) that was @mentioned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ChatMessageMentionedIdentitySet? Mentioned { get; set; }
+#nullable restore
+#else
         public ChatMessageMentionedIdentitySet Mentioned { get; set; }
+#endif
         /// <summary>String used to represent the mention. For example, a user&apos;s display name, a team name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MentionText { get; set; }
+#nullable restore
+#else
         public string MentionText { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new chatMessageMention and sets the default values.
         /// </summary>

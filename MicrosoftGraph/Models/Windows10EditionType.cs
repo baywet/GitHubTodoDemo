@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Windows 10 Edition type.</summary>
     public enum Windows10EditionType {
         /// <summary>Windows 10 Enterprise</summary>
         Windows10Enterprise,

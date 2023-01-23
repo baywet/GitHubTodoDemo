@@ -8,15 +8,45 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Email of the data subject.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Email { get; set; }
+#nullable restore
+#else
         public string Email { get; set; }
+#endif
         /// <summary>First name of the data subject.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FirstName { get; set; }
+#nullable restore
+#else
         public string FirstName { get; set; }
+#endif
         /// <summary>Last Name of the data subject.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastName { get; set; }
+#nullable restore
+#else
         public string LastName { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The country/region of residency. The residency information is uesed only for internal reporting but not for the content search.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Residency { get; set; }
+#nullable restore
+#else
         public string Residency { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new dataSubject and sets the default values.
         /// </summary>

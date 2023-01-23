@@ -13,7 +13,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates the type of restart action.</summary>
         public Win32LobAppRestartBehavior? DeviceRestartBehavior { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Indicates the type of execution context the app runs in.</summary>
         public RunAsAccountType? RunAsAccount { get; set; }
         /// <summary>

@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The date and time that this Windows Hello for Business key was registered.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The registered device on which this Windows Hello for Business key resides. Supports $expand. When you get a user&apos;s Windows Hello for Business registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/windowsHelloForBusinessMethods/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Device? Device { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Device Device { get; set; }
+#endif
         /// <summary>The name of the device on which Windows Hello for Business is registered</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Key strength of this Windows Hello for Business key. Possible values are: normal, weak, unknown.</summary>
         public AuthenticationMethodKeyStrength? KeyStrength { get; set; }
         /// <summary>

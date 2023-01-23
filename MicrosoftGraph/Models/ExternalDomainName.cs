@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ExternalDomainName : Entity, IParsable {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

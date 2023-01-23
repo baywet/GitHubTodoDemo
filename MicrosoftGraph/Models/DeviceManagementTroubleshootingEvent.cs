@@ -9,7 +9,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class DeviceManagementTroubleshootingEvent : Entity, IParsable {
         /// <summary>Id used for tracing the failure in the service.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CorrelationId { get; set; }
+#nullable restore
+#else
         public string CorrelationId { get; set; }
+#endif
         /// <summary>Time when the event occurred .</summary>
         public DateTimeOffset? EventDateTime { get; set; }
         /// <summary>

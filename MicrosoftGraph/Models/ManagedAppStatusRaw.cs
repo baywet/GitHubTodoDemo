@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ManagedAppStatusRaw : ManagedAppStatus, IParsable {
         /// <summary>Status report content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Json? Content { get; set; }
+#nullable restore
+#else
         public Json Content { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ManagedAppStatusRaw and sets the default values.
         /// </summary>

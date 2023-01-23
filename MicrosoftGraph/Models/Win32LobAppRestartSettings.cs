@@ -15,7 +15,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The number of minutes to wait before restarting the device after an app installation.</summary>
         public int? GracePeriodInMinutes { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The number of minutes to snooze the restart notification dialog when the snooze button is selected.</summary>
         public int? RestartNotificationSnoozeDurationInMinutes { get; set; }
         /// <summary>

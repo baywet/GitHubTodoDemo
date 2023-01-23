@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookChartGridlines : Entity, IParsable {
         /// <summary>Represents the formatting of chart gridlines. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartGridlinesFormat? Format { get; set; }
+#nullable restore
+#else
         public WorkbookChartGridlinesFormat Format { get; set; }
+#endif
         /// <summary>Boolean value representing if the axis gridlines are visible or not.</summary>
         public bool? Visible { get; set; }
         /// <summary>

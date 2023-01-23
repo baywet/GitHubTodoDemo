@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Type of accounts that are allowed to share the PC.</summary>
     public enum SharedPCAllowedAccountType {
         /// <summary>Only guest accounts.</summary>
         Guest,

@@ -4,38 +4,95 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class UserActivity : Entity, IParsable {
         /// <summary>Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActivationUrl { get; set; }
+#nullable restore
+#else
         public string ActivationUrl { get; set; }
+#endif
         /// <summary>Required. URL for the domain representing the cross-platform identity mapping for the app. Mapping is stored either as a JSON file hosted on the domain or configurable via Windows Dev Center. The JSON file is named cross-platform-app-identifiers and is hosted at root of your HTTPS domain, either at the top level domain or include a sub domain. For example: https://contoso.com or https://myapp.contoso.com but NOT https://myapp.contoso.com/somepath. You must have a unique file and domain (or sub domain) per cross-platform app identity. For example, a separate file and domain is needed for Word vs. PowerPoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActivitySourceHost { get; set; }
+#nullable restore
+#else
         public string ActivitySourceHost { get; set; }
+#endif
         /// <summary>Required. The unique activity ID in the context of the app - supplied by caller and immutable thereafter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppActivityId { get; set; }
+#nullable restore
+#else
         public string AppActivityId { get; set; }
+#endif
         /// <summary>Optional. Short text description of the app used to generate the activity for use in cases when the app is not installed on the user’s local device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppDisplayName { get; set; }
+#nullable restore
+#else
         public string AppDisplayName { get; set; }
+#endif
         /// <summary>Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Json? ContentInfo { get; set; }
+#nullable restore
+#else
         public Json ContentInfo { get; set; }
+#endif
         /// <summary>Optional. Used in the event the content can be rendered outside of a native or web-based app experience (for example, a pointer to an item in an RSS feed).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContentUrl { get; set; }
+#nullable restore
+#else
         public string ContentUrl { get; set; }
+#endif
         /// <summary>Set by the server. DateTime in UTC when the object was created on the server.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Set by the server. DateTime in UTC when the object expired on the server.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>Optional. URL used to launch the activity in a web-based app, if available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FallbackUrl { get; set; }
+#nullable restore
+#else
         public string FallbackUrl { get; set; }
+#endif
         /// <summary>Optional. NavigationProperty/Containment; navigation property to the activity&apos;s historyItems.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ActivityHistoryItem>? HistoryItems { get; set; }
+#nullable restore
+#else
         public List<ActivityHistoryItem> HistoryItems { get; set; }
+#endif
         /// <summary>Set by the server. DateTime in UTC when the object was modified on the server.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.Status? Status { get; set; }
         /// <summary>Optional. The timezone in which the user&apos;s device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserTimezone { get; set; }
+#nullable restore
+#else
         public string UserTimezone { get; set; }
+#endif
         /// <summary>The visualElements property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public VisualInfo? VisualElements { get; set; }
+#nullable restore
+#else
         public VisualInfo VisualElements { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ConfigurationManagerCollectionAssignmentTarget : DeviceAndAppManagementAssignmentTarget, IParsable {
         /// <summary>The collection Id that is the target of the assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CollectionId { get; set; }
+#nullable restore
+#else
         public string CollectionId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ConfigurationManagerCollectionAssignmentTarget and sets the default values.
         /// </summary>

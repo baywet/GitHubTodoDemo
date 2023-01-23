@@ -10,15 +10,33 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The direction property</summary>
         public MediaDirection? Direction { get; set; }
         /// <summary>The media stream label.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Label { get; set; }
+#nullable restore
+#else
         public string Label { get; set; }
+#endif
         /// <summary>The mediaType property</summary>
         public Modality? MediaType { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>If the media is muted by the server.</summary>
         public bool? ServerMuted { get; set; }
         /// <summary>The source ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SourceId { get; set; }
+#nullable restore
+#else
         public string SourceId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new mediaStream and sets the default values.
         /// </summary>

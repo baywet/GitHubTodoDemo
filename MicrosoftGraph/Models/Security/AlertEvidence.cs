@@ -10,15 +10,39 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The time the evidence was created and added to the alert.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The remediationStatus property</summary>
         public EvidenceRemediationStatus? RemediationStatus { get; set; }
         /// <summary>Details about the remediation status.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RemediationStatusDetails { get; set; }
+#nullable restore
+#else
         public string RemediationStatusDetails { get; set; }
+#endif
         /// <summary>The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role &apos;Attacker&apos;.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EvidenceRole?>? Roles { get; set; }
+#nullable restore
+#else
         public List<EvidenceRole?> Roles { get; set; }
+#endif
         /// <summary>Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
         public List<string> Tags { get; set; }
+#endif
         /// <summary>The verdict property</summary>
         public EvidenceVerdict? Verdict { get; set; }
         /// <summary>

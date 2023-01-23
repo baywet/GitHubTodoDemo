@@ -4,14 +4,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ServiceHealth : Entity, IParsable {
         /// <summary>A collection of issues that happened on the service, with detailed information for each issue.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ServiceHealthIssue>? Issues { get; set; }
+#nullable restore
+#else
         public List<ServiceHealthIssue> Issues { get; set; }
+#endif
         /// <summary>The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Service { get; set; }
+#nullable restore
+#else
         public string Service { get; set; }
+#endif
         /// <summary>The status property</summary>
         public ServiceHealthStatus? Status { get; set; }
         /// <summary>

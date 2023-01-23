@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class OrganizationalBrandingLocalization : OrganizationalBrandingProperties, IParsable {
         /// <summary>
         /// Instantiates a new organizationalBrandingLocalization and sets the default values.

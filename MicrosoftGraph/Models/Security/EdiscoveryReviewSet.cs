@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryReviewSet : DataSet, IParsable {
         /// <summary>Represents queries within the review set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryReviewSetQuery>? Queries { get; set; }
+#nullable restore
+#else
         public List<EdiscoveryReviewSetQuery> Queries { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EdiscoveryReviewSet and sets the default values.
         /// </summary>

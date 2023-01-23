@@ -7,13 +7,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CloudCommunications : Entity, IParsable {
         /// <summary>The callRecords property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CallRecord>? CallRecords { get; set; }
+#nullable restore
+#else
         public List<CallRecord> CallRecords { get; set; }
+#endif
         /// <summary>The calls property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Call>? Calls { get; set; }
+#nullable restore
+#else
         public List<Call> Calls { get; set; }
+#endif
         /// <summary>The onlineMeetings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OnlineMeeting>? OnlineMeetings { get; set; }
+#nullable restore
+#else
         public List<OnlineMeeting> OnlineMeetings { get; set; }
+#endif
         /// <summary>The presences property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Presence>? Presences { get; set; }
+#nullable restore
+#else
         public List<Presence> Presences { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

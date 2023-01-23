@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Contains rule types for Win32 LOB apps.</summary>
     public enum Win32LobAppRuleType {
         /// <summary>Detection rule.</summary>
         Detection,

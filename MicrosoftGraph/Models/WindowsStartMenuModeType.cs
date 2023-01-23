@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Type of display modes for the start menu.</summary>
     public enum WindowsStartMenuModeType {
         /// <summary>User defined. Default value.</summary>
         UserDefined,

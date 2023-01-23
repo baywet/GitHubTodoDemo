@@ -9,9 +9,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class ManagedMobileApp : Entity, IParsable {
         /// <summary>The identifier for an app with it&apos;s operating system type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier? MobileAppIdentifier { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.MobileAppIdentifier MobileAppIdentifier { get; set; }
+#endif
         /// <summary>Version of the entity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Version { get; set; }
+#nullable restore
+#else
         public string Version { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

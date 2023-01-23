@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ParticipantJoiningNotification : Entity, IParsable {
         /// <summary>The call property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Call? Call { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Call Call { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

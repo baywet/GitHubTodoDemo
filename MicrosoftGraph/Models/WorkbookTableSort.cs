@@ -6,11 +6,23 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookTableSort : Entity, IParsable {
         /// <summary>Represents the current conditions used to last sort the table. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<WorkbookSortField>? Fields { get; set; }
+#nullable restore
+#else
         public List<WorkbookSortField> Fields { get; set; }
+#endif
         /// <summary>Represents whether the casing impacted the last sort of the table. Read-only.</summary>
         public bool? MatchCase { get; set; }
         /// <summary>Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Method { get; set; }
+#nullable restore
+#else
         public string Method { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

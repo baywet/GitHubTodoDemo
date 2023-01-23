@@ -4,42 +4,117 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ProvisioningObjectSummary : Entity, IParsable {
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? ActivityDateTime { get; set; }
         /// <summary>Unique ID of this change in this cycle.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChangeId { get; set; }
+#nullable restore
+#else
         public string ChangeId { get; set; }
+#endif
         /// <summary>Unique ID per job iteration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CycleId { get; set; }
+#nullable restore
+#else
         public string CycleId { get; set; }
+#endif
         /// <summary>Indicates how long this provisioning action took to finish. Measured in milliseconds.</summary>
         public int? DurationInMilliseconds { get; set; }
         /// <summary>Details of who initiated this provisioning.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Initiator? InitiatedBy { get; set; }
+#nullable restore
+#else
         public Initiator InitiatedBy { get; set; }
+#endif
         /// <summary>The unique ID for the whole provisioning job.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JobId { get; set; }
+#nullable restore
+#else
         public string JobId { get; set; }
+#endif
         /// <summary>Details of each property that was modified in this provisioning action on this object.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ModifiedProperty>? ModifiedProperties { get; set; }
+#nullable restore
+#else
         public List<ModifiedProperty> ModifiedProperties { get; set; }
+#endif
         /// <summary>Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningAction? ProvisioningAction { get; set; }
         /// <summary>Details of provisioning status.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo? ProvisioningStatusInfo { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.ProvisioningStatusInfo ProvisioningStatusInfo { get; set; }
+#endif
         /// <summary>Details of each step in provisioning.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ProvisioningStep>? ProvisioningSteps { get; set; }
+#nullable restore
+#else
         public List<ProvisioningStep> ProvisioningSteps { get; set; }
+#endif
         /// <summary>Represents the service principal used for provisioning.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ProvisioningServicePrincipal? ServicePrincipal { get; set; }
+#nullable restore
+#else
         public ProvisioningServicePrincipal ServicePrincipal { get; set; }
+#endif
         /// <summary>Details of source object being provisioned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ProvisionedIdentity? SourceIdentity { get; set; }
+#nullable restore
+#else
         public ProvisionedIdentity SourceIdentity { get; set; }
+#endif
         /// <summary>Details of source system of the object being provisioned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ProvisioningSystem? SourceSystem { get; set; }
+#nullable restore
+#else
         public ProvisioningSystem SourceSystem { get; set; }
+#endif
         /// <summary>Details of target object being provisioned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ProvisionedIdentity? TargetIdentity { get; set; }
+#nullable restore
+#else
         public ProvisionedIdentity TargetIdentity { get; set; }
+#endif
         /// <summary>Details of target system of the object being provisioned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ProvisioningSystem? TargetSystem { get; set; }
+#nullable restore
+#else
         public ProvisioningSystem TargetSystem { get; set; }
+#endif
         /// <summary>Unique Azure AD tenant ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TenantId { get; set; }
+#nullable restore
+#else
         public string TenantId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

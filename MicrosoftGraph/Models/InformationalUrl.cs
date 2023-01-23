@@ -8,17 +8,53 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>CDN URL to the application&apos;s logo, Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LogoUrl { get; set; }
+#nullable restore
+#else
         public string LogoUrl { get; set; }
+#endif
         /// <summary>Link to the application&apos;s marketing page. For example, https://www.contoso.com/app/marketing</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MarketingUrl { get; set; }
+#nullable restore
+#else
         public string MarketingUrl { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Link to the application&apos;s privacy statement. For example, https://www.contoso.com/app/privacy</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrivacyStatementUrl { get; set; }
+#nullable restore
+#else
         public string PrivacyStatementUrl { get; set; }
+#endif
         /// <summary>Link to the application&apos;s support page. For example, https://www.contoso.com/app/support</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SupportUrl { get; set; }
+#nullable restore
+#else
         public string SupportUrl { get; set; }
+#endif
         /// <summary>Link to the application&apos;s terms of service statement. For example, https://www.contoso.com/app/termsofservice</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TermsOfServiceUrl { get; set; }
+#nullable restore
+#else
         public string TermsOfServiceUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new informationalUrl and sets the default values.
         /// </summary>

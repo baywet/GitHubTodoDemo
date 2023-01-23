@@ -12,11 +12,23 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Possible values are: notStarted, running, complete, failed, unknownFutureValue.</summary>
         public DataPolicyOperationStatus? Status { get; set; }
         /// <summary>The URL location to where data is being exported for export requests.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StorageLocation { get; set; }
+#nullable restore
+#else
         public string StorageLocation { get; set; }
+#endif
         /// <summary>Represents when the request for this data operation was submitted, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? SubmittedDateTime { get; set; }
         /// <summary>The id for the user on whom the operation is performed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
         public string UserId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

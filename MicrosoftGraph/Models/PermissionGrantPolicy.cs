@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PermissionGrantPolicy : PolicyBase, IParsable {
         /// <summary>Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PermissionGrantConditionSet>? Excludes { get; set; }
+#nullable restore
+#else
         public List<PermissionGrantConditionSet> Excludes { get; set; }
+#endif
         /// <summary>Condition sets which are included in this permission grant policy. Automatically expanded on GET.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PermissionGrantConditionSet>? Includes { get; set; }
+#nullable restore
+#else
         public List<PermissionGrantConditionSet> Includes { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PermissionGrantPolicy and sets the default values.
         /// </summary>

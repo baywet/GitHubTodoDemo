@@ -13,15 +13,45 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>If true, app is denied protection or exemption.</summary>
         public bool? Denied { get; set; }
         /// <summary>The app&apos;s description.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>App display name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The product name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductName { get; set; }
+#nullable restore
+#else
         public string ProductName { get; set; }
+#endif
         /// <summary>The publisher name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PublisherName { get; set; }
+#nullable restore
+#else
         public string PublisherName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new windowsInformationProtectionApp and sets the default values.
         /// </summary>

@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class SiteSource : DataSource, IParsable {
         /// <summary>The site property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Site? Site { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Site Site { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new SiteSource and sets the default values.
         /// </summary>

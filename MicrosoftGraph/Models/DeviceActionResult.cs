@@ -9,7 +9,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class DeviceActionResult : IAdditionalDataHolder, IParsable {
         /// <summary>Action name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActionName { get; set; }
+#nullable restore
+#else
         public string ActionName { get; set; }
+#endif
         /// <summary>State of the action on the device</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.ActionState? ActionState { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -17,7 +23,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Time the action state was last updated</summary>
         public DateTimeOffset? LastUpdatedDateTime { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Time the action was initiated</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>

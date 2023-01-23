@@ -9,25 +9,67 @@ namespace GitHubTodoDemo.GitHub.Models {
     /// </summary>
     public class PullRequest : IAdditionalDataHolder, IParsable {
         /// <summary>The _links property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PullRequest__links? _links { get; set; }
+#nullable restore
+#else
         public PullRequest__links _links { get; set; }
+#endif
         /// <summary>The active_lock_reason property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Active_lock_reason { get; set; }
+#nullable restore
+#else
         public string Active_lock_reason { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The additions property</summary>
         public int? Additions { get; set; }
         /// <summary>The assignee property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SimpleUser? Assignee { get; set; }
+#nullable restore
+#else
         public SimpleUser Assignee { get; set; }
+#endif
         /// <summary>The assignees property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SimpleUser>? Assignees { get; set; }
+#nullable restore
+#else
         public List<SimpleUser> Assignees { get; set; }
+#endif
         /// <summary>How the author is associated with the repository.</summary>
         public GitHubTodoDemo.GitHub.Models.Author_association? Author_association { get; set; }
         /// <summary>The status of auto merging a pull request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.GitHub.Models.Auto_merge? Auto_merge { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.GitHub.Models.Auto_merge Auto_merge { get; set; }
+#endif
         /// <summary>The base property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PullRequest_base? Base { get; set; }
+#nullable restore
+#else
         public PullRequest_base Base { get; set; }
+#endif
         /// <summary>The body property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Body { get; set; }
+#nullable restore
+#else
         public string Body { get; set; }
+#endif
         /// <summary>The changed_files property</summary>
         public int? Changed_files { get; set; }
         /// <summary>The closed_at property</summary>
@@ -35,77 +77,203 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The comments property</summary>
         public int? Comments { get; set; }
         /// <summary>The comments_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Comments_url { get; set; }
+#nullable restore
+#else
         public string Comments_url { get; set; }
+#endif
         /// <summary>The commits property</summary>
         public int? Commits { get; set; }
         /// <summary>The commits_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Commits_url { get; set; }
+#nullable restore
+#else
         public string Commits_url { get; set; }
+#endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? Created_at { get; set; }
         /// <summary>The deletions property</summary>
         public int? Deletions { get; set; }
         /// <summary>The diff_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Diff_url { get; set; }
+#nullable restore
+#else
         public string Diff_url { get; set; }
+#endif
         /// <summary>Indicates whether or not the pull request is a draft.</summary>
         public bool? Draft { get; set; }
         /// <summary>The head property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PullRequest_head? Head { get; set; }
+#nullable restore
+#else
         public PullRequest_head Head { get; set; }
+#endif
         /// <summary>The html_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Html_url { get; set; }
+#nullable restore
+#else
         public string Html_url { get; set; }
+#endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
         /// <summary>The issue_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Issue_url { get; set; }
+#nullable restore
+#else
         public string Issue_url { get; set; }
+#endif
         /// <summary>The labels property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PullRequest_labels>? Labels { get; set; }
+#nullable restore
+#else
         public List<PullRequest_labels> Labels { get; set; }
+#endif
         /// <summary>The locked property</summary>
         public bool? Locked { get; set; }
         /// <summary>Indicates whether maintainers can modify the pull request.</summary>
         public bool? Maintainer_can_modify { get; set; }
         /// <summary>The merge_commit_sha property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Merge_commit_sha { get; set; }
+#nullable restore
+#else
         public string Merge_commit_sha { get; set; }
+#endif
         /// <summary>The mergeable property</summary>
         public bool? Mergeable { get; set; }
         /// <summary>The mergeable_state property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Mergeable_state { get; set; }
+#nullable restore
+#else
         public string Mergeable_state { get; set; }
+#endif
         /// <summary>The merged property</summary>
         public bool? Merged { get; set; }
         /// <summary>The merged_at property</summary>
         public DateTimeOffset? Merged_at { get; set; }
         /// <summary>The merged_by property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SimpleUser? Merged_by { get; set; }
+#nullable restore
+#else
         public SimpleUser Merged_by { get; set; }
+#endif
         /// <summary>The milestone property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.GitHub.Models.Milestone? Milestone { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.GitHub.Models.Milestone Milestone { get; set; }
+#endif
         /// <summary>The node_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Node_id { get; set; }
+#nullable restore
+#else
         public string Node_id { get; set; }
+#endif
         /// <summary>Number uniquely identifying the pull request within its repository.</summary>
         public int? Number { get; set; }
         /// <summary>The patch_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Patch_url { get; set; }
+#nullable restore
+#else
         public string Patch_url { get; set; }
+#endif
         /// <summary>The rebaseable property</summary>
         public bool? Rebaseable { get; set; }
         /// <summary>The requested_reviewers property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SimpleUser>? Requested_reviewers { get; set; }
+#nullable restore
+#else
         public List<SimpleUser> Requested_reviewers { get; set; }
+#endif
         /// <summary>The requested_teams property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<TeamSimple>? Requested_teams { get; set; }
+#nullable restore
+#else
         public List<TeamSimple> Requested_teams { get; set; }
+#endif
         /// <summary>The review_comment_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Review_comment_url { get; set; }
+#nullable restore
+#else
         public string Review_comment_url { get; set; }
+#endif
         /// <summary>The review_comments property</summary>
         public int? Review_comments { get; set; }
         /// <summary>The review_comments_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Review_comments_url { get; set; }
+#nullable restore
+#else
         public string Review_comments_url { get; set; }
+#endif
         /// <summary>State of this Pull Request. Either `open` or `closed`.</summary>
         public PullRequest_state? State { get; set; }
         /// <summary>The statuses_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Statuses_url { get; set; }
+#nullable restore
+#else
         public string Statuses_url { get; set; }
+#endif
         /// <summary>The title of the pull request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
         public string Title { get; set; }
+#endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? Updated_at { get; set; }
         /// <summary>The url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
         public string Url { get; set; }
+#endif
         /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SimpleUser? User { get; set; }
+#nullable restore
+#else
         public SimpleUser User { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PullRequest and sets the default values.
         /// </summary>

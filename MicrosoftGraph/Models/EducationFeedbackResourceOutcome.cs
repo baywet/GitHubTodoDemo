@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationFeedbackResourceOutcome : EducationOutcome, IParsable {
         /// <summary>The actual feedback resource.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationResource? FeedbackResource { get; set; }
+#nullable restore
+#else
         public EducationResource FeedbackResource { get; set; }
+#endif
         /// <summary>The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, unknownFutureValue.</summary>
         public EducationFeedbackResourceOutcomeStatus? ResourceStatus { get; set; }
         /// <summary>

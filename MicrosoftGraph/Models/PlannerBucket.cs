@@ -4,18 +4,39 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class PlannerBucket : Entity, IParsable {
         /// <summary>Name of the bucket.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
         public string Name { get; set; }
+#endif
         /// <summary>Hint used to order items of this type in a list view. The format is defined as outlined here.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrderHint { get; set; }
+#nullable restore
+#else
         public string OrderHint { get; set; }
+#endif
         /// <summary>Plan ID to which the bucket belongs.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PlanId { get; set; }
+#nullable restore
+#else
         public string PlanId { get; set; }
+#endif
         /// <summary>Read-only. Nullable. The collection of tasks in the bucket.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PlannerTask>? Tasks { get; set; }
+#nullable restore
+#else
         public List<PlannerTask> Tasks { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -12,7 +12,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow.</summary>
         public bool? EnableIdTokenIssuance { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new implicitGrantSettings and sets the default values.
         /// </summary>

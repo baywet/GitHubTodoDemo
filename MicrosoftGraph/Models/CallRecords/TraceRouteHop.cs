@@ -10,9 +10,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
         /// <summary>The network path count of this hop that was used to compute the RTT.</summary>
         public int? HopCount { get; set; }
         /// <summary>IP address used for this hop in the network trace.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IpAddress { get; set; }
+#nullable restore
+#else
         public string IpAddress { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The time from when the trace route packet was sent from the client to this hop and back to the client, denoted in [ISO 8601][] format. For example, 1 second is denoted as PT1S, where P is the duration designator, T is the time designator, and S is the second designator.</summary>
         public TimeSpan? RoundTripTime { get; set; }
         /// <summary>

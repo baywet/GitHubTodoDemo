@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ProvisionedIdentity : Identity, IParsable {
         /// <summary>Details of the identity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DetailsInfo? Details { get; set; }
+#nullable restore
+#else
         public DetailsInfo Details { get; set; }
+#endif
         /// <summary>Type of identity that has been provisioned, such as &apos;user&apos; or &apos;group&apos;.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityType { get; set; }
+#nullable restore
+#else
         public string IdentityType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ProvisionedIdentity and sets the default values.
         /// </summary>

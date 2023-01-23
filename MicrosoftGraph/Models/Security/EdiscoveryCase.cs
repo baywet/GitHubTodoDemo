@@ -6,25 +6,79 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryCase : Case, IParsable {
         /// <summary>The user who closed the case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet? ClosedBy { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet ClosedBy { get; set; }
+#endif
         /// <summary>The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? ClosedDateTime { get; set; }
         /// <summary>Returns a list of case ediscoveryCustodian objects for this case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryCustodian>? Custodians { get; set; }
+#nullable restore
+#else
         public List<EdiscoveryCustodian> Custodians { get; set; }
+#endif
         /// <summary>The external case number for customer reference.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalId { get; set; }
+#nullable restore
+#else
         public string ExternalId { get; set; }
+#endif
         /// <summary>Returns a list of case ediscoveryNoncustodialDataSource objects for this case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryNoncustodialDataSource>? NoncustodialDataSources { get; set; }
+#nullable restore
+#else
         public List<EdiscoveryNoncustodialDataSource> NoncustodialDataSources { get; set; }
+#endif
         /// <summary>Returns a list of case caseOperation objects for this case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CaseOperation>? Operations { get; set; }
+#nullable restore
+#else
         public List<CaseOperation> Operations { get; set; }
+#endif
         /// <summary>Returns a list of eDiscoveryReviewSet objects in the case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryReviewSet>? ReviewSets { get; set; }
+#nullable restore
+#else
         public List<EdiscoveryReviewSet> ReviewSets { get; set; }
+#endif
         /// <summary>Returns a list of eDiscoverySearch objects associated with this case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoverySearch>? Searches { get; set; }
+#nullable restore
+#else
         public List<EdiscoverySearch> Searches { get; set; }
+#endif
         /// <summary>Returns a list of eDIscoverySettings objects in the case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EdiscoveryCaseSettings? Settings { get; set; }
+#nullable restore
+#else
         public EdiscoveryCaseSettings Settings { get; set; }
+#endif
         /// <summary>Returns a list of ediscoveryReviewTag objects associated to this case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryReviewTag>? Tags { get; set; }
+#nullable restore
+#else
         public List<EdiscoveryReviewTag> Tags { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EdiscoveryCase and sets the default values.
         /// </summary>

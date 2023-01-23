@@ -4,18 +4,39 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class AppConsentRequest : Entity, IParsable {
         /// <summary>The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppDisplayName { get; set; }
+#nullable restore
+#else
         public string AppDisplayName { get; set; }
+#endif
         /// <summary>The identifier of the application. Required. Supports $filter (eq only) and $orderby.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppId { get; set; }
+#nullable restore
+#else
         public string AppId { get; set; }
+#endif
         /// <summary>A list of pending scopes waiting for approval. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AppConsentRequestScope>? PendingScopes { get; set; }
+#nullable restore
+#else
         public List<AppConsentRequestScope> PendingScopes { get; set; }
+#endif
         /// <summary>A list of pending user consent requests. Supports $filter (eq).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UserConsentRequest>? UserConsentRequests { get; set; }
+#nullable restore
+#else
         public List<UserConsentRequest> UserConsentRequests { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

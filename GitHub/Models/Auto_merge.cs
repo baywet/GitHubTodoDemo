@@ -11,11 +11,29 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Commit message for the merge commit.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Commit_message { get; set; }
+#nullable restore
+#else
         public string Commit_message { get; set; }
+#endif
         /// <summary>Title for the merge commit message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Commit_title { get; set; }
+#nullable restore
+#else
         public string Commit_title { get; set; }
+#endif
         /// <summary>Simple User</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SimpleUser? Enabled_by { get; set; }
+#nullable restore
+#else
         public SimpleUser Enabled_by { get; set; }
+#endif
         /// <summary>The merge method to use.</summary>
         public Auto_merge_merge_method? Merge_method { get; set; }
         /// <summary>

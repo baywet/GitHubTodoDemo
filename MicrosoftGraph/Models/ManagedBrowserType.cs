@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Type of managed browser</summary>
     public enum ManagedBrowserType {
         /// <summary>Not configured</summary>
         NotConfigured,

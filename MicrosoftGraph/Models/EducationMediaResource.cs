@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationMediaResource : EducationResource, IParsable {
         /// <summary>Location of the file on shared point folder. Required</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FileUrl { get; set; }
+#nullable restore
+#else
         public string FileUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EducationMediaResource and sets the default values.
         /// </summary>

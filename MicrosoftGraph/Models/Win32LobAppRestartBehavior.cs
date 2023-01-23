@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Indicates the type of restart action.</summary>
     public enum Win32LobAppRestartBehavior {
         /// <summary>Intune will restart the device after running the app installation if the operation returns a reboot code.</summary>
         BasedOnReturnCode,

@@ -8,15 +8,39 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time that the follow-up was finished.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? CompletedDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone CompletedDateTime { get; set; }
+#endif
         /// <summary>The date and time that the follow up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you will get a 400 Bad Request response.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? DueDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone DueDateTime { get; set; }
+#endif
         /// <summary>The status for follow-up for an item. Possible values are notFlagged, complete, and flagged.</summary>
         public FollowupFlagStatus? FlagStatus { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The date and time that the follow-up is to begin.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? StartDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone StartDateTime { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new followupFlag and sets the default values.
         /// </summary>

@@ -8,19 +8,43 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the branch you want the changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repository that requests a merge to a base of another repository.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Base { get; set; }
+#nullable restore
+#else
         public string Base { get; set; }
+#endif
         /// <summary>The contents of the pull request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Body { get; set; }
+#nullable restore
+#else
         public string Body { get; set; }
+#endif
         /// <summary>Indicates whether the pull request is a draft. See &quot;[Draft Pull Requests](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests)&quot; in the GitHub Help documentation to learn more.</summary>
         public bool? Draft { get; set; }
         /// <summary>The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Head { get; set; }
+#nullable restore
+#else
         public string Head { get; set; }
+#endif
         /// <summary>The issue property</summary>
         public int? Issue { get; set; }
         /// <summary>Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
         public bool? Maintainer_can_modify { get; set; }
         /// <summary>The title of the new pull request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
         public string Title { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new pullsPostRequestBody and sets the default values.
         /// </summary>

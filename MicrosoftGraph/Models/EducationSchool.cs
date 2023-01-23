@@ -6,33 +6,117 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationSchool : EducationOrganization, IParsable {
         /// <summary>Address of the school.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PhysicalAddress? Address { get; set; }
+#nullable restore
+#else
         public PhysicalAddress Address { get; set; }
+#endif
         /// <summary>The underlying administrativeUnit for this school.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit? AdministrativeUnit { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.AdministrativeUnit AdministrativeUnit { get; set; }
+#endif
         /// <summary>Classes taught at the school. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EducationClass>? Classes { get; set; }
+#nullable restore
+#else
         public List<EducationClass> Classes { get; set; }
+#endif
         /// <summary>Entity who created the school.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? CreatedBy { get; set; }
+#nullable restore
+#else
         public IdentitySet CreatedBy { get; set; }
+#endif
         /// <summary>ID of school in syncing system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalId { get; set; }
+#nullable restore
+#else
         public string ExternalId { get; set; }
+#endif
         /// <summary>ID of principal in syncing system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalPrincipalId { get; set; }
+#nullable restore
+#else
         public string ExternalPrincipalId { get; set; }
+#endif
         /// <summary>The fax property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Fax { get; set; }
+#nullable restore
+#else
         public string Fax { get; set; }
+#endif
         /// <summary>Highest grade taught.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HighestGrade { get; set; }
+#nullable restore
+#else
         public string HighestGrade { get; set; }
+#endif
         /// <summary>Lowest grade taught.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LowestGrade { get; set; }
+#nullable restore
+#else
         public string LowestGrade { get; set; }
+#endif
         /// <summary>Phone number of school.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Phone { get; set; }
+#nullable restore
+#else
         public string Phone { get; set; }
+#endif
         /// <summary>Email address of the principal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrincipalEmail { get; set; }
+#nullable restore
+#else
         public string PrincipalEmail { get; set; }
+#endif
         /// <summary>Name of the principal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrincipalName { get; set; }
+#nullable restore
+#else
         public string PrincipalName { get; set; }
+#endif
         /// <summary>School Number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SchoolNumber { get; set; }
+#nullable restore
+#else
         public string SchoolNumber { get; set; }
+#endif
         /// <summary>Users in the school. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EducationUser>? Users { get; set; }
+#nullable restore
+#else
         public List<EducationUser> Users { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EducationSchool and sets the default values.
         /// </summary>

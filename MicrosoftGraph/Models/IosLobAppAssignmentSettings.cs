@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune. By default, property is set to null which internally is treated as TRUE.</summary>
         public bool? UninstallOnDeviceRemoval { get; set; }
         /// <summary>This is the unique identifier (Id) of the VPN Configuration to apply to the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VpnConfigurationId { get; set; }
+#nullable restore
+#else
         public string VpnConfigurationId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new IosLobAppAssignmentSettings and sets the default values.
         /// </summary>

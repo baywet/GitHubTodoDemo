@@ -11,27 +11,93 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Email address of the person/organization responsible for IT support.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContactITEmailAddress { get; set; }
+#nullable restore
+#else
         public string ContactITEmailAddress { get; set; }
+#endif
         /// <summary>Name of the person/organization responsible for IT support.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContactITName { get; set; }
+#nullable restore
+#else
         public string ContactITName { get; set; }
+#endif
         /// <summary>Text comments regarding the person/organization responsible for IT support.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContactITNotes { get; set; }
+#nullable restore
+#else
         public string ContactITNotes { get; set; }
+#endif
         /// <summary>Phone number of the person/organization responsible for IT support.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContactITPhoneNumber { get; set; }
+#nullable restore
+#else
         public string ContactITPhoneNumber { get; set; }
+#endif
         /// <summary>Logo image displayed in Company Portal apps which have a dark background behind the logo.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MimeContent? DarkBackgroundLogo { get; set; }
+#nullable restore
+#else
         public MimeContent DarkBackgroundLogo { get; set; }
+#endif
         /// <summary>Company/organization name that is displayed to end users.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Logo image displayed in Company Portal apps which have a light background behind the logo.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MimeContent? LightBackgroundLogo { get; set; }
+#nullable restore
+#else
         public MimeContent LightBackgroundLogo { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Display name of the company/organization’s IT helpdesk site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnlineSupportSiteName { get; set; }
+#nullable restore
+#else
         public string OnlineSupportSiteName { get; set; }
+#endif
         /// <summary>URL to the company/organization’s IT helpdesk site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnlineSupportSiteUrl { get; set; }
+#nullable restore
+#else
         public string OnlineSupportSiteUrl { get; set; }
+#endif
         /// <summary>URL to the company/organization’s privacy policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrivacyUrl { get; set; }
+#nullable restore
+#else
         public string PrivacyUrl { get; set; }
+#endif
         /// <summary>Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.</summary>
         public bool? ShowDisplayNameNextToLogo { get; set; }
         /// <summary>Boolean that represents whether the administrator-supplied logo images are shown or not shown.</summary>
@@ -39,7 +105,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.</summary>
         public bool? ShowNameNextToLogo { get; set; }
         /// <summary>Primary theme color used in the Company Portal applications and web portal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RgbColor? ThemeColor { get; set; }
+#nullable restore
+#else
         public RgbColor ThemeColor { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new intuneBrand and sets the default values.
         /// </summary>

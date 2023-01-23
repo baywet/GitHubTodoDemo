@@ -10,11 +10,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>If true, allows custom values that aren&apos;t in the configured choices.</summary>
         public bool? AllowTextEntry { get; set; }
         /// <summary>The list of values available for this column.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Choices { get; set; }
+#nullable restore
+#else
         public List<string> Choices { get; set; }
+#endif
         /// <summary>How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayAs { get; set; }
+#nullable restore
+#else
         public string DisplayAs { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new choiceColumn and sets the default values.
         /// </summary>

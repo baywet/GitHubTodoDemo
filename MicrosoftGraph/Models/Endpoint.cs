@@ -4,20 +4,47 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class Endpoint : DirectoryObject, IParsable {
         /// <summary>The capability property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Capability { get; set; }
+#nullable restore
+#else
         public string Capability { get; set; }
+#endif
         /// <summary>The providerId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProviderId { get; set; }
+#nullable restore
+#else
         public string ProviderId { get; set; }
+#endif
         /// <summary>The providerName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProviderName { get; set; }
+#nullable restore
+#else
         public string ProviderName { get; set; }
+#endif
         /// <summary>The providerResourceId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProviderResourceId { get; set; }
+#nullable restore
+#else
         public string ProviderResourceId { get; set; }
+#endif
         /// <summary>The uri property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Uri { get; set; }
+#nullable restore
+#else
         public string Uri { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new endpoint and sets the default values.
         /// </summary>

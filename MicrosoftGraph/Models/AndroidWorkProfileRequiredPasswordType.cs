@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Android Work Profile required password type.</summary>
     public enum AndroidWorkProfileRequiredPasswordType {
         /// <summary>Device default value, no intent.</summary>
         DeviceDefault,

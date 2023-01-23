@@ -12,7 +12,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The number of mailboxes that had search hits.</summary>
         public int? MailboxCount { get; set; }
         /// <summary>eDiscovery search.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EdiscoverySearch? Search { get; set; }
+#nullable restore
+#else
         public EdiscoverySearch Search { get; set; }
+#endif
         /// <summary>The number of mailboxes that had search hits.</summary>
         public int? SiteCount { get; set; }
         /// <summary>The estimated count of unindexed items for the collection.</summary>

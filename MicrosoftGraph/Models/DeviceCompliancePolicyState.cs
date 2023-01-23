@@ -9,13 +9,25 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class DeviceCompliancePolicyState : Entity, IParsable {
         /// <summary>The name of the policy for this policyBase</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Supported platform types for policies.</summary>
         public PolicyPlatformType? PlatformType { get; set; }
         /// <summary>Count of how many setting a policy holds</summary>
         public int? SettingCount { get; set; }
         /// <summary>The settingStates property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceCompliancePolicySettingState>? SettingStates { get; set; }
+#nullable restore
+#else
         public List<DeviceCompliancePolicySettingState> SettingStates { get; set; }
+#endif
         /// <summary>The state property</summary>
         public ComplianceStatus? State { get; set; }
         /// <summary>The version of the policy</summary>

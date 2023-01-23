@@ -6,15 +6,45 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IdentityContainer : Entity, IParsable {
         /// <summary>Represents entry point for API connectors.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IdentityApiConnector>? ApiConnectors { get; set; }
+#nullable restore
+#else
         public List<IdentityApiConnector> ApiConnectors { get; set; }
+#endif
         /// <summary>Represents entry point for B2X/self-service sign-up identity userflows.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<B2xIdentityUserFlow>? B2xUserFlows { get; set; }
+#nullable restore
+#else
         public List<B2xIdentityUserFlow> B2xUserFlows { get; set; }
+#endif
         /// <summary>the entry point for the Conditional Access (CA) object model.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessRoot? ConditionalAccess { get; set; }
+#nullable restore
+#else
         public ConditionalAccessRoot ConditionalAccess { get; set; }
+#endif
         /// <summary>The identityProviders property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IdentityProviderBase>? IdentityProviders { get; set; }
+#nullable restore
+#else
         public List<IdentityProviderBase> IdentityProviders { get; set; }
+#endif
         /// <summary>Represents entry point for identity userflow attributes.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IdentityUserFlowAttribute>? UserFlowAttributes { get; set; }
+#nullable restore
+#else
         public List<IdentityUserFlowAttribute> UserFlowAttributes { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

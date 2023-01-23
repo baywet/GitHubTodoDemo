@@ -11,13 +11,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Branding Options for the Message Template. Branding is defined in the Intune Admin Console.</summary>
         public NotificationTemplateBrandingOptions? BrandingOptions { get; set; }
         /// <summary>The default locale to fallback onto when the requested locale is not available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DefaultLocale { get; set; }
+#nullable restore
+#else
         public string DefaultLocale { get; set; }
+#endif
         /// <summary>Display name for the Notification Message Template.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>DateTime the object was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The list of localized messages for this Notification Message Template.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<LocalizedNotificationMessage>? LocalizedNotificationMessages { get; set; }
+#nullable restore
+#else
         public List<LocalizedNotificationMessage> LocalizedNotificationMessages { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

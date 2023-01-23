@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RiskyUser : Entity, IParsable {
         /// <summary>The activity related to user risk level change</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RiskyUserHistoryItem>? History { get; set; }
+#nullable restore
+#else
         public List<RiskyUserHistoryItem> History { get; set; }
+#endif
         /// <summary>Indicates whether the user is deleted. Possible values are: true, false.</summary>
         public bool? IsDeleted { get; set; }
         /// <summary>Indicates whether a user&apos;s risky state is being processed by the backend.</summary>
@@ -20,9 +26,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>State of the user&apos;s risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.RiskState? RiskState { get; set; }
         /// <summary>Risky user display name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserDisplayName { get; set; }
+#nullable restore
+#else
         public string UserDisplayName { get; set; }
+#endif
         /// <summary>Risky user principal name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserPrincipalName { get; set; }
+#nullable restore
+#else
         public string UserPrincipalName { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -12,9 +12,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>If true, indicates that the list is not normally visible in the SharePoint user experience.</summary>
         public bool? Hidden { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>An enumerated value that represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Template { get; set; }
+#nullable restore
+#else
         public string Template { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new listInfo and sets the default values.
         /// </summary>

@@ -18,7 +18,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The longitude of the location.</summary>
         public double? Longitude { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new outlookGeoCoordinates and sets the default values.
         /// </summary>

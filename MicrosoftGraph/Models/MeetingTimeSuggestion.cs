@@ -8,21 +8,51 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An array that shows the availability status of each attendee for this meeting suggestion.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability>? AttendeeAvailability { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.AttendeeAvailability> AttendeeAvailability { get; set; }
+#endif
         /// <summary>A percentage that represents the likelhood of all the attendees attending.</summary>
         public double? Confidence { get; set; }
         /// <summary>An array that specifies the name and geographic location of each meeting location for this meeting suggestion.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Location>? Locations { get; set; }
+#nullable restore
+#else
         public List<Location> Locations { get; set; }
+#endif
         /// <summary>A time period suggested for the meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TimeSlot? MeetingTimeSlot { get; set; }
+#nullable restore
+#else
         public TimeSlot MeetingTimeSlot { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence.</summary>
         public int? Order { get; set; }
         /// <summary>Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.</summary>
         public FreeBusyStatus? OrganizerAvailability { get; set; }
         /// <summary>Reason for suggesting the meeting time.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SuggestionReason { get; set; }
+#nullable restore
+#else
         public string SuggestionReason { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new meetingTimeSuggestion and sets the default values.
         /// </summary>

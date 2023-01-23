@@ -4,22 +4,49 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class OnenoteSection : OnenoteEntityHierarchyModel, IParsable {
         /// <summary>Indicates whether this is the user&apos;s default section. Read-only.</summary>
         public bool? IsDefault { get; set; }
         /// <summary>Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it&apos;s installed. The oneNoteWebURL link opens the section in OneNote on the web.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SectionLinks? Links { get; set; }
+#nullable restore
+#else
         public SectionLinks Links { get; set; }
+#endif
         /// <summary>The collection of pages in the section.  Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OnenotePage>? Pages { get; set; }
+#nullable restore
+#else
         public List<OnenotePage> Pages { get; set; }
+#endif
         /// <summary>The pages endpoint where you can get details for all the pages in the section. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PagesUrl { get; set; }
+#nullable restore
+#else
         public string PagesUrl { get; set; }
+#endif
         /// <summary>The notebook that contains the section.  Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Notebook? ParentNotebook { get; set; }
+#nullable restore
+#else
         public Notebook ParentNotebook { get; set; }
+#endif
         /// <summary>The section group that contains the section.  Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SectionGroup? ParentSectionGroup { get; set; }
+#nullable restore
+#else
         public SectionGroup ParentSectionGroup { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new onenoteSection and sets the default values.
         /// </summary>

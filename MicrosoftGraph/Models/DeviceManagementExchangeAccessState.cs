@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Device Exchange Access State.</summary>
     public enum DeviceManagementExchangeAccessState {
         /// <summary>No access state discovered from Exchange</summary>
         None,

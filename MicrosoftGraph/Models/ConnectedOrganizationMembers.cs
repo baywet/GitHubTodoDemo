@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ConnectedOrganizationMembers : SubjectSet, IParsable {
         /// <summary>The ID of the connected organization in entitlement management.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConnectedOrganizationId { get; set; }
+#nullable restore
+#else
         public string ConnectedOrganizationId { get; set; }
+#endif
         /// <summary>The name of the connected organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ConnectedOrganizationMembers and sets the default values.
         /// </summary>

@@ -9,31 +9,91 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class ManagedEBook : Entity, IParsable {
         /// <summary>The list of assignments for this eBook.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedEBookAssignment>? Assignments { get; set; }
+#nullable restore
+#else
         public List<ManagedEBookAssignment> Assignments { get; set; }
+#endif
         /// <summary>The date and time when the eBook file was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Description.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>The list of installation states for this eBook.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceInstallState>? DeviceStates { get; set; }
+#nullable restore
+#else
         public List<DeviceInstallState> DeviceStates { get; set; }
+#endif
         /// <summary>Name of the eBook.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The more information Url.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InformationUrl { get; set; }
+#nullable restore
+#else
         public string InformationUrl { get; set; }
+#endif
         /// <summary>Mobile App Install Summary.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EBookInstallSummary? InstallSummary { get; set; }
+#nullable restore
+#else
         public EBookInstallSummary InstallSummary { get; set; }
+#endif
         /// <summary>Book cover.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MimeContent? LargeCover { get; set; }
+#nullable restore
+#else
         public MimeContent LargeCover { get; set; }
+#endif
         /// <summary>The date and time when the eBook was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The privacy statement Url.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrivacyInformationUrl { get; set; }
+#nullable restore
+#else
         public string PrivacyInformationUrl { get; set; }
+#endif
         /// <summary>The date and time when the eBook was published.</summary>
         public DateTimeOffset? PublishedDateTime { get; set; }
         /// <summary>Publisher.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Publisher { get; set; }
+#nullable restore
+#else
         public string Publisher { get; set; }
+#endif
         /// <summary>The list of installation states for this eBook.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UserInstallStateSummary>? UserStateSummary { get; set; }
+#nullable restore
+#else
         public List<UserInstallStateSummary> UserStateSummary { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

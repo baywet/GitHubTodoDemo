@@ -11,13 +11,25 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Whether the partner&apos;s AAD app has been authorized to access Intune.</summary>
         public bool? AppAuthorized { get; set; }
         /// <summary>Display name of the TEM partner.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Whether Intune&apos;s connection to the TEM service is currently enabled or disabled.</summary>
         public bool? Enabled { get; set; }
         /// <summary>Timestamp of the last request sent to Intune by the TEM partner.</summary>
         public DateTimeOffset? LastConnectionDateTime { get; set; }
         /// <summary>URL of the TEM partner&apos;s administrative control panel, where an administrator can configure their TEM service.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
         public string Url { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

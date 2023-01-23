@@ -6,13 +6,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     public class Store : Entity, IParsable {
         /// <summary>Default language of the term store.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DefaultLanguageTag { get; set; }
+#nullable restore
+#else
         public string DefaultLanguageTag { get; set; }
+#endif
         /// <summary>Collection of all groups available in the term store.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Group>? Groups { get; set; }
+#nullable restore
+#else
         public List<Group> Groups { get; set; }
+#endif
         /// <summary>List of languages for the term store.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? LanguageTags { get; set; }
+#nullable restore
+#else
         public List<string> LanguageTags { get; set; }
+#endif
         /// <summary>Collection of all sets available in the term store. This relationship can only be used to load a specific term set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Set>? Sets { get; set; }
+#nullable restore
+#else
         public List<Set> Sets { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>The reason for the time off.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TimeOffReasonId { get; set; }
+#nullable restore
+#else
         public string TimeOffReasonId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new TimeOffRequest and sets the default values.
         /// </summary>

@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryAddToReviewSetOperation : CaseOperation, IParsable {
         /// <summary>eDiscovery review set to which items matching source collection query gets added.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EdiscoveryReviewSet? ReviewSet { get; set; }
+#nullable restore
+#else
         public EdiscoveryReviewSet ReviewSet { get; set; }
+#endif
         /// <summary>eDiscovery search that gets added to review set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EdiscoverySearch? Search { get; set; }
+#nullable restore
+#else
         public EdiscoverySearch Search { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

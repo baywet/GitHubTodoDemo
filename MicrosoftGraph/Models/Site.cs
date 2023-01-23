@@ -7,43 +7,157 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Site : BaseItem, IParsable {
         /// <summary>Analytics about the view activities that took place in this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ItemAnalytics? Analytics { get; set; }
+#nullable restore
+#else
         public ItemAnalytics Analytics { get; set; }
+#endif
         /// <summary>The collection of column definitions reusable across lists under this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ColumnDefinition>? Columns { get; set; }
+#nullable restore
+#else
         public List<ColumnDefinition> Columns { get; set; }
+#endif
         /// <summary>The collection of content types defined for this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ContentType>? ContentTypes { get; set; }
+#nullable restore
+#else
         public List<ContentType> ContentTypes { get; set; }
+#endif
         /// <summary>The full title for the site. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The default drive (document library) for this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Drive? Drive { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Drive Drive { get; set; }
+#endif
         /// <summary>The collection of drives (document libraries) under this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.Drive>? Drives { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.Drive> Drives { get; set; }
+#endif
         /// <summary>The error property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PublicError? Error { get; set; }
+#nullable restore
+#else
         public PublicError Error { get; set; }
+#endif
         /// <summary>The externalColumns property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ColumnDefinition>? ExternalColumns { get; set; }
+#nullable restore
+#else
         public List<ColumnDefinition> ExternalColumns { get; set; }
+#endif
         /// <summary>Used to address any item contained in this site. This collection can&apos;t be enumerated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<BaseItem>? Items { get; set; }
+#nullable restore
+#else
         public List<BaseItem> Items { get; set; }
+#endif
         /// <summary>The collection of lists under this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<List>? Lists { get; set; }
+#nullable restore
+#else
         public List<List> Lists { get; set; }
+#endif
         /// <summary>Calls the OneNote service for notebook related operations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Onenote? Onenote { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Onenote Onenote { get; set; }
+#endif
         /// <summary>The collection of long-running operations on the site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RichLongRunningOperation>? Operations { get; set; }
+#nullable restore
+#else
         public List<RichLongRunningOperation> Operations { get; set; }
+#endif
         /// <summary>The permissions associated with the site. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Permission>? Permissions { get; set; }
+#nullable restore
+#else
         public List<Permission> Permissions { get; set; }
+#endif
         /// <summary>If present, indicates that this is the root site in the site collection. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Root? Root { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Root Root { get; set; }
+#endif
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds? SharepointIds { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds SharepointIds { get; set; }
+#endif
         /// <summary>Provides details about the site&apos;s site collection. Available only on the root site. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.SiteCollection? SiteCollection { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.SiteCollection SiteCollection { get; set; }
+#endif
         /// <summary>The collection of the sub-sites under this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Site>? Sites { get; set; }
+#nullable restore
+#else
         public List<Site> Sites { get; set; }
+#endif
         /// <summary>The default termStore under this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Store? TermStore { get; set; }
+#nullable restore
+#else
         public Store TermStore { get; set; }
+#endif
         /// <summary>The collection of termStores under this site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Store>? TermStores { get; set; }
+#nullable restore
+#else
         public List<Store> TermStores { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Site and sets the default values.
         /// </summary>

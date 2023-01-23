@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>State of the action on the device</summary>
     public enum ActionState {
         /// <summary>Not a valid action state</summary>
         None,

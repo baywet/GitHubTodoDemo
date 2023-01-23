@@ -18,7 +18,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>If set to true, users can edit their messages.</summary>
         public bool? AllowUserEditMessages { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new teamMessagingSettings and sets the default values.
         /// </summary>

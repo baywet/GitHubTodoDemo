@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MicrosoftAuthenticatorAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable {
         /// <summary>A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MicrosoftAuthenticatorFeatureSettings? FeatureSettings { get; set; }
+#nullable restore
+#else
         public MicrosoftAuthenticatorFeatureSettings FeatureSettings { get; set; }
+#endif
         /// <summary>A collection of groups that are enabled to use the authentication method. Expanded by default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MicrosoftAuthenticatorAuthenticationMethodTarget>? IncludeTargets { get; set; }
+#nullable restore
+#else
         public List<MicrosoftAuthenticatorAuthenticationMethodTarget> IncludeTargets { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new MicrosoftAuthenticatorAuthenticationMethodConfiguration and sets the default values.
         /// </summary>

@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainIdentitySource : IdentitySource, IParsable {
         /// <summary>The name of the identity source, typically also the domain name. Read only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The domain name. Read only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DomainName { get; set; }
+#nullable restore
+#else
         public string DomainName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new DomainIdentitySource and sets the default values.
         /// </summary>

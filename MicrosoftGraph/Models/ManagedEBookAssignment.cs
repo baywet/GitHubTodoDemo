@@ -11,7 +11,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Possible values for the install intent chosen by the admin.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.InstallIntent? InstallIntent { get; set; }
         /// <summary>The assignment target for eBook.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceAndAppManagementAssignmentTarget? Target { get; set; }
+#nullable restore
+#else
         public DeviceAndAppManagementAssignmentTarget Target { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -9,33 +9,93 @@ namespace GitHubTodoDemo.GitHub.Models {
     /// </summary>
     public class PullRequestReview : IAdditionalDataHolder, IParsable {
         /// <summary>The _links property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PullRequestReview__links? _links { get; set; }
+#nullable restore
+#else
         public PullRequestReview__links _links { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How the author is associated with the repository.</summary>
         public GitHubTodoDemo.GitHub.Models.Author_association? Author_association { get; set; }
         /// <summary>The text of the review.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Body { get; set; }
+#nullable restore
+#else
         public string Body { get; set; }
+#endif
         /// <summary>The body_html property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Body_html { get; set; }
+#nullable restore
+#else
         public string Body_html { get; set; }
+#endif
         /// <summary>The body_text property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Body_text { get; set; }
+#nullable restore
+#else
         public string Body_text { get; set; }
+#endif
         /// <summary>A commit SHA for the review.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Commit_id { get; set; }
+#nullable restore
+#else
         public string Commit_id { get; set; }
+#endif
         /// <summary>The html_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Html_url { get; set; }
+#nullable restore
+#else
         public string Html_url { get; set; }
+#endif
         /// <summary>Unique identifier of the review</summary>
         public int? Id { get; set; }
         /// <summary>The node_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Node_id { get; set; }
+#nullable restore
+#else
         public string Node_id { get; set; }
+#endif
         /// <summary>The pull_request_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Pull_request_url { get; set; }
+#nullable restore
+#else
         public string Pull_request_url { get; set; }
+#endif
         /// <summary>The state property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? State { get; set; }
+#nullable restore
+#else
         public string State { get; set; }
+#endif
         /// <summary>The submitted_at property</summary>
         public DateTimeOffset? Submitted_at { get; set; }
         /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SimpleUser? User { get; set; }
+#nullable restore
+#else
         public SimpleUser User { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PullRequestReview and sets the default values.
         /// </summary>

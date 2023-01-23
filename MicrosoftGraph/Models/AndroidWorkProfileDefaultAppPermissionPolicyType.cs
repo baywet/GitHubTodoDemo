@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Android Work Profile default app permission policy type.</summary>
     public enum AndroidWorkProfileDefaultAppPermissionPolicyType {
         /// <summary>Device default value, no intent.</summary>
         DeviceDefault,

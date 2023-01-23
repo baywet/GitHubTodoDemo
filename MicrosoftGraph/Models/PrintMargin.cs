@@ -12,7 +12,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The margin in microns from the left edge.</summary>
         public int? Left { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The margin in microns from the right edge.</summary>
         public int? Right { get; set; }
         /// <summary>The margin in microns from the top edge.</summary>

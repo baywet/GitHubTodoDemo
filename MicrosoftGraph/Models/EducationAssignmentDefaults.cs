@@ -13,7 +13,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Class-level default value for due time field. Default value is 23:59:00.</summary>
         public Time? DueTime { get; set; }
         /// <summary>Default Teams channel to which notifications will be sent. Default value is null.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NotificationChannelUrl { get; set; }
+#nullable restore
+#else
         public string NotificationChannelUrl { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IPv6Range : IpRange, IParsable {
         /// <summary>Lower address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LowerAddress { get; set; }
+#nullable restore
+#else
         public string LowerAddress { get; set; }
+#endif
         /// <summary>Upper address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpperAddress { get; set; }
+#nullable restore
+#else
         public string UpperAddress { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new IPv6Range and sets the default values.
         /// </summary>

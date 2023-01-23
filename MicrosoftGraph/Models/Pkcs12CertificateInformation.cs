@@ -14,9 +14,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The certificate&apos;s issue time (not before). This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)</summary>
         public long? NotBefore { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The certificate thumbprint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Thumbprint { get; set; }
+#nullable restore
+#else
         public string Thumbprint { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new pkcs12CertificateInformation and sets the default values.
         /// </summary>

@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values of a property</summary>
     public enum Enablement {
         /// <summary>Device default value, no intent.</summary>
         NotConfigured,

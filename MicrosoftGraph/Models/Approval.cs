@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Approval : Entity, IParsable {
         /// <summary>A collection of stages in the approval decision.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ApprovalStage>? Stages { get; set; }
+#nullable restore
+#else
         public List<ApprovalStage> Stages { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values for firewallPreSharedKeyEncodingMethod</summary>
     public enum FirewallPreSharedKeyEncodingMethodType {
         /// <summary>No value configured by Intune, do not override the user-configured device default value</summary>
         DeviceDefault,

@@ -6,13 +6,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BookingCustomer : BookingCustomerBase, IParsable {
         /// <summary>Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PhysicalAddress>? Addresses { get; set; }
+#nullable restore
+#else
         public List<PhysicalAddress> Addresses { get; set; }
+#endif
         /// <summary>The name of the customer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The SMTP address of the customer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EmailAddress { get; set; }
+#nullable restore
+#else
         public string EmailAddress { get; set; }
+#endif
         /// <summary>Phone numbers associated with the customer, including home, business and mobile numbers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Phone>? Phones { get; set; }
+#nullable restore
+#else
         public List<Phone> Phones { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new BookingCustomer and sets the default values.
         /// </summary>

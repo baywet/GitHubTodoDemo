@@ -11,7 +11,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Active Hours Start (active hours mean the time window when updates install should not happen)</summary>
         public Time? ActiveHoursStart { get; set; }
         /// <summary>Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DayOfWeekObject?>? ScheduledInstallDays { get; set; }
+#nullable restore
+#else
         public List<DayOfWeekObject?> ScheduledInstallDays { get; set; }
+#endif
         /// <summary>UTC Time Offset indicated in minutes</summary>
         public int? UtcTimeOffsetInMinutes { get; set; }
         /// <summary>

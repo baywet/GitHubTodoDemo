@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The gracePeriodBeforeAccessRemoval property</summary>
         public TimeSpan? GracePeriodBeforeAccessRemoval { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The removeAccessWhenTargetLeavesAllowedTargets property</summary>
         public bool? RemoveAccessWhenTargetLeavesAllowedTargets { get; set; }
         /// <summary>If set to true, automatic assignments will be created for targets in the allowed target scope.</summary>

@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class GroupMembers : SubjectSet, IParsable {
         /// <summary>The name of the group in Azure AD. Read only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>The ID of the group in Azure AD.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GroupId { get; set; }
+#nullable restore
+#else
         public string GroupId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new GroupMembers and sets the default values.
         /// </summary>

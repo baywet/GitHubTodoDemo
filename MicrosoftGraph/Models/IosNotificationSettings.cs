@@ -13,17 +13,41 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Notification Settings Alert Type.</summary>
         public IosNotificationAlertType? AlertType { get; set; }
         /// <summary>Application name to be associated with the bundleID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppName { get; set; }
+#nullable restore
+#else
         public string AppName { get; set; }
+#endif
         /// <summary>Indicates whether badges are allowed for this app.</summary>
         public bool? BadgesEnabled { get; set; }
         /// <summary>Bundle id of app to which to apply these notification settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BundleID { get; set; }
+#nullable restore
+#else
         public string BundleID { get; set; }
+#endif
         /// <summary>Indicates whether notifications are allowed for this app.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Publisher to be associated with the bundleID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Publisher { get; set; }
+#nullable restore
+#else
         public string Publisher { get; set; }
+#endif
         /// <summary>Indicates whether notifications can be shown in notification center.</summary>
         public bool? ShowInNotificationCenter { get; set; }
         /// <summary>Indicates whether notifications can be shown on the lock screen.</summary>

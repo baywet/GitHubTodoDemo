@@ -8,13 +8,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether a default recipient will receive the notification email.</summary>
         public bool? IsDefaultRecipientsEnabled { get; set; }
         /// <summary>The level of notification. The possible values are None, Critical, All.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NotificationLevel { get; set; }
+#nullable restore
+#else
         public string NotificationLevel { get; set; }
+#endif
         /// <summary>The list of recipients of the email notifications.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? NotificationRecipients { get; set; }
+#nullable restore
+#else
         public List<string> NotificationRecipients { get; set; }
+#endif
         /// <summary>The type of notification. Only Email is supported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NotificationType { get; set; }
+#nullable restore
+#else
         public string NotificationType { get; set; }
+#endif
         /// <summary>The type of recipient of the notification. The possible values are Requestor, Approver, Admin.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecipientType { get; set; }
+#nullable restore
+#else
         public string RecipientType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new UnifiedRoleManagementPolicyNotificationRule and sets the default values.
         /// </summary>

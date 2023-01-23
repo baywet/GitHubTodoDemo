@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EmailIdentity : Identity, IParsable {
         /// <summary>Email address of the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Email { get; set; }
+#nullable restore
+#else
         public string Email { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EmailIdentity and sets the default values.
         /// </summary>

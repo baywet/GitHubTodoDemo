@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ProvisioningSystem : Identity, IParsable {
         /// <summary>Details of the system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DetailsInfo? Details { get; set; }
+#nullable restore
+#else
         public DetailsInfo Details { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ProvisioningSystem and sets the default values.
         /// </summary>

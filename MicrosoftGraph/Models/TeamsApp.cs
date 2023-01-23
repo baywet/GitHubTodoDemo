@@ -6,13 +6,31 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TeamsApp : Entity, IParsable {
         /// <summary>The details for each version of the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<TeamsAppDefinition>? AppDefinitions { get; set; }
+#nullable restore
+#else
         public List<TeamsAppDefinition> AppDefinitions { get; set; }
+#endif
         /// <summary>The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The method of distribution for the app. Read-only.</summary>
         public TeamsAppDistributionMethod? DistributionMethod { get; set; }
         /// <summary>The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalId { get; set; }
+#nullable restore
+#else
         public string ExternalId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -4,20 +4,47 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ResourceSpecificPermissionGrant : DirectoryObject, IParsable {
         /// <summary>ID of the service principal of the Azure AD app that has been granted access. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientAppId { get; set; }
+#nullable restore
+#else
         public string ClientAppId { get; set; }
+#endif
         /// <summary>ID of the Azure AD app that has been granted access. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientId { get; set; }
+#nullable restore
+#else
         public string ClientId { get; set; }
+#endif
         /// <summary>The name of the resource-specific permission. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Permission { get; set; }
+#nullable restore
+#else
         public string Permission { get; set; }
+#endif
         /// <summary>The type of permission. Possible values are: Application, Delegated. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PermissionType { get; set; }
+#nullable restore
+#else
         public string PermissionType { get; set; }
+#endif
         /// <summary>ID of the Azure AD app that is hosting the resource. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceAppId { get; set; }
+#nullable restore
+#else
         public string ResourceAppId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new resourceSpecificPermissionGrant and sets the default values.
         /// </summary>

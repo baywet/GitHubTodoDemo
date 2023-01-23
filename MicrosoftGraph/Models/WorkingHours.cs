@@ -9,15 +9,33 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The days of the week on which the user works.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DayOfWeekObject?>? DaysOfWeek { get; set; }
+#nullable restore
+#else
         public List<DayOfWeekObject?> DaysOfWeek { get; set; }
+#endif
         /// <summary>The time of the day that the user stops working.</summary>
         public Time? EndTime { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The time of the day that the user starts working.</summary>
         public Time? StartTime { get; set; }
         /// <summary>The time zone to which the working hours apply.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TimeZoneBase? TimeZone { get; set; }
+#nullable restore
+#else
         public TimeZoneBase TimeZone { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new workingHours and sets the default values.
         /// </summary>

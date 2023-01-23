@@ -12,7 +12,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The requestor&apos;s desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.</summary>
         public ExpirationPatternType? Type { get; set; }
         /// <summary>

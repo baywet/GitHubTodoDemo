@@ -8,15 +8,45 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>Date and time the custodian acknowledged a hold notification.</summary>
         public DateTimeOffset? AcknowledgedDateTime { get; set; }
         /// <summary>Email address of the custodian.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Email { get; set; }
+#nullable restore
+#else
         public string Email { get; set; }
+#endif
         /// <summary>Operation entity that represents the latest indexing for the custodian.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EdiscoveryIndexOperation? LastIndexOperation { get; set; }
+#nullable restore
+#else
         public EdiscoveryIndexOperation LastIndexOperation { get; set; }
+#endif
         /// <summary>Data source entity for SharePoint sites associated with the custodian.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SiteSource>? SiteSources { get; set; }
+#nullable restore
+#else
         public List<SiteSource> SiteSources { get; set; }
+#endif
         /// <summary>Data source entity for groups associated with the custodian.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UnifiedGroupSource>? UnifiedGroupSources { get; set; }
+#nullable restore
+#else
         public List<UnifiedGroupSource> UnifiedGroupSources { get; set; }
+#endif
         /// <summary>Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UserSource>? UserSources { get; set; }
+#nullable restore
+#else
         public List<UserSource> UserSources { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EdiscoveryCustodian and sets the default values.
         /// </summary>

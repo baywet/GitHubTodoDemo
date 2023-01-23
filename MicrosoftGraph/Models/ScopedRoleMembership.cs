@@ -4,16 +4,31 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ScopedRoleMembership : Entity, IParsable {
         /// <summary>Unique identifier for the administrative unit that the directory role is scoped to</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AdministrativeUnitId { get; set; }
+#nullable restore
+#else
         public string AdministrativeUnitId { get; set; }
+#endif
         /// <summary>Unique identifier for the directory role that the member is in.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RoleId { get; set; }
+#nullable restore
+#else
         public string RoleId { get; set; }
+#endif
         /// <summary>The roleMemberInfo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Identity? RoleMemberInfo { get; set; }
+#nullable restore
+#else
         public Identity RoleMemberInfo { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

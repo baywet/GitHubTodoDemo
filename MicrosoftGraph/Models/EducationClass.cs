@@ -6,45 +6,159 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationClass : Entity, IParsable {
         /// <summary>All categories associated with this class. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EducationCategory>? AssignmentCategories { get; set; }
+#nullable restore
+#else
         public List<EducationCategory> AssignmentCategories { get; set; }
+#endif
         /// <summary>Specifies class-level defaults respected by new assignments created in the class.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationAssignmentDefaults? AssignmentDefaults { get; set; }
+#nullable restore
+#else
         public EducationAssignmentDefaults AssignmentDefaults { get; set; }
+#endif
         /// <summary>All assignments associated with this class. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EducationAssignment>? Assignments { get; set; }
+#nullable restore
+#else
         public List<EducationAssignment> Assignments { get; set; }
+#endif
         /// <summary>Specifies class-level assignments settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationAssignmentSettings? AssignmentSettings { get; set; }
+#nullable restore
+#else
         public EducationAssignmentSettings AssignmentSettings { get; set; }
+#endif
         /// <summary>Class code used by the school to identify the class.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClassCode { get; set; }
+#nullable restore
+#else
         public string ClassCode { get; set; }
+#endif
         /// <summary>The course property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationCourse? Course { get; set; }
+#nullable restore
+#else
         public EducationCourse Course { get; set; }
+#endif
         /// <summary>Entity who created the class</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? CreatedBy { get; set; }
+#nullable restore
+#else
         public IdentitySet CreatedBy { get; set; }
+#endif
         /// <summary>Description of the class.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Name of the class.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>ID of the class from the syncing system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalId { get; set; }
+#nullable restore
+#else
         public string ExternalId { get; set; }
+#endif
         /// <summary>Name of the class in the syncing system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalName { get; set; }
+#nullable restore
+#else
         public string ExternalName { get; set; }
+#endif
         /// <summary>How this class was created. Possible values are: sis, manual.</summary>
         public EducationExternalSource? ExternalSource { get; set; }
         /// <summary>The name of the external source this resources was generated from.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalSourceDetail { get; set; }
+#nullable restore
+#else
         public string ExternalSourceDetail { get; set; }
+#endif
         /// <summary>Grade level of the class.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Grade { get; set; }
+#nullable restore
+#else
         public string Grade { get; set; }
+#endif
         /// <summary>The underlying Microsoft 365 group object.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Group? Group { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Group Group { get; set; }
+#endif
         /// <summary>Mail name for sending email to all members, if this is enabled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MailNickname { get; set; }
+#nullable restore
+#else
         public string MailNickname { get; set; }
+#endif
         /// <summary>All users in the class. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EducationUser>? Members { get; set; }
+#nullable restore
+#else
         public List<EducationUser> Members { get; set; }
+#endif
         /// <summary>All schools that this class is associated with. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EducationSchool>? Schools { get; set; }
+#nullable restore
+#else
         public List<EducationSchool> Schools { get; set; }
+#endif
         /// <summary>All teachers in the class. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EducationUser>? Teachers { get; set; }
+#nullable restore
+#else
         public List<EducationUser> Teachers { get; set; }
+#endif
         /// <summary>Term for this class.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationTerm? Term { get; set; }
+#nullable restore
+#else
         public EducationTerm Term { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

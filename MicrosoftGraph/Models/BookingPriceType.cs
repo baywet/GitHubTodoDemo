@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Represents the type of pricing of a booking service.</summary>
     public enum BookingPriceType {
         /// <summary>The price of the service is not defined.</summary>
         Undefined,

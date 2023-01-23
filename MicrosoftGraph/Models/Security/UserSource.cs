@@ -6,11 +6,23 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class UserSource : DataSource, IParsable {
         /// <summary>Email address of the user&apos;s mailbox.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Email { get; set; }
+#nullable restore
+#else
         public string Email { get; set; }
+#endif
         /// <summary>Specifies which sources are included in this group. Possible values are: mailbox, site.</summary>
         public SourceType? IncludedSources { get; set; }
         /// <summary>The URL of the user&apos;s OneDrive for Business site. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SiteWebUrl { get; set; }
+#nullable restore
+#else
         public string SiteWebUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new UserSource and sets the default values.
         /// </summary>

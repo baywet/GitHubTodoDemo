@@ -6,13 +6,31 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DocumentSetVersion : ListItemVersion, IParsable {
         /// <summary>Comment about the captured version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Comment { get; set; }
+#nullable restore
+#else
         public string Comment { get; set; }
+#endif
         /// <summary>User who captured the version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? CreatedBy { get; set; }
+#nullable restore
+#else
         public IdentitySet CreatedBy { get; set; }
+#endif
         /// <summary>Date and time when this version was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Items within the document set that are captured as part of this version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DocumentSetVersionItem>? Items { get; set; }
+#nullable restore
+#else
         public List<DocumentSetVersionItem> Items { get; set; }
+#endif
         /// <summary>If true, minor versions of items are also captured; otherwise, only major versions will be captured. Default value is false.</summary>
         public bool? ShouldCaptureMinorVersion { get; set; }
         /// <summary>

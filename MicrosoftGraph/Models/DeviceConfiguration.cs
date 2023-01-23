@@ -9,25 +9,73 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class DeviceConfiguration : Entity, IParsable {
         /// <summary>The list of assignments for the device configuration profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceConfigurationAssignment>? Assignments { get; set; }
+#nullable restore
+#else
         public List<DeviceConfigurationAssignment> Assignments { get; set; }
+#endif
         /// <summary>DateTime the object was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Admin provided description of the Device Configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Device Configuration Setting State Device Summary</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SettingStateDeviceSummary>? DeviceSettingStateSummaries { get; set; }
+#nullable restore
+#else
         public List<SettingStateDeviceSummary> DeviceSettingStateSummaries { get; set; }
+#endif
         /// <summary>Device configuration installation status by device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceConfigurationDeviceStatus>? DeviceStatuses { get; set; }
+#nullable restore
+#else
         public List<DeviceConfigurationDeviceStatus> DeviceStatuses { get; set; }
+#endif
         /// <summary>Device Configuration devices status overview</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceConfigurationDeviceOverview? DeviceStatusOverview { get; set; }
+#nullable restore
+#else
         public DeviceConfigurationDeviceOverview DeviceStatusOverview { get; set; }
+#endif
         /// <summary>Admin provided name of the device configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>DateTime the object was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Device configuration installation status by user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceConfigurationUserStatus>? UserStatuses { get; set; }
+#nullable restore
+#else
         public List<DeviceConfigurationUserStatus> UserStatuses { get; set; }
+#endif
         /// <summary>Device Configuration users status overview</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceConfigurationUserOverview? UserStatusOverview { get; set; }
+#nullable restore
+#else
         public DeviceConfigurationUserOverview UserStatusOverview { get; set; }
+#endif
         /// <summary>Version of the device configuration.</summary>
         public int? Version { get; set; }
         /// <summary>

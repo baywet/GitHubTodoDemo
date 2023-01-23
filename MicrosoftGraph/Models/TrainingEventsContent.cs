@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of assigned trainings and their information in an attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AssignedTrainingInfo>? AssignedTrainingsInfos { get; set; }
+#nullable restore
+#else
         public List<AssignedTrainingInfo> AssignedTrainingsInfos { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Number of users who were assigned trainings in an attack simulation and training campaign.</summary>
         public int? TrainingsAssignedUserCount { get; set; }
         /// <summary>

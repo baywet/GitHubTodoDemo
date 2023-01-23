@@ -12,9 +12,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>If false, then approval is not required for updates to requests in this policy.</summary>
         public bool? IsApprovalRequiredForUpdate { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessPackageApprovalStage>? Stages { get; set; }
+#nullable restore
+#else
         public List<AccessPackageApprovalStage> Stages { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new accessPackageAssignmentApprovalSettings and sets the default values.
         /// </summary>

@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MacOSCustomConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Payload. (UTF8 encoded byte array)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Payload { get; set; }
+#nullable restore
+#else
         public byte[] Payload { get; set; }
+#endif
         /// <summary>Payload file name (.mobileconfig</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PayloadFileName { get; set; }
+#nullable restore
+#else
         public string PayloadFileName { get; set; }
+#endif
         /// <summary>Name that is displayed to the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PayloadName { get; set; }
+#nullable restore
+#else
         public string PayloadName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new MacOSCustomConfiguration and sets the default values.
         /// </summary>

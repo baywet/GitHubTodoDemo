@@ -17,19 +17,49 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The created_at property</summary>
         public DateTimeOffset? Created_at { get; set; }
         /// <summary>The creator property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SimpleUser? Creator { get; set; }
+#nullable restore
+#else
         public SimpleUser Creator { get; set; }
+#endif
         /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>The due_on property</summary>
         public DateTimeOffset? Due_on { get; set; }
         /// <summary>The html_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Html_url { get; set; }
+#nullable restore
+#else
         public string Html_url { get; set; }
+#endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
         /// <summary>The labels_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Labels_url { get; set; }
+#nullable restore
+#else
         public string Labels_url { get; set; }
+#endif
         /// <summary>The node_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Node_id { get; set; }
+#nullable restore
+#else
         public string Node_id { get; set; }
+#endif
         /// <summary>The number of the milestone.</summary>
         public int? Number { get; set; }
         /// <summary>The open_issues property</summary>
@@ -37,11 +67,23 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The state of the milestone.</summary>
         public Milestone_state? State { get; set; }
         /// <summary>The title of the milestone.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
         public string Title { get; set; }
+#endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? Updated_at { get; set; }
         /// <summary>The url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
         public string Url { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Milestone and sets the default values.
         /// </summary>

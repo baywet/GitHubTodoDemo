@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Movies rating labels in United Kingdom</summary>
     public enum RatingUnitedKingdomMoviesType {
         /// <summary>Default value, allow all movies content</summary>
         AllAllowed,

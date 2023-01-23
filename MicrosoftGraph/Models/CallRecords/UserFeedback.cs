@@ -8,13 +8,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The rating property</summary>
         public UserFeedbackRating? Rating { get; set; }
         /// <summary>The feedback text provided by the user of this endpoint for the session.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Text { get; set; }
+#nullable restore
+#else
         public string Text { get; set; }
+#endif
         /// <summary>The set of feedback tokens provided by the user of this endpoint for the session. This is a set of Boolean properties. The property names should not be relied upon since they may change depending on what tokens are offered to the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public FeedbackTokenSet? Tokens { get; set; }
+#nullable restore
+#else
         public FeedbackTokenSet Tokens { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new userFeedback and sets the default values.
         /// </summary>

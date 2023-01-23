@@ -6,13 +6,31 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RichLongRunningOperation : LongRunningOperation, IParsable {
         /// <summary>Error that caused the operation to fail.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PublicError? Error { get; set; }
+#nullable restore
+#else
         public PublicError Error { get; set; }
+#endif
         /// <summary>A value between 0 and 100 that indicates the progress of the operation.</summary>
         public int? PercentageComplete { get; set; }
         /// <summary>The unique identifier for the result.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
         public string ResourceId { get; set; }
+#endif
         /// <summary>The type of the operation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
         public string Type { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -8,13 +8,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Device? Device { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Device Device { get; set; }
+#endif
         /// <summary>Tags containing app metadata.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceTag { get; set; }
+#nullable restore
+#else
         public string DeviceTag { get; set; }
+#endif
         /// <summary>The name of the device on which this app is registered.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Numerical version of this instance of the Authenticator app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PhoneAppVersion { get; set; }
+#nullable restore
+#else
         public string PhoneAppVersion { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new MicrosoftAuthenticatorAuthenticationMethod and sets the default values.
         /// </summary>

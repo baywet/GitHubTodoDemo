@@ -14,7 +14,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>Indicates whether themes model is enabled for the case.</summary>
         public bool? IsEnabled { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The total number of topics that the themes model will generate for a review set. To learn more, see Maximum number of themes.</summary>
         public int? TopicCount { get; set; }
         /// <summary>

@@ -8,11 +8,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Users and groups of users that are excluded from being prompted to set up the authentication method.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ExcludeTarget>? ExcludeTargets { get; set; }
+#nullable restore
+#else
         public List<ExcludeTarget> ExcludeTargets { get; set; }
+#endif
         /// <summary>Users and groups of users that are prompted to set up the authentication method.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AuthenticationMethodsRegistrationCampaignIncludeTarget>? IncludeTargets { get; set; }
+#nullable restore
+#else
         public List<AuthenticationMethodsRegistrationCampaignIncludeTarget> IncludeTargets { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Specifies the number of days that the user sees a prompt again if they select &apos;Not now&apos; and snoozes the prompt. Minimum: 0 days. Maximum: 14 days. If the value is &apos;0&apos;, the user is prompted during every MFA attempt.</summary>
         public int? SnoozeDurationInDays { get; set; }
         /// <summary>The state property</summary>

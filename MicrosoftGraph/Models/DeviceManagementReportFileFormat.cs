@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values for the file format of a report</summary>
     public enum DeviceManagementReportFileFormat {
         /// <summary>CSV Format</summary>
         Csv,

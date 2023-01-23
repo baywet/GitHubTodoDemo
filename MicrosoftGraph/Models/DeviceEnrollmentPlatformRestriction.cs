@@ -11,11 +11,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Max OS version supported</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMaximumVersion { get; set; }
+#nullable restore
+#else
         public string OsMaximumVersion { get; set; }
+#endif
         /// <summary>Min OS version supported</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMinimumVersion { get; set; }
+#nullable restore
+#else
         public string OsMinimumVersion { get; set; }
+#endif
         /// <summary>Block personally owned devices from enrolling</summary>
         public bool? PersonalDeviceEnrollmentBlocked { get; set; }
         /// <summary>Block the platform from enrolling</summary>

@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values of AppLocker Application Control Types</summary>
     public enum AppLockerApplicationControlType {
         /// <summary>Device default value, no Application Control type selected.</summary>
         NotConfigured,

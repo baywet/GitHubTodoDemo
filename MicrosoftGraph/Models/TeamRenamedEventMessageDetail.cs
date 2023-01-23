@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TeamRenamedEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>The updated name of the team.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamDisplayName { get; set; }
+#nullable restore
+#else
         public string TeamDisplayName { get; set; }
+#endif
         /// <summary>Unique identifier of the team.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamId { get; set; }
+#nullable restore
+#else
         public string TeamId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new TeamRenamedEventMessageDetail and sets the default values.
         /// </summary>

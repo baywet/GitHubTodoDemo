@@ -6,15 +6,45 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DeviceEnrollmentPlatformRestrictionsConfiguration : DeviceEnrollmentConfiguration, IParsable {
         /// <summary>Android restrictions based on platform, platform operating system version, and device ownership</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceEnrollmentPlatformRestriction? AndroidRestriction { get; set; }
+#nullable restore
+#else
         public DeviceEnrollmentPlatformRestriction AndroidRestriction { get; set; }
+#endif
         /// <summary>Ios restrictions based on platform, platform operating system version, and device ownership</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceEnrollmentPlatformRestriction? IosRestriction { get; set; }
+#nullable restore
+#else
         public DeviceEnrollmentPlatformRestriction IosRestriction { get; set; }
+#endif
         /// <summary>Mac restrictions based on platform, platform operating system version, and device ownership</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceEnrollmentPlatformRestriction? MacOSRestriction { get; set; }
+#nullable restore
+#else
         public DeviceEnrollmentPlatformRestriction MacOSRestriction { get; set; }
+#endif
         /// <summary>Windows mobile restrictions based on platform, platform operating system version, and device ownership</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceEnrollmentPlatformRestriction? WindowsMobileRestriction { get; set; }
+#nullable restore
+#else
         public DeviceEnrollmentPlatformRestriction WindowsMobileRestriction { get; set; }
+#endif
         /// <summary>Windows restrictions based on platform, platform operating system version, and device ownership</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceEnrollmentPlatformRestriction? WindowsRestriction { get; set; }
+#nullable restore
+#else
         public DeviceEnrollmentPlatformRestriction WindowsRestriction { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new DeviceEnrollmentPlatformRestrictionsConfiguration and sets the default values.
         /// </summary>

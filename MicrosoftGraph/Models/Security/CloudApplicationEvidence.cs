@@ -8,11 +8,23 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>Unique identifier of the application.</summary>
         public long? AppId { get; set; }
         /// <summary>Name of the application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Identifier of the instance of the Software as a Service (SaaS) application.</summary>
         public long? InstanceId { get; set; }
         /// <summary>Name of the instance of the SaaS application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InstanceName { get; set; }
+#nullable restore
+#else
         public string InstanceName { get; set; }
+#endif
         /// <summary>The identifier of the SaaS application.</summary>
         public long? SaasAppId { get; set; }
         /// <summary>

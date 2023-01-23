@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Specifies whether or not to always let dial-in callers bypass the lobby. Optional.</summary>
         public bool? IsDialInBypassEnabled { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.</summary>
         public LobbyBypassScope? Scope { get; set; }
         /// <summary>

@@ -17,7 +17,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format.</summary>
         public TimeSpan? MinimumLeadTime { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business.</summary>
         public bool? SendConfirmationsToOwner { get; set; }
         /// <summary>Duration of each time slot, denoted in ISO 8601 format.</summary>

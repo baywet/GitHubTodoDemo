@@ -4,32 +4,71 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class IosUpdateDeviceStatus : Entity, IParsable {
         /// <summary>The DateTime when device compliance grace period expires</summary>
         public DateTimeOffset? ComplianceGracePeriodExpirationDateTime { get; set; }
         /// <summary>Device name of the DevicePolicyStatus.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceDisplayName { get; set; }
+#nullable restore
+#else
         public string DeviceDisplayName { get; set; }
+#endif
         /// <summary>The device id that is being reported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceId { get; set; }
+#nullable restore
+#else
         public string DeviceId { get; set; }
+#endif
         /// <summary>The device model that is being reported</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceModel { get; set; }
+#nullable restore
+#else
         public string DeviceModel { get; set; }
+#endif
         /// <summary>The installStatus property</summary>
         public IosUpdatesInstallStatus? InstallStatus { get; set; }
         /// <summary>Last modified date time of the policy report.</summary>
         public DateTimeOffset? LastReportedDateTime { get; set; }
         /// <summary>The device version that is being reported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsVersion { get; set; }
+#nullable restore
+#else
         public string OsVersion { get; set; }
+#endif
         /// <summary>The status property</summary>
         public ComplianceStatus? Status { get; set; }
         /// <summary>The User id that is being reported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
         public string UserId { get; set; }
+#endif
         /// <summary>The User Name that is being reported</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserName { get; set; }
+#nullable restore
+#else
         public string UserName { get; set; }
+#endif
         /// <summary>UserPrincipalName.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserPrincipalName { get; set; }
+#nullable restore
+#else
         public string UserPrincipalName { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

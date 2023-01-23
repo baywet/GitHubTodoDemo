@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Branding Options for the Message Template. Branding is defined in the Intune Admin Console.</summary>
     public enum NotificationTemplateBrandingOptions {
         /// <summary>No Branding.</summary>
         None,

@@ -10,13 +10,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional; alt-text accessible content for the image</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AlternateText { get; set; }
+#nullable restore
+#else
         public string AlternateText { get; set; }
+#endif
         /// <summary>The alternativeText property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AlternativeText { get; set; }
+#nullable restore
+#else
         public string AlternativeText { get; set; }
+#endif
         /// <summary>Optional; URI that points to an icon which represents the application used to generate the activity</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IconUrl { get; set; }
+#nullable restore
+#else
         public string IconUrl { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new imageInfo and sets the default values.
         /// </summary>

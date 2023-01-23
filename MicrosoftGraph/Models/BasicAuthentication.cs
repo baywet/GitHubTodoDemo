@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BasicAuthentication : ApiAuthenticationConfigurationBase, IParsable {
         /// <summary>The password. It is not returned in the responses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Password { get; set; }
+#nullable restore
+#else
         public string Password { get; set; }
+#endif
         /// <summary>The username.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Username { get; set; }
+#nullable restore
+#else
         public string Username { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new BasicAuthentication and sets the default values.
         /// </summary>

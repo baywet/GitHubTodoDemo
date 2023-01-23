@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The number of days that a request can be pending a response before it is automatically denied.</summary>
         public int? ApprovalStageTimeOutInDays { get; set; }
         /// <summary>The escalation approvers for this stage when the primary approvers don&apos;t respond.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SubjectSet>? EscalationApprovers { get; set; }
+#nullable restore
+#else
         public List<SubjectSet> EscalationApprovers { get; set; }
+#endif
         /// <summary>The time a request can be pending a response from a primary approver before it can be escalated to the escalation approvers.</summary>
         public int? EscalationTimeInMinutes { get; set; }
         /// <summary>Indicates whether the approver must provide justification for their reponse.</summary>
@@ -18,9 +24,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether escalation if enabled.</summary>
         public bool? IsEscalationEnabled { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The primary approvers of this stage.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SubjectSet>? PrimaryApprovers { get; set; }
+#nullable restore
+#else
         public List<SubjectSet> PrimaryApprovers { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new unifiedApprovalStage and sets the default values.
         /// </summary>

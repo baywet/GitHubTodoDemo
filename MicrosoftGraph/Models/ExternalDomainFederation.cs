@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ExternalDomainFederation : IdentitySource, IParsable {
         /// <summary>The name of the identity source, typically also the domain name. Read only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The domain name. Read only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DomainName { get; set; }
+#nullable restore
+#else
         public string DomainName { get; set; }
+#endif
         /// <summary>The issuerURI of the incoming federation. Read only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IssuerUri { get; set; }
+#nullable restore
+#else
         public string IssuerUri { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ExternalDomainFederation and sets the default values.
         /// </summary>

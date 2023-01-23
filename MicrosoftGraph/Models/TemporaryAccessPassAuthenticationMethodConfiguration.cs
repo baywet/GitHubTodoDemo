@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.</summary>
         public int? DefaultLifetimeInMinutes { get; set; }
         /// <summary>A collection of groups that are enabled to use the authentication method.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AuthenticationMethodTarget>? IncludeTargets { get; set; }
+#nullable restore
+#else
         public List<AuthenticationMethodTarget> IncludeTargets { get; set; }
+#endif
         /// <summary>If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable.</summary>
         public bool? IsUsableOnce { get; set; }
         /// <summary>Maximum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).</summary>

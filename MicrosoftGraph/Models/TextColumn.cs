@@ -16,9 +16,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The maximum number of characters for the value.</summary>
         public int? MaxLength { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The type of text being stored. Must be one of plain or richText</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TextType { get; set; }
+#nullable restore
+#else
         public string TextType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new textColumn and sets the default values.
         /// </summary>

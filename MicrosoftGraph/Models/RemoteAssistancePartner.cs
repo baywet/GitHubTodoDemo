@@ -9,13 +9,25 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class RemoteAssistancePartner : Entity, IParsable {
         /// <summary>Display name of the partner.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Timestamp of the last request sent to Intune by the TEM partner.</summary>
         public DateTimeOffset? LastConnectionDateTime { get; set; }
         /// <summary>The current TeamViewer connector status</summary>
         public RemoteAssistanceOnboardingStatus? OnboardingStatus { get; set; }
         /// <summary>URL of the partner&apos;s onboarding portal, where an administrator can configure their Remote Assistance service.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnboardingUrl { get; set; }
+#nullable restore
+#else
         public string OnboardingUrl { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IdentityApiConnector : Entity, IParsable {
         /// <summary>The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApiAuthenticationConfigurationBase? AuthenticationConfiguration { get; set; }
+#nullable restore
+#else
         public ApiAuthenticationConfigurationBase AuthenticationConfiguration { get; set; }
+#endif
         /// <summary>The name of the API connector.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The URL of the API endpoint to call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TargetUrl { get; set; }
+#nullable restore
+#else
         public string TargetUrl { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

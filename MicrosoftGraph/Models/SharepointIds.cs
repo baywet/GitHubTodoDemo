@@ -8,21 +8,69 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier (guid) for the item&apos;s list in SharePoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
         public string ListId { get; set; }
+#endif
         /// <summary>An integer identifier for the item within the containing list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListItemId { get; set; }
+#nullable restore
+#else
         public string ListItemId { get; set; }
+#endif
         /// <summary>The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListItemUniqueId { get; set; }
+#nullable restore
+#else
         public string ListItemUniqueId { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The unique identifier (guid) for the item&apos;s site collection (SPSite).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SiteId { get; set; }
+#nullable restore
+#else
         public string SiteId { get; set; }
+#endif
         /// <summary>The SharePoint URL for the site that contains the item.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SiteUrl { get; set; }
+#nullable restore
+#else
         public string SiteUrl { get; set; }
+#endif
         /// <summary>The unique identifier (guid) for the tenancy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TenantId { get; set; }
+#nullable restore
+#else
         public string TenantId { get; set; }
+#endif
         /// <summary>The unique identifier (guid) for the item&apos;s site (SPWeb).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebId { get; set; }
+#nullable restore
+#else
         public string WebId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new sharepointIds and sets the default values.
         /// </summary>

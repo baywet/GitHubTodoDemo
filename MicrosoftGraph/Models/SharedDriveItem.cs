@@ -6,21 +6,69 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SharedDriveItem : BaseItem, IParsable {
         /// <summary>Used to access the underlying driveItem</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.DriveItem? DriveItem { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.DriveItem DriveItem { get; set; }
+#endif
         /// <summary>All driveItems contained in the sharing root. This collection cannot be enumerated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.DriveItem>? Items { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.DriveItem> Items { get; set; }
+#endif
         /// <summary>Used to access the underlying list</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.List? List { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.List List { get; set; }
+#endif
         /// <summary>Used to access the underlying listItem</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.ListItem? ListItem { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.ListItem ListItem { get; set; }
+#endif
         /// <summary>Information about the owner of the shared item being referenced.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Owner { get; set; }
+#nullable restore
+#else
         public IdentitySet Owner { get; set; }
+#endif
         /// <summary>Used to access the permission representing the underlying sharing link</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Permission? Permission { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Permission Permission { get; set; }
+#endif
         /// <summary>Used to access the underlying driveItem. Deprecated -- use driveItem instead.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.DriveItem? Root { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.DriveItem Root { get; set; }
+#endif
         /// <summary>Used to access the underlying site</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Site? Site { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Site Site { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new SharedDriveItem and sets the default values.
         /// </summary>

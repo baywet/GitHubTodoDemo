@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookChartTitleFormat : Entity, IParsable {
         /// <summary>Represents the fill format of an object, which includes background formatting information. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartFill? Fill { get; set; }
+#nullable restore
+#else
         public WorkbookChartFill Fill { get; set; }
+#endif
         /// <summary>Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartFont? Font { get; set; }
+#nullable restore
+#else
         public WorkbookChartFont Font { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

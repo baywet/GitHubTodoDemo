@@ -9,7 +9,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class UserInstallStateSummary : Entity, IParsable {
         /// <summary>The install state of the eBook.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceInstallState>? DeviceStates { get; set; }
+#nullable restore
+#else
         public List<DeviceInstallState> DeviceStates { get; set; }
+#endif
         /// <summary>Failed Device Count.</summary>
         public int? FailedDeviceCount { get; set; }
         /// <summary>Installed Device Count.</summary>
@@ -17,7 +23,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Not installed device count.</summary>
         public int? NotInstalledDeviceCount { get; set; }
         /// <summary>User name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserName { get; set; }
+#nullable restore
+#else
         public string UserName { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

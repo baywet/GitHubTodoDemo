@@ -11,13 +11,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The date and time the policy was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The policy&apos;s description.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Policy display name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Last time the policy was modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Version of the entity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Version { get; set; }
+#nullable restore
+#else
         public string Version { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

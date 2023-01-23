@@ -8,11 +8,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When the eligible or active assignment expires.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ExpirationPattern? Expiration { get; set; }
+#nullable restore
+#else
         public ExpirationPattern Expiration { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The frequency of the  eligible or active assignment. This property is currently unsupported in PIM.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PatternedRecurrence? Recurrence { get; set; }
+#nullable restore
+#else
         public PatternedRecurrence Recurrence { get; set; }
+#endif
         /// <summary>When the  eligible or active assignment becomes active.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>

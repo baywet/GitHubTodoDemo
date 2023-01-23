@@ -18,15 +18,39 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether a user was compromised in an attack simulation and training campaign.</summary>
         public bool? IsCompromised { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign.</summary>
         public DateTimeOffset? ReportedPhishDateTime { get; set; }
         /// <summary>List of simulation events of a user in the attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UserSimulationEventInfo>? SimulationEvents { get; set; }
+#nullable restore
+#else
         public List<UserSimulationEventInfo> SimulationEvents { get; set; }
+#endif
         /// <summary>User in an attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AttackSimulationUser? SimulationUser { get; set; }
+#nullable restore
+#else
         public AttackSimulationUser SimulationUser { get; set; }
+#endif
         /// <summary>List of training events of a user in the attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UserTrainingEventInfo>? TrainingEvents { get; set; }
+#nullable restore
+#else
         public List<UserTrainingEventInfo> TrainingEvents { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new userSimulationDetails and sets the default values.
         /// </summary>

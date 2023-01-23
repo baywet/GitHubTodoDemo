@@ -8,17 +8,41 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>For example, Email, OfficeCommunicationsOnline.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Capabilities { get; set; }
+#nullable restore
+#else
         public string Capabilities { get; set; }
+#endif
         /// <summary>true if this is the default domain associated with the tenant; otherwise, false.</summary>
         public bool? IsDefault { get; set; }
         /// <summary>true if this is the initial domain associated with the tenant; otherwise, false.</summary>
         public bool? IsInitial { get; set; }
         /// <summary>The domain name; for example, contoso.onmicrosoft.com.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
         public string Name { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>For example, Managed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
         public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new verifiedDomain and sets the default values.
         /// </summary>

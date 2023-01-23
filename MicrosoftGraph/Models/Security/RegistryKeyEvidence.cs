@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class RegistryKeyEvidence : AlertEvidence, IParsable {
         /// <summary>Registry hive of the key that the recorded action was applied to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RegistryHive { get; set; }
+#nullable restore
+#else
         public string RegistryHive { get; set; }
+#endif
         /// <summary>Registry key that the recorded action was applied to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RegistryKey { get; set; }
+#nullable restore
+#else
         public string RegistryKey { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

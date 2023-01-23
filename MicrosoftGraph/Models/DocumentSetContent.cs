@@ -8,13 +8,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Content type information of the file.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ContentTypeInfo? ContentType { get; set; }
+#nullable restore
+#else
         public ContentTypeInfo ContentType { get; set; }
+#endif
         /// <summary>Name of the file in resource folder that should be added as a default content or a template in the document set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FileName { get; set; }
+#nullable restore
+#else
         public string FileName { get; set; }
+#endif
         /// <summary>Folder name in which the file will be placed when a new document set is created in the library.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FolderName { get; set; }
+#nullable restore
+#else
         public string FolderName { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new documentSetContent and sets the default values.
         /// </summary>

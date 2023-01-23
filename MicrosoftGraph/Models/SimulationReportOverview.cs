@@ -8,15 +8,39 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>List of recommended actions for a tenant to improve its security posture based on the attack simulation and training campaign attack type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RecommendedAction>? RecommendedActions { get; set; }
+#nullable restore
+#else
         public List<RecommendedAction> RecommendedActions { get; set; }
+#endif
         /// <summary>Number of valid users in the attack simulation and training campaign.</summary>
         public int? ResolvedTargetsCount { get; set; }
         /// <summary>Summary of simulation events in the attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent? SimulationEventsContent { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.SimulationEventsContent SimulationEventsContent { get; set; }
+#endif
         /// <summary>Summary of assigned trainings in the attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent? TrainingEventsContent { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.TrainingEventsContent TrainingEventsContent { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new simulationReportOverview and sets the default values.
         /// </summary>

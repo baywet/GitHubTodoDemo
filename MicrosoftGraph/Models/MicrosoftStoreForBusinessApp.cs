@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The licenseType property</summary>
         public MicrosoftStoreForBusinessLicenseType? LicenseType { get; set; }
         /// <summary>The app package identifier</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PackageIdentityName { get; set; }
+#nullable restore
+#else
         public string PackageIdentityName { get; set; }
+#endif
         /// <summary>The app product key</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductKey { get; set; }
+#nullable restore
+#else
         public string ProductKey { get; set; }
+#endif
         /// <summary>The total number of Microsoft Store for Business licenses.</summary>
         public int? TotalLicenseCount { get; set; }
         /// <summary>The number of Microsoft Store for Business licenses in use.</summary>

@@ -6,11 +6,23 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SchedulingGroup : ChangeTrackedEntity, IParsable {
         /// <summary>The display name for the schedulingGroup. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.</summary>
         public bool? IsActive { get; private set; }
         /// <summary>The list of user IDs that are a member of the schedulingGroup. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? UserIds { get; set; }
+#nullable restore
+#else
         public List<string> UserIds { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new SchedulingGroup and sets the default values.
         /// </summary>

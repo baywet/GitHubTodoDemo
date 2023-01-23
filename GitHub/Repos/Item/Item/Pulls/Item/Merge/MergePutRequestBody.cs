@@ -8,13 +8,31 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Extra detail to append to automatic commit message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Commit_message { get; set; }
+#nullable restore
+#else
         public string Commit_message { get; set; }
+#endif
         /// <summary>Title for the automatic commit message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Commit_title { get; set; }
+#nullable restore
+#else
         public string Commit_title { get; set; }
+#endif
         /// <summary>Merge method to use. Possible values are `merge`, `squash` or `rebase`. Default is `merge`.</summary>
         public MergePutRequestBody_merge_method? Merge_method { get; set; }
         /// <summary>SHA that pull request head must match to allow merge.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Sha { get; set; }
+#nullable restore
+#else
         public string Sha { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new mergePutRequestBody and sets the default values.
         /// </summary>

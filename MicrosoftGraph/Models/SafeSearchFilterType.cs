@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Specifies what level of safe search (filtering adult content) is required</summary>
     public enum SafeSearchFilterType {
         /// <summary>User Defined, default value, no intent.</summary>
         UserDefined,

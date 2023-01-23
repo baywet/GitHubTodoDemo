@@ -6,15 +6,33 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainDnsSrvRecord : DomainDnsRecord, IParsable {
         /// <summary>Value to use when configuring the Target property of the SRV record at the DNS host.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NameTarget { get; set; }
+#nullable restore
+#else
         public string NameTarget { get; set; }
+#endif
         /// <summary>Value to use when configuring the port property of the SRV record at the DNS host.</summary>
         public int? Port { get; set; }
         /// <summary>Value to use when configuring the priority property of the SRV record at the DNS host.</summary>
         public int? Priority { get; set; }
         /// <summary>Value to use when configuring the protocol property of the SRV record at the DNS host.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Protocol { get; set; }
+#nullable restore
+#else
         public string Protocol { get; set; }
+#endif
         /// <summary>Value to use when configuring the service property of the SRV record at the DNS host.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Service { get; set; }
+#nullable restore
+#else
         public string Service { get; set; }
+#endif
         /// <summary>Value to use when configuring the weight property of the SRV record at the DNS host.</summary>
         public int? Weight { get; set; }
         /// <summary>

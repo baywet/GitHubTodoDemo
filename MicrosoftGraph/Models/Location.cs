@@ -8,21 +8,63 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The street address of the location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PhysicalAddress? Address { get; set; }
+#nullable restore
+#else
         public PhysicalAddress Address { get; set; }
+#endif
         /// <summary>The geographic coordinates and elevation of the location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OutlookGeoCoordinates? Coordinates { get; set; }
+#nullable restore
+#else
         public OutlookGeoCoordinates Coordinates { get; set; }
+#endif
         /// <summary>The name associated with the location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Optional email address of the location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LocationEmailAddress { get; set; }
+#nullable restore
+#else
         public string LocationEmailAddress { get; set; }
+#endif
         /// <summary>The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.LocationType? LocationType { get; set; }
         /// <summary>Optional URI representing the location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LocationUri { get; set; }
+#nullable restore
+#else
         public string LocationUri { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>For internal use only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UniqueId { get; set; }
+#nullable restore
+#else
         public string UniqueId { get; set; }
+#endif
         /// <summary>For internal use only.</summary>
         public LocationUniqueIdType? UniqueIdType { get; set; }
         /// <summary>

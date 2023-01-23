@@ -6,27 +6,93 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Drive : BaseItem, IParsable {
         /// <summary>Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DriveItem>? Bundles { get; set; }
+#nullable restore
+#else
         public List<DriveItem> Bundles { get; set; }
+#endif
         /// <summary>Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DriveType { get; set; }
+#nullable restore
+#else
         public string DriveType { get; set; }
+#endif
         /// <summary>The list of items the user is following. Only in OneDrive for Business.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DriveItem>? Following { get; set; }
+#nullable restore
+#else
         public List<DriveItem> Following { get; set; }
+#endif
         /// <summary>All items contained in the drive. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DriveItem>? Items { get; set; }
+#nullable restore
+#else
         public List<DriveItem> Items { get; set; }
+#endif
         /// <summary>For drives in SharePoint, the underlying document library list. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.List? List { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.List List { get; set; }
+#endif
         /// <summary>Optional. The user account that owns the drive. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Owner { get; set; }
+#nullable restore
+#else
         public IdentitySet Owner { get; set; }
+#endif
         /// <summary>Optional. Information about the drive&apos;s storage space quota. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Quota? Quota { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Quota Quota { get; set; }
+#endif
         /// <summary>The root folder of the drive. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DriveItem? Root { get; set; }
+#nullable restore
+#else
         public DriveItem Root { get; set; }
+#endif
         /// <summary>The sharePointIds property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds? SharePointIds { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.SharepointIds SharePointIds { get; set; }
+#endif
         /// <summary>Collection of common folders available in OneDrive. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DriveItem>? Special { get; set; }
+#nullable restore
+#else
         public List<DriveItem> Special { get; set; }
+#endif
         /// <summary>If present, indicates that this is a system-managed drive. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SystemFacet? System { get; set; }
+#nullable restore
+#else
         public SystemFacet System { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Drive and sets the default values.
         /// </summary>

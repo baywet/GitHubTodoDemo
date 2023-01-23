@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values for WIP Protection enforcement levels</summary>
     public enum WindowsInformationProtectionEnforcementLevel {
         /// <summary>No protection enforcement</summary>
         NoProtection,

@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.</summary>
         public MailDestinationRoutingReason? DestinationRoutingReason { get; set; }
         /// <summary>The resource URI of the mail message for assessment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MessageUri { get; set; }
+#nullable restore
+#else
         public string MessageUri { get; set; }
+#endif
         /// <summary>The mail recipient whose policies are used to assess the mail.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecipientEmail { get; set; }
+#nullable restore
+#else
         public string RecipientEmail { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new MailAssessmentRequest and sets the default values.
         /// </summary>

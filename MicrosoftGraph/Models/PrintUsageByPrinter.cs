@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrintUsageByPrinter : PrintUsage, IParsable {
         /// <summary>The printerId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrinterId { get; set; }
+#nullable restore
+#else
         public string PrinterId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PrintUsageByPrinter and sets the default values.
         /// </summary>

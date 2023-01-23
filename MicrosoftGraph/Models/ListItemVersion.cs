@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ListItemVersion : BaseItemVersion, IParsable {
         /// <summary>A collection of the fields and values for this version of the list item.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public FieldValueSet? Fields { get; set; }
+#nullable restore
+#else
         public FieldValueSet Fields { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ListItemVersion and sets the default values.
         /// </summary>

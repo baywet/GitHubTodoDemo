@@ -8,15 +8,45 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The label property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Label { get; set; }
+#nullable restore
+#else
         public string Label { get; set; }
+#endif
         /// <summary>The ref property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Ref { get; set; }
+#nullable restore
+#else
         public string Ref { get; set; }
+#endif
         /// <summary>A git repository</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Repository? Repo { get; set; }
+#nullable restore
+#else
         public Repository Repo { get; set; }
+#endif
         /// <summary>The sha property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Sha { get; set; }
+#nullable restore
+#else
         public string Sha { get; set; }
+#endif
         /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SimpleUser? User { get; set; }
+#nullable restore
+#else
         public SimpleUser User { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PullRequestSimple_head and sets the default values.
         /// </summary>

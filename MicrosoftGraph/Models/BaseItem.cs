@@ -6,27 +6,81 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BaseItem : Entity, IParsable {
         /// <summary>Identity of the user, device, or application which created the item. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? CreatedBy { get; set; }
+#nullable restore
+#else
         public IdentitySet CreatedBy { get; set; }
+#endif
         /// <summary>Identity of the user who created the item. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public User? CreatedByUser { get; set; }
+#nullable restore
+#else
         public User CreatedByUser { get; set; }
+#endif
         /// <summary>Date and time of item creation. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Provides a user-visible description of the item. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>ETag for the item. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ETag { get; set; }
+#nullable restore
+#else
         public string ETag { get; set; }
+#endif
         /// <summary>Identity of the user, device, and application which last modified the item. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? LastModifiedBy { get; set; }
+#nullable restore
+#else
         public IdentitySet LastModifiedBy { get; set; }
+#endif
         /// <summary>Identity of the user who last modified the item. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public User? LastModifiedByUser { get; set; }
+#nullable restore
+#else
         public User LastModifiedByUser { get; set; }
+#endif
         /// <summary>Date and time the item was last modified. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The name of the item. Read-write.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
         public string Name { get; set; }
+#endif
         /// <summary>Parent information, if the item has a parent. Read-write.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ItemReference? ParentReference { get; set; }
+#nullable restore
+#else
         public ItemReference ParentReference { get; set; }
+#endif
         /// <summary>URL that displays the resource in the browser. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebUrl { get; set; }
+#nullable restore
+#else
         public string WebUrl { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

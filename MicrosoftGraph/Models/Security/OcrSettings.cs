@@ -12,7 +12,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>Maximum image size that will be processed in KB).</summary>
         public int? MaxImageSize { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The timeout duration for the OCR engine. A longer timeout might increase success of OCR, but might add to the total processing time.</summary>
         public TimeSpan? Timeout { get; set; }
         /// <summary>

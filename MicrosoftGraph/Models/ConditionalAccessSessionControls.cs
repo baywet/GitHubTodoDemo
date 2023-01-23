@@ -8,17 +8,47 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApplicationEnforcedRestrictionsSessionControl? ApplicationEnforcedRestrictions { get; set; }
+#nullable restore
+#else
         public ApplicationEnforcedRestrictionsSessionControl ApplicationEnforcedRestrictions { get; set; }
+#endif
         /// <summary>Session control to apply cloud app security.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public CloudAppSecuritySessionControl? CloudAppSecurity { get; set; }
+#nullable restore
+#else
         public CloudAppSecuritySessionControl CloudAppSecurity { get; set; }
+#endif
         /// <summary>Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not.</summary>
         public bool? DisableResilienceDefaults { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PersistentBrowserSessionControl? PersistentBrowser { get; set; }
+#nullable restore
+#else
         public PersistentBrowserSessionControl PersistentBrowser { get; set; }
+#endif
         /// <summary>Session control to enforce signin frequency.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SignInFrequencySessionControl? SignInFrequency { get; set; }
+#nullable restore
+#else
         public SignInFrequencySessionControl SignInFrequency { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new conditionalAccessSessionControls and sets the default values.
         /// </summary>

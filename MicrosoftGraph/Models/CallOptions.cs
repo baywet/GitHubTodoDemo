@@ -12,7 +12,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether content sharing notifications should be enabled for the call.</summary>
         public bool? IsContentSharingNotificationEnabled { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new callOptions and sets the default values.
         /// </summary>

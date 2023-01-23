@@ -8,11 +8,23 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Contains value for delivery optimization priority.</summary>
         public Win32LobAppDeliveryOptimizationPriority? DeliveryOptimizationPriority { get; set; }
         /// <summary>The install time settings to apply for this app assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MobileAppInstallTimeSettings? InstallTimeSettings { get; set; }
+#nullable restore
+#else
         public MobileAppInstallTimeSettings InstallTimeSettings { get; set; }
+#endif
         /// <summary>Contains value for notification status.</summary>
         public Win32LobAppNotification? Notifications { get; set; }
         /// <summary>The reboot settings to apply for this app assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Win32LobAppRestartSettings? RestartSettings { get; set; }
+#nullable restore
+#else
         public Win32LobAppRestartSettings RestartSettings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Win32LobAppAssignmentSettings and sets the default values.
         /// </summary>

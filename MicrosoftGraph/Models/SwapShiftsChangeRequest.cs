@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SwapShiftsChangeRequest : OfferShiftRequest, IParsable {
         /// <summary>ShiftId for the recipient user with whom the request is to swap.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecipientShiftId { get; set; }
+#nullable restore
+#else
         public string RecipientShiftId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new SwapShiftsChangeRequest and sets the default values.
         /// </summary>

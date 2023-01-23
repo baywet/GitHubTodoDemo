@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The dataType property</summary>
         public IdentityUserFlowAttributeDataType? DataType { get; set; }
         /// <summary>The description of the user flow attribute that&apos;s shown to the user at the time of sign-up.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>The display name of the user flow attribute.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The userFlowAttributeType property</summary>
         public IdentityUserFlowAttributeType? UserFlowAttributeType { get; set; }
         /// <summary>

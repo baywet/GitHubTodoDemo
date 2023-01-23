@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WebApp : MobileApp, IParsable {
         /// <summary>The web app URL. This property cannot be PATCHed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppUrl { get; set; }
+#nullable restore
+#else
         public string AppUrl { get; set; }
+#endif
         /// <summary>Whether or not to use managed browser. This property is only applicable for Android and IOS.</summary>
         public bool? UseManagedBrowser { get; set; }
         /// <summary>

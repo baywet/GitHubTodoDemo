@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OpenShiftChangeRequest : ScheduleChangeRequest, IParsable {
         /// <summary>ID for the open shift.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OpenShiftId { get; set; }
+#nullable restore
+#else
         public string OpenShiftId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new OpenShiftChangeRequest and sets the default values.
         /// </summary>

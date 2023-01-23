@@ -11,9 +11,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The expected answer type. The possible values are: text, radioButton, unknownFutureValue.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.AnswerInputType? AnswerInputType { get; set; }
         /// <summary>List of possible answer values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AnswerOptions { get; set; }
+#nullable restore
+#else
         public List<string> AnswerOptions { get; set; }
+#endif
         /// <summary>The question.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

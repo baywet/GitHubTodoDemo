@@ -8,13 +8,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set of tasks that can be performed on a resource. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AllowedResourceActions { get; set; }
+#nullable restore
+#else
         public List<string> AllowedResourceActions { get; set; }
+#endif
         /// <summary>Optional constraints that must be met for the permission to be effective. Not supported for custom roles.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Condition { get; set; }
+#nullable restore
+#else
         public string Condition { get; set; }
+#endif
         /// <summary>Set of tasks that may not be performed on a resource. Not yet supported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ExcludedResourceActions { get; set; }
+#nullable restore
+#else
         public List<string> ExcludedResourceActions { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new unifiedRolePermission and sets the default values.
         /// </summary>

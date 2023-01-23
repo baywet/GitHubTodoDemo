@@ -8,15 +8,45 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Code { get; set; }
+#nullable restore
+#else
         public string Code { get; set; }
+#endif
         /// <summary>The details property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ErrorDetails>? Details { get; set; }
+#nullable restore
+#else
         public List<ErrorDetails> Details { get; set; }
+#endif
         /// <summary>The innererror property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError? Innererror { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.ODataErrors.InnerError Innererror { get; set; }
+#endif
         /// <summary>The message property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Message { get; set; }
+#nullable restore
+#else
         public string Message { get; set; }
+#endif
         /// <summary>The target property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Target { get; set; }
+#nullable restore
+#else
         public string Target { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new MainError and sets the default values.
         /// </summary>

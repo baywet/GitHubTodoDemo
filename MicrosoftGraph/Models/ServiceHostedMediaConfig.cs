@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ServiceHostedMediaConfig : MediaConfig, IParsable {
         /// <summary>The list of media to pre-fetch.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MediaInfo>? PreFetchMedia { get; set; }
+#nullable restore
+#else
         public List<MediaInfo> PreFetchMedia { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ServiceHostedMediaConfig and sets the default values.
         /// </summary>

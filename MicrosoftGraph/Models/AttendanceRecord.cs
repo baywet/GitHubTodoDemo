@@ -4,18 +4,39 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class AttendanceRecord : Entity, IParsable {
         /// <summary>List of time periods between joining and leaving a meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AttendanceInterval>? AttendanceIntervals { get; set; }
+#nullable restore
+#else
         public List<AttendanceInterval> AttendanceIntervals { get; set; }
+#endif
         /// <summary>Email address of the user associated with this atttendance record.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EmailAddress { get; set; }
+#nullable restore
+#else
         public string EmailAddress { get; set; }
+#endif
         /// <summary>Identity of the user associated with this atttendance record.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Identity? Identity { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Identity Identity { get; set; }
+#endif
         /// <summary>Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Role { get; set; }
+#nullable restore
+#else
         public string Role { get; set; }
+#endif
         /// <summary>Total duration of the attendances in seconds.</summary>
         public int? TotalAttendanceInSeconds { get; set; }
         /// <summary>

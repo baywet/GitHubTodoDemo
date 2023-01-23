@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosMobileAppConfiguration : ManagedDeviceMobileAppConfiguration, IParsable {
         /// <summary>mdm app configuration Base64 binary.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? EncodedSettingXml { get; set; }
+#nullable restore
+#else
         public byte[] EncodedSettingXml { get; set; }
+#endif
         /// <summary>app configuration setting items.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AppConfigurationSettingItem>? Settings { get; set; }
+#nullable restore
+#else
         public List<AppConfigurationSettingItem> Settings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new IosMobileAppConfiguration and sets the default values.
         /// </summary>

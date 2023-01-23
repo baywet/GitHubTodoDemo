@@ -13,9 +13,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The number of times to repeat the event. Required and must be positive if type is numbered.</summary>
         public int? NumberOfOccurrences { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecurrenceTimeZone { get; set; }
+#nullable restore
+#else
         public string RecurrenceTimeZone { get; set; }
+#endif
         /// <summary>The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.</summary>
         public Date? StartDate { get; set; }
         /// <summary>The recurrence range. The possible values are: endDate, noEnd, numbered. Required.</summary>

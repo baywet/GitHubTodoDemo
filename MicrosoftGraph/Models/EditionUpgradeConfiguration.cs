@@ -6,11 +6,23 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EditionUpgradeConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Edition Upgrade License File Content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? License { get; set; }
+#nullable restore
+#else
         public string License { get; set; }
+#endif
         /// <summary>Edition Upgrade License type</summary>
         public EditionUpgradeLicenseType? LicenseType { get; set; }
         /// <summary>Edition Upgrade Product Key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductKey { get; set; }
+#nullable restore
+#else
         public string ProductKey { get; set; }
+#endif
         /// <summary>Windows 10 Edition type.</summary>
         public Windows10EditionType? TargetEdition { get; set; }
         /// <summary>

@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EdgeSearchEngineCustom : EdgeSearchEngineBase, IParsable {
         /// <summary>Points to a https link containing the OpenSearch xml file that contains, at minimum, the short name and the URL to the search Engine.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EdgeSearchEngineOpenSearchXmlUrl { get; set; }
+#nullable restore
+#else
         public string EdgeSearchEngineOpenSearchXmlUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EdgeSearchEngineCustom and sets the default values.
         /// </summary>

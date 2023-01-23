@@ -6,13 +6,31 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DirectoryObjectPartnerReference : DirectoryObject, IParsable {
         /// <summary>Description of the object returned. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Name of directory object being returned, like group or application. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The tenant identifier for the partner tenant. Read-only.</summary>
         public Guid? ExternalPartnerTenantId { get; set; }
         /// <summary>The type of the referenced object in the partner tenant. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ObjectType { get; set; }
+#nullable restore
+#else
         public string ObjectType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new DirectoryObjectPartnerReference and sets the default values.
         /// </summary>

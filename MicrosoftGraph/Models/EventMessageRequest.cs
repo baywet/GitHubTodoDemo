@@ -10,11 +10,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The meetingRequestType property</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.MeetingRequestType? MeetingRequestType { get; set; }
         /// <summary>If the meeting update changes the meeting end time, this property specifies the previous meeting end time.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? PreviousEndDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone PreviousEndDateTime { get; set; }
+#endif
         /// <summary>If the meeting update changes the meeting location, this property specifies the previous meeting location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Location? PreviousLocation { get; set; }
+#nullable restore
+#else
         public Location PreviousLocation { get; set; }
+#endif
         /// <summary>If the meeting update changes the meeting start time, this property specifies the previous meeting start time.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? PreviousStartDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone PreviousStartDateTime { get; set; }
+#endif
         /// <summary>Set to true if the sender would like the invitee to send a response to the requested meeting.</summary>
         public bool? ResponseRequested { get; set; }
         /// <summary>

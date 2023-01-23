@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Scheduled Action Type Enum</summary>
     public enum DeviceComplianceActionType {
         /// <summary>No Action</summary>
         NoAction,

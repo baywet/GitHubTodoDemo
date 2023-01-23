@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SharePointIdentitySet : IdentitySet, IParsable {
         /// <summary>The group associated with this action. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Identity? Group { get; set; }
+#nullable restore
+#else
         public Identity Group { get; set; }
+#endif
         /// <summary>The SharePoint group associated with this action. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SharePointIdentity? SiteGroup { get; set; }
+#nullable restore
+#else
         public SharePointIdentity SiteGroup { get; set; }
+#endif
         /// <summary>The SharePoint user associated with this action. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SharePointIdentity? SiteUser { get; set; }
+#nullable restore
+#else
         public SharePointIdentity SiteUser { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new SharePointIdentitySet and sets the default values.
         /// </summary>

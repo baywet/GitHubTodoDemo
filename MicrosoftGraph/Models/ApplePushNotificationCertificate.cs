@@ -6,21 +6,57 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ApplePushNotificationCertificate : Entity, IParsable {
         /// <summary>Apple Id of the account used to create the MDM push certificate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppleIdentifier { get; set; }
+#nullable restore
+#else
         public string AppleIdentifier { get; set; }
+#endif
         /// <summary>Not yet documented</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Certificate { get; set; }
+#nullable restore
+#else
         public string Certificate { get; set; }
+#endif
         /// <summary>Certificate serial number. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CertificateSerialNumber { get; private set; }
+#nullable restore
+#else
         public string CertificateSerialNumber { get; private set; }
+#endif
         /// <summary>The reason the certificate upload failed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CertificateUploadFailureReason { get; set; }
+#nullable restore
+#else
         public string CertificateUploadFailureReason { get; set; }
+#endif
         /// <summary>The certificate upload status.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CertificateUploadStatus { get; set; }
+#nullable restore
+#else
         public string CertificateUploadStatus { get; set; }
+#endif
         /// <summary>The expiration date and time for Apple push notification certificate.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>Last modified date and time for Apple push notification certificate.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Topic Id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TopicIdentifier { get; set; }
+#nullable restore
+#else
         public string TopicIdentifier { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

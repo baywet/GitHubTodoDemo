@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RoomList : Place, IParsable {
         /// <summary>The email address of the room list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EmailAddress { get; set; }
+#nullable restore
+#else
         public string EmailAddress { get; set; }
+#endif
         /// <summary>The rooms property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Room>? Rooms { get; set; }
+#nullable restore
+#else
         public List<Room> Rooms { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new RoomList and sets the default values.
         /// </summary>

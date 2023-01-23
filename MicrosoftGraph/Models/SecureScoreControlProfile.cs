@@ -4,26 +4,65 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class SecureScoreControlProfile : Entity, IParsable {
         /// <summary>Control action type (Config, Review, Behavior).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActionType { get; set; }
+#nullable restore
+#else
         public string ActionType { get; set; }
+#endif
         /// <summary>URL to where the control can be actioned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActionUrl { get; set; }
+#nullable restore
+#else
         public string ActionUrl { get; set; }
+#endif
         /// <summary>GUID string for tenant ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AzureTenantId { get; set; }
+#nullable restore
+#else
         public string AzureTenantId { get; set; }
+#endif
         /// <summary>The collection of compliance information associated with secure score control</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.ComplianceInformation>? ComplianceInformation { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.ComplianceInformation> ComplianceInformation { get; set; }
+#endif
         /// <summary>Control action category (Identity, Data, Device, Apps, Infrastructure).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ControlCategory { get; set; }
+#nullable restore
+#else
         public string ControlCategory { get; set; }
+#endif
         /// <summary>Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SecureScoreControlStateUpdate>? ControlStateUpdates { get; set; }
+#nullable restore
+#else
         public List<SecureScoreControlStateUpdate> ControlStateUpdates { get; set; }
+#endif
         /// <summary>Flag to indicate if a control is depreciated.</summary>
         public bool? Deprecated { get; set; }
         /// <summary>Resource cost of implemmentating control (low, moderate, high).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ImplementationCost { get; set; }
+#nullable restore
+#else
         public string ImplementationCost { get; set; }
+#endif
         /// <summary>Time at which the control profile entity was last modified. The Timestamp type represents date and time</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>max attainable score for the control.</summary>
@@ -31,21 +70,69 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Microsoft&apos;s stack ranking of control.</summary>
         public int? Rank { get; set; }
         /// <summary>Description of what the control will help remediate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Remediation { get; set; }
+#nullable restore
+#else
         public string Remediation { get; set; }
+#endif
         /// <summary>Description of the impact on users of the remediation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RemediationImpact { get; set; }
+#nullable restore
+#else
         public string RemediationImpact { get; set; }
+#endif
         /// <summary>Service that owns the control (Exchange, Sharepoint, Azure AD).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Service { get; set; }
+#nullable restore
+#else
         public string Service { get; set; }
+#endif
         /// <summary>List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Threats { get; set; }
+#nullable restore
+#else
         public List<string> Threats { get; set; }
+#endif
         /// <summary>The tier property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Tier { get; set; }
+#nullable restore
+#else
         public string Tier { get; set; }
+#endif
         /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
         public string Title { get; set; }
+#endif
         /// <summary>The userImpact property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserImpact { get; set; }
+#nullable restore
+#else
         public string UserImpact { get; set; }
+#endif
         /// <summary>The vendorInformation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SecurityVendorInformation? VendorInformation { get; set; }
+#nullable restore
+#else
         public SecurityVendorInformation VendorInformation { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

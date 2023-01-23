@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SoftwareOathAuthenticationMethod : AuthenticationMethod, IParsable {
         /// <summary>The secret key of the method. Always returns null.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SecretKey { get; set; }
+#nullable restore
+#else
         public string SecretKey { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new SoftwareOathAuthenticationMethod and sets the default values.
         /// </summary>

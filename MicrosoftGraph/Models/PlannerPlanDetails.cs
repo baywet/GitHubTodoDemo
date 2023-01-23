@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PlannerPlanDetails : Entity, IParsable {
         /// <summary>An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PlannerCategoryDescriptions? CategoryDescriptions { get; set; }
+#nullable restore
+#else
         public PlannerCategoryDescriptions CategoryDescriptions { get; set; }
+#endif
         /// <summary>Set of user IDs that this plan is shared with. If you are leveraging Microsoft 365 groups, use the Groups API to manage group membership to share the group&apos;s plan. You can also add existing members of the group to this collection, although it is not required for them to access the plan owned by the group.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PlannerUserIds? SharedWith { get; set; }
+#nullable restore
+#else
         public PlannerUserIds SharedWith { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

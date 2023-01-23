@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ManagedAppProtection : ManagedAppPolicy, IParsable {
         /// <summary>Data storage locations where a user may store managed data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedAppDataStorageLocation?>? AllowedDataStorageLocations { get; set; }
+#nullable restore
+#else
         public List<ManagedAppDataStorageLocation?> AllowedDataStorageLocations { get; set; }
+#endif
         /// <summary>Data can be transferred from/to these classes of apps</summary>
         public ManagedAppDataTransferLevel? AllowedInboundDataTransferSources { get; set; }
         /// <summary>Represents the level to which the device&apos;s clipboard may be shared between apps</summary>
@@ -32,13 +38,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Minimum pin length required for an app-level pin if PinRequired is set to True</summary>
         public int? MinimumPinLength { get; set; }
         /// <summary>Versions less than the specified version will block the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MinimumRequiredAppVersion { get; set; }
+#nullable restore
+#else
         public string MinimumRequiredAppVersion { get; set; }
+#endif
         /// <summary>Versions less than the specified version will block the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MinimumRequiredOsVersion { get; set; }
+#nullable restore
+#else
         public string MinimumRequiredOsVersion { get; set; }
+#endif
         /// <summary>Versions less than the specified version will result in warning message on the managed app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MinimumWarningAppVersion { get; set; }
+#nullable restore
+#else
         public string MinimumWarningAppVersion { get; set; }
+#endif
         /// <summary>Versions less than the specified version will result in warning message on the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MinimumWarningOsVersion { get; set; }
+#nullable restore
+#else
         public string MinimumWarningOsVersion { get; set; }
+#endif
         /// <summary>Indicates whether organizational credentials are required for app use.</summary>
         public bool? OrganizationalCredentialsRequired { get; set; }
         /// <summary>TimePeriod before the all-level pin must be reset if PinRequired is set to True.</summary>

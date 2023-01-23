@@ -10,9 +10,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of children contained immediately within this container.</summary>
         public int? ChildCount { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>A collection of properties defining the recommended view for the folder.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public FolderView? View { get; set; }
+#nullable restore
+#else
         public FolderView View { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new folder and sets the default values.
         /// </summary>

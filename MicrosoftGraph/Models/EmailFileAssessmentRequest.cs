@@ -6,11 +6,23 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EmailFileAssessmentRequest : ThreatAssessmentRequest, IParsable {
         /// <summary>Base64 encoded .eml email file content. The file content cannot fetch back because it isn&apos;t stored.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContentData { get; set; }
+#nullable restore
+#else
         public string ContentData { get; set; }
+#endif
         /// <summary>The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.</summary>
         public MailDestinationRoutingReason? DestinationRoutingReason { get; set; }
         /// <summary>The mail recipient whose policies are used to assess the mail.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecipientEmail { get; set; }
+#nullable restore
+#else
         public string RecipientEmail { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EmailFileAssessmentRequest and sets the default values.
         /// </summary>

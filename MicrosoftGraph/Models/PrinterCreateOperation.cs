@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrinterCreateOperation : PrintOperation, IParsable {
         /// <summary>The signed certificate created during the registration process. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Certificate { get; set; }
+#nullable restore
+#else
         public string Certificate { get; set; }
+#endif
         /// <summary>The created printer entity. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Printer? Printer { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Printer Printer { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PrinterCreateOperation and sets the default values.
         /// </summary>

@@ -8,15 +8,45 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the participant that is under observation. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ObservedParticipantId { get; set; }
+#nullable restore
+#else
         public string ObservedParticipantId { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The identity that the call is happening on behalf of.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? OnBehalfOf { get; set; }
+#nullable restore
+#else
         public IdentitySet OnBehalfOf { get; set; }
+#endif
         /// <summary>The ID of the participant that triggered the incoming call. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SourceParticipantId { get; set; }
+#nullable restore
+#else
         public string SourceParticipantId { get; set; }
+#endif
         /// <summary>The identity that transferred the call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Transferor { get; set; }
+#nullable restore
+#else
         public IdentitySet Transferor { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new incomingContext and sets the default values.
         /// </summary>

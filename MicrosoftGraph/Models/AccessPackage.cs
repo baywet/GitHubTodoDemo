@@ -4,26 +4,65 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class AccessPackage : Entity, IParsable {
         /// <summary>The access packages that are incompatible with this package. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessPackage>? AccessPackagesIncompatibleWith { get; set; }
+#nullable restore
+#else
         public List<AccessPackage> AccessPackagesIncompatibleWith { get; set; }
+#endif
         /// <summary>The assignmentPolicies property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessPackageAssignmentPolicy>? AssignmentPolicies { get; set; }
+#nullable restore
+#else
         public List<AccessPackageAssignmentPolicy> AssignmentPolicies { get; set; }
+#endif
         /// <summary>The catalog property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AccessPackageCatalog? Catalog { get; set; }
+#nullable restore
+#else
         public AccessPackageCatalog Catalog { get; set; }
+#endif
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The description of the access package.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>The display name of the access package. Supports $filter (eq, contains).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The access packages whose assigned users are ineligible to be assigned this access package.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessPackage>? IncompatibleAccessPackages { get; set; }
+#nullable restore
+#else
         public List<AccessPackage> IncompatibleAccessPackages { get; set; }
+#endif
         /// <summary>The groups whose members are ineligible to be assigned this access package.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Group>? IncompatibleGroups { get; set; }
+#nullable restore
+#else
         public List<Group> IncompatibleGroups { get; set; }
+#endif
         /// <summary>Whether the access package is hidden from the requestor.</summary>
         public bool? IsHidden { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>

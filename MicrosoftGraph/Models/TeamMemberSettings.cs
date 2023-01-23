@@ -20,7 +20,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>If set to true, members can delete channels.</summary>
         public bool? AllowDeleteChannels { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new teamMemberSettings and sets the default values.
         /// </summary>

@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SkypeUserConversationMember : ConversationMember, IParsable {
         /// <summary>The skypeId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SkypeId { get; set; }
+#nullable restore
+#else
         public string SkypeId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new SkypeUserConversationMember and sets the default values.
         /// </summary>

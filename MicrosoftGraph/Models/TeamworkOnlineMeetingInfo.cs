@@ -8,13 +8,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The identifier of the calendar event associated with the meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CalendarEventId { get; set; }
+#nullable restore
+#else
         public string CalendarEventId { get; set; }
+#endif
         /// <summary>The URL that users click to join or uniquely identify the meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JoinWebUrl { get; set; }
+#nullable restore
+#else
         public string JoinWebUrl { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The organizer of the meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TeamworkUserIdentity? Organizer { get; set; }
+#nullable restore
+#else
         public TeamworkUserIdentity Organizer { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new teamworkOnlineMeetingInfo and sets the default values.
         /// </summary>

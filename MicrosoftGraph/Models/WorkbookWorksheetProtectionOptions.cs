@@ -30,7 +30,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents the worksheet protection option of allowing using sort feature.</summary>
         public bool? AllowSort { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new workbookWorksheetProtectionOptions and sets the default values.
         /// </summary>

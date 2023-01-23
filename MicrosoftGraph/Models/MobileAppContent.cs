@@ -9,9 +9,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class MobileAppContent : Entity, IParsable {
         /// <summary>The collection of contained apps in a MobileLobApp acting as a package.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MobileContainedApp>? ContainedApps { get; set; }
+#nullable restore
+#else
         public List<MobileContainedApp> ContainedApps { get; set; }
+#endif
         /// <summary>The list of files for this app content version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MobileAppContentFile>? Files { get; set; }
+#nullable restore
+#else
         public List<MobileAppContentFile> Files { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

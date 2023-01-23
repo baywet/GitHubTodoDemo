@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AccessReviewInstanceDecisionItemAzureRoleResource : AccessReviewInstanceDecisionItemResource, IParsable {
         /// <summary>Details of the scope this role is associated with.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AccessReviewInstanceDecisionItemResource? Scope { get; set; }
+#nullable restore
+#else
         public AccessReviewInstanceDecisionItemResource Scope { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new AccessReviewInstanceDecisionItemAzureRoleResource and sets the default values.
         /// </summary>

@@ -6,11 +6,23 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MeetingPolicyUpdatedEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>Represents whether the meeting chat is enabled or not.</summary>
         public bool? MeetingChatEnabled { get; set; }
         /// <summary>Unique identifier of the meeting chat.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MeetingChatId { get; set; }
+#nullable restore
+#else
         public string MeetingChatId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new MeetingPolicyUpdatedEventMessageDetail and sets the default values.
         /// </summary>

@@ -8,27 +8,93 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Applications and user actions included in and excluded from the policy. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessApplications? Applications { get; set; }
+#nullable restore
+#else
         public ConditionalAccessApplications Applications { get; set; }
+#endif
         /// <summary>Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessClientApplications? ClientApplications { get; set; }
+#nullable restore
+#else
         public ConditionalAccessClientApplications ClientApplications { get; set; }
+#endif
         /// <summary>Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ConditionalAccessClientApp?>? ClientAppTypes { get; set; }
+#nullable restore
+#else
         public List<ConditionalAccessClientApp?> ClientAppTypes { get; set; }
+#endif
         /// <summary>Devices in the policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessDevices? Devices { get; set; }
+#nullable restore
+#else
         public ConditionalAccessDevices Devices { get; set; }
+#endif
         /// <summary>Locations included in and excluded from the policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessLocations? Locations { get; set; }
+#nullable restore
+#else
         public ConditionalAccessLocations Locations { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Platforms included in and excluded from the policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessPlatforms? Platforms { get; set; }
+#nullable restore
+#else
         public ConditionalAccessPlatforms Platforms { get; set; }
+#endif
         /// <summary>Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RiskLevel?>? ServicePrincipalRiskLevels { get; set; }
+#nullable restore
+#else
         public List<RiskLevel?> ServicePrincipalRiskLevels { get; set; }
+#endif
         /// <summary>Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RiskLevel?>? SignInRiskLevels { get; set; }
+#nullable restore
+#else
         public List<RiskLevel?> SignInRiskLevels { get; set; }
+#endif
         /// <summary>User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RiskLevel?>? UserRiskLevels { get; set; }
+#nullable restore
+#else
         public List<RiskLevel?> UserRiskLevels { get; set; }
+#endif
         /// <summary>Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessUsers? Users { get; set; }
+#nullable restore
+#else
         public ConditionalAccessUsers Users { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new conditionalAccessConditionSet and sets the default values.
         /// </summary>

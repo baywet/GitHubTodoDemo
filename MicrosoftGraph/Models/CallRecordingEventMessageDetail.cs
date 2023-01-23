@@ -6,19 +6,49 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CallRecordingEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>Unique identifier of the call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CallId { get; set; }
+#nullable restore
+#else
         public string CallId { get; set; }
+#endif
         /// <summary>Display name for the call recording.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CallRecordingDisplayName { get; set; }
+#nullable restore
+#else
         public string CallRecordingDisplayName { get; set; }
+#endif
         /// <summary>Duration of the call recording.</summary>
         public TimeSpan? CallRecordingDuration { get; set; }
         /// <summary>Status of the call recording. Possible values are: success, failure, initial, chunkFinished, unknownFutureValue.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.CallRecordingStatus? CallRecordingStatus { get; set; }
         /// <summary>Call recording URL.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CallRecordingUrl { get; set; }
+#nullable restore
+#else
         public string CallRecordingUrl { get; set; }
+#endif
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>Organizer of the meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? MeetingOrganizer { get; set; }
+#nullable restore
+#else
         public IdentitySet MeetingOrganizer { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new CallRecordingEventMessageDetail and sets the default values.
         /// </summary>

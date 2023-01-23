@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WindowsUniversalAppXContainedApp : MobileContainedApp, IParsable {
         /// <summary>The app user model ID of the contained app of a WindowsUniversalAppX app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppUserModelId { get; set; }
+#nullable restore
+#else
         public string AppUserModelId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new WindowsUniversalAppXContainedApp and sets the default values.
         /// </summary>

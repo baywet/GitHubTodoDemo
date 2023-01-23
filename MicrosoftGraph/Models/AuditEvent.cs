@@ -6,27 +6,81 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AuditEvent : Entity, IParsable {
         /// <summary>Friendly name of the activity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Activity { get; set; }
+#nullable restore
+#else
         public string Activity { get; set; }
+#endif
         /// <summary>The date time in UTC when the activity was performed.</summary>
         public DateTimeOffset? ActivityDateTime { get; set; }
         /// <summary>The HTTP operation type of the activity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActivityOperationType { get; set; }
+#nullable restore
+#else
         public string ActivityOperationType { get; set; }
+#endif
         /// <summary>The result of the activity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActivityResult { get; set; }
+#nullable restore
+#else
         public string ActivityResult { get; set; }
+#endif
         /// <summary>The type of activity that was being performed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActivityType { get; set; }
+#nullable restore
+#else
         public string ActivityType { get; set; }
+#endif
         /// <summary>AAD user and application that are associated with the audit event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AuditActor? Actor { get; set; }
+#nullable restore
+#else
         public AuditActor Actor { get; set; }
+#endif
         /// <summary>Audit category.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Category { get; set; }
+#nullable restore
+#else
         public string Category { get; set; }
+#endif
         /// <summary>Component name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ComponentName { get; set; }
+#nullable restore
+#else
         public string ComponentName { get; set; }
+#endif
         /// <summary>The client request Id that is used to correlate activity within the system.</summary>
         public Guid? CorrelationId { get; set; }
         /// <summary>Event display name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Resources being modified.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AuditResource>? Resources { get; set; }
+#nullable restore
+#else
         public List<AuditResource> Resources { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ServiceAnnouncement : Entity, IParsable {
         /// <summary>A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ServiceHealth>? HealthOverviews { get; set; }
+#nullable restore
+#else
         public List<ServiceHealth> HealthOverviews { get; set; }
+#endif
         /// <summary>A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ServiceHealthIssue>? Issues { get; set; }
+#nullable restore
+#else
         public List<ServiceHealthIssue> Issues { get; set; }
+#endif
         /// <summary>A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ServiceUpdateMessage>? Messages { get; set; }
+#nullable restore
+#else
         public List<ServiceUpdateMessage> Messages { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ChatMessageMentionedIdentitySet : IdentitySet, IParsable {
         /// <summary>If present, represents a conversation (for example, team or channel) @mentioned in a message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TeamworkConversationIdentity? Conversation { get; set; }
+#nullable restore
+#else
         public TeamworkConversationIdentity Conversation { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ChatMessageMentionedIdentitySet and sets the default values.
         /// </summary>

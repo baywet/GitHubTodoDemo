@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationPointsOutcome : EducationOutcome, IParsable {
         /// <summary>The numeric grade the teacher has given the student for this assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationAssignmentPointsGrade? Points { get; set; }
+#nullable restore
+#else
         public EducationAssignmentPointsGrade Points { get; set; }
+#endif
         /// <summary>A copy of the points property that is made when the grade is released to the student.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationAssignmentPointsGrade? PublishedPoints { get; set; }
+#nullable restore
+#else
         public EducationAssignmentPointsGrade PublishedPoints { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EducationPointsOutcome and sets the default values.
         /// </summary>

@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OmaSettingStringXml : OmaSetting, IParsable {
         /// <summary>File name associated with the Value property (.xml).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FileName { get; set; }
+#nullable restore
+#else
         public string FileName { get; set; }
+#endif
         /// <summary>Value. (UTF8 encoded byte array)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Value { get; set; }
+#nullable restore
+#else
         public byte[] Value { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new OmaSettingStringXml and sets the default values.
         /// </summary>

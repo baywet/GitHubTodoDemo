@@ -16,9 +16,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Corresponds to &apos;Enable stealth mode.&apos;</summary>
         public bool? FirewallEnableStealthMode { get; set; }
         /// <summary>Maximum MacOS version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMaximumVersion { get; set; }
+#nullable restore
+#else
         public string OsMaximumVersion { get; set; }
+#endif
         /// <summary>Minimum MacOS version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMinimumVersion { get; set; }
+#nullable restore
+#else
         public string OsMinimumVersion { get; set; }
+#endif
         /// <summary>Indicates whether or not to block simple passwords.</summary>
         public bool? PasswordBlockSimple { get; set; }
         /// <summary>Number of days before the password expires. Valid values 1 to 65535</summary>

@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AccessReviewQueryScope : AccessReviewScope, IParsable {
         /// <summary>The query representing what will be reviewed in an access review.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Query { get; set; }
+#nullable restore
+#else
         public string Query { get; set; }
+#endif
         /// <summary>In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query is specified. For example, ./manager.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? QueryRoot { get; set; }
+#nullable restore
+#else
         public string QueryRoot { get; set; }
+#endif
         /// <summary>Indicates the type of query. Types include MicrosoftGraph and ARM.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? QueryType { get; set; }
+#nullable restore
+#else
         public string QueryType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new AccessReviewQueryScope and sets the default values.
         /// </summary>

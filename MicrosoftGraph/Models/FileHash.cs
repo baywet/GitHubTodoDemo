@@ -10,9 +10,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.</summary>
         public FileHashType? HashType { get; set; }
         /// <summary>Value of the file hash.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HashValue { get; set; }
+#nullable restore
+#else
         public string HashValue { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new fileHash and sets the default values.
         /// </summary>

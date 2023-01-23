@@ -6,21 +6,63 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     public class Set : Entity, IParsable {
         /// <summary>Children terms of set in term [store].</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Term>? Children { get; set; }
+#nullable restore
+#else
         public List<Term> Children { get; set; }
+#endif
         /// <summary>Date and time of set creation. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Description that gives details on the term usage.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Name of the set for each languageTag.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<LocalizedName>? LocalizedNames { get; set; }
+#nullable restore
+#else
         public List<LocalizedName> LocalizedNames { get; set; }
+#endif
         /// <summary>The parentGroup property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Group? ParentGroup { get; set; }
+#nullable restore
+#else
         public Group ParentGroup { get; set; }
+#endif
         /// <summary>Custom properties for the set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue>? Properties { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue> Properties { get; set; }
+#endif
         /// <summary>Indicates which terms have been pinned or reused directly under the set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Relation>? Relations { get; set; }
+#nullable restore
+#else
         public List<Relation> Relations { get; set; }
+#endif
         /// <summary>All the terms under the set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Term>? Terms { get; set; }
+#nullable restore
+#else
         public List<Term> Terms { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ManagedMobileLobApp : ManagedApp, IParsable {
         /// <summary>The internal committed content version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CommittedContentVersion { get; set; }
+#nullable restore
+#else
         public string CommittedContentVersion { get; set; }
+#endif
         /// <summary>The list of content versions for this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MobileAppContent>? ContentVersions { get; set; }
+#nullable restore
+#else
         public List<MobileAppContent> ContentVersions { get; set; }
+#endif
         /// <summary>The name of the main Lob application file.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FileName { get; set; }
+#nullable restore
+#else
         public string FileName { get; set; }
+#endif
         /// <summary>The total size, including all uploaded files.</summary>
         public long? Size { get; set; }
         /// <summary>

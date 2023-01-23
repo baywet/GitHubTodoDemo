@@ -6,15 +6,45 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class B2xIdentityUserFlow : IdentityUserFlow, IParsable {
         /// <summary>Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UserFlowApiConnectorConfiguration? ApiConnectorConfiguration { get; set; }
+#nullable restore
+#else
         public UserFlowApiConnectorConfiguration ApiConnectorConfiguration { get; set; }
+#endif
         /// <summary>The identity providers included in the user flow.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IdentityProvider>? IdentityProviders { get; set; }
+#nullable restore
+#else
         public List<IdentityProvider> IdentityProviders { get; set; }
+#endif
         /// <summary>The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You cannot create custom languages in self-service sign-up user flows.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UserFlowLanguageConfiguration>? Languages { get; set; }
+#nullable restore
+#else
         public List<UserFlowLanguageConfiguration> Languages { get; set; }
+#endif
         /// <summary>The user attribute assignments included in the user flow.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IdentityUserFlowAttributeAssignment>? UserAttributeAssignments { get; set; }
+#nullable restore
+#else
         public List<IdentityUserFlowAttributeAssignment> UserAttributeAssignments { get; set; }
+#endif
         /// <summary>The userFlowIdentityProviders property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IdentityProviderBase>? UserFlowIdentityProviders { get; set; }
+#nullable restore
+#else
         public List<IdentityProviderBase> UserFlowIdentityProviders { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

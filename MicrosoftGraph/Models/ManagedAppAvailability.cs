@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>A managed (MAM) application&apos;s availability.</summary>
     public enum ManagedAppAvailability {
         /// <summary>A globally available app to all tenants.</summary>
         Global,

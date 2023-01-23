@@ -6,21 +6,57 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EnrollmentTroubleshootingEvent : DeviceManagementTroubleshootingEvent, IParsable {
         /// <summary>Azure AD device identifier.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceId { get; set; }
+#nullable restore
+#else
         public string DeviceId { get; set; }
+#endif
         /// <summary>Possible ways of adding a mobile device to management.</summary>
         public DeviceEnrollmentType? EnrollmentType { get; set; }
         /// <summary>Top level failure categories for enrollment.</summary>
         public DeviceEnrollmentFailureReason? FailureCategory { get; set; }
         /// <summary>Detailed failure reason.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FailureReason { get; set; }
+#nullable restore
+#else
         public string FailureReason { get; set; }
+#endif
         /// <summary>Device identifier created or collected by Intune.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ManagedDeviceIdentifier { get; set; }
+#nullable restore
+#else
         public string ManagedDeviceIdentifier { get; set; }
+#endif
         /// <summary>Operating System.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OperatingSystem { get; set; }
+#nullable restore
+#else
         public string OperatingSystem { get; set; }
+#endif
         /// <summary>OS Version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsVersion { get; set; }
+#nullable restore
+#else
         public string OsVersion { get; set; }
+#endif
         /// <summary>Identifier for the user that tried to enroll the device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
         public string UserId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

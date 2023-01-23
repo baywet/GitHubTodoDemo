@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class FileAssessmentRequest : ThreatAssessmentRequest, IParsable {
         /// <summary>Base64 encoded file content. The file content cannot fetch back because it isn&apos;t stored.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContentData { get; set; }
+#nullable restore
+#else
         public string ContentData { get; set; }
+#endif
         /// <summary>The file name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FileName { get; set; }
+#nullable restore
+#else
         public string FileName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new FileAssessmentRequest and sets the default values.
         /// </summary>

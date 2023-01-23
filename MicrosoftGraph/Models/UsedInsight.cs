@@ -4,18 +4,39 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class UsedInsight : Entity, IParsable {
         /// <summary>Information about when the item was last viewed or modified by the user. Read only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UsageDetails? LastUsed { get; set; }
+#nullable restore
+#else
         public UsageDetails LastUsed { get; set; }
+#endif
         /// <summary>Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Entity? Resource { get; set; }
+#nullable restore
+#else
         public Entity Resource { get; set; }
+#endif
         /// <summary>Reference properties of the used document, such as the url and type of the document. Read-only</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResourceReference? ResourceReference { get; private set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.ResourceReference ResourceReference { get; private set; }
+#endif
         /// <summary>Properties that you can use to visualize the document in your experience. Read-only</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResourceVisualization? ResourceVisualization { get; private set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.ResourceVisualization ResourceVisualization { get; private set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

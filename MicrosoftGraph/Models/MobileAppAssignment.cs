@@ -11,9 +11,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Possible values for the install intent chosen by the admin.</summary>
         public InstallIntent? Intent { get; set; }
         /// <summary>The settings for target assignment defined by the admin.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MobileAppAssignmentSettings? Settings { get; set; }
+#nullable restore
+#else
         public MobileAppAssignmentSettings Settings { get; set; }
+#endif
         /// <summary>The target group assignment defined by the admin.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceAndAppManagementAssignmentTarget? Target { get; set; }
+#nullable restore
+#else
         public DeviceAndAppManagementAssignmentTarget Target { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

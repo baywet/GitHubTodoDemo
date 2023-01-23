@@ -14,7 +14,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of conflict users.</summary>
         public int? ConflictUserCount { get; set; }
         /// <summary>The name of the policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Number of devices had error.</summary>
         public int? ErrorDeviceCount { get; set; }
         /// <summary>Number of users had error.</summary>

@@ -8,19 +8,49 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date, time, and time zone that the corresponding event ends.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? End { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone End { get; set; }
+#endif
         /// <summary>The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.</summary>
         public bool? IsPrivate { get; set; }
         /// <summary>The location where the corresponding event is held or attended from. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Location { get; set; }
+#nullable restore
+#else
         public string Location { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The date, time, and time zone that the corresponding event starts.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? Start { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone Start { get; set; }
+#endif
         /// <summary>The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.</summary>
         public FreeBusyStatus? Status { get; set; }
         /// <summary>The corresponding event&apos;s subject line. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Subject { get; set; }
+#nullable restore
+#else
         public string Subject { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new scheduleItem and sets the default values.
         /// </summary>

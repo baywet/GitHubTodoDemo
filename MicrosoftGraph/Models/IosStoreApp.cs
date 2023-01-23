@@ -6,13 +6,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosStoreApp : MobileApp, IParsable {
         /// <summary>Contains properties of the possible iOS device types the mobile app can run on.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IosDeviceType? ApplicableDeviceType { get; set; }
+#nullable restore
+#else
         public IosDeviceType ApplicableDeviceType { get; set; }
+#endif
         /// <summary>The Apple App Store URL</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppStoreUrl { get; set; }
+#nullable restore
+#else
         public string AppStoreUrl { get; set; }
+#endif
         /// <summary>The Identity Name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BundleId { get; set; }
+#nullable restore
+#else
         public string BundleId { get; set; }
+#endif
         /// <summary>The value for the minimum applicable operating system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IosMinimumOperatingSystem? MinimumSupportedOperatingSystem { get; set; }
+#nullable restore
+#else
         public IosMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new IosStoreApp and sets the default values.
         /// </summary>

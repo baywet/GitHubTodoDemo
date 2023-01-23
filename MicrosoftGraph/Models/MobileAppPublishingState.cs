@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Indicates the publishing state of an app.</summary>
     public enum MobileAppPublishingState {
         /// <summary>The app is not yet published.</summary>
         NotPublished,

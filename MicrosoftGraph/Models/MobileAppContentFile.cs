@@ -9,7 +9,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class MobileAppContentFile : Entity, IParsable {
         /// <summary>The Azure Storage URI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AzureStorageUri { get; set; }
+#nullable restore
+#else
         public string AzureStorageUri { get; set; }
+#endif
         /// <summary>The time the Azure storage Uri expires.</summary>
         public DateTimeOffset? AzureStorageUriExpirationDateTime { get; set; }
         /// <summary>The time the file was created.</summary>
@@ -17,9 +23,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A value indicating whether the file is committed.</summary>
         public bool? IsCommitted { get; set; }
         /// <summary>The manifest information.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Manifest { get; set; }
+#nullable restore
+#else
         public byte[] Manifest { get; set; }
+#endif
         /// <summary>the file name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
         public string Name { get; set; }
+#endif
         /// <summary>The size of the file prior to encryption.</summary>
         public long? Size { get; set; }
         /// <summary>The size of the file after encryption.</summary>

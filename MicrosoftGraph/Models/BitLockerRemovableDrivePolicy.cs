@@ -15,7 +15,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Select the encryption method for removable  drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.</summary>
         public BitLockerEncryptionMethod? EncryptionMethod { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Indicates whether to block write access to devices configured in another organization.  If requireEncryptionForWriteAccess is false, this value does not affect.</summary>
         public bool? RequireEncryptionForWriteAccess { get; set; }
         /// <summary>

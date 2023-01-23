@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Allow the device to send diagnostic and usage telemetry data, such as Watson.</summary>
     public enum DiagnosticDataSubmissionMode {
         /// <summary>Allow the user to set.</summary>
         UserDefined,

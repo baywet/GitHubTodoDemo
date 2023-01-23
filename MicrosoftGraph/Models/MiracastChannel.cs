@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values for Miracast channel.</summary>
     public enum MiracastChannel {
         /// <summary>User Defined, default value, no intent.</summary>
         UserDefined,

@@ -8,23 +8,77 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The color property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Color { get; set; }
+#nullable restore
+#else
         public string Color { get; set; }
+#endif
         /// <summary>The criterion1 property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Criterion1 { get; set; }
+#nullable restore
+#else
         public string Criterion1 { get; set; }
+#endif
         /// <summary>The criterion2 property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Criterion2 { get; set; }
+#nullable restore
+#else
         public string Criterion2 { get; set; }
+#endif
         /// <summary>The dynamicCriteria property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DynamicCriteria { get; set; }
+#nullable restore
+#else
         public string DynamicCriteria { get; set; }
+#endif
         /// <summary>The filterOn property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FilterOn { get; set; }
+#nullable restore
+#else
         public string FilterOn { get; set; }
+#endif
         /// <summary>The icon property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookIcon? Icon { get; set; }
+#nullable restore
+#else
         public WorkbookIcon Icon { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The operator property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Operator { get; set; }
+#nullable restore
+#else
         public string Operator { get; set; }
+#endif
         /// <summary>The values property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Json? Values { get; set; }
+#nullable restore
+#else
         public Json Values { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new workbookFilterCriteria and sets the default values.
         /// </summary>

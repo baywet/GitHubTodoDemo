@@ -9,25 +9,73 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class ManagedDeviceMobileAppConfiguration : Entity, IParsable {
         /// <summary>The list of group assignemenets for app configration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedDeviceMobileAppConfigurationAssignment>? Assignments { get; set; }
+#nullable restore
+#else
         public List<ManagedDeviceMobileAppConfigurationAssignment> Assignments { get; set; }
+#endif
         /// <summary>DateTime the object was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Admin provided description of the Device Configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>List of ManagedDeviceMobileAppConfigurationDeviceStatus.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedDeviceMobileAppConfigurationDeviceStatus>? DeviceStatuses { get; set; }
+#nullable restore
+#else
         public List<ManagedDeviceMobileAppConfigurationDeviceStatus> DeviceStatuses { get; set; }
+#endif
         /// <summary>App configuration device status summary.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ManagedDeviceMobileAppConfigurationDeviceSummary? DeviceStatusSummary { get; set; }
+#nullable restore
+#else
         public ManagedDeviceMobileAppConfigurationDeviceSummary DeviceStatusSummary { get; set; }
+#endif
         /// <summary>Admin provided name of the device configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>DateTime the object was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>the associated app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? TargetedMobileApps { get; set; }
+#nullable restore
+#else
         public List<string> TargetedMobileApps { get; set; }
+#endif
         /// <summary>List of ManagedDeviceMobileAppConfigurationUserStatus.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedDeviceMobileAppConfigurationUserStatus>? UserStatuses { get; set; }
+#nullable restore
+#else
         public List<ManagedDeviceMobileAppConfigurationUserStatus> UserStatuses { get; set; }
+#endif
         /// <summary>App configuration user status summary.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ManagedDeviceMobileAppConfigurationUserSummary? UserStatusSummary { get; set; }
+#nullable restore
+#else
         public ManagedDeviceMobileAppConfigurationUserSummary UserStatusSummary { get; set; }
+#endif
         /// <summary>Version of the device configuration.</summary>
         public int? Version { get; set; }
         /// <summary>

@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PlannerGroup : Entity, IParsable {
         /// <summary>Read-only. Nullable. Returns the plannerPlans owned by the group.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PlannerPlan>? Plans { get; set; }
+#nullable restore
+#else
         public List<PlannerPlan> Plans { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

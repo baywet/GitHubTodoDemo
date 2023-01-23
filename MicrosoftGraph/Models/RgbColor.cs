@@ -15,7 +15,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Green value</summary>
         public byte? G { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Red value</summary>
         public byte? R { get; set; }
         /// <summary>

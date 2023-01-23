@@ -8,25 +8,79 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connectingIP property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConnectingIP { get; set; }
+#nullable restore
+#else
         public string ConnectingIP { get; set; }
+#endif
         /// <summary>The deliveryAction property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeliveryAction { get; set; }
+#nullable restore
+#else
         public string DeliveryAction { get; set; }
+#endif
         /// <summary>The deliveryLocation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeliveryLocation { get; set; }
+#nullable restore
+#else
         public string DeliveryLocation { get; set; }
+#endif
         /// <summary>The directionality property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Directionality { get; set; }
+#nullable restore
+#else
         public string Directionality { get; set; }
+#endif
         /// <summary>The internetMessageId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InternetMessageId { get; set; }
+#nullable restore
+#else
         public string InternetMessageId { get; set; }
+#endif
         /// <summary>The messageFingerprint property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MessageFingerprint { get; set; }
+#nullable restore
+#else
         public string MessageFingerprint { get; set; }
+#endif
         /// <summary>The messageReceivedDateTime property</summary>
         public DateTimeOffset? MessageReceivedDateTime { get; set; }
         /// <summary>The messageSubject property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MessageSubject { get; set; }
+#nullable restore
+#else
         public string MessageSubject { get; set; }
+#endif
         /// <summary>The networkMessageId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NetworkMessageId { get; set; }
+#nullable restore
+#else
         public string NetworkMessageId { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new messageSecurityState and sets the default values.
         /// </summary>

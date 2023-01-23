@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class CrossTenantAccessPolicy : PolicyBase, IParsable {
         /// <summary>The allowedCloudEndpoints property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AllowedCloudEndpoints { get; set; }
+#nullable restore
+#else
         public List<string> AllowedCloudEndpoints { get; set; }
+#endif
         /// <summary>Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public CrossTenantAccessPolicyConfigurationDefault? Default { get; set; }
+#nullable restore
+#else
         public CrossTenantAccessPolicyConfigurationDefault Default { get; set; }
+#endif
         /// <summary>Defines partner-specific configurations for external Azure Active Directory organizations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CrossTenantAccessPolicyConfigurationPartner>? Partners { get; set; }
+#nullable restore
+#else
         public List<CrossTenantAccessPolicyConfigurationPartner> Partners { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new CrossTenantAccessPolicy and sets the default values.
         /// </summary>

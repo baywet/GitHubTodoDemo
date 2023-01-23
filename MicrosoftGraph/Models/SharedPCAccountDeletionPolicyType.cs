@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values for when accounts are deleted on a shared PC.</summary>
     public enum SharedPCAccountDeletionPolicyType {
         /// <summary>Delete immediately.</summary>
         Immediate,

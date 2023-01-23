@@ -8,7 +8,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Whether or not to use device licensing.</summary>
         public bool? UseDeviceLicensing { get; set; }
         /// <summary>The VPN Configuration Id to apply for this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VpnConfigurationId { get; set; }
+#nullable restore
+#else
         public string VpnConfigurationId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new IosVppAppAssignmentSettings and sets the default values.
         /// </summary>

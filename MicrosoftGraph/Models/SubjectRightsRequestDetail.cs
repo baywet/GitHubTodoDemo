@@ -10,15 +10,33 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Count of items that are excluded from the request.</summary>
         public long? ExcludedItemCount { get; set; }
         /// <summary>Count of items per insight.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<KeyValuePair>? InsightCounts { get; set; }
+#nullable restore
+#else
         public List<KeyValuePair> InsightCounts { get; set; }
+#endif
         /// <summary>Count of items found.</summary>
         public long? ItemCount { get; set; }
         /// <summary>Count of item that need review.</summary>
         public long? ItemNeedReview { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<KeyValuePair>? ProductItemCounts { get; set; }
+#nullable restore
+#else
         public List<KeyValuePair> ProductItemCounts { get; set; }
+#endif
         /// <summary>Count of items signed off by the administrator.</summary>
         public long? SignedOffItemCount { get; set; }
         /// <summary>Total item size in bytes.</summary>

@@ -8,7 +8,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Date and time when the event occurred.</summary>
         public DateTimeOffset? EventDateTime { get; set; }
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new MessageUnpinnedEventMessageDetail and sets the default values.
         /// </summary>

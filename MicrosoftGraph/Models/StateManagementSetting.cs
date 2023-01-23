@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>State Management Setting.</summary>
     public enum StateManagementSetting {
         /// <summary>Not configured.</summary>
         NotConfigured,

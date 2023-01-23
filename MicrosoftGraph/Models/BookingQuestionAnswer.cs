@@ -8,21 +8,57 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The answer given by the user in case the answerInputType is text.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Answer { get; set; }
+#nullable restore
+#else
         public string Answer { get; set; }
+#endif
         /// <summary>The expected answer type. The possible values are: text, radioButton, unknownFutureValue.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.AnswerInputType? AnswerInputType { get; set; }
         /// <summary>In case the answerInputType is radioButton, this will consists of a list of possible answer values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AnswerOptions { get; set; }
+#nullable restore
+#else
         public List<string> AnswerOptions { get; set; }
+#endif
         /// <summary>Indicates whether it is mandatory to answer the custom question.</summary>
         public bool? IsRequired { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The question.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Question { get; set; }
+#nullable restore
+#else
         public string Question { get; set; }
+#endif
         /// <summary>The ID of the custom question.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? QuestionId { get; set; }
+#nullable restore
+#else
         public string QuestionId { get; set; }
+#endif
         /// <summary>The answers selected by the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SelectedOptions { get; set; }
+#nullable restore
+#else
         public List<string> SelectedOptions { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new bookingQuestionAnswer and sets the default values.
         /// </summary>

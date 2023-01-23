@@ -9,37 +9,121 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class WindowsAutopilotDeviceIdentity : Entity, IParsable {
         /// <summary>Addressable user name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddressableUserName { get; set; }
+#nullable restore
+#else
         public string AddressableUserName { get; set; }
+#endif
         /// <summary>AAD Device ID - to be deprecated</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AzureActiveDirectoryDeviceId { get; set; }
+#nullable restore
+#else
         public string AzureActiveDirectoryDeviceId { get; set; }
+#endif
         /// <summary>Display Name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The enrollmentState property</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.EnrollmentState? EnrollmentState { get; set; }
         /// <summary>Group Tag of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GroupTag { get; set; }
+#nullable restore
+#else
         public string GroupTag { get; set; }
+#endif
         /// <summary>Intune Last Contacted Date Time of the Windows autopilot device.</summary>
         public DateTimeOffset? LastContactedDateTime { get; set; }
         /// <summary>Managed Device ID</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ManagedDeviceId { get; set; }
+#nullable restore
+#else
         public string ManagedDeviceId { get; set; }
+#endif
         /// <summary>Oem manufacturer of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Manufacturer { get; set; }
+#nullable restore
+#else
         public string Manufacturer { get; set; }
+#endif
         /// <summary>Model name of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Model { get; set; }
+#nullable restore
+#else
         public string Model { get; set; }
+#endif
         /// <summary>Product Key of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductKey { get; set; }
+#nullable restore
+#else
         public string ProductKey { get; set; }
+#endif
         /// <summary>Purchase Order Identifier of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PurchaseOrderIdentifier { get; set; }
+#nullable restore
+#else
         public string PurchaseOrderIdentifier { get; set; }
+#endif
         /// <summary>Resource Name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceName { get; set; }
+#nullable restore
+#else
         public string ResourceName { get; set; }
+#endif
         /// <summary>Serial number of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SerialNumber { get; set; }
+#nullable restore
+#else
         public string SerialNumber { get; set; }
+#endif
         /// <summary>SKU Number</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SkuNumber { get; set; }
+#nullable restore
+#else
         public string SkuNumber { get; set; }
+#endif
         /// <summary>System Family</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SystemFamily { get; set; }
+#nullable restore
+#else
         public string SystemFamily { get; set; }
+#endif
         /// <summary>User Principal Name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserPrincipalName { get; set; }
+#nullable restore
+#else
         public string UserPrincipalName { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

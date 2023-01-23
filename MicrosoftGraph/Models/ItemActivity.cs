@@ -4,18 +4,33 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ItemActivity : Entity, IParsable {
         /// <summary>An item was accessed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AccessAction? Access { get; set; }
+#nullable restore
+#else
         public AccessAction Access { get; set; }
+#endif
         /// <summary>Details about when the activity took place. Read-only.</summary>
         public DateTimeOffset? ActivityDateTime { get; set; }
         /// <summary>Identity of who performed the action. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Actor { get; set; }
+#nullable restore
+#else
         public IdentitySet Actor { get; set; }
+#endif
         /// <summary>Exposes the driveItem that was the target of this activity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.DriveItem? DriveItem { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.DriveItem DriveItem { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

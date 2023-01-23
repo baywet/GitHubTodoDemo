@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Defines who can join the Teams live event. Possible values are listed in the following table.</summary>
         public BroadcastMeetingAudience? AllowedAudience { get; set; }
         /// <summary>Caption settings of a Teams live event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public BroadcastMeetingCaptionSettings? Captions { get; set; }
+#nullable restore
+#else
         public BroadcastMeetingCaptionSettings Captions { get; set; }
+#endif
         /// <summary>Indicates whether attendee report is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsAttendeeReportEnabled { get; set; }
         /// <summary>Indicates whether Q&amp;A is enabled for this Teams live event. Default value is false.</summary>
@@ -20,7 +26,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether video on demand is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsVideoOnDemandEnabled { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new broadcastMeetingSettings and sets the default values.
         /// </summary>

@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AccessReviewInstanceDecisionItemServicePrincipalResource : AccessReviewInstanceDecisionItemResource, IParsable {
         /// <summary>The appId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppId { get; set; }
+#nullable restore
+#else
         public string AppId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new AccessReviewInstanceDecisionItemServicePrincipalResource and sets the default values.
         /// </summary>

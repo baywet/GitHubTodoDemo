@@ -4,18 +4,39 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class MessageRule : Entity, IParsable {
         /// <summary>Actions to be taken on a message when the corresponding conditions are fulfilled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MessageRuleActions? Actions { get; set; }
+#nullable restore
+#else
         public MessageRuleActions Actions { get; set; }
+#endif
         /// <summary>Conditions that when fulfilled, will trigger the corresponding actions for that rule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MessageRulePredicates? Conditions { get; set; }
+#nullable restore
+#else
         public MessageRulePredicates Conditions { get; set; }
+#endif
         /// <summary>The display name of the rule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Exception conditions for the rule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MessageRulePredicates? Exceptions { get; set; }
+#nullable restore
+#else
         public MessageRulePredicates Exceptions { get; set; }
+#endif
         /// <summary>Indicates whether the rule is in an error condition. Read-only.</summary>
         public bool? HasError { get; set; }
         /// <summary>Indicates whether the rule is enabled to be applied to messages.</summary>

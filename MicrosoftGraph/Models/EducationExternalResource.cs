@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationExternalResource : EducationResource, IParsable {
         /// <summary>Location of the resource. Required</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebUrl { get; set; }
+#nullable restore
+#else
         public string WebUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EducationExternalResource and sets the default values.
         /// </summary>

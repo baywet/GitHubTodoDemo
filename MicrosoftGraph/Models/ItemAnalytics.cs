@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ItemAnalytics : Entity, IParsable {
         /// <summary>The allTime property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ItemActivityStat? AllTime { get; set; }
+#nullable restore
+#else
         public ItemActivityStat AllTime { get; set; }
+#endif
         /// <summary>The itemActivityStats property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ItemActivityStat>? ItemActivityStats { get; set; }
+#nullable restore
+#else
         public List<ItemActivityStat> ItemActivityStats { get; set; }
+#endif
         /// <summary>The lastSevenDays property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ItemActivityStat? LastSevenDays { get; set; }
+#nullable restore
+#else
         public ItemActivityStat LastSevenDays { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

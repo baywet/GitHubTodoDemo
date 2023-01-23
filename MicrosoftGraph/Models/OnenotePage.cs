@@ -4,32 +4,77 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class OnenotePage : OnenoteEntitySchemaObjectModel, IParsable {
         /// <summary>The page&apos;s HTML content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Content { get; set; }
+#nullable restore
+#else
         public byte[] Content { get; set; }
+#endif
         /// <summary>The URL for the page&apos;s HTML content.  Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContentUrl { get; set; }
+#nullable restore
+#else
         public string ContentUrl { get; set; }
+#endif
         /// <summary>The unique identifier of the application that created the page. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedByAppId { get; set; }
+#nullable restore
+#else
         public string CreatedByAppId { get; set; }
+#endif
         /// <summary>The date and time when the page was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The indentation level of the page. Read-only.</summary>
         public int? Level { get; set; }
         /// <summary>Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it &apos;s installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PageLinks? Links { get; set; }
+#nullable restore
+#else
         public PageLinks Links { get; set; }
+#endif
         /// <summary>The order of the page within its parent section. Read-only.</summary>
         public int? Order { get; set; }
         /// <summary>The notebook that contains the page.  Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Notebook? ParentNotebook { get; set; }
+#nullable restore
+#else
         public Notebook ParentNotebook { get; set; }
+#endif
         /// <summary>The section that contains the page. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OnenoteSection? ParentSection { get; set; }
+#nullable restore
+#else
         public OnenoteSection ParentSection { get; set; }
+#endif
         /// <summary>The title of the page.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
         public string Title { get; set; }
+#endif
         /// <summary>The userTags property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? UserTags { get; set; }
+#nullable restore
+#else
         public List<string> UserTags { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new onenotePage and sets the default values.
         /// </summary>

@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.Security.DetectionStatus? DetectionStatus { get; set; }
         /// <summary>The file details.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Security.FileDetails? FileDetails { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Security.FileDetails FileDetails { get; set; }
+#endif
         /// <summary>A unique identifier assigned to a device by Microsoft Defender for Endpoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MdeDeviceId { get; set; }
+#nullable restore
+#else
         public string MdeDeviceId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -10,19 +10,55 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Contains properties for Windows device type.</summary>
         public WindowsDeviceType? ApplicableDeviceTypes { get; set; }
         /// <summary>The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MobileContainedApp>? CommittedContainedApps { get; set; }
+#nullable restore
+#else
         public List<MobileContainedApp> CommittedContainedApps { get; set; }
+#endif
         /// <summary>The Identity Name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityName { get; set; }
+#nullable restore
+#else
         public string IdentityName { get; set; }
+#endif
         /// <summary>The Identity Publisher Hash.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityPublisherHash { get; set; }
+#nullable restore
+#else
         public string IdentityPublisherHash { get; set; }
+#endif
         /// <summary>The Identity Resource Identifier.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityResourceIdentifier { get; set; }
+#nullable restore
+#else
         public string IdentityResourceIdentifier { get; set; }
+#endif
         /// <summary>The identity version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityVersion { get; set; }
+#nullable restore
+#else
         public string IdentityVersion { get; set; }
+#endif
         /// <summary>Whether or not the app is a bundle.</summary>
         public bool? IsBundle { get; set; }
         /// <summary>The minimum operating system required for a Windows mobile app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WindowsMinimumOperatingSystem? MinimumSupportedOperatingSystem { get; set; }
+#nullable restore
+#else
         public WindowsMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new WindowsUniversalAppX and sets the default values.
         /// </summary>

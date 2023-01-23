@@ -8,13 +8,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The aggregations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SearchAggregation>? Aggregations { get; set; }
+#nullable restore
+#else
         public List<SearchAggregation> Aggregations { get; set; }
+#endif
         /// <summary>A collection of the search results.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SearchHit>? Hits { get; set; }
+#nullable restore
+#else
         public List<SearchHit> Hits { get; set; }
+#endif
         /// <summary>Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly.</summary>
         public bool? MoreResultsAvailable { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query.</summary>
         public int? Total { get; set; }
         /// <summary>

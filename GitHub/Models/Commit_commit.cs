@@ -8,19 +8,55 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The author property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitUser? Author { get; set; }
+#nullable restore
+#else
         public GitUser Author { get; set; }
+#endif
         /// <summary>The comment_count property</summary>
         public int? Comment_count { get; set; }
         /// <summary>The committer property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitUser? Committer { get; set; }
+#nullable restore
+#else
         public GitUser Committer { get; set; }
+#endif
         /// <summary>The message property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Message { get; set; }
+#nullable restore
+#else
         public string Message { get; set; }
+#endif
         /// <summary>The tree property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Commit_commit_tree? Tree { get; set; }
+#nullable restore
+#else
         public Commit_commit_tree Tree { get; set; }
+#endif
         /// <summary>The url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
         public string Url { get; set; }
+#endif
         /// <summary>The verification property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.GitHub.Models.Verification? Verification { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.GitHub.Models.Verification Verification { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Commit_commit and sets the default values.
         /// </summary>

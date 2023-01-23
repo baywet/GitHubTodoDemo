@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OpenShift : ChangeTrackedEntity, IParsable {
         /// <summary>An unpublished open shift.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OpenShiftItem? DraftOpenShift { get; set; }
+#nullable restore
+#else
         public OpenShiftItem DraftOpenShift { get; set; }
+#endif
         /// <summary>ID for the scheduling group that the open shift belongs to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SchedulingGroupId { get; set; }
+#nullable restore
+#else
         public string SchedulingGroupId { get; set; }
+#endif
         /// <summary>A published open shift.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OpenShiftItem? SharedOpenShift { get; set; }
+#nullable restore
+#else
         public OpenShiftItem SharedOpenShift { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new OpenShift and sets the default values.
         /// </summary>

@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Contains all supported file system detection type.</summary>
     public enum Win32LobAppFileSystemOperationType {
         /// <summary>Not configured.</summary>
         NotConfigured,

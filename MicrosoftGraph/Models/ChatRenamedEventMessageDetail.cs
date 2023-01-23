@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ChatRenamedEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>The updated name of the chat.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChatDisplayName { get; set; }
+#nullable restore
+#else
         public string ChatDisplayName { get; set; }
+#endif
         /// <summary>Unique identifier of the chat.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChatId { get; set; }
+#nullable restore
+#else
         public string ChatId { get; set; }
+#endif
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ChatRenamedEventMessageDetail and sets the default values.
         /// </summary>

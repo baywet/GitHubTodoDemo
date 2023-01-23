@@ -6,13 +6,31 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TargetedManagedAppConfiguration : ManagedAppConfiguration, IParsable {
         /// <summary>List of apps to which the policy is deployed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedMobileApp>? Apps { get; set; }
+#nullable restore
+#else
         public List<ManagedMobileApp> Apps { get; set; }
+#endif
         /// <summary>Navigation property to list of inclusion and exclusion groups to which the policy is deployed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<TargetedManagedAppPolicyAssignment>? Assignments { get; set; }
+#nullable restore
+#else
         public List<TargetedManagedAppPolicyAssignment> Assignments { get; set; }
+#endif
         /// <summary>Count of apps to which the current policy is deployed.</summary>
         public int? DeployedAppCount { get; set; }
         /// <summary>Navigation property to deployment summary of the configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ManagedAppPolicyDeploymentSummary? DeploymentSummary { get; set; }
+#nullable restore
+#else
         public ManagedAppPolicyDeploymentSummary DeploymentSummary { get; set; }
+#endif
         /// <summary>Indicates if the policy is deployed to any inclusion groups or not.</summary>
         public bool? IsAssigned { get; set; }
         /// <summary>

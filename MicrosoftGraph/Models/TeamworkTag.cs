@@ -4,22 +4,43 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class TeamworkTag : Entity, IParsable {
         /// <summary>The description of the tag as it will appear to the user in Microsoft Teams.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>The name of the tag as it will appear to the user in Microsoft Teams.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The number of users assigned to the tag.</summary>
         public int? MemberCount { get; set; }
         /// <summary>Users assigned to the tag.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<TeamworkTagMember>? Members { get; set; }
+#nullable restore
+#else
         public List<TeamworkTagMember> Members { get; set; }
+#endif
         /// <summary>The type of the tag. Default is standard.</summary>
         public TeamworkTagType? TagType { get; set; }
         /// <summary>ID of the team in which the tag is defined.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamId { get; set; }
+#nullable restore
+#else
         public string TeamId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

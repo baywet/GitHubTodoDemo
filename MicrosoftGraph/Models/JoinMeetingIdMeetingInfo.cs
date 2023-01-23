@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class JoinMeetingIdMeetingInfo : MeetingInfo, IParsable {
         /// <summary>The ID used to join the meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JoinMeetingId { get; set; }
+#nullable restore
+#else
         public string JoinMeetingId { get; set; }
+#endif
         /// <summary>The passcode used to join the meeting. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Passcode { get; set; }
+#nullable restore
+#else
         public string Passcode { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new JoinMeetingIdMeetingInfo and sets the default values.
         /// </summary>

@@ -13,7 +13,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of conflict devices</summary>
         public int? ConflictDeviceCount { get; set; }
         /// <summary>Not yet documented</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceComplianceSettingState>? DeviceComplianceSettingStates { get; set; }
+#nullable restore
+#else
         public List<DeviceComplianceSettingState> DeviceComplianceSettingStates { get; set; }
+#endif
         /// <summary>Number of error devices</summary>
         public int? ErrorDeviceCount { get; set; }
         /// <summary>Number of NonCompliant devices</summary>
@@ -25,9 +31,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of remediated devices</summary>
         public int? RemediatedDeviceCount { get; set; }
         /// <summary>The setting class name and property name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Setting { get; set; }
+#nullable restore
+#else
         public string Setting { get; set; }
+#endif
         /// <summary>Name of the setting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SettingName { get; set; }
+#nullable restore
+#else
         public string SettingName { get; set; }
+#endif
         /// <summary>Number of unknown devices</summary>
         public int? UnknownDeviceCount { get; set; }
         /// <summary>

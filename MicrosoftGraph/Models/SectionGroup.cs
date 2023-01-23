@@ -4,22 +4,55 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class SectionGroup : OnenoteEntityHierarchyModel, IParsable {
         /// <summary>The notebook that contains the section group. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Notebook? ParentNotebook { get; set; }
+#nullable restore
+#else
         public Notebook ParentNotebook { get; set; }
+#endif
         /// <summary>The section group that contains the section group. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SectionGroup? ParentSectionGroup { get; set; }
+#nullable restore
+#else
         public SectionGroup ParentSectionGroup { get; set; }
+#endif
         /// <summary>The section groups in the section. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SectionGroup>? SectionGroups { get; set; }
+#nullable restore
+#else
         public List<SectionGroup> SectionGroups { get; set; }
+#endif
         /// <summary>The URL for the sectionGroups navigation property, which returns all the section groups in the section group. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SectionGroupsUrl { get; set; }
+#nullable restore
+#else
         public string SectionGroupsUrl { get; set; }
+#endif
         /// <summary>The sections in the section group. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OnenoteSection>? Sections { get; set; }
+#nullable restore
+#else
         public List<OnenoteSection> Sections { get; set; }
+#endif
         /// <summary>The URL for the sections navigation property, which returns all the sections in the section group. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SectionsUrl { get; set; }
+#nullable restore
+#else
         public string SectionsUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new sectionGroup and sets the default values.
         /// </summary>

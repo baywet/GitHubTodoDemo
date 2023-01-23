@@ -10,13 +10,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The cloudProvider property</summary>
         public VmCloudProvider? CloudProvider { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Unique identifier of the Azure resource.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
         public string ResourceId { get; set; }
+#endif
         /// <summary>Unique identifier of the Azure subscription the customer tenant belongs to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubscriptionId { get; set; }
+#nullable restore
+#else
         public string SubscriptionId { get; set; }
+#endif
         /// <summary>Unique identifier of the virtual machine instance.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VmId { get; set; }
+#nullable restore
+#else
         public string VmId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new vmMetadata and sets the default values.
         /// </summary>

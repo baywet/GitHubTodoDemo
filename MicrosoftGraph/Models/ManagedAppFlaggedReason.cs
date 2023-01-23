@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>The reason for which a user has been flagged</summary>
     public enum ManagedAppFlaggedReason {
         /// <summary>No issue.</summary>
         None,

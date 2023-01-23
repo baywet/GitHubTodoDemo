@@ -4,20 +4,41 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class SimulationAutomation : Entity, IParsable {
         /// <summary>Identity of the user who created the attack simulation automation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EmailIdentity? CreatedBy { get; set; }
+#nullable restore
+#else
         public EmailIdentity CreatedBy { get; set; }
+#endif
         /// <summary>Date and time when the attack simulation automation was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Description of the attack simulation automation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Display name of the attack simulation automation. Supports $filter and $orderby.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Identity of the user who most recently modified the attack simulation automation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EmailIdentity? LastModifiedBy { get; set; }
+#nullable restore
+#else
         public EmailIdentity LastModifiedBy { get; set; }
+#endif
         /// <summary>Date and time when the attack simulation automation was most recently modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Date and time of the latest run of the attack simulation automation.</summary>
@@ -25,7 +46,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Date and time of the upcoming run of the attack simulation automation.</summary>
         public DateTimeOffset? NextRunDateTime { get; set; }
         /// <summary>A collection of simulation automation runs.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SimulationAutomationRun>? Runs { get; set; }
+#nullable restore
+#else
         public List<SimulationAutomationRun> Runs { get; set; }
+#endif
         /// <summary>Status of the attack simulation automation. Supports $filter and $orderby. The possible values are: unknown, draft, notRunning, running, completed, unknownFutureValue.</summary>
         public SimulationAutomationStatus? Status { get; set; }
         /// <summary>

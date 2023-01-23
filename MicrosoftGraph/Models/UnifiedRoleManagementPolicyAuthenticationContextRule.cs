@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UnifiedRoleManagementPolicyAuthenticationContextRule : UnifiedRoleManagementPolicyRule, IParsable {
         /// <summary>The value of the authentication context claim.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClaimValue { get; set; }
+#nullable restore
+#else
         public string ClaimValue { get; set; }
+#endif
         /// <summary>Whether this rule is enabled.</summary>
         public bool? IsEnabled { get; set; }
         /// <summary>

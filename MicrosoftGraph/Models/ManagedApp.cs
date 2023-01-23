@@ -8,7 +8,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A managed (MAM) application&apos;s availability.</summary>
         public ManagedAppAvailability? AppAvailability { get; set; }
         /// <summary>The Application&apos;s version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Version { get; set; }
+#nullable restore
+#else
         public string Version { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ManagedApp and sets the default values.
         /// </summary>

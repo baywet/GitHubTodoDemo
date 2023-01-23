@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WindowsPhone81CompliancePolicy : DeviceCompliancePolicy, IParsable {
         /// <summary>Maximum Windows Phone version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMaximumVersion { get; set; }
+#nullable restore
+#else
         public string OsMaximumVersion { get; set; }
+#endif
         /// <summary>Minimum Windows Phone version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMinimumVersion { get; set; }
+#nullable restore
+#else
         public string OsMinimumVersion { get; set; }
+#endif
         /// <summary>Whether or not to block syncing the calendar.</summary>
         public bool? PasswordBlockSimple { get; set; }
         /// <summary>Number of days before the password expires.</summary>

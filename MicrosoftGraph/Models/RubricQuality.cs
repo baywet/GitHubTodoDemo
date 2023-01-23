@@ -8,15 +8,45 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The collection of criteria for this rubric quality.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RubricCriterion>? Criteria { get; set; }
+#nullable restore
+#else
         public List<RubricCriterion> Criteria { get; set; }
+#endif
         /// <summary>The description of this rubric quality.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EducationItemBody? Description { get; set; }
+#nullable restore
+#else
         public EducationItemBody Description { get; set; }
+#endif
         /// <summary>The name of this rubric quality.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The ID of this resource.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? QualityId { get; set; }
+#nullable restore
+#else
         public string QualityId { get; set; }
+#endif
         /// <summary>If present, a numerical weight for this quality.  Weights must add up to 100.</summary>
         public float? Weight { get; set; }
         /// <summary>

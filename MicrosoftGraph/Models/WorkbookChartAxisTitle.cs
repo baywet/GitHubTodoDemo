@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookChartAxisTitle : Entity, IParsable {
         /// <summary>Represents the formatting of chart axis title. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartAxisTitleFormat? Format { get; set; }
+#nullable restore
+#else
         public WorkbookChartAxisTitleFormat Format { get; set; }
+#endif
         /// <summary>Represents the axis title.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Text { get; set; }
+#nullable restore
+#else
         public string Text { get; set; }
+#endif
         /// <summary>A boolean that specifies the visibility of an axis title.</summary>
         public bool? Visible { get; set; }
         /// <summary>

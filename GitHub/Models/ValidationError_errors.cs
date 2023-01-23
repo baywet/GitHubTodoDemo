@@ -8,17 +8,47 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Code { get; set; }
+#nullable restore
+#else
         public string Code { get; set; }
+#endif
         /// <summary>The field property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Field { get; set; }
+#nullable restore
+#else
         public string Field { get; set; }
+#endif
         /// <summary>The index property</summary>
         public int? Index { get; set; }
         /// <summary>The message property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Message { get; set; }
+#nullable restore
+#else
         public string Message { get; set; }
+#endif
         /// <summary>The resource property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Resource { get; set; }
+#nullable restore
+#else
         public string Resource { get; set; }
+#endif
         /// <summary>The value property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Pulls? Value { get; set; }
+#nullable restore
+#else
         public Pulls Value { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ValidationError_errors and sets the default values.
         /// </summary>
@@ -69,9 +99,21 @@ namespace GitHubTodoDemo.GitHub.Models {
             /// <summary>Composed type representation for type integer</summary>
             public int? Integer { get; set; }
             /// <summary>Serialization hint for the current wrapper.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? SerializationHint { get; set; }
+#nullable restore
+#else
             public string SerializationHint { get; set; }
+#endif
             /// <summary>Composed type representation for type string</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
             public string String { get; set; }
+#endif
             /// <summary>
             /// Instantiates a new pulls and sets the default values.
             /// </summary>

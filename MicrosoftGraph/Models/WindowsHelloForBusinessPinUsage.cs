@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Windows Hello for Business pin usage options</summary>
     public enum WindowsHelloForBusinessPinUsage {
         /// <summary>Allowed the usage of certain pin rule</summary>
         Allowed,

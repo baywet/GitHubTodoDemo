@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class GroupAssignmentTarget : DeviceAndAppManagementAssignmentTarget, IParsable {
         /// <summary>The group Id that is the target of the assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GroupId { get; set; }
+#nullable restore
+#else
         public string GroupId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new GroupAssignmentTarget and sets the default values.
         /// </summary>

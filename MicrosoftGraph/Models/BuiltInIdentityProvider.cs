@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class BuiltInIdentityProvider : IdentityProviderBase, IParsable {
         /// <summary>The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityProviderType { get; set; }
+#nullable restore
+#else
         public string IdentityProviderType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new BuiltInIdentityProvider and sets the default values.
         /// </summary>

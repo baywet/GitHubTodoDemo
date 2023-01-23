@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Tenant mobile device management subscription state.</summary>
     public enum DeviceManagementSubscriptionState {
         /// <summary>Pending</summary>
         Pending,

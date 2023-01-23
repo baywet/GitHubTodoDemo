@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible types of an Apple Volume Purchase Program token.</summary>
     public enum VppTokenAccountType {
         /// <summary>Apple Volume Purchase Program token associated with an business program.</summary>
         Business,

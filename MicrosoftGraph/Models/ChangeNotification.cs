@@ -10,19 +10,55 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The changeType property</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.ChangeType? ChangeType { get; set; }
         /// <summary>Value of the clientState property sent in the subscription request (if any). The maximum length is 255 characters. The client can check whether the change notification came from the service by comparing the values of the clientState property. The value of the clientState property sent with the subscription is compared with the value of the clientState property received with each change notification. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientState { get; set; }
+#nullable restore
+#else
         public string ClientState { get; set; }
+#endif
         /// <summary>(Preview) Encrypted content attached with the change notification. Only provided if encryptionCertificate and includeResourceData were defined during the subscription request and if the resource supports it. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ChangeNotificationEncryptedContent? EncryptedContent { get; set; }
+#nullable restore
+#else
         public ChangeNotificationEncryptedContent EncryptedContent { get; set; }
+#endif
         /// <summary>Unique ID for the notification. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
         public string Id { get; set; }
+#endif
         /// <summary>The type of lifecycle notification if the current notification is a lifecycle notification. Optional. Supported values are missed, subscriptionRemoved, reauthorizationRequired. Optional.</summary>
         public LifecycleEventType? LifecycleEvent { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The URI of the resource that emitted the change notification relative to https://graph.microsoft.com. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Resource { get; set; }
+#nullable restore
+#else
         public string Resource { get; set; }
+#endif
         /// <summary>The content of this property depends on the type of resource being subscribed to. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResourceData? ResourceData { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.ResourceData ResourceData { get; set; }
+#endif
         /// <summary>The expiration time for the subscription. Required.</summary>
         public DateTimeOffset? SubscriptionExpirationDateTime { get; set; }
         /// <summary>The unique identifier of the subscription that generated the notification.Required.</summary>

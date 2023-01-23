@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class MeetingAttendanceReport : Entity, IParsable {
         /// <summary>List of attendance records of an attendance report. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AttendanceRecord>? AttendanceRecords { get; set; }
+#nullable restore
+#else
         public List<AttendanceRecord> AttendanceRecords { get; set; }
+#endif
         /// <summary>UTC time when the meeting ended. Read-only.</summary>
         public DateTimeOffset? MeetingEndDateTime { get; set; }
         /// <summary>UTC time when the meeting started. Read-only.</summary>

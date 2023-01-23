@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class UnifiedRoleManagementPolicyApprovalRule : UnifiedRoleManagementPolicyRule, IParsable {
         /// <summary>The settings for approval of the role assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ApprovalSettings? Setting { get; set; }
+#nullable restore
+#else
         public ApprovalSettings Setting { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new UnifiedRoleManagementPolicyApprovalRule and sets the default values.
         /// </summary>

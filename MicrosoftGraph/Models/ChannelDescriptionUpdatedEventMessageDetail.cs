@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ChannelDescriptionUpdatedEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>The updated description of the channel.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChannelDescription { get; set; }
+#nullable restore
+#else
         public string ChannelDescription { get; set; }
+#endif
         /// <summary>Unique identifier of the channel.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChannelId { get; set; }
+#nullable restore
+#else
         public string ChannelId { get; set; }
+#endif
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ChannelDescriptionUpdatedEventMessageDetail and sets the default values.
         /// </summary>

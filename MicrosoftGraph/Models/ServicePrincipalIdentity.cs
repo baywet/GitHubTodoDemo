@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ServicePrincipalIdentity : Identity, IParsable {
         /// <summary>The application identifier of the service principal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppId { get; set; }
+#nullable restore
+#else
         public string AppId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ServicePrincipalIdentity and sets the default values.
         /// </summary>

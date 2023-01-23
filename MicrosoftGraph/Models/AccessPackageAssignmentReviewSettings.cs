@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.</summary>
         public AccessReviewExpirationBehavior? ExpirationBehavior { get; set; }
         /// <summary>This collection specifies the users who will be the fallback reviewers when the primary reviewers don&apos;t respond.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SubjectSet>? FallbackReviewers { get; set; }
+#nullable restore
+#else
         public List<SubjectSet> FallbackReviewers { get; set; }
+#endif
         /// <summary>If true, access reviews are required for assignments through this policy.</summary>
         public bool? IsEnabled { get; set; }
         /// <summary>Specifies whether to display recommendations to the reviewer. The default value is true.</summary>
@@ -20,11 +26,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Specifies whether the principals can review their own assignments.</summary>
         public bool? IsSelfReview { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>This collection specifies the users or group of users who will review the access package assignments.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SubjectSet>? PrimaryReviewers { get; set; }
+#nullable restore
+#else
         public List<SubjectSet> PrimaryReviewers { get; set; }
+#endif
         /// <summary>When the first review should start and how often it should recur.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EntitlementManagementSchedule? Schedule { get; set; }
+#nullable restore
+#else
         public EntitlementManagementSchedule Schedule { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new accessPackageAssignmentReviewSettings and sets the default values.
         /// </summary>

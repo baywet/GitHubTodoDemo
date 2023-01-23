@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values for applicationGuardBlockFileTransfer</summary>
     public enum ApplicationGuardBlockFileTransferType {
         /// <summary>Not Configured</summary>
         NotConfigured,

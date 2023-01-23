@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EmailAuthenticationMethod : AuthenticationMethod, IParsable {
         /// <summary>The email address registered to this user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EmailAddress { get; set; }
+#nullable restore
+#else
         public string EmailAddress { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EmailAuthenticationMethod and sets the default values.
         /// </summary>

@@ -10,9 +10,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign.</summary>
         public double? CompromisedRate { get; set; }
         /// <summary>List of simulation events in an attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SimulationEvent>? Events { get; set; }
+#nullable restore
+#else
         public List<SimulationEvent> Events { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new simulationEventsContent and sets the default values.
         /// </summary>

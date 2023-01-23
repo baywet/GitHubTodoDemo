@@ -4,22 +4,43 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class Participant : Entity, IParsable {
         /// <summary>The info property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ParticipantInfo? Info { get; set; }
+#nullable restore
+#else
         public ParticipantInfo Info { get; set; }
+#endif
         /// <summary>true if the participant is in lobby.</summary>
         public bool? IsInLobby { get; set; }
         /// <summary>true if the participant is muted (client or server muted).</summary>
         public bool? IsMuted { get; set; }
         /// <summary>The list of media streams.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MediaStream>? MediaStreams { get; set; }
+#nullable restore
+#else
         public List<MediaStream> MediaStreams { get; set; }
+#endif
         /// <summary>A blob of data provided by the participant in the roster.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Metadata { get; set; }
+#nullable restore
+#else
         public string Metadata { get; set; }
+#endif
         /// <summary>Information about whether the participant has recording capability.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.RecordingInfo? RecordingInfo { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.RecordingInfo RecordingInfo { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

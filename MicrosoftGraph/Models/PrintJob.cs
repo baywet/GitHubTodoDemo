@@ -4,28 +4,67 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class PrintJob : Entity, IParsable {
         /// <summary>The configuration property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrintJobConfiguration? Configuration { get; set; }
+#nullable restore
+#else
         public PrintJobConfiguration Configuration { get; set; }
+#endif
         /// <summary>The createdBy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UserIdentity? CreatedBy { get; set; }
+#nullable restore
+#else
         public UserIdentity CreatedBy { get; set; }
+#endif
         /// <summary>The DateTimeOffset when the job was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The documents property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PrintDocument>? Documents { get; set; }
+#nullable restore
+#else
         public List<PrintDocument> Documents { get; set; }
+#endif
         /// <summary>If true, document can be fetched by printer.</summary>
         public bool? IsFetchable { get; set; }
         /// <summary>Contains the source job URL, if the job has been redirected from another printer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedirectedFrom { get; set; }
+#nullable restore
+#else
         public string RedirectedFrom { get; set; }
+#endif
         /// <summary>Contains the destination job URL, if the job has been redirected to another printer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedirectedTo { get; set; }
+#nullable restore
+#else
         public string RedirectedTo { get; set; }
+#endif
         /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrintJobStatus? Status { get; set; }
+#nullable restore
+#else
         public PrintJobStatus Status { get; set; }
+#endif
         /// <summary>A list of printTasks that were triggered by this print job.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PrintTask>? Tasks { get; set; }
+#nullable restore
+#else
         public List<PrintTask> Tasks { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -10,15 +10,39 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Optional. Whether to hide the participant from the roster.</summary>
         public bool? Hidden { get; set; }
         /// <summary>The identity property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Identity { get; set; }
+#nullable restore
+#else
         public IdentitySet Identity { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Optional. The ID of the target participant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParticipantId { get; set; }
+#nullable restore
+#else
         public string ParticipantId { get; set; }
+#endif
         /// <summary>Optional. Whether to remove them from the main mixer.</summary>
         public bool? RemoveFromDefaultAudioRoutingGroup { get; set; }
         /// <summary>Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReplacesCallId { get; set; }
+#nullable restore
+#else
         public string ReplacesCallId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new invitationParticipantInfo and sets the default values.
         /// </summary>

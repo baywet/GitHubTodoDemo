@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SharedWithChannelTeamInfo : TeamInfo, IParsable {
         /// <summary>A collection of team members who have access to the shared channel.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ConversationMember>? AllowedMembers { get; set; }
+#nullable restore
+#else
         public List<ConversationMember> AllowedMembers { get; set; }
+#endif
         /// <summary>Indicates whether the team is the host of the channel.</summary>
         public bool? IsHostTeam { get; set; }
         /// <summary>

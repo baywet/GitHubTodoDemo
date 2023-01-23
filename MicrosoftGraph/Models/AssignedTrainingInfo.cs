@@ -12,9 +12,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of users who completed the training in an attack simulation and training campaign.</summary>
         public int? CompletedUserCount { get; set; }
         /// <summary>Display name of the training in an attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new assignedTrainingInfo and sets the default values.
         /// </summary>

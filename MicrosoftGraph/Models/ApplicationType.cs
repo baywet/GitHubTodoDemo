@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible types of Application</summary>
     public enum ApplicationType {
         /// <summary>The windows universal application</summary>
         Universal,

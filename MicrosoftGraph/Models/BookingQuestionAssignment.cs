@@ -10,9 +10,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The ID of the custom question.</summary>
         public bool? IsRequired { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Indicates whether it is mandatory to answer the custom question.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? QuestionId { get; set; }
+#nullable restore
+#else
         public string QuestionId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new bookingQuestionAssignment and sets the default values.
         /// </summary>

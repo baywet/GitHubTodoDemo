@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OrganizationalBranding : OrganizationalBrandingProperties, IParsable {
         /// <summary>Add different branding based on a locale.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OrganizationalBrandingLocalization>? Localizations { get; set; }
+#nullable restore
+#else
         public List<OrganizationalBrandingLocalization> Localizations { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new OrganizationalBranding and sets the default values.
         /// </summary>

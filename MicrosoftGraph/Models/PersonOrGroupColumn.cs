@@ -10,11 +10,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether multiple values can be selected from the source.</summary>
         public bool? AllowMultipleSelection { get; set; }
         /// <summary>Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChooseFromType { get; set; }
+#nullable restore
+#else
         public string ChooseFromType { get; set; }
+#endif
         /// <summary>How to display the information about the person or group chosen. See below.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayAs { get; set; }
+#nullable restore
+#else
         public string DisplayAs { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new personOrGroupColumn and sets the default values.
         /// </summary>

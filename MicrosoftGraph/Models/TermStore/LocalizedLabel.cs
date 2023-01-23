@@ -10,11 +10,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
         /// <summary>Indicates whether the label is the default label.</summary>
         public bool? IsDefault { get; set; }
         /// <summary>The language tag for the label.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LanguageTag { get; set; }
+#nullable restore
+#else
         public string LanguageTag { get; set; }
+#endif
         /// <summary>The name of the label.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
         public string Name { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new localizedLabel and sets the default values.
         /// </summary>

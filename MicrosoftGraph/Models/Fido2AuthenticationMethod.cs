@@ -6,17 +6,41 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Fido2AuthenticationMethod : AuthenticationMethod, IParsable {
         /// <summary>Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AaGuid { get; set; }
+#nullable restore
+#else
         public string AaGuid { get; set; }
+#endif
         /// <summary>The attestation certificate(s) attached to this security key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AttestationCertificates { get; set; }
+#nullable restore
+#else
         public List<string> AttestationCertificates { get; set; }
+#endif
         /// <summary>The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.AttestationLevel? AttestationLevel { get; set; }
         /// <summary>The timestamp when this key was registered to the user.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The display name of the key as given by the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The manufacturer-assigned model of the FIDO2 security key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Model { get; set; }
+#nullable restore
+#else
         public string Model { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Fido2AuthenticationMethod and sets the default values.
         /// </summary>

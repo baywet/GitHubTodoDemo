@@ -6,15 +6,39 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OptionalClaims : IAdditionalDataHolder, IParsable {
         /// <summary>The optional claims returned in the JWT access token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OptionalClaim>? AccessToken { get; set; }
+#nullable restore
+#else
         public List<OptionalClaim> AccessToken { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The optional claims returned in the JWT ID token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OptionalClaim>? IdToken { get; set; }
+#nullable restore
+#else
         public List<OptionalClaim> IdToken { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The optional claims returned in the SAML token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OptionalClaim>? Saml2Token { get; set; }
+#nullable restore
+#else
         public List<OptionalClaim> Saml2Token { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new optionalClaims and sets the default values.
         /// </summary>

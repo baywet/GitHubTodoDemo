@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ServiceAnnouncementBase : Entity, IParsable {
         /// <summary>Additional details about service event. This property doesn&apos;t support filters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<KeyValuePair>? Details { get; set; }
+#nullable restore
+#else
         public List<KeyValuePair> Details { get; set; }
+#endif
         /// <summary>The end time of the service event.</summary>
         public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>The last modified time of the service event.</summary>
@@ -17,7 +20,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The start time of the service event.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>The title of the service event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
         public string Title { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

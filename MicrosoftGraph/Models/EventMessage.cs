@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EventMessage : Message, IParsable {
         /// <summary>The endDateTime property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? EndDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone EndDateTime { get; set; }
+#endif
         /// <summary>The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Event? Event { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Event Event { get; set; }
+#endif
         /// <summary>The isAllDay property</summary>
         public bool? IsAllDay { get; set; }
         /// <summary>The isDelegated property</summary>
@@ -16,13 +28,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The isOutOfDate property</summary>
         public bool? IsOutOfDate { get; set; }
         /// <summary>The location property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Location? Location { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Location Location { get; set; }
+#endif
         /// <summary>The meetingMessageType property</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.MeetingMessageType? MeetingMessageType { get; set; }
         /// <summary>The recurrence property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PatternedRecurrence? Recurrence { get; set; }
+#nullable restore
+#else
         public PatternedRecurrence Recurrence { get; set; }
+#endif
         /// <summary>The startDateTime property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? StartDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone StartDateTime { get; set; }
+#endif
         /// <summary>The type property</summary>
         public EventType? Type { get; set; }
         /// <summary>

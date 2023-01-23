@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ConversationMemberRoleUpdatedEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>Roles for the coversation member user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ConversationMemberRoles { get; set; }
+#nullable restore
+#else
         public List<string> ConversationMemberRoles { get; set; }
+#endif
         /// <summary>Identity of the conversation member user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TeamworkUserIdentity? ConversationMemberUser { get; set; }
+#nullable restore
+#else
         public TeamworkUserIdentity ConversationMemberUser { get; set; }
+#endif
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ConversationMemberRoleUpdatedEventMessageDetail and sets the default values.
         /// </summary>

@@ -13,9 +13,21 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The merged property</summary>
         public bool? Merged { get; set; }
         /// <summary>The message property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Message { get; set; }
+#nullable restore
+#else
         public string Message { get; set; }
+#endif
         /// <summary>The sha property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Sha { get; set; }
+#nullable restore
+#else
         public string Sha { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PullRequestMergeResult and sets the default values.
         /// </summary>

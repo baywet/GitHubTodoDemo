@@ -10,11 +10,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether captions are enabled for this Teams live event.</summary>
         public bool? IsCaptionEnabled { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The spoken language.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SpokenLanguage { get; set; }
+#nullable restore
+#else
         public string SpokenLanguage { get; set; }
+#endif
         /// <summary>The translation languages (choose up to 6).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? TranslationLanguages { get; set; }
+#nullable restore
+#else
         public List<string> TranslationLanguages { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new broadcastMeetingCaptionSettings and sets the default values.
         /// </summary>

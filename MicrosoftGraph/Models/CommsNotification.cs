@@ -10,9 +10,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The changeType property</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.ChangeType? ChangeType { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>URI of the resource that was changed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceUrl { get; set; }
+#nullable restore
+#else
         public string ResourceUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new commsNotification and sets the default values.
         /// </summary>

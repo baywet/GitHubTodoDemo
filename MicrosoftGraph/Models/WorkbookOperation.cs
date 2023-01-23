@@ -4,14 +4,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class WorkbookOperation : Entity, IParsable {
         /// <summary>The error returned by the operation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookOperationError? Error { get; set; }
+#nullable restore
+#else
         public WorkbookOperationError Error { get; set; }
+#endif
         /// <summary>The resource URI for the result.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceLocation { get; set; }
+#nullable restore
+#else
         public string ResourceLocation { get; set; }
+#endif
         /// <summary>The status property</summary>
         public WorkbookOperationStatus? Status { get; set; }
         /// <summary>

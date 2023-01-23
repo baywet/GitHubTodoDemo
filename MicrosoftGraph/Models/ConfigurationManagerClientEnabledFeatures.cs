@@ -19,7 +19,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Whether modern application is managed by Intune</summary>
         public bool? ModernApps { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Whether resource access is managed by Intune</summary>
         public bool? ResourceAccess { get; set; }
         /// <summary>Whether Windows Update for Business is managed by Intune</summary>

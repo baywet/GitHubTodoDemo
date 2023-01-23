@@ -11,21 +11,57 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Indicates the package type of an MSI Win32LobApp.</summary>
         public Win32LobAppMsiPackageType? PackageType { get; set; }
         /// <summary>The MSI product code.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductCode { get; set; }
+#nullable restore
+#else
         public string ProductCode { get; set; }
+#endif
         /// <summary>The MSI product name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductName { get; set; }
+#nullable restore
+#else
         public string ProductName { get; set; }
+#endif
         /// <summary>The MSI product version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductVersion { get; set; }
+#nullable restore
+#else
         public string ProductVersion { get; set; }
+#endif
         /// <summary>The MSI publisher.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Publisher { get; set; }
+#nullable restore
+#else
         public string Publisher { get; set; }
+#endif
         /// <summary>Whether the MSI app requires the machine to reboot to complete installation.</summary>
         public bool? RequiresReboot { get; set; }
         /// <summary>The MSI upgrade code.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpgradeCode { get; set; }
+#nullable restore
+#else
         public string UpgradeCode { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new win32LobAppMsiInformation and sets the default values.
         /// </summary>

@@ -6,21 +6,57 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
     public class Term : Entity, IParsable {
         /// <summary>Children of current term.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Term>? Children { get; set; }
+#nullable restore
+#else
         public List<Term> Children { get; set; }
+#endif
         /// <summary>Date and time of term creation. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Description about term that is dependent on the languageTag.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<LocalizedDescription>? Descriptions { get; set; }
+#nullable restore
+#else
         public List<LocalizedDescription> Descriptions { get; set; }
+#endif
         /// <summary>Label metadata for a term.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<LocalizedLabel>? Labels { get; set; }
+#nullable restore
+#else
         public List<LocalizedLabel> Labels { get; set; }
+#endif
         /// <summary>Last date and time of term modification. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Collection of properties on the term.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue>? Properties { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.KeyValue> Properties { get; set; }
+#endif
         /// <summary>To indicate which terms are related to the current term as either pinned or reused.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Relation>? Relations { get; set; }
+#nullable restore
+#else
         public List<Relation> Relations { get; set; }
+#endif
         /// <summary>The [set] in which the term is created.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set? Set { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set Set { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

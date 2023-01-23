@@ -12,9 +12,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether or not to require a managed email profile.</summary>
         public bool? ManagedEmailProfileRequired { get; set; }
         /// <summary>Maximum IOS version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMaximumVersion { get; set; }
+#nullable restore
+#else
         public string OsMaximumVersion { get; set; }
+#endif
         /// <summary>Minimum IOS version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMinimumVersion { get; set; }
+#nullable restore
+#else
         public string OsMinimumVersion { get; set; }
+#endif
         /// <summary>Indicates whether or not to block simple passcodes.</summary>
         public bool? PasscodeBlockSimple { get; set; }
         /// <summary>Number of days before the passcode expires. Valid values 1 to 65535</summary>

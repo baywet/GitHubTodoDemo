@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The content type of threat assessment. Possible values are: mail, url, file.</summary>
         public ThreatAssessmentContentType? ContentType { get; set; }
         /// <summary>The threat assessment request creator.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? CreatedBy { get; set; }
+#nullable restore
+#else
         public IdentitySet CreatedBy { get; set; }
+#endif
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The expectedAssessment property</summary>
@@ -18,7 +24,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The source of the threat assessment request. Possible values are: administrator.</summary>
         public ThreatAssessmentRequestSource? RequestSource { get; set; }
         /// <summary>A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ThreatAssessmentResult>? Results { get; set; }
+#nullable restore
+#else
         public List<ThreatAssessmentResult> Results { get; set; }
+#endif
         /// <summary>The assessment process status. Possible values are: pending, completed.</summary>
         public ThreatAssessmentStatus? Status { get; set; }
         /// <summary>

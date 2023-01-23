@@ -8,23 +8,53 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.Security.DetectionStatus? DetectionStatus { get; set; }
         /// <summary>Image file details.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public FileDetails? ImageFile { get; set; }
+#nullable restore
+#else
         public FileDetails ImageFile { get; set; }
+#endif
         /// <summary>A unique identifier assigned to a device by Microsoft Defender for Endpoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MdeDeviceId { get; set; }
+#nullable restore
+#else
         public string MdeDeviceId { get; set; }
+#endif
         /// <summary>Date and time when the parent of the process was created.</summary>
         public DateTimeOffset? ParentProcessCreationDateTime { get; set; }
         /// <summary>Process ID (PID) of the parent process that spawned the process.</summary>
         public long? ParentProcessId { get; set; }
         /// <summary>Parent process image file details.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public FileDetails? ParentProcessImageFile { get; set; }
+#nullable restore
+#else
         public FileDetails ParentProcessImageFile { get; set; }
+#endif
         /// <summary>Command line used to create the new process.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProcessCommandLine { get; set; }
+#nullable restore
+#else
         public string ProcessCommandLine { get; set; }
+#endif
         /// <summary>Date and time the process was created.</summary>
         public DateTimeOffset? ProcessCreationDateTime { get; set; }
         /// <summary>Process ID (PID) of the newly created process.</summary>
         public long? ProcessId { get; set; }
         /// <summary>User details of the user that ran the process.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Security.UserAccount? UserAccount { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Security.UserAccount UserAccount { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

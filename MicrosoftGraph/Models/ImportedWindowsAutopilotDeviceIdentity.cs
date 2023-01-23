@@ -9,19 +9,61 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class ImportedWindowsAutopilotDeviceIdentity : Entity, IParsable {
         /// <summary>UPN of the user the device will be assigned</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssignedUserPrincipalName { get; set; }
+#nullable restore
+#else
         public string AssignedUserPrincipalName { get; set; }
+#endif
         /// <summary>Group Tag of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GroupTag { get; set; }
+#nullable restore
+#else
         public string GroupTag { get; set; }
+#endif
         /// <summary>Hardware Blob of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? HardwareIdentifier { get; set; }
+#nullable restore
+#else
         public byte[] HardwareIdentifier { get; set; }
+#endif
         /// <summary>The Import Id of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ImportId { get; set; }
+#nullable restore
+#else
         public string ImportId { get; set; }
+#endif
         /// <summary>Product Key of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductKey { get; set; }
+#nullable restore
+#else
         public string ProductKey { get; set; }
+#endif
         /// <summary>Serial number of the Windows autopilot device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SerialNumber { get; set; }
+#nullable restore
+#else
         public string SerialNumber { get; set; }
+#endif
         /// <summary>Current state of the imported device.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ImportedWindowsAutopilotDeviceIdentityState? State { get; set; }
+#nullable restore
+#else
         public ImportedWindowsAutopilotDeviceIdentityState State { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

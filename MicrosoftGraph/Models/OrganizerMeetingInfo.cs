@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OrganizerMeetingInfo : MeetingInfo, IParsable {
         /// <summary>The organizer property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Organizer { get; set; }
+#nullable restore
+#else
         public IdentitySet Organizer { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new OrganizerMeetingInfo and sets the default values.
         /// </summary>

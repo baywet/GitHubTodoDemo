@@ -10,9 +10,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Average score within specified basis.</summary>
         public double? AverageScore { get; set; }
         /// <summary>Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Basis { get; set; }
+#nullable restore
+#else
         public string Basis { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new averageComparativeScore and sets the default values.
         /// </summary>

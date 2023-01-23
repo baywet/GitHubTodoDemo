@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.CallRecords {
     public class ParticipantEndpoint : Endpoint, IParsable {
         /// <summary>The feedback provided by the user of this endpoint about the quality of the session.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UserFeedback? Feedback { get; set; }
+#nullable restore
+#else
         public UserFeedback Feedback { get; set; }
+#endif
         /// <summary>Identity associated with the endpoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet? Identity { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet Identity { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ParticipantEndpoint and sets the default values.
         /// </summary>

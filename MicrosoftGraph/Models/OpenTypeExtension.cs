@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OpenTypeExtension : Extension, IParsable {
         /// <summary>A unique text identifier for an open type data extension. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExtensionName { get; set; }
+#nullable restore
+#else
         public string ExtensionName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new OpenTypeExtension and sets the default values.
         /// </summary>

@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class EdiscoveryCaseSettings : Entity, IParsable {
         /// <summary>The OCR (Optical Character Recognition) settings for the case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OcrSettings? Ocr { get; set; }
+#nullable restore
+#else
         public OcrSettings Ocr { get; set; }
+#endif
         /// <summary>The redundancy (near duplicate and email threading) detection settings for the case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RedundancyDetectionSettings? RedundancyDetection { get; set; }
+#nullable restore
+#else
         public RedundancyDetectionSettings RedundancyDetection { get; set; }
+#endif
         /// <summary>The Topic Modeling (Themes) settings for the case.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TopicModelingSettings? TopicModeling { get; set; }
+#nullable restore
+#else
         public TopicModelingSettings TopicModeling { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

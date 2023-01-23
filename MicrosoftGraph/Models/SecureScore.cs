@@ -4,30 +4,57 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class SecureScore : Entity, IParsable {
         /// <summary>Active user count of the given tenant.</summary>
         public int? ActiveUserCount { get; set; }
         /// <summary>Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AverageComparativeScore>? AverageComparativeScores { get; set; }
+#nullable restore
+#else
         public List<AverageComparativeScore> AverageComparativeScores { get; set; }
+#endif
         /// <summary>GUID string for tenant ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AzureTenantId { get; set; }
+#nullable restore
+#else
         public string AzureTenantId { get; set; }
+#endif
         /// <summary>Contains tenant scores for a set of controls.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ControlScore>? ControlScores { get; set; }
+#nullable restore
+#else
         public List<ControlScore> ControlScores { get; set; }
+#endif
         /// <summary>The date when the entity is created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Tenant current attained score on specified date.</summary>
         public double? CurrentScore { get; set; }
         /// <summary>Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? EnabledServices { get; set; }
+#nullable restore
+#else
         public List<string> EnabledServices { get; set; }
+#endif
         /// <summary>Licensed user count of the given tenant.</summary>
         public int? LicensedUserCount { get; set; }
         /// <summary>Tenant maximum possible score on specified date.</summary>
         public double? MaxScore { get; set; }
         /// <summary>Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SecurityVendorInformation? VendorInformation { get; set; }
+#nullable restore
+#else
         public SecurityVendorInformation VendorInformation { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

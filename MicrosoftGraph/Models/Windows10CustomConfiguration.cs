@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Windows10CustomConfiguration : DeviceConfiguration, IParsable {
         /// <summary>OMA settings. This collection can contain a maximum of 1000 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OmaSetting>? OmaSettings { get; set; }
+#nullable restore
+#else
         public List<OmaSetting> OmaSettings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Windows10CustomConfiguration and sets the default values.
         /// </summary>

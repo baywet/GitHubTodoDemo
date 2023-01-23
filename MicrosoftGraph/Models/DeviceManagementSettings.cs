@@ -12,7 +12,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Is feature enabled or not for scheduled action for rule.</summary>
         public bool? IsScheduledActionEnabled { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Device should be noncompliant when there is no compliance policy targeted when this is true</summary>
         public bool? SecureByDefault { get; set; }
         /// <summary>

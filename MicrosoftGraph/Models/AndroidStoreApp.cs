@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AndroidStoreApp : MobileApp, IParsable {
         /// <summary>The Android app store URL.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppStoreUrl { get; set; }
+#nullable restore
+#else
         public string AppStoreUrl { get; set; }
+#endif
         /// <summary>The value for the minimum applicable operating system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AndroidMinimumOperatingSystem? MinimumSupportedOperatingSystem { get; set; }
+#nullable restore
+#else
         public AndroidMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
+#endif
         /// <summary>The package identifier.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PackageId { get; set; }
+#nullable restore
+#else
         public string PackageId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new AndroidStoreApp and sets the default values.
         /// </summary>

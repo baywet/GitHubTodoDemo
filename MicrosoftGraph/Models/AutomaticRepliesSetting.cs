@@ -10,15 +10,45 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The set of audience external to the signed-in user&apos;s organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.</summary>
         public ExternalAudienceScope? ExternalAudience { get; set; }
         /// <summary>The automatic reply to send to the specified external audience, if Status is AlwaysEnabled or Scheduled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalReplyMessage { get; set; }
+#nullable restore
+#else
         public string ExternalReplyMessage { get; set; }
+#endif
         /// <summary>The automatic reply to send to the audience internal to the signed-in user&apos;s organization, if Status is AlwaysEnabled or Scheduled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InternalReplyMessage { get; set; }
+#nullable restore
+#else
         public string InternalReplyMessage { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The date and time that automatic replies are set to end, if Status is set to Scheduled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? ScheduledEndDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone ScheduledEndDateTime { get; set; }
+#endif
         /// <summary>The date and time that automatic replies are set to begin, if Status is set to Scheduled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DateTimeTimeZone? ScheduledStartDateTime { get; set; }
+#nullable restore
+#else
         public DateTimeTimeZone ScheduledStartDateTime { get; set; }
+#endif
         /// <summary>Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.</summary>
         public AutomaticRepliesStatus? Status { get; set; }
         /// <summary>

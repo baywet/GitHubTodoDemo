@@ -13,9 +13,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The day property</summary>
         public DayOfWeekObject? Day { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>A list of start/end times during a day.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<BookingWorkTimeSlot>? TimeSlots { get; set; }
+#nullable restore
+#else
         public List<BookingWorkTimeSlot> TimeSlots { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new bookingWorkHours and sets the default values.
         /// </summary>

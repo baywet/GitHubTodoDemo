@@ -8,15 +8,33 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A value indicating whether to expand environment variables in the 32-bit context on 64-bit systems.</summary>
         public bool? Check32BitOn64System { get; set; }
         /// <summary>The file or folder comparison value.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ComparisonValue { get; set; }
+#nullable restore
+#else
         public string ComparisonValue { get; set; }
+#endif
         /// <summary>The file or folder name to look up.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FileOrFolderName { get; set; }
+#nullable restore
+#else
         public string FileOrFolderName { get; set; }
+#endif
         /// <summary>Contains all supported file system detection type.</summary>
         public Win32LobAppFileSystemOperationType? OperationType { get; set; }
         /// <summary>Contains properties for detection operator.</summary>
         public Win32LobAppRuleOperator? Operator { get; set; }
         /// <summary>The file or folder path to look up.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Path { get; set; }
+#nullable restore
+#else
         public string Path { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Win32LobAppFileSystemRule and sets the default values.
         /// </summary>

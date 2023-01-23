@@ -8,13 +8,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The comment text.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Comment { get; set; }
+#nullable restore
+#else
         public string Comment { get; set; }
+#endif
         /// <summary>The person or app name that submitted the comment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedByDisplayName { get; set; }
+#nullable restore
+#else
         public string CreatedByDisplayName { get; set; }
+#endif
         /// <summary>The time when the comment was submitted.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new alertComment and sets the default values.
         /// </summary>

@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Which branch devices will receive their updates from</summary>
     public enum WindowsUpdateType {
         /// <summary>Allow the user to set.</summary>
         UserDefined,

@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IPv6CidrRange : IpRange, IParsable {
         /// <summary>IPv6 address in CIDR notation. Not nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CidrAddress { get; set; }
+#nullable restore
+#else
         public string CidrAddress { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new IPv6CidrRange and sets the default values.
         /// </summary>

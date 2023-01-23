@@ -11,7 +11,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The time of the day when work stops. For example, 17:00:00.0000000.</summary>
         public Time? EndTime { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The time of the day when work starts. For example, 08:00:00.0000000.</summary>
         public Time? StartTime { get; set; }
         /// <summary>

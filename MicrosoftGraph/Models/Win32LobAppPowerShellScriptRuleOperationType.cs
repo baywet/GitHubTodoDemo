@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Contains all supported Powershell Script output detection type.</summary>
     public enum Win32LobAppPowerShellScriptRuleOperationType {
         /// <summary>Not configured.</summary>
         NotConfigured,

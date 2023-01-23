@@ -14,7 +14,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Specifies whether MFA from external Azure AD organizations is trusted.</summary>
         public bool? IsMfaAccepted { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new crossTenantAccessPolicyInboundTrust and sets the default values.
         /// </summary>

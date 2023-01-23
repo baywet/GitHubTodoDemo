@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EventMessageResponse : EventMessage, IParsable {
         /// <summary>The proposedNewTime property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TimeSlot? ProposedNewTime { get; set; }
+#nullable restore
+#else
         public TimeSlot ProposedNewTime { get; set; }
+#endif
         /// <summary>The responseType property</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.ResponseType? ResponseType { get; set; }
         /// <summary>

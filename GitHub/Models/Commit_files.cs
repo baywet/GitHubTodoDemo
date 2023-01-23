@@ -10,25 +10,73 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The additions property</summary>
         public int? Additions { get; set; }
         /// <summary>The blob_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Blob_url { get; set; }
+#nullable restore
+#else
         public string Blob_url { get; set; }
+#endif
         /// <summary>The changes property</summary>
         public int? Changes { get; set; }
         /// <summary>The contents_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Contents_url { get; set; }
+#nullable restore
+#else
         public string Contents_url { get; set; }
+#endif
         /// <summary>The deletions property</summary>
         public int? Deletions { get; set; }
         /// <summary>The filename property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Filename { get; set; }
+#nullable restore
+#else
         public string Filename { get; set; }
+#endif
         /// <summary>The patch property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Patch { get; set; }
+#nullable restore
+#else
         public string Patch { get; set; }
+#endif
         /// <summary>The previous_filename property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Previous_filename { get; set; }
+#nullable restore
+#else
         public string Previous_filename { get; set; }
+#endif
         /// <summary>The raw_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Raw_url { get; set; }
+#nullable restore
+#else
         public string Raw_url { get; set; }
+#endif
         /// <summary>The sha property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Sha { get; set; }
+#nullable restore
+#else
         public string Sha { get; set; }
+#endif
         /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
         public string Status { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Commit_files and sets the default values.
         /// </summary>

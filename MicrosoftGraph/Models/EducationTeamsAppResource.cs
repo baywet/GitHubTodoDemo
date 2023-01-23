@@ -6,13 +6,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationTeamsAppResource : EducationResource, IParsable {
         /// <summary>URL that points to the icon of the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppIconWebUrl { get; set; }
+#nullable restore
+#else
         public string AppIconWebUrl { get; set; }
+#endif
         /// <summary>Teams app ID of the application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppId { get; set; }
+#nullable restore
+#else
         public string AppId { get; set; }
+#endif
         /// <summary>URL for the app resource that will be opened by Teams.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamsEmbeddedContentUrl { get; set; }
+#nullable restore
+#else
         public string TeamsEmbeddedContentUrl { get; set; }
+#endif
         /// <summary>URL for the app resource that can be opened in the browser.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebUrl { get; set; }
+#nullable restore
+#else
         public string WebUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EducationTeamsAppResource and sets the default values.
         /// </summary>

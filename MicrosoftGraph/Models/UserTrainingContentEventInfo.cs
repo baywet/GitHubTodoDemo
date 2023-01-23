@@ -8,15 +8,39 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Browser of the user from where the training event was generated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Browser { get; set; }
+#nullable restore
+#else
         public string Browser { get; set; }
+#endif
         /// <summary>Date and time of the training content playback by the user.</summary>
         public DateTimeOffset? ContentDateTime { get; set; }
         /// <summary>IP address of the user for the training event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IpAddress { get; set; }
+#nullable restore
+#else
         public string IpAddress { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The operating system, platform, and device details of the user for the training event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsPlatformDeviceDetails { get; set; }
+#nullable restore
+#else
         public string OsPlatformDeviceDetails { get; set; }
+#endif
         /// <summary>Potential improvement in the tenant security posture after completion of the training by the user.</summary>
         public double? PotentialScoreImpact { get; set; }
         /// <summary>

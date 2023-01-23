@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Scheduled the update installation on the weeks of the month</summary>
     public enum WindowsUpdateForBusinessUpdateWeeks {
         /// <summary>Allow the user to set.</summary>
         UserDefined,

@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Indicates the type of return code.</summary>
     public enum Win32LobAppReturnCodeType {
         /// <summary>Failed.</summary>
         Failed,

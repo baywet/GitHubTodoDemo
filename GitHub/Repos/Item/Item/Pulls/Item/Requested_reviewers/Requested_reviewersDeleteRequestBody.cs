@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An array of user `login`s that will be removed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Reviewers { get; set; }
+#nullable restore
+#else
         public List<string> Reviewers { get; set; }
+#endif
         /// <summary>An array of team `slug`s that will be removed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Team_reviewers { get; set; }
+#nullable restore
+#else
         public List<string> Team_reviewers { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new requested_reviewersDeleteRequestBody and sets the default values.
         /// </summary>

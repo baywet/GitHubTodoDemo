@@ -45,7 +45,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>When TRUE, rollback Feature Updates on the next device check in. When FALSE, do not rollback Feature Updates on the next device check in. Returned by default.Query parameters are not supported.</summary>
         public bool? FeatureUpdatesWillBeRolledBack { get; set; }
         /// <summary>The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WindowsUpdateInstallScheduleType? InstallationSchedule { get; set; }
+#nullable restore
+#else
         public WindowsUpdateInstallScheduleType InstallationSchedule { get; set; }
+#endif
         /// <summary>When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported.</summary>
         public bool? MicrosoftUpdateServiceAllowed { get; set; }
         /// <summary>When TRUE the device should wait until deadline for rebooting outside of active hours. When FALSE the device should not wait until deadline for rebooting outside of active hours. Returned by default. Query parameters are not supported.</summary>

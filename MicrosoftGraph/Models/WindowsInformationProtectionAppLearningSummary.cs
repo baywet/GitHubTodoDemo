@@ -9,7 +9,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class WindowsInformationProtectionAppLearningSummary : Entity, IParsable {
         /// <summary>Application Name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApplicationName { get; set; }
+#nullable restore
+#else
         public string ApplicationName { get; set; }
+#endif
         /// <summary>Possible types of Application</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.ApplicationType? ApplicationType { get; set; }
         /// <summary>Device Count</summary>

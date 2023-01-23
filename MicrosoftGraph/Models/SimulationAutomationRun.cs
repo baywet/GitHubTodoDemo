@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class SimulationAutomationRun : Entity, IParsable {
         /// <summary>Date and time when the run ends in an attack simulation automation.</summary>
         public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>Unique identifier for the attack simulation campaign initiated in the attack simulation automation run.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SimulationId { get; set; }
+#nullable restore
+#else
         public string SimulationId { get; set; }
+#endif
         /// <summary>Date and time when the run starts in an attack simulation automation.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.</summary>

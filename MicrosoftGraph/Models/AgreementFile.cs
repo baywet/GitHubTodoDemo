@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AgreementFile : AgreementFileProperties, IParsable {
         /// <summary>The localized version of the terms of use agreement files attached to the agreement.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AgreementFileLocalization>? Localizations { get; set; }
+#nullable restore
+#else
         public List<AgreementFileLocalization> Localizations { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

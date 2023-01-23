@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.Security.ChildSelectability? ChildSelectability { get; set; }
         /// <summary>Returns the tags that are a child of a tag.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryReviewTag>? ChildTags { get; set; }
+#nullable restore
+#else
         public List<EdiscoveryReviewTag> ChildTags { get; set; }
+#endif
         /// <summary>Returns the parent tag of the specified tag.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EdiscoveryReviewTag? Parent { get; set; }
+#nullable restore
+#else
         public EdiscoveryReviewTag Parent { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EdiscoveryReviewTag and sets the default values.
         /// </summary>

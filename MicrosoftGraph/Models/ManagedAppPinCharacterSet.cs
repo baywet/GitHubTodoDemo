@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Character set which is to be used for a user&apos;s app PIN</summary>
     public enum ManagedAppPinCharacterSet {
         /// <summary>Numeric characters</summary>
         Numeric,

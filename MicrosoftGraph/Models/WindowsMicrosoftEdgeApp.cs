@@ -8,7 +8,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The enum to specify the channels for Microsoft Edge apps.</summary>
         public MicrosoftEdgeChannel? Channel { get; set; }
         /// <summary>The language locale to use when the Edge app displays text to the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayLanguageLocale { get; set; }
+#nullable restore
+#else
         public string DisplayLanguageLocale { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new WindowsMicrosoftEdgeApp and sets the default values.
         /// </summary>

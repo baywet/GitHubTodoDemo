@@ -12,13 +12,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Require devices to be reported as healthy by Windows Device Health Attestation - early launch antimalware driver is enabled.</summary>
         public bool? EarlyLaunchAntiMalwareDriverEnabled { get; set; }
         /// <summary>Maximum Windows Phone version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MobileOsMaximumVersion { get; set; }
+#nullable restore
+#else
         public string MobileOsMaximumVersion { get; set; }
+#endif
         /// <summary>Minimum Windows Phone version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MobileOsMinimumVersion { get; set; }
+#nullable restore
+#else
         public string MobileOsMinimumVersion { get; set; }
+#endif
         /// <summary>Maximum Windows 10 version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMaximumVersion { get; set; }
+#nullable restore
+#else
         public string OsMaximumVersion { get; set; }
+#endif
         /// <summary>Minimum Windows 10 version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsMinimumVersion { get; set; }
+#nullable restore
+#else
         public string OsMinimumVersion { get; set; }
+#endif
         /// <summary>Indicates whether or not to block simple password.</summary>
         public bool? PasswordBlockSimple { get; set; }
         /// <summary>The password expiration in days.</summary>

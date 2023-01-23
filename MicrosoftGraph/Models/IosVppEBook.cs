@@ -6,19 +6,49 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosVppEBook : ManagedEBook, IParsable {
         /// <summary>The Apple ID associated with Vpp token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppleId { get; set; }
+#nullable restore
+#else
         public string AppleId { get; set; }
+#endif
         /// <summary>Genres.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Genres { get; set; }
+#nullable restore
+#else
         public List<string> Genres { get; set; }
+#endif
         /// <summary>Language.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Language { get; set; }
+#nullable restore
+#else
         public string Language { get; set; }
+#endif
         /// <summary>Seller.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Seller { get; set; }
+#nullable restore
+#else
         public string Seller { get; set; }
+#endif
         /// <summary>Total license count.</summary>
         public int? TotalLicenseCount { get; set; }
         /// <summary>Used license count.</summary>
         public int? UsedLicenseCount { get; set; }
         /// <summary>The Vpp token&apos;s organization name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VppOrganizationName { get; set; }
+#nullable restore
+#else
         public string VppOrganizationName { get; set; }
+#endif
         /// <summary>The Vpp token ID.</summary>
         public Guid? VppTokenId { get; set; }
         /// <summary>

@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OnenoteResource : OnenoteEntityBaseModel, IParsable {
         /// <summary>The content stream</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Content { get; set; }
+#nullable restore
+#else
         public byte[] Content { get; set; }
+#endif
         /// <summary>The URL for downloading the content</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContentUrl { get; set; }
+#nullable restore
+#else
         public string ContentUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new OnenoteResource and sets the default values.
         /// </summary>

@@ -6,13 +6,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class EducationRubricOutcome : EducationOutcome, IParsable {
         /// <summary>A copy of the rubricQualityFeedback property that is made when the grade is released to the student.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RubricQualityFeedbackModel>? PublishedRubricQualityFeedback { get; set; }
+#nullable restore
+#else
         public List<RubricQualityFeedbackModel> PublishedRubricQualityFeedback { get; set; }
+#endif
         /// <summary>A copy of the rubricQualitySelectedLevels property that is made when the grade is released to the student.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RubricQualitySelectedColumnModel>? PublishedRubricQualitySelectedLevels { get; set; }
+#nullable restore
+#else
         public List<RubricQualitySelectedColumnModel> PublishedRubricQualitySelectedLevels { get; set; }
+#endif
         /// <summary>A collection of specific feedback for each quality of this rubric.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RubricQualityFeedbackModel>? RubricQualityFeedback { get; set; }
+#nullable restore
+#else
         public List<RubricQualityFeedbackModel> RubricQualityFeedback { get; set; }
+#endif
         /// <summary>The level that the teacher has selected for each quality while grading this assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RubricQualitySelectedColumnModel>? RubricQualitySelectedLevels { get; set; }
+#nullable restore
+#else
         public List<RubricQualitySelectedColumnModel> RubricQualitySelectedLevels { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new EducationRubricOutcome and sets the default values.
         /// </summary>

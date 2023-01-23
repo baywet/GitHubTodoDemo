@@ -15,7 +15,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Total count of devices with Exchange Access State: Blocked.</summary>
         public int? BlockedDeviceCount { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Total count of devices with Exchange Access State: Quarantined.</summary>
         public int? QuarantinedDeviceCount { get; set; }
         /// <summary>Total count of devices for which no Exchange Access State could be found.</summary>

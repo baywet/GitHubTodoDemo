@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SamlOrWsFedExternalDomainFederation : SamlOrWsFedProvider, IParsable {
         /// <summary>Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ExternalDomainName>? Domains { get; set; }
+#nullable restore
+#else
         public List<ExternalDomainName> Domains { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new SamlOrWsFedExternalDomainFederation and sets the default values.
         /// </summary>

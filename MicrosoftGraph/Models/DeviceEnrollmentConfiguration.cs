@@ -9,13 +9,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class DeviceEnrollmentConfiguration : Entity, IParsable {
         /// <summary>The list of group assignments for the device configuration profile</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EnrollmentConfigurationAssignment>? Assignments { get; set; }
+#nullable restore
+#else
         public List<EnrollmentConfigurationAssignment> Assignments { get; set; }
+#endif
         /// <summary>Created date time in UTC of the device enrollment configuration</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The description of the device enrollment configuration</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>The display name of the device enrollment configuration</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Last modified date time in UTC of the device enrollment configuration</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.</summary>

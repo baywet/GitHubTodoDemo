@@ -8,17 +8,47 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Browser { get; set; }
+#nullable restore
+#else
         public string Browser { get; set; }
+#endif
         /// <summary>Date and time of the simulation event by a user in an attack simulation and training campaign.</summary>
         public DateTimeOffset? EventDateTime { get; set; }
         /// <summary>Name of the simulation event by a user in an attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EventName { get; set; }
+#nullable restore
+#else
         public string EventName { get; set; }
+#endif
         /// <summary>IP address from where the simulation event was initiated by a user in an attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IpAddress { get; set; }
+#nullable restore
+#else
         public string IpAddress { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsPlatformDeviceDetails { get; set; }
+#nullable restore
+#else
         public string OsPlatformDeviceDetails { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new userSimulationEventInfo and sets the default values.
         /// </summary>

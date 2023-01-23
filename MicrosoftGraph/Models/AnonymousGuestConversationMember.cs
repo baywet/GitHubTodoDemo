@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AnonymousGuestConversationMember : ConversationMember, IParsable {
         /// <summary>The anonymousGuestId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AnonymousGuestId { get; set; }
+#nullable restore
+#else
         public string AnonymousGuestId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new AnonymousGuestConversationMember and sets the default values.
         /// </summary>

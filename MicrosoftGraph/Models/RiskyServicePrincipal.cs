@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RiskyServicePrincipal : Entity, IParsable {
         /// <summary>The globally unique identifier for the associated application (its appId property), if any.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppId { get; set; }
+#nullable restore
+#else
         public string AppId { get; set; }
+#endif
         /// <summary>The display name for the service principal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Represents the risk history of Azure AD service principals.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RiskyServicePrincipalHistoryItem>? History { get; set; }
+#nullable restore
+#else
         public List<RiskyServicePrincipalHistoryItem> History { get; set; }
+#endif
         /// <summary>true if the service principal account is enabled; otherwise, false.</summary>
         public bool? IsEnabled { get; set; }
         /// <summary>Indicates whether Azure AD is currently processing the service principal&apos;s risky state.</summary>
@@ -24,7 +42,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>State of the service principal&apos;s risk. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.RiskState? RiskState { get; set; }
         /// <summary>Identifies whether the service principal represents an Application, a ManagedIdentity, or a legacy application (socialIdp). This is set by Azure AD internally and is inherited from servicePrincipal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServicePrincipalType { get; set; }
+#nullable restore
+#else
         public string ServicePrincipalType { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

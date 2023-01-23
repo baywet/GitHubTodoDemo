@@ -8,15 +8,33 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How many decimal places to display. See below for information about the possible values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DecimalPlaces { get; set; }
+#nullable restore
+#else
         public string DecimalPlaces { get; set; }
+#endif
         /// <summary>How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayAs { get; set; }
+#nullable restore
+#else
         public string DisplayAs { get; set; }
+#endif
         /// <summary>The maximum permitted value.</summary>
         public double? Maximum { get; set; }
         /// <summary>The minimum permitted value.</summary>
         public double? Minimum { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new numberColumn and sets the default values.
         /// </summary>

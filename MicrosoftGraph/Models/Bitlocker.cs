@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Bitlocker : Entity, IParsable {
         /// <summary>The recovery keys associated with the bitlocker entity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<BitlockerRecoveryKey>? RecoveryKeys { get; set; }
+#nullable restore
+#else
         public List<BitlockerRecoveryKey> RecoveryKeys { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

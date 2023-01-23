@@ -8,23 +8,71 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the file.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FileName { get; set; }
+#nullable restore
+#else
         public string FileName { get; set; }
+#endif
         /// <summary>The file path (location) of the file instance.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FilePath { get; set; }
+#nullable restore
+#else
         public string FilePath { get; set; }
+#endif
         /// <summary>The publisher of the file.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FilePublisher { get; set; }
+#nullable restore
+#else
         public string FilePublisher { get; set; }
+#endif
         /// <summary>The size of the file in bytes.</summary>
         public long? FileSize { get; set; }
         /// <summary>The certificate authority (CA) that issued the certificate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Issuer { get; set; }
+#nullable restore
+#else
         public string Issuer { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The Sha1 cryptographic hash of the file content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Sha1 { get; set; }
+#nullable restore
+#else
         public string Sha1 { get; set; }
+#endif
         /// <summary>The Sha256 cryptographic hash of the file content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Sha256 { get; set; }
+#nullable restore
+#else
         public string Sha256 { get; set; }
+#endif
         /// <summary>The signer of the signed file.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Signer { get; set; }
+#nullable restore
+#else
         public string Signer { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new fileDetails and sets the default values.
         /// </summary>

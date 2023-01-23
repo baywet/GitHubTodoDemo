@@ -6,41 +6,137 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class OrgContact : DirectoryObject, IParsable {
         /// <summary>The addresses property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PhysicalOfficeAddress>? Addresses { get; set; }
+#nullable restore
+#else
         public List<PhysicalOfficeAddress> Addresses { get; set; }
+#endif
         /// <summary>The companyName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompanyName { get; set; }
+#nullable restore
+#else
         public string CompanyName { get; set; }
+#endif
         /// <summary>The department property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Department { get; set; }
+#nullable restore
+#else
         public string Department { get; set; }
+#endif
         /// <summary>The directReports property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DirectoryObject>? DirectReports { get; set; }
+#nullable restore
+#else
         public List<DirectoryObject> DirectReports { get; set; }
+#endif
         /// <summary>The displayName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The givenName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GivenName { get; set; }
+#nullable restore
+#else
         public string GivenName { get; set; }
+#endif
         /// <summary>The jobTitle property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JobTitle { get; set; }
+#nullable restore
+#else
         public string JobTitle { get; set; }
+#endif
         /// <summary>The mail property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Mail { get; set; }
+#nullable restore
+#else
         public string Mail { get; set; }
+#endif
         /// <summary>The mailNickname property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MailNickname { get; set; }
+#nullable restore
+#else
         public string MailNickname { get; set; }
+#endif
         /// <summary>The manager property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DirectoryObject? Manager { get; set; }
+#nullable restore
+#else
         public DirectoryObject Manager { get; set; }
+#endif
         /// <summary>The memberOf property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DirectoryObject>? MemberOf { get; set; }
+#nullable restore
+#else
         public List<DirectoryObject> MemberOf { get; set; }
+#endif
         /// <summary>The onPremisesLastSyncDateTime property</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime { get; set; }
         /// <summary>The onPremisesProvisioningErrors property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OnPremisesProvisioningError>? OnPremisesProvisioningErrors { get; set; }
+#nullable restore
+#else
         public List<OnPremisesProvisioningError> OnPremisesProvisioningErrors { get; set; }
+#endif
         /// <summary>The onPremisesSyncEnabled property</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
         /// <summary>The phones property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Phone>? Phones { get; set; }
+#nullable restore
+#else
         public List<Phone> Phones { get; set; }
+#endif
         /// <summary>The proxyAddresses property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ProxyAddresses { get; set; }
+#nullable restore
+#else
         public List<string> ProxyAddresses { get; set; }
+#endif
         /// <summary>The surname property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Surname { get; set; }
+#nullable restore
+#else
         public string Surname { get; set; }
+#endif
         /// <summary>The transitiveMemberOf property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DirectoryObject>? TransitiveMemberOf { get; set; }
+#nullable restore
+#else
         public List<DirectoryObject> TransitiveMemberOf { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new OrgContact and sets the default values.
         /// </summary>

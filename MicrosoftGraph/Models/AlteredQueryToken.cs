@@ -10,11 +10,23 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Defines the length of a changed segment.</summary>
         public int? Length { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Defines the offset of a changed segment.</summary>
         public int? Offset { get; set; }
         /// <summary>Represents the corrected segment string.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Suggestion { get; set; }
+#nullable restore
+#else
         public string Suggestion { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new alteredQueryToken and sets the default values.
         /// </summary>

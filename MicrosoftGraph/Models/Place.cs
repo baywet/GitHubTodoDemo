@@ -6,13 +6,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Place : Entity, IParsable {
         /// <summary>The street address of the place.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PhysicalAddress? Address { get; set; }
+#nullable restore
+#else
         public PhysicalAddress Address { get; set; }
+#endif
         /// <summary>The name associated with the place.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Specifies the place location in latitude, longitude and (optionally) altitude coordinates.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OutlookGeoCoordinates? GeoCoordinates { get; set; }
+#nullable restore
+#else
         public OutlookGeoCoordinates GeoCoordinates { get; set; }
+#endif
         /// <summary>The phone number of the place.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Phone { get; set; }
+#nullable restore
+#else
         public string Phone { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

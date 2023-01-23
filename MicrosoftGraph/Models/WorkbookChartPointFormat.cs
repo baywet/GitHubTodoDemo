@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookChartPointFormat : Entity, IParsable {
         /// <summary>Represents the fill format of a chart, which includes background formating information. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartFill? Fill { get; set; }
+#nullable restore
+#else
         public WorkbookChartFill Fill { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

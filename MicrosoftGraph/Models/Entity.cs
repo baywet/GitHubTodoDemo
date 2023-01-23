@@ -12,9 +12,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique idenfier for an entity. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
         public string Id { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new entity and sets the default values.
         /// </summary>
@@ -458,7 +470,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
                 "#microsoft.graph.sectionGroup" => new SectionGroup(),
                 "#microsoft.graph.secureScore" => new SecureScore(),
                 "#microsoft.graph.secureScoreControlProfile" => new SecureScoreControlProfile(),
-                "#microsoft.graph.security" => new GitHubTodoDemo.MicrosoftGraph.Models.Security.Security(),
+                "#microsoft.graph.security" => new Security(),
                 "#microsoft.graph.security.alert" => new GitHubTodoDemo.MicrosoftGraph.Models.Security.Alert(),
                 "#microsoft.graph.security.case" => new Case(),
                 "#microsoft.graph.security.caseOperation" => new CaseOperation(),

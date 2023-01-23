@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Contains value for notification status.</summary>
     public enum Win32LobAppNotification {
         /// <summary>Show all notifications.</summary>
         ShowAll,

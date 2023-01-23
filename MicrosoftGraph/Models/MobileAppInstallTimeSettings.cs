@@ -13,7 +13,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The time at which the app should be installed.</summary>
         public DateTimeOffset? DeadlineDateTime { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The time at which the app should be available for installation.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>Whether the local device time or UTC time should be used when determining the available and deadline times.</summary>

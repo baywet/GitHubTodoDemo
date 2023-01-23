@@ -4,18 +4,33 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.TermStore {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class Relation : Entity, IParsable {
         /// <summary>The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Term? FromTerm { get; set; }
+#nullable restore
+#else
         public Term FromTerm { get; set; }
+#endif
         /// <summary>The type of relation. Possible values are: pin, reuse.</summary>
         public RelationType? Relationship { get; set; }
         /// <summary>The [set] in which the relation is relevant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set? Set { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.TermStore.Set Set { get; set; }
+#endif
         /// <summary>The to [term] of the relation. The term to which the relationship is defined.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Term? ToTerm { get; set; }
+#nullable restore
+#else
         public Term ToTerm { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

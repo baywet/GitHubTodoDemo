@@ -4,20 +4,35 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class PrinterShare : PrinterBase, IParsable {
         /// <summary>If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.</summary>
         public bool? AllowAllUsers { get; set; }
         /// <summary>The groups whose users have access to print using the printer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Group>? AllowedGroups { get; set; }
+#nullable restore
+#else
         public List<Group> AllowedGroups { get; set; }
+#endif
         /// <summary>The users who have access to print using the printer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<User>? AllowedUsers { get; set; }
+#nullable restore
+#else
         public List<User> AllowedUsers { get; set; }
+#endif
         /// <summary>The DateTimeOffset when the printer share was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The printer that this printer share is related to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.Printer? Printer { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.Printer Printer { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new printerShare and sets the default values.
         /// </summary>

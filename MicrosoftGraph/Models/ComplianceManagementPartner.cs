@@ -9,19 +9,43 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class ComplianceManagementPartner : Entity, IParsable {
         /// <summary>User groups which enroll Android devices through partner.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ComplianceManagementPartnerAssignment>? AndroidEnrollmentAssignments { get; set; }
+#nullable restore
+#else
         public List<ComplianceManagementPartnerAssignment> AndroidEnrollmentAssignments { get; set; }
+#endif
         /// <summary>Partner onboarded for Android devices.</summary>
         public bool? AndroidOnboarded { get; set; }
         /// <summary>Partner display name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>User groups which enroll ios devices through partner.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ComplianceManagementPartnerAssignment>? IosEnrollmentAssignments { get; set; }
+#nullable restore
+#else
         public List<ComplianceManagementPartnerAssignment> IosEnrollmentAssignments { get; set; }
+#endif
         /// <summary>Partner onboarded for ios devices.</summary>
         public bool? IosOnboarded { get; set; }
         /// <summary>Timestamp of last heartbeat after admin onboarded to the compliance management partner</summary>
         public DateTimeOffset? LastHeartbeatDateTime { get; set; }
         /// <summary>User groups which enroll Mac devices through partner.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ComplianceManagementPartnerAssignment>? MacOsEnrollmentAssignments { get; set; }
+#nullable restore
+#else
         public List<ComplianceManagementPartnerAssignment> MacOsEnrollmentAssignments { get; set; }
+#endif
         /// <summary>Partner onboarded for Mac devices.</summary>
         public bool? MacOsOnboarded { get; set; }
         /// <summary>Partner state of this tenant.</summary>

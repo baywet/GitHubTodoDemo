@@ -10,7 +10,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Movies rating labels in Germany</summary>
         public RatingGermanyMoviesType? MovieRating { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>TV content rating labels in Germany</summary>
         public RatingGermanyTelevisionType? TvRating { get; set; }
         /// <summary>

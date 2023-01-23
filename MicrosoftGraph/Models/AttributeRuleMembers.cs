@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AttributeRuleMembers : SubjectSet, IParsable {
         /// <summary>A description of the membership rule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Determines the allowed target users for this policy. For more information about the syntax of the membership rule, see Membership Rules syntax.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MembershipRule { get; set; }
+#nullable restore
+#else
         public string MembershipRule { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new AttributeRuleMembers and sets the default values.
         /// </summary>

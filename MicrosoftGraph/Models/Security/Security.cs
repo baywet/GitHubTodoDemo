@@ -6,19 +6,61 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class Security : Entity, IParsable {
         /// <summary>The alerts property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.Alert>? Alerts { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.Alert> Alerts { get; set; }
+#endif
         /// <summary>A collection of alerts in Microsoft 365 Defender.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Alert>? Alerts_v2 { get; set; }
+#nullable restore
+#else
         public List<Alert> Alerts_v2 { get; set; }
+#endif
         /// <summary>The attackSimulation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.AttackSimulationRoot? AttackSimulation { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.AttackSimulationRoot AttackSimulation { get; set; }
+#endif
         /// <summary>The cases property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public CasesRoot? Cases { get; set; }
+#nullable restore
+#else
         public CasesRoot Cases { get; set; }
+#endif
         /// <summary>A collection of incidents in Microsoft 365 Defender, each of which is a set of correlated alerts and associated metadata that reflects the story of an attack.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Incident>? Incidents { get; set; }
+#nullable restore
+#else
         public List<Incident> Incidents { get; set; }
+#endif
         /// <summary>The secureScoreControlProfiles property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.SecureScoreControlProfile>? SecureScoreControlProfiles { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.SecureScoreControlProfile> SecureScoreControlProfiles { get; set; }
+#endif
         /// <summary>The secureScores property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<GitHubTodoDemo.MicrosoftGraph.Models.SecureScore>? SecureScores { get; set; }
+#nullable restore
+#else
         public List<GitHubTodoDemo.MicrosoftGraph.Models.SecureScore> SecureScores { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

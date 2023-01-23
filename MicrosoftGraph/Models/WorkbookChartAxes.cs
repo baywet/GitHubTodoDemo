@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookChartAxes : Entity, IParsable {
         /// <summary>Represents the category axis in a chart. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartAxis? CategoryAxis { get; set; }
+#nullable restore
+#else
         public WorkbookChartAxis CategoryAxis { get; set; }
+#endif
         /// <summary>Represents the series axis of a 3-dimensional chart. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartAxis? SeriesAxis { get; set; }
+#nullable restore
+#else
         public WorkbookChartAxis SeriesAxis { get; set; }
+#endif
         /// <summary>Represents the value axis in an axis. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartAxis? ValueAxis { get; set; }
+#nullable restore
+#else
         public WorkbookChartAxis ValueAxis { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

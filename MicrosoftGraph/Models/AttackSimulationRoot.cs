@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AttackSimulationRoot : Entity, IParsable {
         /// <summary>Represents simulation automation created to run on a tenant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SimulationAutomation>? SimulationAutomations { get; set; }
+#nullable restore
+#else
         public List<SimulationAutomation> SimulationAutomations { get; set; }
+#endif
         /// <summary>Represents an attack simulation training campaign in a tenant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Simulation>? Simulations { get; set; }
+#nullable restore
+#else
         public List<Simulation> Simulations { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

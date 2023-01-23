@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Defender’s default action to take on detected Malware threats.</summary>
     public enum DefenderThreatAction {
         /// <summary>Apply action based on the update definition.</summary>
         DeviceDefault,

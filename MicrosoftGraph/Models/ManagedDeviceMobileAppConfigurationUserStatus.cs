@@ -15,9 +15,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>The status property</summary>
         public ComplianceStatus? Status { get; set; }
         /// <summary>User name of the DevicePolicyStatus.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserDisplayName { get; set; }
+#nullable restore
+#else
         public string UserDisplayName { get; set; }
+#endif
         /// <summary>UserPrincipalName.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserPrincipalName { get; set; }
+#nullable restore
+#else
         public string UserPrincipalName { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

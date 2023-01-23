@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Windows Update Notification Display Options</summary>
     public enum WindowsUpdateNotificationDisplayOption {
         /// <summary>Not configured</summary>
         NotConfigured,

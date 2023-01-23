@@ -4,16 +4,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ChecklistItem : Entity, IParsable {
         /// <summary>The date and time when the checklistItem was finished.</summary>
         public DateTimeOffset? CheckedDateTime { get; set; }
         /// <summary>The date and time when the checklistItem was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Field indicating the title of checklistItem.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>State indicating whether the item is checked off or not.</summary>
         public bool? IsChecked { get; set; }
         /// <summary>

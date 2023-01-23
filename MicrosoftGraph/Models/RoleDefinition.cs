@@ -6,15 +6,39 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RoleDefinition : Entity, IParsable {
         /// <summary>Description of the Role definition.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Display Name of the Role definition.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.</summary>
         public bool? IsBuiltIn { get; set; }
         /// <summary>List of Role assignments for this role definition.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RoleAssignment>? RoleAssignments { get; set; }
+#nullable restore
+#else
         public List<RoleAssignment> RoleAssignments { get; set; }
+#endif
         /// <summary>List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<RolePermission>? RolePermissions { get; set; }
+#nullable restore
+#else
         public List<RolePermission> RolePermissions { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

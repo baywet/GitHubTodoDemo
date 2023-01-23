@@ -15,7 +15,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Device error count for the setting</summary>
         public int? ErrorDeviceCount { get; set; }
         /// <summary>Name of the InstancePath for the setting</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InstancePath { get; set; }
+#nullable restore
+#else
         public string InstancePath { get; set; }
+#endif
         /// <summary>Device NonCompliant count for the setting</summary>
         public int? NonCompliantDeviceCount { get; set; }
         /// <summary>Device Not Applicable count for the setting</summary>
@@ -23,7 +29,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Device Compliant count for the setting</summary>
         public int? RemediatedDeviceCount { get; set; }
         /// <summary>Name of the setting</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SettingName { get; set; }
+#nullable restore
+#else
         public string SettingName { get; set; }
+#endif
         /// <summary>Device Unkown count for the setting</summary>
         public int? UnknownDeviceCount { get; set; }
         /// <summary>

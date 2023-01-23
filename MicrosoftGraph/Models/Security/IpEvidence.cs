@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class IpEvidence : AlertEvidence, IParsable {
         /// <summary>The two-letter country code according to ISO 3166 format, for example: US, UK, CA, etc..).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CountryLetterCode { get; set; }
+#nullable restore
+#else
         public string CountryLetterCode { get; set; }
+#endif
         /// <summary>The value of the IP Address, can be either in V4 address or V6 address format.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IpAddress { get; set; }
+#nullable restore
+#else
         public string IpAddress { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

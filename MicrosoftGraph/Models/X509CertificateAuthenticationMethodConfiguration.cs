@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class X509CertificateAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable {
         /// <summary>Defines strong authentication configurations. This configuration includes the default authentication mode and the different rules for strong authentication bindings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public X509CertificateAuthenticationModeConfiguration? AuthenticationModeConfiguration { get; set; }
+#nullable restore
+#else
         public X509CertificateAuthenticationModeConfiguration AuthenticationModeConfiguration { get; set; }
+#endif
         /// <summary>Defines fields in the X.509 certificate that map to attributes of the Azure AD user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<X509CertificateUserBinding>? CertificateUserBindings { get; set; }
+#nullable restore
+#else
         public List<X509CertificateUserBinding> CertificateUserBindings { get; set; }
+#endif
         /// <summary>A collection of groups that are enabled to use the authentication method.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AuthenticationMethodTarget>? IncludeTargets { get; set; }
+#nullable restore
+#else
         public List<AuthenticationMethodTarget> IncludeTargets { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new X509CertificateAuthenticationMethodConfiguration and sets the default values.
         /// </summary>

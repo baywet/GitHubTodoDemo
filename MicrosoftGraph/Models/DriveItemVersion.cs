@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DriveItemVersion : BaseItemVersion, IParsable {
         /// <summary>The content stream for this version of the item.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Content { get; set; }
+#nullable restore
+#else
         public byte[] Content { get; set; }
+#endif
         /// <summary>Indicates the size of the content stream for this version of the item.</summary>
         public long? Size { get; set; }
         /// <summary>

@@ -8,13 +8,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Not yet documented</summary>
         public int? ConfigurationDeployedUserCount { get; set; }
         /// <summary>Not yet documented</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ManagedAppPolicyDeploymentSummaryPerApp>? ConfigurationDeploymentSummaryPerApp { get; set; }
+#nullable restore
+#else
         public List<ManagedAppPolicyDeploymentSummaryPerApp> ConfigurationDeploymentSummaryPerApp { get; set; }
+#endif
         /// <summary>Not yet documented</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Not yet documented</summary>
         public DateTimeOffset? LastRefreshTime { get; set; }
         /// <summary>Version of the entity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Version { get; set; }
+#nullable restore
+#else
         public string Version { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

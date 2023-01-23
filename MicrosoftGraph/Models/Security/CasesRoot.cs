@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
     public class CasesRoot : Entity, IParsable {
         /// <summary>The ediscoveryCases property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<EdiscoveryCase>? EdiscoveryCases { get; set; }
+#nullable restore
+#else
         public List<EdiscoveryCase> EdiscoveryCases { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -8,13 +8,37 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Specifies the pattern for recurrence</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PatternedRecurrence? Recurrence { get; set; }
+#nullable restore
+#else
         public PatternedRecurrence Recurrence { get; set; }
+#endif
         /// <summary>The time slot(s) preferred by the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<TimeRange>? TimeSlots { get; set; }
+#nullable restore
+#else
         public List<TimeRange> TimeSlots { get; set; }
+#endif
         /// <summary>Specifies the time zone for the indicated time.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TimeZone { get; set; }
+#nullable restore
+#else
         public string TimeZone { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new shiftAvailability and sets the default values.
         /// </summary>

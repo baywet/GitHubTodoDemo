@@ -23,7 +23,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Longitude coordinate of the device&apos;s location</summary>
         public double? Longitude { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Speed the device is traveling in meters per second</summary>
         public double? Speed { get; set; }
         /// <summary>Accuracy of altitude in meters</summary>

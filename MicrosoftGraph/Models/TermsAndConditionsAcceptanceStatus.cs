@@ -13,11 +13,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Most recent version number of the T&amp;C accepted by the user.</summary>
         public int? AcceptedVersion { get; set; }
         /// <summary>Navigation link to the terms and conditions that are assigned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.TermsAndConditions? TermsAndConditions { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.TermsAndConditions TermsAndConditions { get; set; }
+#endif
         /// <summary>Display name of the user whose acceptance the entity represents.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserDisplayName { get; set; }
+#nullable restore
+#else
         public string UserDisplayName { get; set; }
+#endif
         /// <summary>The userPrincipalName of the User that accepted the term.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserPrincipalName { get; set; }
+#nullable restore
+#else
         public string UserPrincipalName { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

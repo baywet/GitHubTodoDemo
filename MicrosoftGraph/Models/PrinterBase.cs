@@ -6,23 +6,71 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrinterBase : Entity, IParsable {
         /// <summary>The capabilities of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrinterCapabilities? Capabilities { get; set; }
+#nullable restore
+#else
         public PrinterCapabilities Capabilities { get; set; }
+#endif
         /// <summary>The default print settings of printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrinterDefaults? Defaults { get; set; }
+#nullable restore
+#else
         public PrinterDefaults Defaults { get; set; }
+#endif
         /// <summary>The name of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Whether the printer/printerShare is currently accepting new print jobs.</summary>
         public bool? IsAcceptingJobs { get; set; }
         /// <summary>The list of jobs that are queued for printing by the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<PrintJob>? Jobs { get; set; }
+#nullable restore
+#else
         public List<PrintJob> Jobs { get; set; }
+#endif
         /// <summary>The physical and/or organizational location of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrinterLocation? Location { get; set; }
+#nullable restore
+#else
         public PrinterLocation Location { get; set; }
+#endif
         /// <summary>The manufacturer of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Manufacturer { get; set; }
+#nullable restore
+#else
         public string Manufacturer { get; set; }
+#endif
         /// <summary>The model name of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Model { get; set; }
+#nullable restore
+#else
         public string Model { get; set; }
+#endif
         /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrinterStatus? Status { get; set; }
+#nullable restore
+#else
         public PrinterStatus Status { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

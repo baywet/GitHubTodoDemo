@@ -6,15 +6,45 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrintConnector : Entity, IParsable {
         /// <summary>The connector&apos;s version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppVersion { get; set; }
+#nullable restore
+#else
         public string AppVersion { get; set; }
+#endif
         /// <summary>The name of the connector.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The connector machine&apos;s hostname.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FullyQualifiedDomainName { get; set; }
+#nullable restore
+#else
         public string FullyQualifiedDomainName { get; set; }
+#endif
         /// <summary>The physical and/or organizational location of the connector.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrinterLocation? Location { get; set; }
+#nullable restore
+#else
         public PrinterLocation Location { get; set; }
+#endif
         /// <summary>The connector machine&apos;s operating system version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OperatingSystem { get; set; }
+#nullable restore
+#else
         public string OperatingSystem { get; set; }
+#endif
         /// <summary>The DateTimeOffset when the connector was registered.</summary>
         public DateTimeOffset? RegisteredDateTime { get; set; }
         /// <summary>

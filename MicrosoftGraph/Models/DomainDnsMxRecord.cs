@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainDnsMxRecord : DomainDnsRecord, IParsable {
         /// <summary>Value used when configuring the answer/destination/value of the MX record at the DNS host.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MailExchange { get; set; }
+#nullable restore
+#else
         public string MailExchange { get; set; }
+#endif
         /// <summary>Value used when configuring the Preference/Priority property of the MX record at the DNS host.</summary>
         public int? Preference { get; set; }
         /// <summary>

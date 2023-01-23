@@ -6,13 +6,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ManagedAndroidLobApp : ManagedMobileLobApp, IParsable {
         /// <summary>The value for the minimum applicable operating system.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AndroidMinimumOperatingSystem? MinimumSupportedOperatingSystem { get; set; }
+#nullable restore
+#else
         public AndroidMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
+#endif
         /// <summary>The package identifier.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PackageId { get; set; }
+#nullable restore
+#else
         public string PackageId { get; set; }
+#endif
         /// <summary>The version code of managed Android Line of Business (LoB) app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VersionCode { get; set; }
+#nullable restore
+#else
         public string VersionCode { get; set; }
+#endif
         /// <summary>The version name of managed Android Line of Business (LoB) app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VersionName { get; set; }
+#nullable restore
+#else
         public string VersionName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ManagedAndroidLobApp and sets the default values.
         /// </summary>

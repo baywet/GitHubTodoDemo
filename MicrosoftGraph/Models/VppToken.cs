@@ -9,11 +9,23 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class VppToken : Entity, IParsable {
         /// <summary>The apple Id associated with the given Apple Volume Purchase Program Token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppleId { get; set; }
+#nullable restore
+#else
         public string AppleId { get; set; }
+#endif
         /// <summary>Whether or not apps for the VPP token will be automatically updated.</summary>
         public bool? AutomaticallyUpdateApps { get; set; }
         /// <summary>Whether or not apps for the VPP token will be automatically updated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CountryOrRegion { get; set; }
+#nullable restore
+#else
         public string CountryOrRegion { get; set; }
+#endif
         /// <summary>The expiration date time of the Apple Volume Purchase Program Token.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>Last modification date time associated with the Apple Volume Purchase Program Token.</summary>
@@ -23,11 +35,23 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Possible sync statuses associated with an Apple Volume Purchase Program token.</summary>
         public VppTokenSyncStatus? LastSyncStatus { get; set; }
         /// <summary>The organization associated with the Apple Volume Purchase Program Token</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationName { get; set; }
+#nullable restore
+#else
         public string OrganizationName { get; set; }
+#endif
         /// <summary>Possible states associated with an Apple Volume Purchase Program token.</summary>
         public VppTokenState? State { get; set; }
         /// <summary>The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Token { get; set; }
+#nullable restore
+#else
         public string Token { get; set; }
+#endif
         /// <summary>Possible types of an Apple Volume Purchase Program token.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.VppTokenAccountType? VppTokenAccountType { get; set; }
         /// <summary>

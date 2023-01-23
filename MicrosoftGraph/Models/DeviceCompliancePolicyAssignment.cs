@@ -9,7 +9,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class DeviceCompliancePolicyAssignment : Entity, IParsable {
         /// <summary>Target for the compliance policy assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceAndAppManagementAssignmentTarget? Target { get; set; }
+#nullable restore
+#else
         public DeviceAndAppManagementAssignmentTarget Target { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

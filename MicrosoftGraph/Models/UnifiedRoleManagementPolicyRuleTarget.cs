@@ -8,19 +8,61 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of caller that&apos;s the target of the policy rule. Allowed values are: None, Admin, EndUser.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Caller { get; set; }
+#nullable restore
+#else
         public string Caller { get; set; }
+#endif
         /// <summary>The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? EnforcedSettings { get; set; }
+#nullable restore
+#else
         public List<string> EnforcedSettings { get; set; }
+#endif
         /// <summary>The list of role settings that can be inherited by child scopes. Use All for all settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? InheritableSettings { get; set; }
+#nullable restore
+#else
         public List<string> InheritableSettings { get; set; }
+#endif
         /// <summary>The role assignment type that&apos;s the target of policy rule. Allowed values are: Eligibility, Assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Level { get; set; }
+#nullable restore
+#else
         public string Level { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<UnifiedRoleManagementPolicyRuleTargetOperations?>? Operations { get; set; }
+#nullable restore
+#else
         public List<UnifiedRoleManagementPolicyRuleTargetOperations?> Operations { get; set; }
+#endif
         /// <summary>The targetObjects property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DirectoryObject>? TargetObjects { get; set; }
+#nullable restore
+#else
         public List<DirectoryObject> TargetObjects { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new unifiedRoleManagementPolicyRuleTarget and sets the default values.
         /// </summary>

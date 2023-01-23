@@ -15,9 +15,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>If set to true, corresponding managed apps will not be allowed to use cellular data when roaming.</summary>
         public bool? CellularDataBlockWhenRoaming { get; set; }
         /// <summary>Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AppListItem>? ManagedApps { get; set; }
+#nullable restore
+#else
         public List<AppListItem> ManagedApps { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new iosNetworkUsageRule and sets the default values.
         /// </summary>

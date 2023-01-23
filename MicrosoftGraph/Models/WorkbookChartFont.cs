@@ -8,15 +8,33 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents the bold status of font.</summary>
         public bool? Bold { get; set; }
         /// <summary>HTML color code representation of the text color. E.g. #FF0000 represents Red.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Color { get; set; }
+#nullable restore
+#else
         public string Color { get; set; }
+#endif
         /// <summary>Represents the italic status of the font.</summary>
         public bool? Italic { get; set; }
         /// <summary>Font name (e.g. &apos;Calibri&apos;)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
         public string Name { get; set; }
+#endif
         /// <summary>Size of the font (e.g. 11)</summary>
         public double? Size { get; set; }
         /// <summary>Type of underline applied to the font. The possible values are: None, Single.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Underline { get; set; }
+#nullable restore
+#else
         public string Underline { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

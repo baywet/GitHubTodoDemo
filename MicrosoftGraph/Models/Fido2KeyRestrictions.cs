@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Fido2KeyRestrictions : IAdditionalDataHolder, IParsable {
         /// <summary>A collection of Authenticator Attestation GUIDs. AADGUIDs define key types and manufacturers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AaGuids { get; set; }
+#nullable restore
+#else
         public List<string> AaGuids { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enforcement type. Possible values are: allow, block.</summary>
@@ -14,7 +20,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Determines if the configured key enforcement is enabled.</summary>
         public bool? IsEnforced { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new fido2KeyRestrictions and sets the default values.
         /// </summary>

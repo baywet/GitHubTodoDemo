@@ -8,11 +8,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Determines whether the user&apos;s Authenticator app will show them the client app they are signing into.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AuthenticationMethodFeatureConfiguration? DisplayAppInformationRequiredState { get; set; }
+#nullable restore
+#else
         public AuthenticationMethodFeatureConfiguration DisplayAppInformationRequiredState { get; set; }
+#endif
         /// <summary>Determines whether the user&apos;s Authenticator app will show them the geographic location of where the authentication request originated from.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AuthenticationMethodFeatureConfiguration? DisplayLocationInformationRequiredState { get; set; }
+#nullable restore
+#else
         public AuthenticationMethodFeatureConfiguration DisplayLocationInformationRequiredState { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new microsoftAuthenticatorFeatureSettings and sets the default values.
         /// </summary>

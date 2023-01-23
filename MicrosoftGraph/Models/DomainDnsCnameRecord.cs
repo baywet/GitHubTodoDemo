@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class DomainDnsCnameRecord : DomainDnsRecord, IParsable {
         /// <summary>The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CanonicalName { get; set; }
+#nullable restore
+#else
         public string CanonicalName { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

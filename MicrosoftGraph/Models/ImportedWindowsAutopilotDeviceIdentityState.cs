@@ -10,13 +10,31 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Device error code reported by Device Directory Service(DDS).</summary>
         public int? DeviceErrorCode { get; set; }
         /// <summary>Device error name reported by Device Directory Service(DDS).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceErrorName { get; set; }
+#nullable restore
+#else
         public string DeviceErrorName { get; set; }
+#endif
         /// <summary>The deviceImportStatus property</summary>
         public ImportedWindowsAutopilotDeviceIdentityImportStatus? DeviceImportStatus { get; set; }
         /// <summary>Device Registration ID for successfully added device reported by Device Directory Service(DDS).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceRegistrationId { get; set; }
+#nullable restore
+#else
         public string DeviceRegistrationId { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new importedWindowsAutopilotDeviceIdentityState and sets the default values.
         /// </summary>

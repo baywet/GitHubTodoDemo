@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Possible values for a weekly schedule.</summary>
     public enum WeeklySchedule {
         /// <summary>User Defined, default value, no intent.</summary>
         UserDefined,

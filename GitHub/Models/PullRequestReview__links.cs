@@ -8,9 +8,21 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The html property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PullRequestReview__links_html? Html { get; set; }
+#nullable restore
+#else
         public PullRequestReview__links_html Html { get; set; }
+#endif
         /// <summary>The pull_request property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PullRequestReview__links_pull_request? Pull_request { get; set; }
+#nullable restore
+#else
         public PullRequestReview__links_pull_request Pull_request { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PullRequestReview__links and sets the default values.
         /// </summary>

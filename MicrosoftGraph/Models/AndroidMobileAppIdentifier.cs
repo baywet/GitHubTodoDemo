@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class AndroidMobileAppIdentifier : MobileAppIdentifier, IParsable {
         /// <summary>The identifier for an app, as specified in the play store.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PackageId { get; set; }
+#nullable restore
+#else
         public string PackageId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new AndroidMobileAppIdentifier and sets the default values.
         /// </summary>

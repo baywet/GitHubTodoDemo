@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ShiftPreferences : ChangeTrackedEntity, IParsable {
         /// <summary>Availability of the user to be scheduled for work and its recurrence pattern.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ShiftAvailability>? Availability { get; set; }
+#nullable restore
+#else
         public List<ShiftAvailability> Availability { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ShiftPreferences and sets the default values.
         /// </summary>

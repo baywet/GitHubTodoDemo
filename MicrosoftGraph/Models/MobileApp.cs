@@ -6,33 +6,99 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class MobileApp : Entity, IParsable {
         /// <summary>The list of group assignments for this mobile app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MobileAppAssignment>? Assignments { get; set; }
+#nullable restore
+#else
         public List<MobileAppAssignment> Assignments { get; set; }
+#endif
         /// <summary>The list of categories for this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MobileAppCategory>? Categories { get; set; }
+#nullable restore
+#else
         public List<MobileAppCategory> Categories { get; set; }
+#endif
         /// <summary>The date and time the app was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The description of the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>The developer of the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Developer { get; set; }
+#nullable restore
+#else
         public string Developer { get; set; }
+#endif
         /// <summary>The admin provided or imported title of the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The more information Url.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InformationUrl { get; set; }
+#nullable restore
+#else
         public string InformationUrl { get; set; }
+#endif
         /// <summary>The value indicating whether the app is marked as featured by the admin.</summary>
         public bool? IsFeatured { get; set; }
         /// <summary>The large icon, to be displayed in the app details and used for upload of the icon.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public MimeContent? LargeIcon { get; set; }
+#nullable restore
+#else
         public MimeContent LargeIcon { get; set; }
+#endif
         /// <summary>The date and time the app was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Notes for the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Notes { get; set; }
+#nullable restore
+#else
         public string Notes { get; set; }
+#endif
         /// <summary>The owner of the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Owner { get; set; }
+#nullable restore
+#else
         public string Owner { get; set; }
+#endif
         /// <summary>The privacy statement Url.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrivacyInformationUrl { get; set; }
+#nullable restore
+#else
         public string PrivacyInformationUrl { get; set; }
+#endif
         /// <summary>The publisher of the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Publisher { get; set; }
+#nullable restore
+#else
         public string Publisher { get; set; }
+#endif
         /// <summary>Indicates the publishing state of an app.</summary>
         public MobileAppPublishingState? PublishingState { get; set; }
         /// <summary>

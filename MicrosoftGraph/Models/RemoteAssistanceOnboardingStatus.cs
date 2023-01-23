@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>The current TeamViewer connector status</summary>
     public enum RemoteAssistanceOnboardingStatus {
         /// <summary>The status reported when there is no active TeamViewer connector configured or active</summary>
         NotOnboarded,

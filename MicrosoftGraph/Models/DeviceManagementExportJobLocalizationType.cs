@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Configures how the requested export job is localized</summary>
     public enum DeviceManagementExportJobLocalizationType {
         /// <summary>Configures the export job to expose localized values as an additional column</summary>
         LocalizedValuesAsAdditionalColumn,

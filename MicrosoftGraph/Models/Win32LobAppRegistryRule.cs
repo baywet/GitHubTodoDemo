@@ -8,15 +8,33 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>A value indicating whether to search the 32-bit registry on 64-bit systems.</summary>
         public bool? Check32BitOn64System { get; set; }
         /// <summary>The registry comparison value.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ComparisonValue { get; set; }
+#nullable restore
+#else
         public string ComparisonValue { get; set; }
+#endif
         /// <summary>The full path of the registry entry containing the value to detect.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? KeyPath { get; set; }
+#nullable restore
+#else
         public string KeyPath { get; set; }
+#endif
         /// <summary>Contains all supported registry data detection type.</summary>
         public Win32LobAppRegistryRuleOperationType? OperationType { get; set; }
         /// <summary>Contains properties for detection operator.</summary>
         public Win32LobAppRuleOperator? Operator { get; set; }
         /// <summary>The name of the registry value to detect.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ValueName { get; set; }
+#nullable restore
+#else
         public string ValueName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new Win32LobAppRegistryRule and sets the default values.
         /// </summary>

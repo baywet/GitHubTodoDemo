@@ -7,7 +7,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class SharedPCConfiguration : DeviceConfiguration, IParsable {
         /// <summary>Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SharedPCAccountManagerPolicy? AccountManagerPolicy { get; set; }
+#nullable restore
+#else
         public SharedPCAccountManagerPolicy AccountManagerPolicy { get; set; }
+#endif
         /// <summary>Type of accounts that are allowed to share the PC.</summary>
         public SharedPCAllowedAccountType? AllowedAccounts { get; set; }
         /// <summary>Specifies whether local storage is allowed on a shared PC.</summary>
@@ -25,9 +31,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Specifies the time in seconds that a device must sit idle before the PC goes to sleep. Setting this value to 0 prevents the sleep timeout from occurring.</summary>
         public int? IdleTimeBeforeSleepInSeconds { get; set; }
         /// <summary>Specifies the display text for the account shown on the sign-in screen which launches the app specified by SetKioskAppUserModelId. Only applies when KioskAppUserModelId is set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? KioskAppDisplayName { get; set; }
+#nullable restore
+#else
         public string KioskAppDisplayName { get; set; }
+#endif
         /// <summary>Specifies the application user model ID of the app to use with assigned access.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? KioskAppUserModelId { get; set; }
+#nullable restore
+#else
         public string KioskAppUserModelId { get; set; }
+#endif
         /// <summary>Specifies the daily start time of maintenance hour.</summary>
         public Time? MaintenanceStartTime { get; set; }
         /// <summary>

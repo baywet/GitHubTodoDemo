@@ -8,17 +8,47 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Display name of the training.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.</summary>
         public TrainingStatus? LatestTrainingStatus { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Event details of the training when it was assigned to the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UserTrainingContentEventInfo? TrainingAssignedProperties { get; set; }
+#nullable restore
+#else
         public UserTrainingContentEventInfo TrainingAssignedProperties { get; set; }
+#endif
         /// <summary>Event details of the training when it was completed by the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UserTrainingContentEventInfo? TrainingCompletedProperties { get; set; }
+#nullable restore
+#else
         public UserTrainingContentEventInfo TrainingCompletedProperties { get; set; }
+#endif
         /// <summary>Event details of the training when it was updated/in-progress by the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UserTrainingContentEventInfo? TrainingUpdatedProperties { get; set; }
+#nullable restore
+#else
         public UserTrainingContentEventInfo TrainingUpdatedProperties { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new userTrainingEventInfo and sets the default values.
         /// </summary>

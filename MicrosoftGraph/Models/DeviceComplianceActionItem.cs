@@ -13,9 +13,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of hours to wait till the action will be enforced. Valid values 0 to 8760</summary>
         public int? GracePeriodHours { get; set; }
         /// <summary>A list of group IDs to speicify who to CC this notification message to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? NotificationMessageCCList { get; set; }
+#nullable restore
+#else
         public List<string> NotificationMessageCCList { get; set; }
+#endif
         /// <summary>What notification Message template to use</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NotificationTemplateId { get; set; }
+#nullable restore
+#else
         public string NotificationTemplateId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -10,13 +10,25 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models.Security {
         /// <summary>The date and time the operation was completed.</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
         /// <summary>The user that created the operation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet? CreatedBy { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.IdentitySet CreatedBy { get; set; }
+#endif
         /// <summary>The date and time the operation was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The progress of the operation.</summary>
         public int? PercentProgress { get; set; }
         /// <summary>Contains success and failure-specific result information.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo? ResultInfo { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.ResultInfo ResultInfo { get; set; }
+#endif
         /// <summary>The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.</summary>
         public CaseOperationStatus? Status { get; set; }
         /// <summary>

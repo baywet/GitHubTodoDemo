@@ -4,22 +4,55 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ContactFolder : Entity, IParsable {
         /// <summary>The collection of child folders in the folder. Navigation property. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ContactFolder>? ChildFolders { get; set; }
+#nullable restore
+#else
         public List<ContactFolder> ChildFolders { get; set; }
+#endif
         /// <summary>The contacts in the folder. Navigation property. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Contact>? Contacts { get; set; }
+#nullable restore
+#else
         public List<Contact> Contacts { get; set; }
+#endif
         /// <summary>The folder&apos;s display name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<MultiValueLegacyExtendedProperty>? MultiValueExtendedProperties { get; set; }
+#nullable restore
+#else
         public List<MultiValueLegacyExtendedProperty> MultiValueExtendedProperties { get; set; }
+#endif
         /// <summary>The ID of the folder&apos;s parent folder.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentFolderId { get; set; }
+#nullable restore
+#else
         public string ParentFolderId { get; set; }
+#endif
         /// <summary>The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<SingleValueLegacyExtendedProperty>? SingleValueExtendedProperties { get; set; }
+#nullable restore
+#else
         public List<SingleValueLegacyExtendedProperty> SingleValueExtendedProperties { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

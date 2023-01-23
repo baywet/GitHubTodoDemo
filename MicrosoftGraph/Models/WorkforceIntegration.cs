@@ -8,15 +8,33 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>API version for the call back URL. Start with 1.</summary>
         public int? ApiVersion { get; set; }
         /// <summary>Name of the workforce integration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>The workforce integration encryption resource.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkforceIntegrationEncryption? Encryption { get; set; }
+#nullable restore
+#else
         public WorkforceIntegrationEncryption Encryption { get; set; }
+#endif
         /// <summary>Indicates whether this workforce integration is currently active and available.</summary>
         public bool? IsActive { get; set; }
         /// <summary>The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.</summary>
         public WorkforceIntegrationSupportedEntities? SupportedEntities { get; set; }
         /// <summary>Workforce Integration URL for callbacks from the Shifts service.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
         public string Url { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new WorkforceIntegration and sets the default values.
         /// </summary>

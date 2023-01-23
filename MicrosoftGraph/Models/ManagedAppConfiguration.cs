@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class ManagedAppConfiguration : ManagedAppPolicy, IParsable {
         /// <summary>A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<KeyValuePair>? CustomSettings { get; set; }
+#nullable restore
+#else
         public List<KeyValuePair> CustomSettings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new ManagedAppConfiguration and sets the default values.
         /// </summary>

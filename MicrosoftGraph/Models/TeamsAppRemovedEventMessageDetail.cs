@@ -6,11 +6,29 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TeamsAppRemovedEventMessageDetail : EventMessageDetail, IParsable {
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>Display name of the teamsApp.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamsAppDisplayName { get; set; }
+#nullable restore
+#else
         public string TeamsAppDisplayName { get; set; }
+#endif
         /// <summary>Unique identifier of the teamsApp.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamsAppId { get; set; }
+#nullable restore
+#else
         public string TeamsAppId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new TeamsAppRemovedEventMessageDetail and sets the default values.
         /// </summary>

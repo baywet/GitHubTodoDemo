@@ -6,11 +6,23 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookChartTitle : Entity, IParsable {
         /// <summary>Represents the formatting of a chart title, which includes fill and font formatting. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartTitleFormat? Format { get; set; }
+#nullable restore
+#else
         public WorkbookChartTitleFormat Format { get; set; }
+#endif
         /// <summary>Boolean value representing if the chart title will overlay the chart or not.</summary>
         public bool? Overlay { get; set; }
         /// <summary>Represents the title text of a chart.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Text { get; set; }
+#nullable restore
+#else
         public string Text { get; set; }
+#endif
         /// <summary>A boolean value the represents the visibility of a chart title object.</summary>
         public bool? Visible { get; set; }
         /// <summary>

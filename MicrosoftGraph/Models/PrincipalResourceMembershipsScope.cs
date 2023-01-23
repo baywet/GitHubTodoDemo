@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class PrincipalResourceMembershipsScope : AccessReviewScope, IParsable {
         /// <summary>Defines the scopes of the principals whose access to resources are reviewed in the access review.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessReviewScope>? PrincipalScopes { get; set; }
+#nullable restore
+#else
         public List<AccessReviewScope> PrincipalScopes { get; set; }
+#endif
         /// <summary>Defines the scopes of the resources for which access is reviewed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessReviewScope>? ResourceScopes { get; set; }
+#nullable restore
+#else
         public List<AccessReviewScope> ResourceScopes { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new PrincipalResourceMembershipsScope and sets the default values.
         /// </summary>

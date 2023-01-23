@@ -10,11 +10,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.</summary>
         public bool? IsPasscodeRequired { get; set; }
         /// <summary>The meeting ID to be used to join a meeting. Optional. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JoinMeetingId { get; set; }
+#nullable restore
+#else
         public string JoinMeetingId { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>The passcode to join a meeting.  Optional. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Passcode { get; set; }
+#nullable restore
+#else
         public string Passcode { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new joinMeetingIdSettings and sets the default values.
         /// </summary>

@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class Win32LobAppProductCodeRule : Win32LobAppRule, IParsable {
         /// <summary>The product code of the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductCode { get; set; }
+#nullable restore
+#else
         public string ProductCode { get; set; }
+#endif
         /// <summary>The product version comparison value.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProductVersion { get; set; }
+#nullable restore
+#else
         public string ProductVersion { get; set; }
+#endif
         /// <summary>Contains properties for detection operator.</summary>
         public Win32LobAppRuleOperator? ProductVersionOperator { get; set; }
         /// <summary>

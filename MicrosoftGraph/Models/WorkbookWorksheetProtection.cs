@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookWorksheetProtection : Entity, IParsable {
         /// <summary>Sheet protection options. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookWorksheetProtectionOptions? Options { get; set; }
+#nullable restore
+#else
         public WorkbookWorksheetProtectionOptions Options { get; set; }
+#endif
         /// <summary>Indicates if the worksheet is protected.  Read-only.</summary>
         public bool? Protected { get; set; }
         /// <summary>

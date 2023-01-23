@@ -4,22 +4,43 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class WorkbookTable : Entity, IParsable {
         /// <summary>Represents a collection of all the columns in the table. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<WorkbookTableColumn>? Columns { get; set; }
+#nullable restore
+#else
         public List<WorkbookTableColumn> Columns { get; set; }
+#endif
         /// <summary>Indicates whether the first column contains special formatting.</summary>
         public bool? HighlightFirstColumn { get; set; }
         /// <summary>Indicates whether the last column contains special formatting.</summary>
         public bool? HighlightLastColumn { get; set; }
         /// <summary>Legacy Id used in older Excle clients. The value of the identifier remains the same even when the table is renamed. This property should be interpreted as an opaque string value and should not be parsed to any other type. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LegacyId { get; set; }
+#nullable restore
+#else
         public string LegacyId { get; set; }
+#endif
         /// <summary>Name of the table.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
         public string Name { get; set; }
+#endif
         /// <summary>Represents a collection of all the rows in the table. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<WorkbookTableRow>? Rows { get; set; }
+#nullable restore
+#else
         public List<WorkbookTableRow> Rows { get; set; }
+#endif
         /// <summary>Indicates whether the columns show banded formatting in which odd columns are highlighted differently from even ones to make reading the table easier.</summary>
         public bool? ShowBandedColumns { get; set; }
         /// <summary>Indicates whether the rows show banded formatting in which odd rows are highlighted differently from even ones to make reading the table easier.</summary>
@@ -31,11 +52,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Indicates whether the total row is visible or not. This value can be set to show or remove the total row.</summary>
         public bool? ShowTotals { get; set; }
         /// <summary>Represents the sorting for the table. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookTableSort? Sort { get; set; }
+#nullable restore
+#else
         public WorkbookTableSort Sort { get; set; }
+#endif
         /// <summary>Constant value that represents the Table style. The possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Style { get; set; }
+#nullable restore
+#else
         public string Style { get; set; }
+#endif
         /// <summary>The worksheet containing the current table. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookWorksheet? Worksheet { get; set; }
+#nullable restore
+#else
         public WorkbookWorksheet Worksheet { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

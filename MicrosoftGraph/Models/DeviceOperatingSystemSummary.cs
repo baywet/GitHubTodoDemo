@@ -29,7 +29,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Number of Mac OS X device count.</summary>
         public int? MacOSCount { get; set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType { get; set; }
+#nullable restore
+#else
         public string OdataType { get; set; }
+#endif
         /// <summary>Number of unknown device count.</summary>
         public int? UnknownCount { get; set; }
         /// <summary>Number of Windows device count.</summary>

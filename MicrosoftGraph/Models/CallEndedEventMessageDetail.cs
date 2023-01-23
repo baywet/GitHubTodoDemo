@@ -10,11 +10,29 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Represents the call event type. Possible values are: call, meeting, screenShare, unknownFutureValue.</summary>
         public TeamworkCallEventType? CallEventType { get; set; }
         /// <summary>Unique identifier of the call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CallId { get; set; }
+#nullable restore
+#else
         public string CallId { get; set; }
+#endif
         /// <summary>List of call participants.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CallParticipantInfo>? CallParticipants { get; set; }
+#nullable restore
+#else
         public List<CallParticipantInfo> CallParticipants { get; set; }
+#endif
         /// <summary>Initiator of the event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IdentitySet? Initiator { get; set; }
+#nullable restore
+#else
         public IdentitySet Initiator { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new CallEndedEventMessageDetail and sets the default values.
         /// </summary>

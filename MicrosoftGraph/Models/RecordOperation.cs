@@ -6,9 +6,21 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class RecordOperation : CommsOperation, IParsable {
         /// <summary>The access token required to retrieve the recording.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecordingAccessToken { get; set; }
+#nullable restore
+#else
         public string RecordingAccessToken { get; set; }
+#endif
         /// <summary>The location where the recording is located.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecordingLocation { get; set; }
+#nullable restore
+#else
         public string RecordingLocation { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -6,21 +6,69 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class WorkbookChartAxis : Entity, IParsable {
         /// <summary>Represents the formatting of a chart object, which includes line and font formatting. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartAxisFormat? Format { get; set; }
+#nullable restore
+#else
         public WorkbookChartAxisFormat Format { get; set; }
+#endif
         /// <summary>Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartGridlines? MajorGridlines { get; set; }
+#nullable restore
+#else
         public WorkbookChartGridlines MajorGridlines { get; set; }
+#endif
         /// <summary>Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Json? MajorUnit { get; set; }
+#nullable restore
+#else
         public Json MajorUnit { get; set; }
+#endif
         /// <summary>Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Json? Maximum { get; set; }
+#nullable restore
+#else
         public Json Maximum { get; set; }
+#endif
         /// <summary>Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Json? Minimum { get; set; }
+#nullable restore
+#else
         public Json Minimum { get; set; }
+#endif
         /// <summary>Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartGridlines? MinorGridlines { get; set; }
+#nullable restore
+#else
         public WorkbookChartGridlines MinorGridlines { get; set; }
+#endif
         /// <summary>Represents the interval between two minor tick marks. &apos;Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Json? MinorUnit { get; set; }
+#nullable restore
+#else
         public Json MinorUnit { get; set; }
+#endif
         /// <summary>Represents the axis title. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WorkbookChartAxisTitle? Title { get; set; }
+#nullable restore
+#else
         public WorkbookChartAxisTitle Title { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

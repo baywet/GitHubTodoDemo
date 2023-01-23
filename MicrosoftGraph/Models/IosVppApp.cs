@@ -6,13 +6,37 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class IosVppApp : MobileApp, IParsable {
         /// <summary>The applicable iOS Device Type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public IosDeviceType? ApplicableDeviceType { get; set; }
+#nullable restore
+#else
         public IosDeviceType ApplicableDeviceType { get; set; }
+#endif
         /// <summary>The store URL.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppStoreUrl { get; set; }
+#nullable restore
+#else
         public string AppStoreUrl { get; set; }
+#endif
         /// <summary>The Identity Name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BundleId { get; set; }
+#nullable restore
+#else
         public string BundleId { get; set; }
+#endif
         /// <summary>The supported License Type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public VppLicensingType? LicensingType { get; set; }
+#nullable restore
+#else
         public VppLicensingType LicensingType { get; set; }
+#endif
         /// <summary>The VPP application release date and time.</summary>
         public DateTimeOffset? ReleaseDateTime { get; set; }
         /// <summary>The total number of VPP licenses.</summary>
@@ -22,9 +46,21 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Possible types of an Apple Volume Purchase Program token.</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.VppTokenAccountType? VppTokenAccountType { get; set; }
         /// <summary>The Apple Id associated with the given Apple Volume Purchase Program Token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VppTokenAppleId { get; set; }
+#nullable restore
+#else
         public string VppTokenAppleId { get; set; }
+#endif
         /// <summary>The organization associated with the Apple Volume Purchase Program Token</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VppTokenOrganizationName { get; set; }
+#nullable restore
+#else
         public string VppTokenOrganizationName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new IosVppApp and sets the default values.
         /// </summary>

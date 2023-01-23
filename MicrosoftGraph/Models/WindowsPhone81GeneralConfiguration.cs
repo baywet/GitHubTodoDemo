@@ -18,7 +18,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Possible values of the compliance app list.</summary>
         public AppListType? CompliantAppListType { get; set; }
         /// <summary>List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AppListItem>? CompliantAppsList { get; set; }
+#nullable restore
+#else
         public List<AppListItem> CompliantAppsList { get; set; }
+#endif
         /// <summary>Indicates whether or not to block diagnostic data submission.</summary>
         public bool? DiagnosticDataBlockSubmission { get; set; }
         /// <summary>Indicates whether or not to block custom email accounts.</summary>

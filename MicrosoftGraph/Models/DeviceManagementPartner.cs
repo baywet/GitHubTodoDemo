@@ -9,7 +9,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
     /// </summary>
     public class DeviceManagementPartner : Entity, IParsable {
         /// <summary>Partner display name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
         public string DisplayName { get; set; }
+#endif
         /// <summary>Whether device management partner is configured or not</summary>
         public bool? IsConfigured { get; set; }
         /// <summary>Timestamp of last heartbeat after admin enabled option Connect to Device management Partner</summary>
@@ -19,7 +25,13 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
         /// <summary>Partner state of this tenant.</summary>
         public DeviceManagementPartnerTenantState? PartnerState { get; set; }
         /// <summary>Partner Single tenant App id</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SingleTenantAppId { get; set; }
+#nullable restore
+#else
         public string SingleTenantAppId { get; set; }
+#endif
         /// <summary>DateTime in UTC when PartnerDevices will be marked as NonCompliant</summary>
         public DateTimeOffset? WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime { get; set; }
         /// <summary>DateTime in UTC when PartnerDevices will be removed</summary>

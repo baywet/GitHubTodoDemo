@@ -8,15 +8,33 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the branch you want your changes pulled into. This should be an existing branch on the current repository. You cannot update the base branch on a pull request to point to another repository.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Base { get; set; }
+#nullable restore
+#else
         public string Base { get; set; }
+#endif
         /// <summary>The contents of the pull request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Body { get; set; }
+#nullable restore
+#else
         public string Body { get; set; }
+#endif
         /// <summary>Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
         public bool? Maintainer_can_modify { get; set; }
         /// <summary>State of this Pull Request. Either `open` or `closed`.</summary>
         public WithPull_numberPatchRequestBody_state? State { get; set; }
         /// <summary>The title of the pull request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
         public string Title { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new WithPull_numberPatchRequestBody and sets the default values.
         /// </summary>

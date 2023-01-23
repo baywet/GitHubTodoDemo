@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class LocateDeviceActionResult : DeviceActionResult, IParsable {
         /// <summary>device location</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DeviceGeoLocation? DeviceLocation { get; set; }
+#nullable restore
+#else
         public DeviceGeoLocation DeviceLocation { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

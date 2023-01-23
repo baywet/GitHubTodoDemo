@@ -6,7 +6,13 @@ using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TaskFileAttachment : AttachmentBase, IParsable {
         /// <summary>The contentBytes property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? ContentBytes { get; set; }
+#nullable restore
+#else
         public byte[] ContentBytes { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new TaskFileAttachment and sets the default values.
         /// </summary>

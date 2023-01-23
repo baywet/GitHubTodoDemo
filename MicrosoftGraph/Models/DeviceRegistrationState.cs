@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Device registration status.</summary>
     public enum DeviceRegistrationState {
         /// <summary>The device is not registered.</summary>
         NotRegistered,

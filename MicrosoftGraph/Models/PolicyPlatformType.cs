@@ -1,5 +1,5 @@
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
+    /// <summary>Supported platform types for policies.</summary>
     public enum PolicyPlatformType {
         /// <summary>Android.</summary>
         Android,

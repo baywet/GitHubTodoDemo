@@ -4,42 +4,123 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
-    /// <summary>
-    /// Provides operations to manage the lists property of the microsoft.graph.todo entity.
-    /// </summary>
     public class ContentType : Entity, IParsable {
         /// <summary>List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AssociatedHubsUrls { get; set; }
+#nullable restore
+#else
         public List<string> AssociatedHubsUrls { get; set; }
+#endif
         /// <summary>Parent contentType from which this content type is derived.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ContentType? Base { get; set; }
+#nullable restore
+#else
         public ContentType Base { get; set; }
+#endif
         /// <summary>The collection of content types that are ancestors of this content type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ContentType>? BaseTypes { get; set; }
+#nullable restore
+#else
         public List<ContentType> BaseTypes { get; set; }
+#endif
         /// <summary>The collection of columns that are required by this content type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ColumnLink>? ColumnLinks { get; set; }
+#nullable restore
+#else
         public List<ColumnLink> ColumnLinks { get; set; }
+#endif
         /// <summary>Column order information in a content type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ColumnDefinition>? ColumnPositions { get; set; }
+#nullable restore
+#else
         public List<ColumnDefinition> ColumnPositions { get; set; }
+#endif
         /// <summary>The collection of column definitions for this contentType.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ColumnDefinition>? Columns { get; set; }
+#nullable restore
+#else
         public List<ColumnDefinition> Columns { get; set; }
+#endif
         /// <summary>The descriptive text for the item.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
         public string Description { get; set; }
+#endif
         /// <summary>Document Set metadata.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public GitHubTodoDemo.MicrosoftGraph.Models.DocumentSet? DocumentSet { get; set; }
+#nullable restore
+#else
         public GitHubTodoDemo.MicrosoftGraph.Models.DocumentSet DocumentSet { get; set; }
+#endif
         /// <summary>Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public DocumentSetContent? DocumentTemplate { get; set; }
+#nullable restore
+#else
         public DocumentSetContent DocumentTemplate { get; set; }
+#endif
         /// <summary>The name of the group this content type belongs to. Helps organize related content types.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Group { get; set; }
+#nullable restore
+#else
         public string Group { get; set; }
+#endif
         /// <summary>Indicates whether the content type is hidden in the list&apos;s &apos;New&apos; menu.</summary>
         public bool? Hidden { get; set; }
         /// <summary>If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ItemReference? InheritedFrom { get; set; }
+#nullable restore
+#else
         public ItemReference InheritedFrom { get; set; }
+#endif
         /// <summary>Specifies if a content type is a built-in content type.</summary>
         public bool? IsBuiltIn { get; set; }
         /// <summary>The name of the content type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
         public string Name { get; set; }
+#endif
         /// <summary>Specifies the order in which the content type appears in the selection UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ContentTypeOrder? Order { get; set; }
+#nullable restore
+#else
         public ContentTypeOrder Order { get; set; }
+#endif
         /// <summary>The unique identifier of the content type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentId { get; set; }
+#nullable restore
+#else
         public string ParentId { get; set; }
+#endif
         /// <summary>If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type.</summary>
         public bool? PropagateChanges { get; set; }
         /// <summary>If true, the content type can&apos;t be modified unless this value is first set to false.</summary>
