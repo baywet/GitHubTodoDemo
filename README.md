@@ -2,10 +2,18 @@
 
 ## Pre-reqs
 
-1. Kiota installed `dotnet tool install -g Microsoft.OpenAPI.Kiota --prerelease`.
 1. Windows terminal `winget install Microsoft.WindowsTerminal`.
 1. PowerShell core `winget install Microsoft.PowerShell`.
 1. Dotnet `winget install Microsoft.DotNet.SDK.7`.
+1. Kiota installed `dotnet tool install -g Microsoft.OpenAPI.Kiota --prerelease`.
+1. Edit the following configuration file `%USERPROFILE%\.dotnet\tools\.store\microsoft.openapi.kiota\<kiota-version>\microsoft.openapi.kiota\<kiota-version>\tools\net7.0\any\appsettings.json` to contain the following entry under `Generation`.
+
+   ```json
+   "DisabledValidationRules": [
+      "all"
+    ]
+   ```
+
 1. A repository with a couple of pull requests open.
 1. A developer tenant for office 365.
 1. A [GitHub app](https://github.com/settings/applications/new) (check enable device flow).
