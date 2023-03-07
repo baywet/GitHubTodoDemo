@@ -9,9 +9,7 @@
 1. Edit the following configuration file `%USERPROFILE%\.dotnet\tools\.store\microsoft.openapi.kiota\<kiota-version>\microsoft.openapi.kiota\<kiota-version>\tools\net7.0\any\appsettings.json` to contain the following entry under `Generation`.
 
    ```json
-   "DisabledValidationRules": [
-      "all"
-    ]
+   "DisabledValidationRules": ["all"]
    ```
 
 1. A repository with a couple of pull requests open.
