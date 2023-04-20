@@ -31,7 +31,7 @@ public class GitHubAccessTokenProvider : IAccessTokenProvider
 				var tokenResponse = await GetTokenAsync(deviceCodeResponse, cancellationToken);
 				if(tokenResponse != null)
 					return tokenResponse;
-				await Task.Delay(TimeSpan.FromSeconds(deviceCodeResponse.IntervalInSeconds), cancellationToken);
+				await Task.Delay(TimeSpan.FromSeconds(deviceCodeResponse.IntervalInSeconds + 1), cancellationToken);
 			}
 			return null;
 		}, cancellationToken);
