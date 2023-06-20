@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
     public class ReviewsPostRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,12 +26,12 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         /// <summary>The SHA of the commit that needs a review. Not using the latest commit SHA may render your review comment outdated if a subsequent commit modifies the line you specify as the `position`. Defaults to the most recent commit in the pull request when you do not specify a value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Commit_id { get; set; }
+        public string? CommitId { get; set; }
 #nullable restore
 #else
-        public string Commit_id { get; set; }
+        public string CommitId { get; set; }
 #endif
-        /// <summary>The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/reference/pulls#submit-a-review-for-a-pull-request) when you are ready.</summary>
+        /// <summary>The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/pulls#submit-a-review-for-a-pull-request) when you are ready.</summary>
         public ReviewsPostRequestBody_event? Event { get; set; }
         /// <summary>
         /// Instantiates a new reviewsPostRequestBody and sets the default values.
@@ -54,7 +54,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
             return new Dictionary<string, Action<IParseNode>> {
                 {"body", n => { Body = n.GetStringValue(); } },
                 {"comments", n => { Comments = n.GetCollectionOfObjectValues<ReviewsPostRequestBody_comments>(ReviewsPostRequestBody_comments.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"commit_id", n => { Commit_id = n.GetStringValue(); } },
+                {"commit_id", n => { CommitId = n.GetStringValue(); } },
                 {"event", n => { Event = n.GetEnumValue<ReviewsPostRequestBody_event>(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("body", Body);
             writer.WriteCollectionOfObjectValues<ReviewsPostRequestBody_comments>("comments", Comments);
-            writer.WriteStringValue("commit_id", Commit_id);
+            writer.WriteStringValue("commit_id", CommitId);
             writer.WriteEnumValue<ReviewsPostRequestBody_event>("event", Event);
             writer.WriteAdditionalData(AdditionalData);
         }

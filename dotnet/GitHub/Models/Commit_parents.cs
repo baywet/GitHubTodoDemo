@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     public class Commit_parents : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -10,10 +10,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Html_url { get; set; }
+        public string? HtmlUrl { get; set; }
 #nullable restore
 #else
-        public string Html_url { get; set; }
+        public string HtmlUrl { get; set; }
 #endif
         /// <summary>The sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,7 +50,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"html_url", n => { Html_url = n.GetStringValue(); } },
+                {"html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 {"sha", n => { Sha = n.GetStringValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
             };
@@ -61,7 +61,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("html_url", Html_url);
+            writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("sha", Sha);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

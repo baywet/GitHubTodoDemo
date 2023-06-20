@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls {
     public class PullsPostRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -23,7 +23,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls {
 #else
         public string Body { get; set; }
 #endif
-        /// <summary>Indicates whether the pull request is a draft. See &quot;[Draft Pull Requests](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests)&quot; in the GitHub Help documentation to learn more.</summary>
+        /// <summary>Indicates whether the pull request is a draft. See &quot;[Draft Pull Requests](https://docs.github.com/articles/about-pull-requests#draft-pull-requests)&quot; in the GitHub Help documentation to learn more.</summary>
         public bool? Draft { get; set; }
         /// <summary>The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,11 +33,19 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls {
 #else
         public string Head { get; set; }
 #endif
-        /// <summary>The issue property</summary>
+        /// <summary>The name of the repository where the changes in the pull request were made. This field is required for cross-repository pull requests if both repositories are owned by the same organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HeadRepo { get; set; }
+#nullable restore
+#else
+        public string HeadRepo { get; set; }
+#endif
+        /// <summary>An issue in the repository to convert to a pull request. The issue title, body, and comments will become the title, body, and comments on the new pull request. Required unless `title` is specified.</summary>
         public int? Issue { get; set; }
-        /// <summary>Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
-        public bool? Maintainer_can_modify { get; set; }
-        /// <summary>The title of the new pull request.</summary>
+        /// <summary>Indicates whether [maintainers can modify](https://docs.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
+        public bool? MaintainerCanModify { get; set; }
+        /// <summary>The title of the new pull request. Required unless `issue` is specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
@@ -68,8 +76,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls {
                 {"body", n => { Body = n.GetStringValue(); } },
                 {"draft", n => { Draft = n.GetBoolValue(); } },
                 {"head", n => { Head = n.GetStringValue(); } },
+                {"head_repo", n => { HeadRepo = n.GetStringValue(); } },
                 {"issue", n => { Issue = n.GetIntValue(); } },
-                {"maintainer_can_modify", n => { Maintainer_can_modify = n.GetBoolValue(); } },
+                {"maintainer_can_modify", n => { MaintainerCanModify = n.GetBoolValue(); } },
                 {"title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -83,8 +92,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls {
             writer.WriteStringValue("body", Body);
             writer.WriteBoolValue("draft", Draft);
             writer.WriteStringValue("head", Head);
+            writer.WriteStringValue("head_repo", HeadRepo);
             writer.WriteIntValue("issue", Issue);
-            writer.WriteBoolValue("maintainer_can_modify", Maintainer_can_modify);
+            writer.WriteBoolValue("maintainer_can_modify", MaintainerCanModify);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

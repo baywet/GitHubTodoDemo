@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
     public class MergePutRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -10,21 +10,21 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         /// <summary>Extra detail to append to automatic commit message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Commit_message { get; set; }
+        public string? CommitMessage { get; set; }
 #nullable restore
 #else
-        public string Commit_message { get; set; }
+        public string CommitMessage { get; set; }
 #endif
         /// <summary>Title for the automatic commit message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Commit_title { get; set; }
+        public string? CommitTitle { get; set; }
 #nullable restore
 #else
-        public string Commit_title { get; set; }
+        public string CommitTitle { get; set; }
 #endif
-        /// <summary>Merge method to use. Possible values are `merge`, `squash` or `rebase`. Default is `merge`.</summary>
-        public MergePutRequestBody_merge_method? Merge_method { get; set; }
+        /// <summary>The merge method to use.</summary>
+        public MergePutRequestBody_merge_method? MergeMethod { get; set; }
         /// <summary>SHA that pull request head must match to allow merge.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,9 +52,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"commit_message", n => { Commit_message = n.GetStringValue(); } },
-                {"commit_title", n => { Commit_title = n.GetStringValue(); } },
-                {"merge_method", n => { Merge_method = n.GetEnumValue<MergePutRequestBody_merge_method>(); } },
+                {"commit_message", n => { CommitMessage = n.GetStringValue(); } },
+                {"commit_title", n => { CommitTitle = n.GetStringValue(); } },
+                {"merge_method", n => { MergeMethod = n.GetEnumValue<MergePutRequestBody_merge_method>(); } },
                 {"sha", n => { Sha = n.GetStringValue(); } },
             };
         }
@@ -64,9 +64,9 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("commit_message", Commit_message);
-            writer.WriteStringValue("commit_title", Commit_title);
-            writer.WriteEnumValue<MergePutRequestBody_merge_method>("merge_method", Merge_method);
+            writer.WriteStringValue("commit_message", CommitMessage);
+            writer.WriteStringValue("commit_title", CommitTitle);
+            writer.WriteEnumValue<MergePutRequestBody_merge_method>("merge_method", MergeMethod);
             writer.WriteStringValue("sha", Sha);
             writer.WriteAdditionalData(AdditionalData);
         }

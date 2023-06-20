@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>
     /// Pull Request Review Request
@@ -13,10 +13,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The teams property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TeamSimple>? Teams { get; set; }
+        public List<Team>? Teams { get; set; }
 #nullable restore
 #else
-        public List<TeamSimple> Teams { get; set; }
+        public List<Team> Teams { get; set; }
 #endif
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +45,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"teams", n => { Teams = n.GetCollectionOfObjectValues<TeamSimple>(TeamSimple.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"teams", n => { Teams = n.GetCollectionOfObjectValues<Team>(Team.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"users", n => { Users = n.GetCollectionOfObjectValues<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<TeamSimple>("teams", Teams);
+            writer.WriteCollectionOfObjectValues<Team>("teams", Teams);
             writer.WriteCollectionOfObjectValues<SimpleUser>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }

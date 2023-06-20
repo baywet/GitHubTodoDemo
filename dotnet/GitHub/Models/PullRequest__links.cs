@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     public class PullRequest__links : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -42,18 +42,18 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Link? Review_comment { get; set; }
+        public Link? ReviewComment { get; set; }
 #nullable restore
 #else
-        public Link Review_comment { get; set; }
+        public Link ReviewComment { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Link? Review_comments { get; set; }
+        public Link? ReviewComments { get; set; }
 #nullable restore
 #else
-        public Link Review_comments { get; set; }
+        public Link ReviewComments { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,8 +94,8 @@ namespace GitHubTodoDemo.GitHub.Models {
                 {"commits", n => { Commits = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
                 {"html", n => { Html = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
                 {"issue", n => { Issue = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
-                {"review_comment", n => { Review_comment = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
-                {"review_comments", n => { Review_comments = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
+                {"review_comment", n => { ReviewComment = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
+                {"review_comments", n => { ReviewComments = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
                 {"self", n => { Self = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
                 {"statuses", n => { Statuses = n.GetObjectValue<Link>(Link.CreateFromDiscriminatorValue); } },
             };
@@ -110,8 +110,8 @@ namespace GitHubTodoDemo.GitHub.Models {
             writer.WriteObjectValue<Link>("commits", Commits);
             writer.WriteObjectValue<Link>("html", Html);
             writer.WriteObjectValue<Link>("issue", Issue);
-            writer.WriteObjectValue<Link>("review_comment", Review_comment);
-            writer.WriteObjectValue<Link>("review_comments", Review_comments);
+            writer.WriteObjectValue<Link>("review_comment", ReviewComment);
+            writer.WriteObjectValue<Link>("review_comments", ReviewComments);
             writer.WriteObjectValue<Link>("self", Self);
             writer.WriteObjectValue<Link>("statuses", Statuses);
             writer.WriteAdditionalData(AdditionalData);

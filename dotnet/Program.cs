@@ -45,13 +45,13 @@ foreach(var pullRequest in pullRequests) {
 		new TodoTask() {
 			Title = pullRequest.Title,
 			DueDateTime = new DateTimeTimeZone {
-				DateTime = pullRequest.Created_at?.Add(TimeSpan.FromDays(7)).ToString("o"),
+				DateTime = pullRequest.CreatedAt?.Add(TimeSpan.FromDays(7)).ToString("o"),
 				TimeZone = "UTC"
 			},
 			Importance = Importance.High,
 			LinkedResources = new List<LinkedResource> {
 				new LinkedResource {
-					WebUrl = pullRequest.Html_url,
+					WebUrl = pullRequest.HtmlUrl,
 					ApplicationName = "GitHub",
 				}
 			}

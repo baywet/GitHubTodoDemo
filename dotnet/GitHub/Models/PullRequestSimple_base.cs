@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     public class PullRequestSimple_base : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -23,7 +23,7 @@ namespace GitHubTodoDemo.GitHub.Models {
 #else
         public string Ref { get; set; }
 #endif
-        /// <summary>A git repository</summary>
+        /// <summary>A repository on GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Repository? Repo { get; set; }
@@ -39,13 +39,13 @@ namespace GitHubTodoDemo.GitHub.Models {
 #else
         public string Sha { get; set; }
 #endif
-        /// <summary>The user property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SimpleUser? User { get; set; }
+        public NullableSimpleUser? User { get; set; }
 #nullable restore
 #else
-        public SimpleUser User { get; set; }
+        public NullableSimpleUser User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new PullRequestSimple_base and sets the default values.
@@ -70,7 +70,7 @@ namespace GitHubTodoDemo.GitHub.Models {
                 {"ref", n => { Ref = n.GetStringValue(); } },
                 {"repo", n => { Repo = n.GetObjectValue<Repository>(Repository.CreateFromDiscriminatorValue); } },
                 {"sha", n => { Sha = n.GetStringValue(); } },
-                {"user", n => { User = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
+                {"user", n => { User = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace GitHubTodoDemo.GitHub.Models {
             writer.WriteStringValue("ref", Ref);
             writer.WriteObjectValue<Repository>("repo", Repo);
             writer.WriteStringValue("sha", Sha);
-            writer.WriteObjectValue<SimpleUser>("user", User);
+            writer.WriteObjectValue<NullableSimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

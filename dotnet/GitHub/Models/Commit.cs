@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>
     /// Commit
@@ -10,61 +10,61 @@ namespace GitHubTodoDemo.GitHub.Models {
     public class Commit : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The author property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SimpleUser? Author { get; set; }
+        public NullableSimpleUser? Author { get; set; }
 #nullable restore
 #else
-        public SimpleUser Author { get; set; }
+        public NullableSimpleUser Author { get; set; }
 #endif
         /// <summary>The comments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Comments_url { get; set; }
+        public string? CommentsUrl { get; set; }
 #nullable restore
 #else
-        public string Comments_url { get; set; }
+        public string CommentsUrl { get; set; }
 #endif
         /// <summary>The commit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Commit_commit? Commit_prop { get; set; }
+        public Commit_commit? CommitProp { get; set; }
 #nullable restore
 #else
-        public Commit_commit Commit_prop { get; set; }
+        public Commit_commit CommitProp { get; set; }
 #endif
-        /// <summary>The committer property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SimpleUser? Committer { get; set; }
+        public NullableSimpleUser? Committer { get; set; }
 #nullable restore
 #else
-        public SimpleUser Committer { get; set; }
+        public NullableSimpleUser Committer { get; set; }
 #endif
         /// <summary>The files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Commit_files>? Files { get; set; }
+        public List<DiffEntry>? Files { get; set; }
 #nullable restore
 #else
-        public List<Commit_files> Files { get; set; }
+        public List<DiffEntry> Files { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Html_url { get; set; }
+        public string? HtmlUrl { get; set; }
 #nullable restore
 #else
-        public string Html_url { get; set; }
+        public string HtmlUrl { get; set; }
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Node_id { get; set; }
+        public string? NodeId { get; set; }
 #nullable restore
 #else
-        public string Node_id { get; set; }
+        public string NodeId { get; set; }
 #endif
         /// <summary>The parents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,13 +117,13 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"author", n => { Author = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
-                {"comments_url", n => { Comments_url = n.GetStringValue(); } },
-                {"commit", n => { Commit_prop = n.GetObjectValue<Commit_commit>(Commit_commit.CreateFromDiscriminatorValue); } },
-                {"committer", n => { Committer = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
-                {"files", n => { Files = n.GetCollectionOfObjectValues<Commit_files>(Commit_files.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"html_url", n => { Html_url = n.GetStringValue(); } },
-                {"node_id", n => { Node_id = n.GetStringValue(); } },
+                {"author", n => { Author = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                {"comments_url", n => { CommentsUrl = n.GetStringValue(); } },
+                {"commit", n => { CommitProp = n.GetObjectValue<Commit_commit>(Commit_commit.CreateFromDiscriminatorValue); } },
+                {"committer", n => { Committer = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                {"files", n => { Files = n.GetCollectionOfObjectValues<DiffEntry>(DiffEntry.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"html_url", n => { HtmlUrl = n.GetStringValue(); } },
+                {"node_id", n => { NodeId = n.GetStringValue(); } },
                 {"parents", n => { Parents = n.GetCollectionOfObjectValues<Commit_parents>(Commit_parents.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"sha", n => { Sha = n.GetStringValue(); } },
                 {"stats", n => { Stats = n.GetObjectValue<Commit_stats>(Commit_stats.CreateFromDiscriminatorValue); } },
@@ -136,13 +136,13 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<SimpleUser>("author", Author);
-            writer.WriteStringValue("comments_url", Comments_url);
-            writer.WriteObjectValue<Commit_commit>("commit", Commit_prop);
-            writer.WriteObjectValue<SimpleUser>("committer", Committer);
-            writer.WriteCollectionOfObjectValues<Commit_files>("files", Files);
-            writer.WriteStringValue("html_url", Html_url);
-            writer.WriteStringValue("node_id", Node_id);
+            writer.WriteObjectValue<NullableSimpleUser>("author", Author);
+            writer.WriteStringValue("comments_url", CommentsUrl);
+            writer.WriteObjectValue<Commit_commit>("commit", CommitProp);
+            writer.WriteObjectValue<NullableSimpleUser>("committer", Committer);
+            writer.WriteCollectionOfObjectValues<DiffEntry>("files", Files);
+            writer.WriteStringValue("html_url", HtmlUrl);
+            writer.WriteStringValue("node_id", NodeId);
             writer.WriteCollectionOfObjectValues<Commit_parents>("parents", Parents);
             writer.WriteStringValue("sha", Sha);
             writer.WriteObjectValue<Commit_stats>("stats", Stats);

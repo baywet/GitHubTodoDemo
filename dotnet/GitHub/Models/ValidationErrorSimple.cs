@@ -1,9 +1,9 @@
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>
     /// Validation Error Simple
@@ -14,10 +14,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The documentation_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Documentation_url { get; set; }
+        public string? DocumentationUrl { get; set; }
 #nullable restore
 #else
-        public string Documentation_url { get; set; }
+        public string DocumentationUrl { get; set; }
 #endif
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,10 +30,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? MessageEscaped { get; set; }
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string MessageEscaped { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new ValidationErrorSimple and sets the default values.
@@ -54,9 +54,9 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"documentation_url", n => { Documentation_url = n.GetStringValue(); } },
+                {"documentation_url", n => { DocumentationUrl = n.GetStringValue(); } },
                 {"errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"message", n => { Message = n.GetStringValue(); } },
+                {"message", n => { MessageEscaped = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("documentation_url", Documentation_url);
+            writer.WriteStringValue("documentation_url", DocumentationUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
-            writer.WriteStringValue("message", Message);
+            writer.WriteStringValue("message", MessageEscaped);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

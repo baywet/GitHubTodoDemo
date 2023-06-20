@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>
     /// Groups of organization members that gives permissions on specified repositories.
@@ -21,28 +21,28 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Html_url { get; set; }
+        public string? HtmlUrl { get; set; }
 #nullable restore
 #else
-        public string Html_url { get; set; }
+        public string HtmlUrl { get; set; }
 #endif
         /// <summary>Unique identifier of the team</summary>
         public int? Id { get; set; }
         /// <summary>Distinguished Name (DN) that team maps to within LDAP environment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ldap_dn { get; set; }
+        public string? LdapDn { get; set; }
 #nullable restore
 #else
-        public string Ldap_dn { get; set; }
+        public string LdapDn { get; set; }
 #endif
         /// <summary>The members_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Members_url { get; set; }
+        public string? MembersUrl { get; set; }
 #nullable restore
 #else
-        public string Members_url { get; set; }
+        public string MembersUrl { get; set; }
 #endif
         /// <summary>Name of the team</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,10 +55,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Node_id { get; set; }
+        public string? NodeId { get; set; }
 #nullable restore
 #else
-        public string Node_id { get; set; }
+        public string NodeId { get; set; }
 #endif
         /// <summary>Permission that the team will have for its repositories</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,10 +79,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The repositories_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Repositories_url { get; set; }
+        public string? RepositoriesUrl { get; set; }
 #nullable restore
 #else
-        public string Repositories_url { get; set; }
+        public string RepositoriesUrl { get; set; }
 #endif
         /// <summary>The slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,15 +120,15 @@ namespace GitHubTodoDemo.GitHub.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"description", n => { Description = n.GetStringValue(); } },
-                {"html_url", n => { Html_url = n.GetStringValue(); } },
+                {"html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 {"id", n => { Id = n.GetIntValue(); } },
-                {"ldap_dn", n => { Ldap_dn = n.GetStringValue(); } },
-                {"members_url", n => { Members_url = n.GetStringValue(); } },
+                {"ldap_dn", n => { LdapDn = n.GetStringValue(); } },
+                {"members_url", n => { MembersUrl = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
-                {"node_id", n => { Node_id = n.GetStringValue(); } },
+                {"node_id", n => { NodeId = n.GetStringValue(); } },
                 {"permission", n => { Permission = n.GetStringValue(); } },
                 {"privacy", n => { Privacy = n.GetStringValue(); } },
-                {"repositories_url", n => { Repositories_url = n.GetStringValue(); } },
+                {"repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 {"slug", n => { Slug = n.GetStringValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
             };
@@ -140,15 +140,15 @@ namespace GitHubTodoDemo.GitHub.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("html_url", Html_url);
+            writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteIntValue("id", Id);
-            writer.WriteStringValue("ldap_dn", Ldap_dn);
-            writer.WriteStringValue("members_url", Members_url);
+            writer.WriteStringValue("ldap_dn", LdapDn);
+            writer.WriteStringValue("members_url", MembersUrl);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("node_id", Node_id);
+            writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("permission", Permission);
             writer.WriteStringValue("privacy", Privacy);
-            writer.WriteStringValue("repositories_url", Repositories_url);
+            writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

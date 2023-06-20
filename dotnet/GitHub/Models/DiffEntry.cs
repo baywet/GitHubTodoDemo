@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>
     /// Diff Entry
@@ -15,20 +15,20 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The blob_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Blob_url { get; set; }
+        public string? BlobUrl { get; set; }
 #nullable restore
 #else
-        public string Blob_url { get; set; }
+        public string BlobUrl { get; set; }
 #endif
         /// <summary>The changes property</summary>
         public int? Changes { get; set; }
         /// <summary>The contents_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Contents_url { get; set; }
+        public string? ContentsUrl { get; set; }
 #nullable restore
 #else
-        public string Contents_url { get; set; }
+        public string ContentsUrl { get; set; }
 #endif
         /// <summary>The deletions property</summary>
         public int? Deletions { get; set; }
@@ -51,18 +51,18 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The previous_filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Previous_filename { get; set; }
+        public string? PreviousFilename { get; set; }
 #nullable restore
 #else
-        public string Previous_filename { get; set; }
+        public string PreviousFilename { get; set; }
 #endif
         /// <summary>The raw_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Raw_url { get; set; }
+        public string? RawUrl { get; set; }
 #nullable restore
 #else
-        public string Raw_url { get; set; }
+        public string RawUrl { get; set; }
 #endif
         /// <summary>The sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,13 +73,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Sha { get; set; }
 #endif
         /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        public DiffEntry_status? Status { get; set; }
         /// <summary>
         /// Instantiates a new DiffEntry and sets the default values.
         /// </summary>
@@ -100,16 +94,16 @@ namespace GitHubTodoDemo.GitHub.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"additions", n => { Additions = n.GetIntValue(); } },
-                {"blob_url", n => { Blob_url = n.GetStringValue(); } },
+                {"blob_url", n => { BlobUrl = n.GetStringValue(); } },
                 {"changes", n => { Changes = n.GetIntValue(); } },
-                {"contents_url", n => { Contents_url = n.GetStringValue(); } },
+                {"contents_url", n => { ContentsUrl = n.GetStringValue(); } },
                 {"deletions", n => { Deletions = n.GetIntValue(); } },
                 {"filename", n => { Filename = n.GetStringValue(); } },
                 {"patch", n => { Patch = n.GetStringValue(); } },
-                {"previous_filename", n => { Previous_filename = n.GetStringValue(); } },
-                {"raw_url", n => { Raw_url = n.GetStringValue(); } },
+                {"previous_filename", n => { PreviousFilename = n.GetStringValue(); } },
+                {"raw_url", n => { RawUrl = n.GetStringValue(); } },
                 {"sha", n => { Sha = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
+                {"status", n => { Status = n.GetEnumValue<DiffEntry_status>(); } },
             };
         }
         /// <summary>
@@ -119,16 +113,16 @@ namespace GitHubTodoDemo.GitHub.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("additions", Additions);
-            writer.WriteStringValue("blob_url", Blob_url);
+            writer.WriteStringValue("blob_url", BlobUrl);
             writer.WriteIntValue("changes", Changes);
-            writer.WriteStringValue("contents_url", Contents_url);
+            writer.WriteStringValue("contents_url", ContentsUrl);
             writer.WriteIntValue("deletions", Deletions);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("patch", Patch);
-            writer.WriteStringValue("previous_filename", Previous_filename);
-            writer.WriteStringValue("raw_url", Raw_url);
+            writer.WriteStringValue("previous_filename", PreviousFilename);
+            writer.WriteStringValue("raw_url", RawUrl);
             writer.WriteStringValue("sha", Sha);
-            writer.WriteStringValue("status", Status);
+            writer.WriteEnumValue<DiffEntry_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

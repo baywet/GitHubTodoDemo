@@ -1,25 +1,17 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     /// <summary>
     /// Pull Request Reviews are reviews on pull requests.
     /// </summary>
     public class PullRequestReview : IAdditionalDataHolder, IParsable {
-        /// <summary>The _links property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public PullRequestReview__links? _links { get; set; }
-#nullable restore
-#else
-        public PullRequestReview__links _links { get; set; }
-#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How the author is associated with the repository.</summary>
-        public GitHubTodoDemo.GitHub.Models.Author_association? Author_association { get; set; }
+        public GitHubTodoDemo.GitHub.Models.AuthorAssociation? AuthorAssociation { get; set; }
         /// <summary>The text of the review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,52 +23,60 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The body_html property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body_html { get; set; }
+        public string? BodyHtml { get; set; }
 #nullable restore
 #else
-        public string Body_html { get; set; }
+        public string BodyHtml { get; set; }
 #endif
         /// <summary>The body_text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body_text { get; set; }
+        public string? BodyText { get; set; }
 #nullable restore
 #else
-        public string Body_text { get; set; }
+        public string BodyText { get; set; }
 #endif
-        /// <summary>A commit SHA for the review.</summary>
+        /// <summary>A commit SHA for the review. If the commit object was garbage collected or forcibly deleted, then it no longer exists in Git and this value will be `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Commit_id { get; set; }
+        public string? CommitId { get; set; }
 #nullable restore
 #else
-        public string Commit_id { get; set; }
+        public string CommitId { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Html_url { get; set; }
+        public string? HtmlUrl { get; set; }
 #nullable restore
 #else
-        public string Html_url { get; set; }
+        public string HtmlUrl { get; set; }
 #endif
         /// <summary>Unique identifier of the review</summary>
         public int? Id { get; set; }
+        /// <summary>The _links property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PullRequestReview__links? Links { get; set; }
+#nullable restore
+#else
+        public PullRequestReview__links Links { get; set; }
+#endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Node_id { get; set; }
+        public string? NodeId { get; set; }
 #nullable restore
 #else
-        public string Node_id { get; set; }
+        public string NodeId { get; set; }
 #endif
         /// <summary>The pull_request_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Pull_request_url { get; set; }
+        public string? PullRequestUrl { get; set; }
 #nullable restore
 #else
-        public string Pull_request_url { get; set; }
+        public string PullRequestUrl { get; set; }
 #endif
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,14 +87,14 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string State { get; set; }
 #endif
         /// <summary>The submitted_at property</summary>
-        public DateTimeOffset? Submitted_at { get; set; }
-        /// <summary>The user property</summary>
+        public DateTimeOffset? SubmittedAt { get; set; }
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SimpleUser? User { get; set; }
+        public NullableSimpleUser? User { get; set; }
 #nullable restore
 #else
-        public SimpleUser User { get; set; }
+        public NullableSimpleUser User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new PullRequestReview and sets the default values.
@@ -115,19 +115,19 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"_links", n => { _links = n.GetObjectValue<PullRequestReview__links>(PullRequestReview__links.CreateFromDiscriminatorValue); } },
-                {"author_association", n => { Author_association = n.GetEnumValue<Author_association>(); } },
+                {"author_association", n => { AuthorAssociation = n.GetEnumValue<AuthorAssociation>(); } },
                 {"body", n => { Body = n.GetStringValue(); } },
-                {"body_html", n => { Body_html = n.GetStringValue(); } },
-                {"body_text", n => { Body_text = n.GetStringValue(); } },
-                {"commit_id", n => { Commit_id = n.GetStringValue(); } },
-                {"html_url", n => { Html_url = n.GetStringValue(); } },
+                {"body_html", n => { BodyHtml = n.GetStringValue(); } },
+                {"body_text", n => { BodyText = n.GetStringValue(); } },
+                {"commit_id", n => { CommitId = n.GetStringValue(); } },
+                {"html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 {"id", n => { Id = n.GetIntValue(); } },
-                {"node_id", n => { Node_id = n.GetStringValue(); } },
-                {"pull_request_url", n => { Pull_request_url = n.GetStringValue(); } },
+                {"_links", n => { Links = n.GetObjectValue<PullRequestReview__links>(PullRequestReview__links.CreateFromDiscriminatorValue); } },
+                {"node_id", n => { NodeId = n.GetStringValue(); } },
+                {"pull_request_url", n => { PullRequestUrl = n.GetStringValue(); } },
                 {"state", n => { State = n.GetStringValue(); } },
-                {"submitted_at", n => { Submitted_at = n.GetDateTimeOffsetValue(); } },
-                {"user", n => { User = n.GetObjectValue<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue); } },
+                {"submitted_at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
+                {"user", n => { User = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -136,19 +136,19 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PullRequestReview__links>("_links", _links);
-            writer.WriteEnumValue<Author_association>("author_association", Author_association);
+            writer.WriteEnumValue<AuthorAssociation>("author_association", AuthorAssociation);
             writer.WriteStringValue("body", Body);
-            writer.WriteStringValue("body_html", Body_html);
-            writer.WriteStringValue("body_text", Body_text);
-            writer.WriteStringValue("commit_id", Commit_id);
-            writer.WriteStringValue("html_url", Html_url);
+            writer.WriteStringValue("body_html", BodyHtml);
+            writer.WriteStringValue("body_text", BodyText);
+            writer.WriteStringValue("commit_id", CommitId);
+            writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteIntValue("id", Id);
-            writer.WriteStringValue("node_id", Node_id);
-            writer.WriteStringValue("pull_request_url", Pull_request_url);
+            writer.WriteObjectValue<PullRequestReview__links>("_links", Links);
+            writer.WriteStringValue("node_id", NodeId);
+            writer.WriteStringValue("pull_request_url", PullRequestUrl);
             writer.WriteStringValue("state", State);
-            writer.WriteDateTimeOffsetValue("submitted_at", Submitted_at);
-            writer.WriteObjectValue<SimpleUser>("user", User);
+            writer.WriteDateTimeOffsetValue("submitted_at", SubmittedAt);
+            writer.WriteObjectValue<NullableSimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
     public class ReviewsPostRequestBody_comments : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,14 +36,14 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
         public string Side { get; set; }
 #endif
         /// <summary>The start_line property</summary>
-        public int? Start_line { get; set; }
+        public int? StartLine { get; set; }
         /// <summary>The start_side property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Start_side { get; set; }
+        public string? StartSide { get; set; }
 #nullable restore
 #else
-        public string Start_side { get; set; }
+        public string StartSide { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new reviewsPostRequestBody_comments and sets the default values.
@@ -69,8 +69,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
                 {"path", n => { Path = n.GetStringValue(); } },
                 {"position", n => { Position = n.GetIntValue(); } },
                 {"side", n => { Side = n.GetStringValue(); } },
-                {"start_line", n => { Start_line = n.GetIntValue(); } },
-                {"start_side", n => { Start_side = n.GetStringValue(); } },
+                {"start_line", n => { StartLine = n.GetIntValue(); } },
+                {"start_side", n => { StartSide = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -84,8 +84,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Reviews {
             writer.WriteStringValue("path", Path);
             writer.WriteIntValue("position", Position);
             writer.WriteStringValue("side", Side);
-            writer.WriteIntValue("start_line", Start_line);
-            writer.WriteStringValue("start_side", Start_side);
+            writer.WriteIntValue("start_line", StartLine);
+            writer.WriteStringValue("start_side", StartSide);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

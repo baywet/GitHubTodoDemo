@@ -1,0 +1,13 @@
+using System.Runtime.Serialization;
+using System;
+namespace GitHubTodoDemo.GitHub.Models {
+    /// <summary>The merge method to use.</summary>
+    public enum AutoMerge_merge_method {
+        [EnumMember(Value = "merge")]
+        Merge,
+        [EnumMember(Value = "squash")]
+        Squash,
+        [EnumMember(Value = "rebase")]
+        Rebase,
+    }
+}

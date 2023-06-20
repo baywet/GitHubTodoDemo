@@ -1,8 +1,13 @@
+using System.Runtime.Serialization;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
-    /// <summary>Merge method to use. Possible values are `merge`, `squash` or `rebase`. Default is `merge`.</summary>
+    /// <summary>The merge method to use.</summary>
     public enum MergePutRequestBody_merge_method {
+        [EnumMember(Value = "merge")]
         Merge,
+        [EnumMember(Value = "squash")]
         Squash,
+        [EnumMember(Value = "rebase")]
         Rebase,
     }
 }

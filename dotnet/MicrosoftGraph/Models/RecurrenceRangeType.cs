@@ -1,7 +1,12 @@
+using System.Runtime.Serialization;
+using System;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public enum RecurrenceRangeType {
+        [EnumMember(Value = "endDate")]
         EndDate,
+        [EnumMember(Value = "noEnd")]
         NoEnd,
+        [EnumMember(Value = "numbered")]
         Numbered,
     }
 }

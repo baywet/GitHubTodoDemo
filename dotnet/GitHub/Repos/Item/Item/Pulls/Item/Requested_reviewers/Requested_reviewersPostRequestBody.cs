@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
     public class Requested_reviewersPostRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -18,10 +18,10 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
         /// <summary>An array of team `slug`s that will be requested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Team_reviewers { get; set; }
+        public List<string>? TeamReviewers { get; set; }
 #nullable restore
 #else
-        public List<string> Team_reviewers { get; set; }
+        public List<string> TeamReviewers { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new requested_reviewersPostRequestBody and sets the default values.
@@ -43,7 +43,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"reviewers", n => { Reviewers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"team_reviewers", n => { Team_reviewers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"team_reviewers", n => { TeamReviewers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Requested_reviewers {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("reviewers", Reviewers);
-            writer.WriteCollectionOfPrimitiveValues<string>("team_reviewers", Team_reviewers);
+            writer.WriteCollectionOfPrimitiveValues<string>("team_reviewers", TeamReviewers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

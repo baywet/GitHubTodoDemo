@@ -1,9 +1,9 @@
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
     public class PullRequestMergeResult409Error : ApiException, IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -11,18 +11,18 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         /// <summary>The documentation_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Documentation_url { get; set; }
+        public string? DocumentationUrl { get; set; }
 #nullable restore
 #else
-        public string Documentation_url { get; set; }
+        public string DocumentationUrl { get; set; }
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? MessageEscaped { get; set; }
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string MessageEscaped { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new PullRequestMergeResult409Error and sets the default values.
@@ -43,8 +43,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"documentation_url", n => { Documentation_url = n.GetStringValue(); } },
-                {"message", n => { Message = n.GetStringValue(); } },
+                {"documentation_url", n => { DocumentationUrl = n.GetStringValue(); } },
+                {"message", n => { MessageEscaped = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -53,8 +53,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Merge {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("documentation_url", Documentation_url);
-            writer.WriteStringValue("message", Message);
+            writer.WriteStringValue("documentation_url", DocumentationUrl);
+            writer.WriteStringValue("message", MessageEscaped);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

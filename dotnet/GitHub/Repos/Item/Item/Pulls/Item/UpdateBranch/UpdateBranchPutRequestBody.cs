@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.UpdateBranch {
     public class UpdateBranchPutRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -10,10 +10,10 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.UpdateBranch {
         /// <summary>The expected SHA of the pull request&apos;s HEAD ref. This is the most recent commit on the pull request&apos;s branch. If the expected SHA does not match the pull request&apos;s HEAD, you will receive a `422 Unprocessable Entity` status. You can use the &quot;[List commits](https://docs.github.com/rest/reference/repos#list-commits)&quot; endpoint to find the most recent commit SHA. Default: SHA of the pull request&apos;s current HEAD ref.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Expected_head_sha { get; set; }
+        public string? ExpectedHeadSha { get; set; }
 #nullable restore
 #else
-        public string Expected_head_sha { get; set; }
+        public string ExpectedHeadSha { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new updateBranchPutRequestBody and sets the default values.
@@ -34,7 +34,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.UpdateBranch {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"expected_head_sha", n => { Expected_head_sha = n.GetStringValue(); } },
+                {"expected_head_sha", n => { ExpectedHeadSha = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.UpdateBranch {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("expected_head_sha", Expected_head_sha);
+            writer.WriteStringValue("expected_head_sha", ExpectedHeadSha);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

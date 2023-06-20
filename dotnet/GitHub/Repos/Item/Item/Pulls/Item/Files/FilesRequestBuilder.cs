@@ -1,53 +1,34 @@
 using GitHubTodoDemo.GitHub.Models;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
     /// <summary>
     /// Builds and executes requests for operations under \repos\{owner}\{repo}\pulls\{pull_number}\files
     /// </summary>
-    public class FilesRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class FilesRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new FilesRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/repos/{owner}/{repo}/pulls/{pull_number}/files{?per_page*,page*}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public FilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/pulls/{pull_number}/files{?per_page*,page*}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new FilesRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/repos/{owner}/{repo}/pulls/{pull_number}/files{?per_page*,page*}";
-            var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public FilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/pulls/{pull_number}/files{?per_page*,page*}", rawUrl) {
         }
         /// <summary>
         /// **Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.
-        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls/#list-pull-requests-files" />
+        /// API method documentation <see href="https://docs.github.com/rest/reference/pulls#list-pull-requests-files" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -62,6 +43,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"422", ValidationError.CreateFromDiscriminatorValue},
                 {"500", BasicError.CreateFromDiscriminatorValue},
+                {"503", Files503Error.CreateFromDiscriminatorValue},
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<DiffEntry>(requestInfo, DiffEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
             return collectionResult?.ToList();
@@ -98,7 +80,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item.Files {
         public class FilesRequestBuilderGetQueryParameters {
             /// <summary>Page number of the results to fetch.</summary>
             public int? Page { get; set; }
-            /// <summary>Results per page (max 100).</summary>
+            /// <summary>The number of results per page (max 100).</summary>
             public int? Per_page { get; set; }
         }
         /// <summary>

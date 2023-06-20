@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     public class PullRequestSimple_labels : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,7 +26,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Description { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,10 +38,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Node_id { get; set; }
+        public string? NodeId { get; set; }
 #nullable restore
 #else
-        public string Node_id { get; set; }
+        public string NodeId { get; set; }
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,9 +73,9 @@ namespace GitHubTodoDemo.GitHub.Models {
                 {"color", n => { Color = n.GetStringValue(); } },
                 {"default", n => { Default = n.GetBoolValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetIntValue(); } },
+                {"id", n => { Id = n.GetLongValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
-                {"node_id", n => { Node_id = n.GetStringValue(); } },
+                {"node_id", n => { NodeId = n.GetStringValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -88,9 +88,9 @@ namespace GitHubTodoDemo.GitHub.Models {
             writer.WriteStringValue("color", Color);
             writer.WriteBoolValue("default", Default);
             writer.WriteStringValue("description", Description);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("node_id", Node_id);
+            writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

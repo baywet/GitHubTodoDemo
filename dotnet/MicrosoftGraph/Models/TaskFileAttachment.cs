@@ -1,11 +1,11 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TaskFileAttachment : AttachmentBase, IParsable {
-        /// <summary>The contentBytes property</summary>
+        /// <summary>The base64-encoded contents of the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? ContentBytes { get; set; }

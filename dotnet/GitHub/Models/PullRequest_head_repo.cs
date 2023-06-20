@@ -1,125 +1,127 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     public class PullRequest_head_repo : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The allow_forking property</summary>
+        public bool? AllowForking { get; set; }
         /// <summary>The allow_merge_commit property</summary>
-        public bool? Allow_merge_commit { get; set; }
+        public bool? AllowMergeCommit { get; set; }
         /// <summary>The allow_rebase_merge property</summary>
-        public bool? Allow_rebase_merge { get; set; }
+        public bool? AllowRebaseMerge { get; set; }
         /// <summary>The allow_squash_merge property</summary>
-        public bool? Allow_squash_merge { get; set; }
+        public bool? AllowSquashMerge { get; set; }
+        /// <summary>The archived property</summary>
+        public bool? Archived { get; set; }
         /// <summary>The archive_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Archive_url { get; set; }
+        public string? ArchiveUrl { get; set; }
 #nullable restore
 #else
-        public string Archive_url { get; set; }
+        public string ArchiveUrl { get; set; }
 #endif
-        /// <summary>The archived property</summary>
-        public bool? Archived { get; set; }
         /// <summary>The assignees_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Assignees_url { get; set; }
+        public string? AssigneesUrl { get; set; }
 #nullable restore
 #else
-        public string Assignees_url { get; set; }
+        public string AssigneesUrl { get; set; }
 #endif
         /// <summary>The blobs_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Blobs_url { get; set; }
+        public string? BlobsUrl { get; set; }
 #nullable restore
 #else
-        public string Blobs_url { get; set; }
+        public string BlobsUrl { get; set; }
 #endif
         /// <summary>The branches_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Branches_url { get; set; }
+        public string? BranchesUrl { get; set; }
 #nullable restore
 #else
-        public string Branches_url { get; set; }
+        public string BranchesUrl { get; set; }
 #endif
         /// <summary>The clone_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Clone_url { get; set; }
+        public string? CloneUrl { get; set; }
 #nullable restore
 #else
-        public string Clone_url { get; set; }
+        public string CloneUrl { get; set; }
 #endif
         /// <summary>The collaborators_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Collaborators_url { get; set; }
+        public string? CollaboratorsUrl { get; set; }
 #nullable restore
 #else
-        public string Collaborators_url { get; set; }
+        public string CollaboratorsUrl { get; set; }
 #endif
         /// <summary>The comments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Comments_url { get; set; }
+        public string? CommentsUrl { get; set; }
 #nullable restore
 #else
-        public string Comments_url { get; set; }
+        public string CommentsUrl { get; set; }
 #endif
         /// <summary>The commits_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Commits_url { get; set; }
+        public string? CommitsUrl { get; set; }
 #nullable restore
 #else
-        public string Commits_url { get; set; }
+        public string CommitsUrl { get; set; }
 #endif
         /// <summary>The compare_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Compare_url { get; set; }
+        public string? CompareUrl { get; set; }
 #nullable restore
 #else
-        public string Compare_url { get; set; }
+        public string CompareUrl { get; set; }
 #endif
         /// <summary>The contents_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Contents_url { get; set; }
+        public string? ContentsUrl { get; set; }
 #nullable restore
 #else
-        public string Contents_url { get; set; }
+        public string ContentsUrl { get; set; }
 #endif
         /// <summary>The contributors_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Contributors_url { get; set; }
+        public string? ContributorsUrl { get; set; }
 #nullable restore
 #else
-        public string Contributors_url { get; set; }
+        public string ContributorsUrl { get; set; }
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? Created_at { get; set; }
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The default_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Default_branch { get; set; }
+        public string? DefaultBranch { get; set; }
 #nullable restore
 #else
-        public string Default_branch { get; set; }
+        public string DefaultBranch { get; set; }
 #endif
         /// <summary>The deployments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Deployments_url { get; set; }
+        public string? DeploymentsUrl { get; set; }
 #nullable restore
 #else
-        public string Deployments_url { get; set; }
+        public string DeploymentsUrl { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,83 +136,85 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The downloads_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Downloads_url { get; set; }
+        public string? DownloadsUrl { get; set; }
 #nullable restore
 #else
-        public string Downloads_url { get; set; }
+        public string DownloadsUrl { get; set; }
 #endif
         /// <summary>The events_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Events_url { get; set; }
+        public string? EventsUrl { get; set; }
 #nullable restore
 #else
-        public string Events_url { get; set; }
+        public string EventsUrl { get; set; }
 #endif
         /// <summary>The fork property</summary>
         public bool? Fork { get; set; }
         /// <summary>The forks property</summary>
         public int? Forks { get; set; }
         /// <summary>The forks_count property</summary>
-        public int? Forks_count { get; set; }
+        public int? ForksCount { get; set; }
         /// <summary>The forks_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Forks_url { get; set; }
+        public string? ForksUrl { get; set; }
 #nullable restore
 #else
-        public string Forks_url { get; set; }
+        public string ForksUrl { get; set; }
 #endif
         /// <summary>The full_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Full_name { get; set; }
+        public string? FullName { get; set; }
 #nullable restore
 #else
-        public string Full_name { get; set; }
+        public string FullName { get; set; }
 #endif
         /// <summary>The git_commits_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Git_commits_url { get; set; }
+        public string? GitCommitsUrl { get; set; }
 #nullable restore
 #else
-        public string Git_commits_url { get; set; }
+        public string GitCommitsUrl { get; set; }
 #endif
         /// <summary>The git_refs_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Git_refs_url { get; set; }
+        public string? GitRefsUrl { get; set; }
 #nullable restore
 #else
-        public string Git_refs_url { get; set; }
+        public string GitRefsUrl { get; set; }
 #endif
         /// <summary>The git_tags_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Git_tags_url { get; set; }
+        public string? GitTagsUrl { get; set; }
 #nullable restore
 #else
-        public string Git_tags_url { get; set; }
+        public string GitTagsUrl { get; set; }
 #endif
         /// <summary>The git_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Git_url { get; set; }
+        public string? GitUrl { get; set; }
 #nullable restore
 #else
-        public string Git_url { get; set; }
+        public string GitUrl { get; set; }
 #endif
+        /// <summary>The has_discussions property</summary>
+        public bool? HasDiscussions { get; set; }
         /// <summary>The has_downloads property</summary>
-        public bool? Has_downloads { get; set; }
+        public bool? HasDownloads { get; set; }
         /// <summary>The has_issues property</summary>
-        public bool? Has_issues { get; set; }
+        public bool? HasIssues { get; set; }
         /// <summary>The has_pages property</summary>
-        public bool? Has_pages { get; set; }
+        public bool? HasPages { get; set; }
         /// <summary>The has_projects property</summary>
-        public bool? Has_projects { get; set; }
+        public bool? HasProjects { get; set; }
         /// <summary>The has_wiki property</summary>
-        public bool? Has_wiki { get; set; }
+        public bool? HasWiki { get; set; }
         /// <summary>The homepage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -222,60 +226,62 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The hooks_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Hooks_url { get; set; }
+        public string? HooksUrl { get; set; }
 #nullable restore
 #else
-        public string Hooks_url { get; set; }
+        public string HooksUrl { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Html_url { get; set; }
+        public string? HtmlUrl { get; set; }
 #nullable restore
 #else
-        public string Html_url { get; set; }
+        public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
         /// <summary>The issue_comment_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Issue_comment_url { get; set; }
+        public string? IssueCommentUrl { get; set; }
 #nullable restore
 #else
-        public string Issue_comment_url { get; set; }
+        public string IssueCommentUrl { get; set; }
 #endif
         /// <summary>The issue_events_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Issue_events_url { get; set; }
+        public string? IssueEventsUrl { get; set; }
 #nullable restore
 #else
-        public string Issue_events_url { get; set; }
+        public string IssueEventsUrl { get; set; }
 #endif
         /// <summary>The issues_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Issues_url { get; set; }
+        public string? IssuesUrl { get; set; }
 #nullable restore
 #else
-        public string Issues_url { get; set; }
+        public string IssuesUrl { get; set; }
 #endif
+        /// <summary>The is_template property</summary>
+        public bool? IsTemplate { get; set; }
         /// <summary>The keys_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Keys_url { get; set; }
+        public string? KeysUrl { get; set; }
 #nullable restore
 #else
-        public string Keys_url { get; set; }
+        public string KeysUrl { get; set; }
 #endif
         /// <summary>The labels_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Labels_url { get; set; }
+        public string? LabelsUrl { get; set; }
 #nullable restore
 #else
-        public string Labels_url { get; set; }
+        public string LabelsUrl { get; set; }
 #endif
         /// <summary>The language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -288,10 +294,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The languages_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Languages_url { get; set; }
+        public string? LanguagesUrl { get; set; }
 #nullable restore
 #else
-        public string Languages_url { get; set; }
+        public string LanguagesUrl { get; set; }
 #endif
         /// <summary>The license property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -304,34 +310,34 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The master_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Master_branch { get; set; }
+        public string? MasterBranch { get; set; }
 #nullable restore
 #else
-        public string Master_branch { get; set; }
+        public string MasterBranch { get; set; }
 #endif
         /// <summary>The merges_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Merges_url { get; set; }
+        public string? MergesUrl { get; set; }
 #nullable restore
 #else
-        public string Merges_url { get; set; }
+        public string MergesUrl { get; set; }
 #endif
         /// <summary>The milestones_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Milestones_url { get; set; }
+        public string? MilestonesUrl { get; set; }
 #nullable restore
 #else
-        public string Milestones_url { get; set; }
+        public string MilestonesUrl { get; set; }
 #endif
         /// <summary>The mirror_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mirror_url { get; set; }
+        public string? MirrorUrl { get; set; }
 #nullable restore
 #else
-        public string Mirror_url { get; set; }
+        public string MirrorUrl { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -344,23 +350,23 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Node_id { get; set; }
+        public string? NodeId { get; set; }
 #nullable restore
 #else
-        public string Node_id { get; set; }
+        public string NodeId { get; set; }
 #endif
         /// <summary>The notifications_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Notifications_url { get; set; }
+        public string? NotificationsUrl { get; set; }
 #nullable restore
 #else
-        public string Notifications_url { get; set; }
+        public string NotificationsUrl { get; set; }
 #endif
         /// <summary>The open_issues property</summary>
-        public int? Open_issues { get; set; }
+        public int? OpenIssues { get; set; }
         /// <summary>The open_issues_count property</summary>
-        public int? Open_issues_count { get; set; }
+        public int? OpenIssuesCount { get; set; }
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -382,96 +388,96 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The pulls_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Pulls_url { get; set; }
+        public string? PullsUrl { get; set; }
 #nullable restore
 #else
-        public string Pulls_url { get; set; }
+        public string PullsUrl { get; set; }
 #endif
         /// <summary>The pushed_at property</summary>
-        public DateTimeOffset? Pushed_at { get; set; }
+        public DateTimeOffset? PushedAt { get; set; }
         /// <summary>The releases_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Releases_url { get; set; }
+        public string? ReleasesUrl { get; set; }
 #nullable restore
 #else
-        public string Releases_url { get; set; }
+        public string ReleasesUrl { get; set; }
 #endif
         /// <summary>The size property</summary>
         public int? Size { get; set; }
         /// <summary>The ssh_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ssh_url { get; set; }
+        public string? SshUrl { get; set; }
 #nullable restore
 #else
-        public string Ssh_url { get; set; }
+        public string SshUrl { get; set; }
 #endif
         /// <summary>The stargazers_count property</summary>
-        public int? Stargazers_count { get; set; }
+        public int? StargazersCount { get; set; }
         /// <summary>The stargazers_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Stargazers_url { get; set; }
+        public string? StargazersUrl { get; set; }
 #nullable restore
 #else
-        public string Stargazers_url { get; set; }
+        public string StargazersUrl { get; set; }
 #endif
         /// <summary>The statuses_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Statuses_url { get; set; }
+        public string? StatusesUrl { get; set; }
 #nullable restore
 #else
-        public string Statuses_url { get; set; }
+        public string StatusesUrl { get; set; }
 #endif
         /// <summary>The subscribers_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subscribers_url { get; set; }
+        public string? SubscribersUrl { get; set; }
 #nullable restore
 #else
-        public string Subscribers_url { get; set; }
+        public string SubscribersUrl { get; set; }
 #endif
         /// <summary>The subscription_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subscription_url { get; set; }
+        public string? SubscriptionUrl { get; set; }
 #nullable restore
 #else
-        public string Subscription_url { get; set; }
+        public string SubscriptionUrl { get; set; }
 #endif
         /// <summary>The svn_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Svn_url { get; set; }
+        public string? SvnUrl { get; set; }
 #nullable restore
 #else
-        public string Svn_url { get; set; }
+        public string SvnUrl { get; set; }
 #endif
         /// <summary>The tags_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tags_url { get; set; }
+        public string? TagsUrl { get; set; }
 #nullable restore
 #else
-        public string Tags_url { get; set; }
+        public string TagsUrl { get; set; }
 #endif
         /// <summary>The teams_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Teams_url { get; set; }
+        public string? TeamsUrl { get; set; }
 #nullable restore
 #else
-        public string Teams_url { get; set; }
+        public string TeamsUrl { get; set; }
 #endif
         /// <summary>The temp_clone_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Temp_clone_token { get; set; }
+        public string? TempCloneToken { get; set; }
 #nullable restore
 #else
-        public string Temp_clone_token { get; set; }
+        public string TempCloneToken { get; set; }
 #endif
         /// <summary>The topics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -484,13 +490,13 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The trees_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Trees_url { get; set; }
+        public string? TreesUrl { get; set; }
 #nullable restore
 #else
-        public string Trees_url { get; set; }
+        public string TreesUrl { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? Updated_at { get; set; }
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -499,10 +505,20 @@ namespace GitHubTodoDemo.GitHub.Models {
 #else
         public string Url { get; set; }
 #endif
+        /// <summary>The repository visibility: public, private, or internal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Visibility { get; set; }
+#nullable restore
+#else
+        public string Visibility { get; set; }
+#endif
         /// <summary>The watchers property</summary>
         public int? Watchers { get; set; }
         /// <summary>The watchers_count property</summary>
-        public int? Watchers_count { get; set; }
+        public int? WatchersCount { get; set; }
+        /// <summary>The web_commit_signoff_required property</summary>
+        public bool? WebCommitSignoffRequired { get; set; }
         /// <summary>
         /// Instantiates a new PullRequest_head_repo and sets the default values.
         /// </summary>
@@ -522,86 +538,91 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"allow_merge_commit", n => { Allow_merge_commit = n.GetBoolValue(); } },
-                {"allow_rebase_merge", n => { Allow_rebase_merge = n.GetBoolValue(); } },
-                {"allow_squash_merge", n => { Allow_squash_merge = n.GetBoolValue(); } },
-                {"archive_url", n => { Archive_url = n.GetStringValue(); } },
+                {"allow_forking", n => { AllowForking = n.GetBoolValue(); } },
+                {"allow_merge_commit", n => { AllowMergeCommit = n.GetBoolValue(); } },
+                {"allow_rebase_merge", n => { AllowRebaseMerge = n.GetBoolValue(); } },
+                {"allow_squash_merge", n => { AllowSquashMerge = n.GetBoolValue(); } },
                 {"archived", n => { Archived = n.GetBoolValue(); } },
-                {"assignees_url", n => { Assignees_url = n.GetStringValue(); } },
-                {"blobs_url", n => { Blobs_url = n.GetStringValue(); } },
-                {"branches_url", n => { Branches_url = n.GetStringValue(); } },
-                {"clone_url", n => { Clone_url = n.GetStringValue(); } },
-                {"collaborators_url", n => { Collaborators_url = n.GetStringValue(); } },
-                {"comments_url", n => { Comments_url = n.GetStringValue(); } },
-                {"commits_url", n => { Commits_url = n.GetStringValue(); } },
-                {"compare_url", n => { Compare_url = n.GetStringValue(); } },
-                {"contents_url", n => { Contents_url = n.GetStringValue(); } },
-                {"contributors_url", n => { Contributors_url = n.GetStringValue(); } },
-                {"created_at", n => { Created_at = n.GetDateTimeOffsetValue(); } },
-                {"default_branch", n => { Default_branch = n.GetStringValue(); } },
-                {"deployments_url", n => { Deployments_url = n.GetStringValue(); } },
+                {"archive_url", n => { ArchiveUrl = n.GetStringValue(); } },
+                {"assignees_url", n => { AssigneesUrl = n.GetStringValue(); } },
+                {"blobs_url", n => { BlobsUrl = n.GetStringValue(); } },
+                {"branches_url", n => { BranchesUrl = n.GetStringValue(); } },
+                {"clone_url", n => { CloneUrl = n.GetStringValue(); } },
+                {"collaborators_url", n => { CollaboratorsUrl = n.GetStringValue(); } },
+                {"comments_url", n => { CommentsUrl = n.GetStringValue(); } },
+                {"commits_url", n => { CommitsUrl = n.GetStringValue(); } },
+                {"compare_url", n => { CompareUrl = n.GetStringValue(); } },
+                {"contents_url", n => { ContentsUrl = n.GetStringValue(); } },
+                {"contributors_url", n => { ContributorsUrl = n.GetStringValue(); } },
+                {"created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                {"default_branch", n => { DefaultBranch = n.GetStringValue(); } },
+                {"deployments_url", n => { DeploymentsUrl = n.GetStringValue(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"disabled", n => { Disabled = n.GetBoolValue(); } },
-                {"downloads_url", n => { Downloads_url = n.GetStringValue(); } },
-                {"events_url", n => { Events_url = n.GetStringValue(); } },
+                {"downloads_url", n => { DownloadsUrl = n.GetStringValue(); } },
+                {"events_url", n => { EventsUrl = n.GetStringValue(); } },
                 {"fork", n => { Fork = n.GetBoolValue(); } },
                 {"forks", n => { Forks = n.GetIntValue(); } },
-                {"forks_count", n => { Forks_count = n.GetIntValue(); } },
-                {"forks_url", n => { Forks_url = n.GetStringValue(); } },
-                {"full_name", n => { Full_name = n.GetStringValue(); } },
-                {"git_commits_url", n => { Git_commits_url = n.GetStringValue(); } },
-                {"git_refs_url", n => { Git_refs_url = n.GetStringValue(); } },
-                {"git_tags_url", n => { Git_tags_url = n.GetStringValue(); } },
-                {"git_url", n => { Git_url = n.GetStringValue(); } },
-                {"has_downloads", n => { Has_downloads = n.GetBoolValue(); } },
-                {"has_issues", n => { Has_issues = n.GetBoolValue(); } },
-                {"has_pages", n => { Has_pages = n.GetBoolValue(); } },
-                {"has_projects", n => { Has_projects = n.GetBoolValue(); } },
-                {"has_wiki", n => { Has_wiki = n.GetBoolValue(); } },
+                {"forks_count", n => { ForksCount = n.GetIntValue(); } },
+                {"forks_url", n => { ForksUrl = n.GetStringValue(); } },
+                {"full_name", n => { FullName = n.GetStringValue(); } },
+                {"git_commits_url", n => { GitCommitsUrl = n.GetStringValue(); } },
+                {"git_refs_url", n => { GitRefsUrl = n.GetStringValue(); } },
+                {"git_tags_url", n => { GitTagsUrl = n.GetStringValue(); } },
+                {"git_url", n => { GitUrl = n.GetStringValue(); } },
+                {"has_discussions", n => { HasDiscussions = n.GetBoolValue(); } },
+                {"has_downloads", n => { HasDownloads = n.GetBoolValue(); } },
+                {"has_issues", n => { HasIssues = n.GetBoolValue(); } },
+                {"has_pages", n => { HasPages = n.GetBoolValue(); } },
+                {"has_projects", n => { HasProjects = n.GetBoolValue(); } },
+                {"has_wiki", n => { HasWiki = n.GetBoolValue(); } },
                 {"homepage", n => { Homepage = n.GetStringValue(); } },
-                {"hooks_url", n => { Hooks_url = n.GetStringValue(); } },
-                {"html_url", n => { Html_url = n.GetStringValue(); } },
+                {"hooks_url", n => { HooksUrl = n.GetStringValue(); } },
+                {"html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 {"id", n => { Id = n.GetIntValue(); } },
-                {"issue_comment_url", n => { Issue_comment_url = n.GetStringValue(); } },
-                {"issue_events_url", n => { Issue_events_url = n.GetStringValue(); } },
-                {"issues_url", n => { Issues_url = n.GetStringValue(); } },
-                {"keys_url", n => { Keys_url = n.GetStringValue(); } },
-                {"labels_url", n => { Labels_url = n.GetStringValue(); } },
+                {"issue_comment_url", n => { IssueCommentUrl = n.GetStringValue(); } },
+                {"issue_events_url", n => { IssueEventsUrl = n.GetStringValue(); } },
+                {"issues_url", n => { IssuesUrl = n.GetStringValue(); } },
+                {"is_template", n => { IsTemplate = n.GetBoolValue(); } },
+                {"keys_url", n => { KeysUrl = n.GetStringValue(); } },
+                {"labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 {"language", n => { Language = n.GetStringValue(); } },
-                {"languages_url", n => { Languages_url = n.GetStringValue(); } },
+                {"languages_url", n => { LanguagesUrl = n.GetStringValue(); } },
                 {"license", n => { License = n.GetObjectValue<PullRequest_head_repo_license>(PullRequest_head_repo_license.CreateFromDiscriminatorValue); } },
-                {"master_branch", n => { Master_branch = n.GetStringValue(); } },
-                {"merges_url", n => { Merges_url = n.GetStringValue(); } },
-                {"milestones_url", n => { Milestones_url = n.GetStringValue(); } },
-                {"mirror_url", n => { Mirror_url = n.GetStringValue(); } },
+                {"master_branch", n => { MasterBranch = n.GetStringValue(); } },
+                {"merges_url", n => { MergesUrl = n.GetStringValue(); } },
+                {"milestones_url", n => { MilestonesUrl = n.GetStringValue(); } },
+                {"mirror_url", n => { MirrorUrl = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
-                {"node_id", n => { Node_id = n.GetStringValue(); } },
-                {"notifications_url", n => { Notifications_url = n.GetStringValue(); } },
-                {"open_issues", n => { Open_issues = n.GetIntValue(); } },
-                {"open_issues_count", n => { Open_issues_count = n.GetIntValue(); } },
+                {"node_id", n => { NodeId = n.GetStringValue(); } },
+                {"notifications_url", n => { NotificationsUrl = n.GetStringValue(); } },
+                {"open_issues", n => { OpenIssues = n.GetIntValue(); } },
+                {"open_issues_count", n => { OpenIssuesCount = n.GetIntValue(); } },
                 {"owner", n => { Owner = n.GetObjectValue<PullRequest_head_repo_owner>(PullRequest_head_repo_owner.CreateFromDiscriminatorValue); } },
                 {"permissions", n => { Permissions = n.GetObjectValue<PullRequest_head_repo_permissions>(PullRequest_head_repo_permissions.CreateFromDiscriminatorValue); } },
                 {"private", n => { Private = n.GetBoolValue(); } },
-                {"pulls_url", n => { Pulls_url = n.GetStringValue(); } },
-                {"pushed_at", n => { Pushed_at = n.GetDateTimeOffsetValue(); } },
-                {"releases_url", n => { Releases_url = n.GetStringValue(); } },
+                {"pulls_url", n => { PullsUrl = n.GetStringValue(); } },
+                {"pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
+                {"releases_url", n => { ReleasesUrl = n.GetStringValue(); } },
                 {"size", n => { Size = n.GetIntValue(); } },
-                {"ssh_url", n => { Ssh_url = n.GetStringValue(); } },
-                {"stargazers_count", n => { Stargazers_count = n.GetIntValue(); } },
-                {"stargazers_url", n => { Stargazers_url = n.GetStringValue(); } },
-                {"statuses_url", n => { Statuses_url = n.GetStringValue(); } },
-                {"subscribers_url", n => { Subscribers_url = n.GetStringValue(); } },
-                {"subscription_url", n => { Subscription_url = n.GetStringValue(); } },
-                {"svn_url", n => { Svn_url = n.GetStringValue(); } },
-                {"tags_url", n => { Tags_url = n.GetStringValue(); } },
-                {"teams_url", n => { Teams_url = n.GetStringValue(); } },
-                {"temp_clone_token", n => { Temp_clone_token = n.GetStringValue(); } },
+                {"ssh_url", n => { SshUrl = n.GetStringValue(); } },
+                {"stargazers_count", n => { StargazersCount = n.GetIntValue(); } },
+                {"stargazers_url", n => { StargazersUrl = n.GetStringValue(); } },
+                {"statuses_url", n => { StatusesUrl = n.GetStringValue(); } },
+                {"subscribers_url", n => { SubscribersUrl = n.GetStringValue(); } },
+                {"subscription_url", n => { SubscriptionUrl = n.GetStringValue(); } },
+                {"svn_url", n => { SvnUrl = n.GetStringValue(); } },
+                {"tags_url", n => { TagsUrl = n.GetStringValue(); } },
+                {"teams_url", n => { TeamsUrl = n.GetStringValue(); } },
+                {"temp_clone_token", n => { TempCloneToken = n.GetStringValue(); } },
                 {"topics", n => { Topics = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"trees_url", n => { Trees_url = n.GetStringValue(); } },
-                {"updated_at", n => { Updated_at = n.GetDateTimeOffsetValue(); } },
+                {"trees_url", n => { TreesUrl = n.GetStringValue(); } },
+                {"updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 {"url", n => { Url = n.GetStringValue(); } },
+                {"visibility", n => { Visibility = n.GetStringValue(); } },
                 {"watchers", n => { Watchers = n.GetIntValue(); } },
-                {"watchers_count", n => { Watchers_count = n.GetIntValue(); } },
+                {"watchers_count", n => { WatchersCount = n.GetIntValue(); } },
+                {"web_commit_signoff_required", n => { WebCommitSignoffRequired = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -610,86 +631,91 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("allow_merge_commit", Allow_merge_commit);
-            writer.WriteBoolValue("allow_rebase_merge", Allow_rebase_merge);
-            writer.WriteBoolValue("allow_squash_merge", Allow_squash_merge);
-            writer.WriteStringValue("archive_url", Archive_url);
+            writer.WriteBoolValue("allow_forking", AllowForking);
+            writer.WriteBoolValue("allow_merge_commit", AllowMergeCommit);
+            writer.WriteBoolValue("allow_rebase_merge", AllowRebaseMerge);
+            writer.WriteBoolValue("allow_squash_merge", AllowSquashMerge);
             writer.WriteBoolValue("archived", Archived);
-            writer.WriteStringValue("assignees_url", Assignees_url);
-            writer.WriteStringValue("blobs_url", Blobs_url);
-            writer.WriteStringValue("branches_url", Branches_url);
-            writer.WriteStringValue("clone_url", Clone_url);
-            writer.WriteStringValue("collaborators_url", Collaborators_url);
-            writer.WriteStringValue("comments_url", Comments_url);
-            writer.WriteStringValue("commits_url", Commits_url);
-            writer.WriteStringValue("compare_url", Compare_url);
-            writer.WriteStringValue("contents_url", Contents_url);
-            writer.WriteStringValue("contributors_url", Contributors_url);
-            writer.WriteDateTimeOffsetValue("created_at", Created_at);
-            writer.WriteStringValue("default_branch", Default_branch);
-            writer.WriteStringValue("deployments_url", Deployments_url);
+            writer.WriteStringValue("archive_url", ArchiveUrl);
+            writer.WriteStringValue("assignees_url", AssigneesUrl);
+            writer.WriteStringValue("blobs_url", BlobsUrl);
+            writer.WriteStringValue("branches_url", BranchesUrl);
+            writer.WriteStringValue("clone_url", CloneUrl);
+            writer.WriteStringValue("collaborators_url", CollaboratorsUrl);
+            writer.WriteStringValue("comments_url", CommentsUrl);
+            writer.WriteStringValue("commits_url", CommitsUrl);
+            writer.WriteStringValue("compare_url", CompareUrl);
+            writer.WriteStringValue("contents_url", ContentsUrl);
+            writer.WriteStringValue("contributors_url", ContributorsUrl);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("default_branch", DefaultBranch);
+            writer.WriteStringValue("deployments_url", DeploymentsUrl);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("disabled", Disabled);
-            writer.WriteStringValue("downloads_url", Downloads_url);
-            writer.WriteStringValue("events_url", Events_url);
+            writer.WriteStringValue("downloads_url", DownloadsUrl);
+            writer.WriteStringValue("events_url", EventsUrl);
             writer.WriteBoolValue("fork", Fork);
             writer.WriteIntValue("forks", Forks);
-            writer.WriteIntValue("forks_count", Forks_count);
-            writer.WriteStringValue("forks_url", Forks_url);
-            writer.WriteStringValue("full_name", Full_name);
-            writer.WriteStringValue("git_commits_url", Git_commits_url);
-            writer.WriteStringValue("git_refs_url", Git_refs_url);
-            writer.WriteStringValue("git_tags_url", Git_tags_url);
-            writer.WriteStringValue("git_url", Git_url);
-            writer.WriteBoolValue("has_downloads", Has_downloads);
-            writer.WriteBoolValue("has_issues", Has_issues);
-            writer.WriteBoolValue("has_pages", Has_pages);
-            writer.WriteBoolValue("has_projects", Has_projects);
-            writer.WriteBoolValue("has_wiki", Has_wiki);
+            writer.WriteIntValue("forks_count", ForksCount);
+            writer.WriteStringValue("forks_url", ForksUrl);
+            writer.WriteStringValue("full_name", FullName);
+            writer.WriteStringValue("git_commits_url", GitCommitsUrl);
+            writer.WriteStringValue("git_refs_url", GitRefsUrl);
+            writer.WriteStringValue("git_tags_url", GitTagsUrl);
+            writer.WriteStringValue("git_url", GitUrl);
+            writer.WriteBoolValue("has_discussions", HasDiscussions);
+            writer.WriteBoolValue("has_downloads", HasDownloads);
+            writer.WriteBoolValue("has_issues", HasIssues);
+            writer.WriteBoolValue("has_pages", HasPages);
+            writer.WriteBoolValue("has_projects", HasProjects);
+            writer.WriteBoolValue("has_wiki", HasWiki);
             writer.WriteStringValue("homepage", Homepage);
-            writer.WriteStringValue("hooks_url", Hooks_url);
-            writer.WriteStringValue("html_url", Html_url);
+            writer.WriteStringValue("hooks_url", HooksUrl);
+            writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteIntValue("id", Id);
-            writer.WriteStringValue("issue_comment_url", Issue_comment_url);
-            writer.WriteStringValue("issue_events_url", Issue_events_url);
-            writer.WriteStringValue("issues_url", Issues_url);
-            writer.WriteStringValue("keys_url", Keys_url);
-            writer.WriteStringValue("labels_url", Labels_url);
+            writer.WriteStringValue("issue_comment_url", IssueCommentUrl);
+            writer.WriteStringValue("issue_events_url", IssueEventsUrl);
+            writer.WriteStringValue("issues_url", IssuesUrl);
+            writer.WriteBoolValue("is_template", IsTemplate);
+            writer.WriteStringValue("keys_url", KeysUrl);
+            writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteStringValue("language", Language);
-            writer.WriteStringValue("languages_url", Languages_url);
+            writer.WriteStringValue("languages_url", LanguagesUrl);
             writer.WriteObjectValue<PullRequest_head_repo_license>("license", License);
-            writer.WriteStringValue("master_branch", Master_branch);
-            writer.WriteStringValue("merges_url", Merges_url);
-            writer.WriteStringValue("milestones_url", Milestones_url);
-            writer.WriteStringValue("mirror_url", Mirror_url);
+            writer.WriteStringValue("master_branch", MasterBranch);
+            writer.WriteStringValue("merges_url", MergesUrl);
+            writer.WriteStringValue("milestones_url", MilestonesUrl);
+            writer.WriteStringValue("mirror_url", MirrorUrl);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("node_id", Node_id);
-            writer.WriteStringValue("notifications_url", Notifications_url);
-            writer.WriteIntValue("open_issues", Open_issues);
-            writer.WriteIntValue("open_issues_count", Open_issues_count);
+            writer.WriteStringValue("node_id", NodeId);
+            writer.WriteStringValue("notifications_url", NotificationsUrl);
+            writer.WriteIntValue("open_issues", OpenIssues);
+            writer.WriteIntValue("open_issues_count", OpenIssuesCount);
             writer.WriteObjectValue<PullRequest_head_repo_owner>("owner", Owner);
             writer.WriteObjectValue<PullRequest_head_repo_permissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
-            writer.WriteStringValue("pulls_url", Pulls_url);
-            writer.WriteDateTimeOffsetValue("pushed_at", Pushed_at);
-            writer.WriteStringValue("releases_url", Releases_url);
+            writer.WriteStringValue("pulls_url", PullsUrl);
+            writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
+            writer.WriteStringValue("releases_url", ReleasesUrl);
             writer.WriteIntValue("size", Size);
-            writer.WriteStringValue("ssh_url", Ssh_url);
-            writer.WriteIntValue("stargazers_count", Stargazers_count);
-            writer.WriteStringValue("stargazers_url", Stargazers_url);
-            writer.WriteStringValue("statuses_url", Statuses_url);
-            writer.WriteStringValue("subscribers_url", Subscribers_url);
-            writer.WriteStringValue("subscription_url", Subscription_url);
-            writer.WriteStringValue("svn_url", Svn_url);
-            writer.WriteStringValue("tags_url", Tags_url);
-            writer.WriteStringValue("teams_url", Teams_url);
-            writer.WriteStringValue("temp_clone_token", Temp_clone_token);
+            writer.WriteStringValue("ssh_url", SshUrl);
+            writer.WriteIntValue("stargazers_count", StargazersCount);
+            writer.WriteStringValue("stargazers_url", StargazersUrl);
+            writer.WriteStringValue("statuses_url", StatusesUrl);
+            writer.WriteStringValue("subscribers_url", SubscribersUrl);
+            writer.WriteStringValue("subscription_url", SubscriptionUrl);
+            writer.WriteStringValue("svn_url", SvnUrl);
+            writer.WriteStringValue("tags_url", TagsUrl);
+            writer.WriteStringValue("teams_url", TeamsUrl);
+            writer.WriteStringValue("temp_clone_token", TempCloneToken);
             writer.WriteCollectionOfPrimitiveValues<string>("topics", Topics);
-            writer.WriteStringValue("trees_url", Trees_url);
-            writer.WriteDateTimeOffsetValue("updated_at", Updated_at);
+            writer.WriteStringValue("trees_url", TreesUrl);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
+            writer.WriteStringValue("visibility", Visibility);
             writer.WriteIntValue("watchers", Watchers);
-            writer.WriteIntValue("watchers_count", Watchers_count);
+            writer.WriteIntValue("watchers_count", WatchersCount);
+            writer.WriteBoolValue("web_commit_signoff_required", WebCommitSignoffRequired);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

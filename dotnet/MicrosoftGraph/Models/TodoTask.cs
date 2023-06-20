@@ -1,11 +1,11 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public class TodoTask : Entity, IParsable {
-        /// <summary>The attachments property</summary>
+        /// <summary>A collection of file attachments for the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AttachmentBase>? Attachments { get; set; }
@@ -73,7 +73,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
 #else
         public List<Extension> Extensions { get; set; }
 #endif
-        /// <summary>The hasAttachments property</summary>
+        /// <summary>Indicates whether the task has attachments.</summary>
         public bool? HasAttachments { get; set; }
         /// <summary>The importance property</summary>
         public GitHubTodoDemo.MicrosoftGraph.Models.Importance? Importance { get; set; }
@@ -105,7 +105,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Models {
 #else
         public DateTimeTimeZone ReminderDateTime { get; set; }
 #endif
-        /// <summary>The startDateTime property</summary>
+        /// <summary>The date and time in the specified time zone at which the task is scheduled to start.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? StartDateTime { get; set; }

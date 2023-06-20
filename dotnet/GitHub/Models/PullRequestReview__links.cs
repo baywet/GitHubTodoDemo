@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Models {
     public class PullRequestReview__links : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -18,10 +18,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The pull_request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PullRequestReview__links_pull_request? Pull_request { get; set; }
+        public PullRequestReview__links_pull_request? PullRequest { get; set; }
 #nullable restore
 #else
-        public PullRequestReview__links_pull_request Pull_request { get; set; }
+        public PullRequestReview__links_pull_request PullRequest { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new PullRequestReview__links and sets the default values.
@@ -43,7 +43,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"html", n => { Html = n.GetObjectValue<PullRequestReview__links_html>(PullRequestReview__links_html.CreateFromDiscriminatorValue); } },
-                {"pull_request", n => { Pull_request = n.GetObjectValue<PullRequestReview__links_pull_request>(PullRequestReview__links_pull_request.CreateFromDiscriminatorValue); } },
+                {"pull_request", n => { PullRequest = n.GetObjectValue<PullRequestReview__links_pull_request>(PullRequestReview__links_pull_request.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<PullRequestReview__links_html>("html", Html);
-            writer.WriteObjectValue<PullRequestReview__links_pull_request>("pull_request", Pull_request);
+            writer.WriteObjectValue<PullRequestReview__links_pull_request>("pull_request", PullRequest);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

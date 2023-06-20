@@ -1,6 +1,10 @@
+using System.Runtime.Serialization;
+using System;
 namespace GitHubTodoDemo.MicrosoftGraph.Models {
     public enum BodyType {
+        [EnumMember(Value = "text")]
         Text,
+        [EnumMember(Value = "html")]
         Html,
     }
 }

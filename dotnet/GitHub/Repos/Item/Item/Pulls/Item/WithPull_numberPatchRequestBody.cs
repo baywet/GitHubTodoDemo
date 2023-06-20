@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item {
     public class WithPull_numberPatchRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -23,8 +23,8 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item {
 #else
         public string Body { get; set; }
 #endif
-        /// <summary>Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
-        public bool? Maintainer_can_modify { get; set; }
+        /// <summary>Indicates whether [maintainers can modify](https://docs.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.</summary>
+        public bool? MaintainerCanModify { get; set; }
         /// <summary>State of this Pull Request. Either `open` or `closed`.</summary>
         public WithPull_numberPatchRequestBody_state? State { get; set; }
         /// <summary>The title of the pull request.</summary>
@@ -56,7 +56,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item {
             return new Dictionary<string, Action<IParseNode>> {
                 {"base", n => { Base = n.GetStringValue(); } },
                 {"body", n => { Body = n.GetStringValue(); } },
-                {"maintainer_can_modify", n => { Maintainer_can_modify = n.GetBoolValue(); } },
+                {"maintainer_can_modify", n => { MaintainerCanModify = n.GetBoolValue(); } },
                 {"state", n => { State = n.GetEnumValue<WithPull_numberPatchRequestBody_state>(); } },
                 {"title", n => { Title = n.GetStringValue(); } },
             };
@@ -69,7 +69,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls.Item {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("base", Base);
             writer.WriteStringValue("body", Body);
-            writer.WriteBoolValue("maintainer_can_modify", Maintainer_can_modify);
+            writer.WriteBoolValue("maintainer_can_modify", MaintainerCanModify);
             writer.WriteEnumValue<WithPull_numberPatchRequestBody_state>("state", State);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
