@@ -1,4 +1,4 @@
-# GitHub To-Do console app integration demo with Kiota
+# GitHub To-Do console app integration demo with Kiota (dotnet)
 
 ## Pre-reqs
 
@@ -6,6 +6,7 @@
 1. PowerShell core `winget install Microsoft.PowerShell`.
 1. Dotnet `winget install Microsoft.DotNet.SDK.7`.
 1. Kiota installed `dotnet tool install -g Microsoft.OpenAPI.Kiota --prerelease`.
+1. VSCode `winget install Microsoft.VisualStudioCode`.
 1. Edit the following configuration file `%USERPROFILE%\.dotnet\tools\.store\microsoft.openapi.kiota\<kiota-version>\microsoft.openapi.kiota\<kiota-version>\tools\net7.0\any\appsettings.json` to contain the following entry under `Generation`.
 
    ```json
@@ -41,6 +42,7 @@
    ```
 
 1. Copy the **.vscode** directory to add debug and build configuration.
+1. Make sure you install the recommended extensions (type `@recommended` in the extensions search bar, and install all the `Workspace recommendations`).
 1. Copy the **GitHubAuthentication** directory to add the authentication provider for GitHub.
 
 ## Getting ready
@@ -90,6 +92,7 @@
 1. In program.cs dot your way through.
 
    ```CSharp
+   var graphClient = new MicrosoftGraphClient(null);
    var todoLists = await graphClient.Me.Todo.Lists.GetAsync();
    var todoList = todoLists?.Value?.FirstOrDefault();
    var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(new TodoTask() { Title = "Test task" });
