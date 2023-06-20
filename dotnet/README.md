@@ -42,7 +42,6 @@
 
 1. Copy the **.vscode** directory to add debug and build configuration.
 1. Copy the **GitHubAuthentication** directory to add the authentication provider for GitHub.
-1. Copy the content of **snippets.json** into the User snippet file (**File** > **Preferences** > **Configure User Snippets** )
 
 ## Getting ready
 
