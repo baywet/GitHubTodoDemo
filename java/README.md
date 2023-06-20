@@ -64,7 +64,7 @@
 1. `kiota search todo`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists"`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
-1. `kiota generate -l Java -n GitHubTodoDemo.MicrosoftGraphClient -o $PWD/app/src/main/java -c MicrosoftServiceGraphClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
+1. `kiota generate -l Java -n GitHubTodoDemo.MicrosoftGraphClient -o $PWD/app/src/main/java -c MicrosoftGraphServiceClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
 1. `kiota info -l java`
 1. Edit `app/build.gradle` and in the **dependencies** section add the following.
 
@@ -99,7 +99,7 @@
 1. In App.java dot your way through.
 
    ```Java
-   final var graphClient = new MicrosoftServiceGraphClient(null);
+   final var graphClient = new MicrosoftGraphServiceClient(null);
    final var todoLists = graphClient.me().todo().lists().get().get();
    final var todoList = todoLists.getValue().get(0);
    final var todoTasks = graphClient.me().todo().lists().byTodoTaskListId(todoList.getId()).tasks().post(new TodoTask() {{
@@ -125,7 +125,7 @@ public class App {
         return "Hello World!";
     }
 
-    public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
+    public static void main(String[] args) throws Exception {
         final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, "repo");
         final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);
         final var gitHubClient = new GitHubServiceClient(gitHubRequestAdapter);
@@ -140,7 +140,7 @@ public class App {
             }).build();
         final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {"graph.microsoft.com"}, "Tasks.ReadWrite");
         final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);
-        final var graphClient = new MicrosoftServiceGraphClient(microsoftGraphRequestAdapter);
+        final var graphClient = new MicrosoftGraphServiceClient(microsoftGraphRequestAdapter);
         final var todoLists = graphClient.me().todo().lists().get().get();
         final var todoList = todoLists.getValue().get(0);
         for (final var pullRequest : pullRequests) {

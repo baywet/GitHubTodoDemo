@@ -2,37 +2,35 @@
   "Todo Tasks From PRs": {
     "prefix": "todo",
     "body": [
-      "        for (final var pullRequest : pullRequests) {",
-      "            final var todoTask = graphClient.me().todo().lists().byTodoTaskListId(todoList.getId()).tasks().post(new TodoTask() {{",
-      "                setTitle(\"review\" + pullRequest.getTitle());",
-      "                setDueDateTime(new DateTimeTimeZone() {{",
-      "                    setDateTime(pullRequest.getCreatedAt().plusDays(7).format(DateTimeFormatter.ISO_DATE_TIME));",
-      "                    setTimeZone(\"UTC\");",
-      "                }});",
-      "                setImportance(Importance.High);",
-      "                setLinkedResources(new ArrayList<>() {{",
-      "                    add(new LinkedResource() {{",
-      "                        setWebUrl(pullRequest.getHtmlUrl());",
-      "                        setApplicationName(\"GitHub\");",
-      "                    }});",
-      "                }});",
-      "            }}).get();",
-      "            System.out.println(\"Added task \" + todoTask.getTitle() + \" to your todo list\");",
-      "        }"
+      "for (final var pullRequest : pullRequests) {",
+      "    final var todoTask = graphClient.me().todo().lists().byTodoTaskListId(todoList.getId()).tasks().post(new TodoTask() {{",
+      "        setTitle(\"review\" + pullRequest.getTitle());",
+      "        setDueDateTime(new DateTimeTimeZone() {{",
+      "            setDateTime(pullRequest.getCreatedAt().plusDays(7).format(DateTimeFormatter.ISO_DATE_TIME));",
+      "            setTimeZone(\"UTC\");",
+      "        }});",
+      "        setImportance(Importance.High);",
+      "        setLinkedResources(new ArrayList<>() {{",
+      "            add(new LinkedResource() {{",
+      "                setWebUrl(pullRequest.getHtmlUrl());",
+      "                setApplicationName(\"GitHub\");",
+      "            }});",
+      "        }});",
+      "    }}).get();",
+      "    System.out.println(\"Added task \" + todoTask.getTitle() + \" to your todo list\");",
+      "}"
     ],
     "description": "Creates a todo task for each pull request"
   },
   "Todo Tasks usings": {
     "prefix": "todo-usings",
     "body": [
-      "import java.io.IOException;",
       "import java.time.format.DateTimeFormatter;",
       "import java.util.ArrayList;",
-      "import java.util.concurrent.ExecutionException;",
       "",
       "import githubtododemo.githubauthentication.GitHubAuthenticationProvider;",
       "import githubtododemo.githubclient.GitHubServiceClient;",
-      "import githubtododemo.microsoftgraphclient.MicrosoftServiceGraphClient;",
+      "import githubtododemo.microsoftgraphclient.MicrosoftGraphServiceClient;",
       "import githubtododemo.microsoftgraphclient.models.DateTimeTimeZone;",
       "import githubtododemo.microsoftgraphclient.models.Importance;",
       "import githubtododemo.microsoftgraphclient.models.LinkedResource;",
@@ -47,23 +45,23 @@
   "Todo graph auth": {
     "prefix": "todo-graph-auth",
     "body": [
-      "        final var microsoftGraphTokenCredentials = new DeviceCodeCredentialBuilder()",
-      "            .clientId(Constants.graphClientId)",
-      "            .tenantId(Constants.graphTenantId)",
-      "            .challengeConsumer(challenge -> {",
-      "                // lets user know of the challenge",
-      "                System.out.println(challenge.getMessage());",
-      "            }).build();",
-      "        final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {\"graph.microsoft.com\"}, \"Tasks.ReadWrite\");",
-      "        final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);"
+      "final var microsoftGraphTokenCredentials = new DeviceCodeCredentialBuilder()",
+      "    .clientId(Constants.graphClientId)",
+      "    .tenantId(Constants.graphTenantId)",
+      "    .challengeConsumer(challenge -> {",
+      "        // lets user know of the challenge",
+      "        System.out.println(challenge.getMessage());",
+      "    }).build();",
+      "final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {\"graph.microsoft.com\"}, \"Tasks.ReadWrite\");",
+      "final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);"
     ],
     "description": "Adds the graph client authentication"
   },
   "Todo github auth": {
     "prefix": "todo-github-auth",
     "body": [
-      "        final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, \"repo\");",
-      "        final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);"
+      "final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, \"repo\");",
+      "final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);"
     ],
     "description": "Adds the github client authentication"
   }
