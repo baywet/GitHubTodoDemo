@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+	  "vscjava.vscode-java-pack",
+	  "vscjava.vscode-gradle",
+	  "shengchen.vscode-checkstyle",
+	  "editorconfig.editorconfig",
+	  "ms-graph.kiota"
+	]
+  }
+  
