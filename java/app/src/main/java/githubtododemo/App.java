@@ -3,12 +3,64 @@
  */
 package githubtododemo;
 
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
+import githubtododemo.githubauthentication.GitHubAuthenticationProvider;
+import githubtododemo.githubclient.GitHubServiceClient;
+import githubtododemo.microsoftgraphclient.MicrosoftServiceGraphClient;
+import githubtododemo.microsoftgraphclient.models.DateTimeTimeZone;
+import githubtododemo.microsoftgraphclient.models.Importance;
+import githubtododemo.microsoftgraphclient.models.LinkedResource;
+import githubtododemo.microsoftgraphclient.models.TodoTask;
+
+import com.microsoft.kiota.http.OkHttpRequestAdapter;
+import com.microsoft.kiota.authentication.AzureIdentityAuthenticationProvider;
+import com.azure.identity.DeviceCodeCredentialBuilder;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
+        final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, "repo");
+        final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);
+        final var gitHubClient = new GitHubServiceClient(gitHubRequestAdapter);
+        final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls().get().get();
+
+        final var microsoftGraphTokenCredentials = new DeviceCodeCredentialBuilder()
+            .clientId(Constants.graphClientId)
+            .tenantId(Constants.graphTenantId)
+            .challengeConsumer(challenge -> {
+                // lets user know of the challenge
+                System.out.println(challenge.getMessage());
+            }).build();
+        final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {"graph.microsoft.com"}, "Tasks.ReadWrite");
+        final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);
+        final var graphClient = new MicrosoftServiceGraphClient(microsoftGraphRequestAdapter);
+        final var todoLists = graphClient.me().todo().lists().get().get();
+        final var todoList = todoLists.getValue().get(0);
+        for (final var pullRequest : pullRequests) {
+            final var todoTask = graphClient.me().todo().lists().byTodoTaskListId(todoList.getId()).tasks().post(new TodoTask() {{
+                setTitle("review" + pullRequest.getTitle());
+                setDueDateTime(new DateTimeTimeZone() {{
+                    setDateTime(pullRequest.getCreatedAt().plusDays(7).format(DateTimeFormatter.ISO_DATE_TIME));
+                    setTimeZone("UTC");
+                }});
+                setImportance(Importance.High);
+                setLinkedResources(new ArrayList<>() {{
+                    add(new LinkedResource() {{
+                        setWebUrl(pullRequest.getHtmlUrl());
+                        setApplicationName("GitHub");
+                    }});
+                }});
+            }}).get();
+            System.out.println("Added task " + todoTask.getTitle() + " to your todo list");
+        }
+        
         System.out.println(new App().getGreeting());
     }
 }
