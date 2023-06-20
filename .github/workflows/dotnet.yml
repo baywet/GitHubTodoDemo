@@ -6,8 +6,15 @@ name: .NET
 on:
   push:
     branches: [ "main" ]
+    paths: 
+      - 'dotnet/**'
+      - '.github/**'
   pull_request:
     branches: [ "main" ]
+    paths: 
+      - 'dotnet/**'
+      - '.github/**'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,8 +28,11 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
+      working-directory: ./dotnet
       run: dotnet restore
     - name: Build
+      working-directory: ./dotnet
       run: dotnet build --no-restore
     - name: Test
+      working-directory: ./dotnet
       run: dotnet test --no-build --verbosity normal

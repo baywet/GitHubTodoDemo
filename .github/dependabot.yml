@@ -1,12 +1,17 @@
 version: 2
 updates:
 - package-ecosystem: nuget
-  directory: "/"
+  directory: "/dotnet"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
 - package-ecosystem: github-actions
   directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: gradle
+  directory: "/java"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
