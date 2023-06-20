@@ -37,3 +37,34 @@
 1. Code open to the blank console application.
 1. A windows terminal open with PowerShell core cd'ed into the dotnet project repository.
 
+## Demo - Adding the client for GitHub
+
+1. In VS Code hit ctrl + shift + P and search for **search for API description**, search for **GitHub**, select **api.github.com**.
+1. In the Kiota API Explorer pane, click on the funnel icon (filter) and type **pull**.
+1. Select the **GET** entry under **pull_number** with the + sign. (this is wrong on purpose for the rest of the demo)
+1. Outline the documentation icon next to the + sign.
+1. Click on the play sign (generate) and enter the following information:
+
+   - Client Name : GitHubServiceClient
+   - Namespace Name : GitHubTodoDemo.GitHubClient
+   - Path : app/src/main/java
+   - Language : Java
+
+## Demo - Adding the client for Tasks
+
+1. `kiota search todo`
+1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists"`
+1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
+1. `kiota generate -l Java -n GitHubTodoDemo.MicrosoftGraphClient -o $PWD/app/src/main/java -c MicrosoftServiceGraphClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
+1. `kiota info -l java`
+1. Edit `app/build.gradle` and in the **dependencies** section add the following.
+
+   ```groovy
+   implementation 'com.microsoft.kiota:microsoft-kiota-abstractions:0.4.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-http-okHttp:0.4.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-form:0.4.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-json:0.4.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-authentication-azure:0.4.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-text:0.4.4'
+   implementation 'com.azure:azure-identity:1.9.1'
+   ```
