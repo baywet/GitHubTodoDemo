@@ -1,0 +1,29 @@
+name: Gradle Build And Test
+
+on:
+  push:
+    branches: [main]
+    paths: 
+      - 'java/**'
+      - '.github/**'
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - 'java/**'
+      - '.github/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v3
+    - name: Setup JDK
+      uses: actions/setup-java@v3
+      with: 
+        java-version: 18
+        distribution: 'adopt'
+        cache: gradle
+    - name: Build with Gradle
+      run: ./gradlew --no-daemon build
+      working-directory: java
