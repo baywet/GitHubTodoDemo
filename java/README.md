@@ -8,6 +8,7 @@
 1. Kiota installed `dotnet tool install -g Microsoft.OpenAPI.Kiota --prerelease`.
 1. Java `winget install EclipseAdoptium.Temurin.18.JDK`.
 1. VSCode `winget install Microsoft.VisualStudioCode`.
+1. Gradle `choco install gradle`.
 1. Edit the following configuration file `%USERPROFILE%\.dotnet\tools\.store\microsoft.openapi.kiota\<kiota-version>\microsoft.openapi.kiota\<kiota-version>\tools\net7.0\any\appsettings.json` to contain the following entry under `Generation`.
 
    ```json
@@ -27,8 +28,16 @@
 
 1. Copy the **.vscode** directory to add debug and build configuration.
 1. Make sure you install the recommended extensions (type `@recommended` in the extensions search bar, and install all the `Workspace recommendations`).
-1. TODO GITHUB AUTHENTICATION CODE COPY
-1. TODO AUTHENTICATION CONSTANTS
+1. Copy the **GitHubAuthentication** directory to add the authentication provider for GitHub.
+1. Add a Constants.java file with.
+
+   ```CSharp
+   public class Constants {
+      public static String graphTenantId = "09988f3c-947e-4986-a87e-37ad49a3b175";
+      public static String graphClientId = "f19e2a30-d500-4fa7-8582-bd6099088b37";
+      public static String githubClientId = "62e33d5226194c3dfbd4";
+   }
+   ```
 
 ## Getting ready
 
@@ -67,4 +76,99 @@
    implementation 'com.microsoft.kiota:microsoft-kiota-authentication-azure:0.4.4'
    implementation 'com.microsoft.kiota:microsoft-kiota-serialization-text:0.4.4'
    implementation 'com.azure:azure-identity:1.9.1'
+   implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+   implementation 'com.google.code.gson:gson:2.10.1'
    ```
+
+## Demo - Getting pull requests from GitHub
+
+1. In App.java add the **todo-usings** snippet.
+1. In App.java navigate while dotting through to
+
+   ```Java
+   final var gitHubClient = new GitHubServiceClient(null);
+   final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls()
+   ```
+
+1. Outline we don't have a Get, this is most likely because we forgot a path in the generation. It's ok let's generate again.
+1. In the kiota explorer view, unselect the **GET** operation under **pull_number** and select the one under **pulls** instead. Click generate.
+1. In App.java finish the navigation with `.get().get()`
+
+## Demo - Creating tasks on Microsoft Graph
+
+1. In App.java dot your way through.
+
+   ```Java
+   final var graphClient = new MicrosoftServiceGraphClient(null);
+   final var todoLists = graphClient.me().todo().lists().get().get();
+   final var todoList = todoLists.getValue().get(0);
+   final var todoTasks = graphClient.me().todo().lists().byTodoTaskListId(todoList.getId()).tasks().post(new TodoTask() {{
+      setTitle("test Task");
+   }}).get();
+   ```
+
+1. In App.java replace the Task creation line by the **todo** snippet.
+
+## Demo - Wrapping authentication for Microsoft Graph
+
+1. Add the **todo-graph-auth** snippet in App.java and update the null value for the client.
+
+## Demo - Wrapping authentication for GitHub
+
+1. Add the **todo-github-auth** snippet in App.java and update the value for the client.
+
+## Answer code
+
+```Java
+public class App {
+    public String getGreeting() {
+        return "Hello World!";
+    }
+
+    public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
+        final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, "repo");
+        final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);
+        final var gitHubClient = new GitHubServiceClient(gitHubRequestAdapter);
+        final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls().get().get();
+
+        final var microsoftGraphTokenCredentials = new DeviceCodeCredentialBuilder()
+            .clientId(Constants.graphClientId)
+            .tenantId(Constants.graphTenantId)
+            .challengeConsumer(challenge -> {
+                // lets user know of the challenge
+                System.out.println(challenge.getMessage());
+            }).build();
+        final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {"graph.microsoft.com"}, "Tasks.ReadWrite");
+        final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);
+        final var graphClient = new MicrosoftServiceGraphClient(microsoftGraphRequestAdapter);
+        final var todoLists = graphClient.me().todo().lists().get().get();
+        final var todoList = todoLists.getValue().get(0);
+        for (final var pullRequest : pullRequests) {
+            final var todoTask = graphClient.me().todo().lists().byTodoTaskListId(todoList.getId()).tasks().post(new TodoTask() {{
+                setTitle("review" + pullRequest.getTitle());
+                setDueDateTime(new DateTimeTimeZone() {{
+                    setDateTime(pullRequest.getCreatedAt().plusDays(7).format(DateTimeFormatter.ISO_DATE_TIME));
+                    setTimeZone("UTC");
+                }});
+                setImportance(Importance.High);
+                setLinkedResources(new ArrayList<>() {{
+                    add(new LinkedResource() {{
+                        setWebUrl(pullRequest.getHtmlUrl());
+                        setApplicationName("GitHub");
+                    }});
+                }});
+            }}).get();
+            System.out.println("Added task " + todoTask.getTitle() + " to your todo list");
+        }
+        
+        System.out.println(new App().getGreeting());
+    }
+}
+```
+
+## Run the client
+
+1. Show that todo doesn't have any task.
+1. Show the pull requests.
+1. Run the client with `gradle run`.
+1. Show that todo now has tasks.
