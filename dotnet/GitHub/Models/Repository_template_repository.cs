@@ -530,7 +530,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The watchers_count property</summary>
         public int? WatchersCount { get; set; }
         /// <summary>
-        /// Instantiates a new repository_template_repository and sets the default values.
+        /// Instantiates a new Repository_template_repository and sets the default values.
         /// </summary>
         public Repository_template_repository() {
             AdditionalData = new Dictionary<string, object>();

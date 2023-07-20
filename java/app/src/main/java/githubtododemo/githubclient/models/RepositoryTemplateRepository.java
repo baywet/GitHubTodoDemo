@@ -7,179 +7,353 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 public class RepositoryTemplateRepository implements Parsable {
-    /** The allow_auto_merge property */
+    /**
+     * The allow_auto_merge property
+     */
     private Boolean allowAutoMerge;
-    /** The allow_merge_commit property */
+    /**
+     * The allow_merge_commit property
+     */
     private Boolean allowMergeCommit;
-    /** The allow_rebase_merge property */
+    /**
+     * The allow_rebase_merge property
+     */
     private Boolean allowRebaseMerge;
-    /** The allow_squash_merge property */
+    /**
+     * The allow_squash_merge property
+     */
     private Boolean allowSquashMerge;
-    /** The allow_update_branch property */
+    /**
+     * The allow_update_branch property
+     */
     private Boolean allowUpdateBranch;
-    /** The archived property */
+    /**
+     * The archived property
+     */
     private Boolean archived;
-    /** The archive_url property */
+    /**
+     * The archive_url property
+     */
     private String archiveUrl;
-    /** The assignees_url property */
+    /**
+     * The assignees_url property
+     */
     private String assigneesUrl;
-    /** The blobs_url property */
+    /**
+     * The blobs_url property
+     */
     private String blobsUrl;
-    /** The branches_url property */
+    /**
+     * The branches_url property
+     */
     private String branchesUrl;
-    /** The clone_url property */
+    /**
+     * The clone_url property
+     */
     private String cloneUrl;
-    /** The collaborators_url property */
+    /**
+     * The collaborators_url property
+     */
     private String collaboratorsUrl;
-    /** The comments_url property */
+    /**
+     * The comments_url property
+     */
     private String commentsUrl;
-    /** The commits_url property */
+    /**
+     * The commits_url property
+     */
     private String commitsUrl;
-    /** The compare_url property */
+    /**
+     * The compare_url property
+     */
     private String compareUrl;
-    /** The contents_url property */
+    /**
+     * The contents_url property
+     */
     private String contentsUrl;
-    /** The contributors_url property */
+    /**
+     * The contributors_url property
+     */
     private String contributorsUrl;
-    /** The created_at property */
+    /**
+     * The created_at property
+     */
     private String createdAt;
-    /** The default_branch property */
+    /**
+     * The default_branch property
+     */
     private String defaultBranch;
-    /** The delete_branch_on_merge property */
+    /**
+     * The delete_branch_on_merge property
+     */
     private Boolean deleteBranchOnMerge;
-    /** The deployments_url property */
+    /**
+     * The deployments_url property
+     */
     private String deploymentsUrl;
-    /** The description property */
+    /**
+     * The description property
+     */
     private String description;
-    /** The disabled property */
+    /**
+     * The disabled property
+     */
     private Boolean disabled;
-    /** The downloads_url property */
+    /**
+     * The downloads_url property
+     */
     private String downloadsUrl;
-    /** The events_url property */
+    /**
+     * The events_url property
+     */
     private String eventsUrl;
-    /** The fork property */
+    /**
+     * The fork property
+     */
     private Boolean fork;
-    /** The forks_count property */
+    /**
+     * The forks_count property
+     */
     private Integer forksCount;
-    /** The forks_url property */
+    /**
+     * The forks_url property
+     */
     private String forksUrl;
-    /** The full_name property */
+    /**
+     * The full_name property
+     */
     private String fullName;
-    /** The git_commits_url property */
+    /**
+     * The git_commits_url property
+     */
     private String gitCommitsUrl;
-    /** The git_refs_url property */
+    /**
+     * The git_refs_url property
+     */
     private String gitRefsUrl;
-    /** The git_tags_url property */
+    /**
+     * The git_tags_url property
+     */
     private String gitTagsUrl;
-    /** The git_url property */
+    /**
+     * The git_url property
+     */
     private String gitUrl;
-    /** The has_downloads property */
+    /**
+     * The has_downloads property
+     */
     private Boolean hasDownloads;
-    /** The has_issues property */
+    /**
+     * The has_issues property
+     */
     private Boolean hasIssues;
-    /** The has_pages property */
+    /**
+     * The has_pages property
+     */
     private Boolean hasPages;
-    /** The has_projects property */
+    /**
+     * The has_projects property
+     */
     private Boolean hasProjects;
-    /** The has_wiki property */
+    /**
+     * The has_wiki property
+     */
     private Boolean hasWiki;
-    /** The homepage property */
+    /**
+     * The homepage property
+     */
     private String homepage;
-    /** The hooks_url property */
+    /**
+     * The hooks_url property
+     */
     private String hooksUrl;
-    /** The html_url property */
+    /**
+     * The html_url property
+     */
     private String htmlUrl;
-    /** The id property */
+    /**
+     * The id property
+     */
     private Integer id;
-    /** The issue_comment_url property */
+    /**
+     * The issue_comment_url property
+     */
     private String issueCommentUrl;
-    /** The issue_events_url property */
+    /**
+     * The issue_events_url property
+     */
     private String issueEventsUrl;
-    /** The issues_url property */
+    /**
+     * The issues_url property
+     */
     private String issuesUrl;
-    /** The is_template property */
+    /**
+     * The is_template property
+     */
     private Boolean isTemplate;
-    /** The keys_url property */
+    /**
+     * The keys_url property
+     */
     private String keysUrl;
-    /** The labels_url property */
+    /**
+     * The labels_url property
+     */
     private String labelsUrl;
-    /** The language property */
+    /**
+     * The language property
+     */
     private String language;
-    /** The languages_url property */
+    /**
+     * The languages_url property
+     */
     private String languagesUrl;
-    /** The default value for a merge commit message.- `PR_TITLE` - default to the pull request's title.- `PR_BODY` - default to the pull request's body.- `BLANK` - default to a blank commit message. */
+    /**
+     * The default value for a merge commit message.- `PR_TITLE` - default to the pull request's title.- `PR_BODY` - default to the pull request's body.- `BLANK` - default to a blank commit message.
+     */
     private RepositoryTemplateRepositoryMergeCommitMessage mergeCommitMessage;
-    /** The default value for a merge commit title.- `PR_TITLE` - default to the pull request's title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name). */
+    /**
+     * The default value for a merge commit title.- `PR_TITLE` - default to the pull request's title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
+     */
     private RepositoryTemplateRepositoryMergeCommitTitle mergeCommitTitle;
-    /** The merges_url property */
+    /**
+     * The merges_url property
+     */
     private String mergesUrl;
-    /** The milestones_url property */
+    /**
+     * The milestones_url property
+     */
     private String milestonesUrl;
-    /** The mirror_url property */
+    /**
+     * The mirror_url property
+     */
     private String mirrorUrl;
-    /** The name property */
+    /**
+     * The name property
+     */
     private String name;
-    /** The network_count property */
+    /**
+     * The network_count property
+     */
     private Integer networkCount;
-    /** The node_id property */
+    /**
+     * The node_id property
+     */
     private String nodeId;
-    /** The notifications_url property */
+    /**
+     * The notifications_url property
+     */
     private String notificationsUrl;
-    /** The open_issues_count property */
+    /**
+     * The open_issues_count property
+     */
     private Integer openIssuesCount;
-    /** The owner property */
+    /**
+     * The owner property
+     */
     private RepositoryTemplateRepositoryOwner owner;
-    /** The permissions property */
+    /**
+     * The permissions property
+     */
     private RepositoryTemplateRepositoryPermissions permissions;
-    /** The private property */
+    /**
+     * The private property
+     */
     private Boolean privateEscaped;
-    /** The pulls_url property */
+    /**
+     * The pulls_url property
+     */
     private String pullsUrl;
-    /** The pushed_at property */
+    /**
+     * The pushed_at property
+     */
     private String pushedAt;
-    /** The releases_url property */
+    /**
+     * The releases_url property
+     */
     private String releasesUrl;
-    /** The size property */
+    /**
+     * The size property
+     */
     private Integer size;
-    /** The default value for a squash merge commit message:- `PR_BODY` - default to the pull request's body.- `COMMIT_MESSAGES` - default to the branch's commit messages.- `BLANK` - default to a blank commit message. */
+    /**
+     * The default value for a squash merge commit message:- `PR_BODY` - default to the pull request's body.- `COMMIT_MESSAGES` - default to the branch's commit messages.- `BLANK` - default to a blank commit message.
+     */
     private RepositoryTemplateRepositorySquashMergeCommitMessage squashMergeCommitMessage;
-    /** The default value for a squash merge commit title:- `PR_TITLE` - default to the pull request's title.- `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit). */
+    /**
+     * The default value for a squash merge commit title:- `PR_TITLE` - default to the pull request's title.- `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
+     */
     private RepositoryTemplateRepositorySquashMergeCommitTitle squashMergeCommitTitle;
-    /** The ssh_url property */
+    /**
+     * The ssh_url property
+     */
     private String sshUrl;
-    /** The stargazers_count property */
+    /**
+     * The stargazers_count property
+     */
     private Integer stargazersCount;
-    /** The stargazers_url property */
+    /**
+     * The stargazers_url property
+     */
     private String stargazersUrl;
-    /** The statuses_url property */
+    /**
+     * The statuses_url property
+     */
     private String statusesUrl;
-    /** The subscribers_count property */
+    /**
+     * The subscribers_count property
+     */
     private Integer subscribersCount;
-    /** The subscribers_url property */
+    /**
+     * The subscribers_url property
+     */
     private String subscribersUrl;
-    /** The subscription_url property */
+    /**
+     * The subscription_url property
+     */
     private String subscriptionUrl;
-    /** The svn_url property */
+    /**
+     * The svn_url property
+     */
     private String svnUrl;
-    /** The tags_url property */
+    /**
+     * The tags_url property
+     */
     private String tagsUrl;
-    /** The teams_url property */
+    /**
+     * The teams_url property
+     */
     private String teamsUrl;
-    /** The temp_clone_token property */
+    /**
+     * The temp_clone_token property
+     */
     private String tempCloneToken;
-    /** The topics property */
+    /**
+     * The topics property
+     */
     private java.util.List<String> topics;
-    /** The trees_url property */
+    /**
+     * The trees_url property
+     */
     private String treesUrl;
-    /** The updated_at property */
+    /**
+     * The updated_at property
+     */
     private String updatedAt;
-    /** The url property */
+    /**
+     * The url property
+     */
     private String url;
-    /** The use_squash_pr_title_as_default property */
+    /**
+     * The use_squash_pr_title_as_default property
+     */
     private Boolean useSquashPrTitleAsDefault;
-    /** The visibility property */
+    /**
+     * The visibility property
+     */
     private String visibility;
-    /** The watchers_count property */
+    /**
+     * The watchers_count property
+     */
     private Integer watchersCount;
     /**
      * Creates a new instance of the appropriate class based on discriminator value

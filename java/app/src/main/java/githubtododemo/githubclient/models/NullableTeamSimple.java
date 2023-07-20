@@ -10,34 +10,58 @@ import java.util.Objects;
  * Groups of organization members that gives permissions on specified repositories.
  */
 public class NullableTeamSimple implements Parsable {
-    /** Description of the team */
+    /**
+     * Description of the team
+     */
     private String description;
-    /** The html_url property */
+    /**
+     * The html_url property
+     */
     private String htmlUrl;
-    /** Unique identifier of the team */
+    /**
+     * Unique identifier of the team
+     */
     private Integer id;
-    /** Distinguished Name (DN) that team maps to within LDAP environment */
+    /**
+     * Distinguished Name (DN) that team maps to within LDAP environment
+     */
     private String ldapDn;
-    /** The members_url property */
+    /**
+     * The members_url property
+     */
     private String membersUrl;
-    /** Name of the team */
+    /**
+     * Name of the team
+     */
     private String name;
-    /** The node_id property */
+    /**
+     * The node_id property
+     */
     private String nodeId;
-    /** Permission that the team will have for its repositories */
+    /**
+     * Permission that the team will have for its repositories
+     */
     private String permission;
-    /** The level of privacy this team should have */
+    /**
+     * The level of privacy this team should have
+     */
     private String privacy;
-    /** The repositories_url property */
+    /**
+     * The repositories_url property
+     */
     private String repositoriesUrl;
-    /** The slug property */
+    /**
+     * The slug property
+     */
     private String slug;
-    /** URL for the team */
+    /**
+     * URL for the team
+     */
     private String url;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a nullableTeamSimple
+     * @return a NullableTeamSimple
      */
     @javax.annotation.Nonnull
     public static NullableTeamSimple createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {

@@ -85,7 +85,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new nullableMilestone and sets the default values.
+        /// Instantiates a new NullableMilestone and sets the default values.
         /// </summary>
         public NullableMilestone() {
             AdditionalData = new Dictionary<string, object>();

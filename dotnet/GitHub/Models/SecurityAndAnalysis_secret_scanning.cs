@@ -10,7 +10,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The status property</summary>
         public SecurityAndAnalysis_secret_scanning_status? Status { get; set; }
         /// <summary>
-        /// Instantiates a new securityAndAnalysis_secret_scanning and sets the default values.
+        /// Instantiates a new SecurityAndAnalysis_secret_scanning and sets the default values.
         /// </summary>
         public SecurityAndAnalysis_secret_scanning() {
             AdditionalData = new Dictionary<string, object>();

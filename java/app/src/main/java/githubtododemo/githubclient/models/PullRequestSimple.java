@@ -11,77 +11,149 @@ import java.util.Objects;
  * Pull Request Simple
  */
 public class PullRequestSimple implements Parsable {
-    /** The active_lock_reason property */
+    /**
+     * The active_lock_reason property
+     */
     private String activeLockReason;
-    /** A GitHub user. */
+    /**
+     * A GitHub user.
+     */
     private NullableSimpleUser assignee;
-    /** The assignees property */
+    /**
+     * The assignees property
+     */
     private java.util.List<SimpleUser> assignees;
-    /** How the author is associated with the repository. */
+    /**
+     * How the author is associated with the repository.
+     */
     private AuthorAssociation authorAssociation;
-    /** The status of auto merging a pull request. */
+    /**
+     * The status of auto merging a pull request.
+     */
     private AutoMerge autoMerge;
-    /** The base property */
+    /**
+     * The base property
+     */
     private PullRequestSimpleBase base;
-    /** The body property */
+    /**
+     * The body property
+     */
     private String body;
-    /** The closed_at property */
+    /**
+     * The closed_at property
+     */
     private OffsetDateTime closedAt;
-    /** The comments_url property */
+    /**
+     * The comments_url property
+     */
     private String commentsUrl;
-    /** The commits_url property */
+    /**
+     * The commits_url property
+     */
     private String commitsUrl;
-    /** The created_at property */
+    /**
+     * The created_at property
+     */
     private OffsetDateTime createdAt;
-    /** The diff_url property */
+    /**
+     * The diff_url property
+     */
     private String diffUrl;
-    /** Indicates whether or not the pull request is a draft. */
+    /**
+     * Indicates whether or not the pull request is a draft.
+     */
     private Boolean draft;
-    /** The head property */
+    /**
+     * The head property
+     */
     private PullRequestSimpleHead head;
-    /** The html_url property */
+    /**
+     * The html_url property
+     */
     private String htmlUrl;
-    /** The id property */
+    /**
+     * The id property
+     */
     private Integer id;
-    /** The issue_url property */
+    /**
+     * The issue_url property
+     */
     private String issueUrl;
-    /** The labels property */
+    /**
+     * The labels property
+     */
     private java.util.List<PullRequestSimpleLabels> labels;
-    /** The _links property */
+    /**
+     * The _links property
+     */
     private PullRequestSimpleLinks links;
-    /** The locked property */
+    /**
+     * The locked property
+     */
     private Boolean locked;
-    /** The merge_commit_sha property */
+    /**
+     * The merge_commit_sha property
+     */
     private String mergeCommitSha;
-    /** The merged_at property */
+    /**
+     * The merged_at property
+     */
     private OffsetDateTime mergedAt;
-    /** A collection of related issues and pull requests. */
+    /**
+     * A collection of related issues and pull requests.
+     */
     private NullableMilestone milestone;
-    /** The node_id property */
+    /**
+     * The node_id property
+     */
     private String nodeId;
-    /** The number property */
+    /**
+     * The number property
+     */
     private Integer number;
-    /** The patch_url property */
+    /**
+     * The patch_url property
+     */
     private String patchUrl;
-    /** The requested_reviewers property */
+    /**
+     * The requested_reviewers property
+     */
     private java.util.List<SimpleUser> requestedReviewers;
-    /** The requested_teams property */
+    /**
+     * The requested_teams property
+     */
     private java.util.List<Team> requestedTeams;
-    /** The review_comments_url property */
+    /**
+     * The review_comments_url property
+     */
     private String reviewCommentsUrl;
-    /** The review_comment_url property */
+    /**
+     * The review_comment_url property
+     */
     private String reviewCommentUrl;
-    /** The state property */
+    /**
+     * The state property
+     */
     private String state;
-    /** The statuses_url property */
+    /**
+     * The statuses_url property
+     */
     private String statusesUrl;
-    /** The title property */
+    /**
+     * The title property
+     */
     private String title;
-    /** The updated_at property */
+    /**
+     * The updated_at property
+     */
     private OffsetDateTime updatedAt;
-    /** The url property */
+    /**
+     * The url property
+     */
     private String url;
-    /** A GitHub user. */
+    /**
+     * A GitHub user.
+     */
     private NullableSimpleUser user;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
@@ -103,7 +175,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the assignee property value. A GitHub user.
-     * @return a nullableSimpleUser
+     * @return a NullableSimpleUser
      */
     @javax.annotation.Nullable
     public NullableSimpleUser getAssignee() {
@@ -111,7 +183,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the assignees property value. The assignees property
-     * @return a simpleUser
+     * @return a SimpleUser
      */
     @javax.annotation.Nullable
     public java.util.List<SimpleUser> getAssignees() {
@@ -119,7 +191,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the author_association property value. How the author is associated with the repository.
-     * @return a authorAssociation
+     * @return a AuthorAssociation
      */
     @javax.annotation.Nullable
     public AuthorAssociation getAuthorAssociation() {
@@ -127,7 +199,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the auto_merge property value. The status of auto merging a pull request.
-     * @return a autoMerge
+     * @return a AutoMerge
      */
     @javax.annotation.Nullable
     public AutoMerge getAutoMerge() {
@@ -316,7 +388,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the milestone property value. A collection of related issues and pull requests.
-     * @return a nullableMilestone
+     * @return a NullableMilestone
      */
     @javax.annotation.Nullable
     public NullableMilestone getMilestone() {
@@ -348,7 +420,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the requested_reviewers property value. The requested_reviewers property
-     * @return a simpleUser
+     * @return a SimpleUser
      */
     @javax.annotation.Nullable
     public java.util.List<SimpleUser> getRequestedReviewers() {
@@ -356,7 +428,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the requested_teams property value. The requested_teams property
-     * @return a team
+     * @return a Team
      */
     @javax.annotation.Nullable
     public java.util.List<Team> getRequestedTeams() {
@@ -420,7 +492,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the user property value. A GitHub user.
-     * @return a nullableSimpleUser
+     * @return a NullableSimpleUser
      */
     @javax.annotation.Nullable
     public NullableSimpleUser getUser() {

@@ -35,7 +35,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Name { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new nullableGitUser and sets the default values.
+        /// Instantiates a new NullableGitUser and sets the default values.
         /// </summary>
         public NullableGitUser() {
             AdditionalData = new Dictionary<string, object>();

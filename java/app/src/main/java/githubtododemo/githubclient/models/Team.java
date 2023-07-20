@@ -10,36 +10,62 @@ import java.util.Objects;
  * Groups of organization members that gives permissions on specified repositories.
  */
 public class Team implements Parsable {
-    /** The description property */
+    /**
+     * The description property
+     */
     private String description;
-    /** The html_url property */
+    /**
+     * The html_url property
+     */
     private String htmlUrl;
-    /** The id property */
+    /**
+     * The id property
+     */
     private Integer id;
-    /** The members_url property */
+    /**
+     * The members_url property
+     */
     private String membersUrl;
-    /** The name property */
+    /**
+     * The name property
+     */
     private String name;
-    /** The node_id property */
+    /**
+     * The node_id property
+     */
     private String nodeId;
-    /** Groups of organization members that gives permissions on specified repositories. */
+    /**
+     * Groups of organization members that gives permissions on specified repositories.
+     */
     private NullableTeamSimple parent;
-    /** The permission property */
+    /**
+     * The permission property
+     */
     private String permission;
-    /** The permissions property */
+    /**
+     * The permissions property
+     */
     private TeamPermissions permissions;
-    /** The privacy property */
+    /**
+     * The privacy property
+     */
     private String privacy;
-    /** The repositories_url property */
+    /**
+     * The repositories_url property
+     */
     private String repositoriesUrl;
-    /** The slug property */
+    /**
+     * The slug property
+     */
     private String slug;
-    /** The url property */
+    /**
+     * The url property
+     */
     private String url;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a team
+     * @return a Team
      */
     @javax.annotation.Nonnull
     public static Team createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
@@ -118,7 +144,7 @@ public class Team implements Parsable {
     }
     /**
      * Gets the parent property value. Groups of organization members that gives permissions on specified repositories.
-     * @return a nullableTeamSimple
+     * @return a NullableTeamSimple
      */
     @javax.annotation.Nullable
     public NullableTeamSimple getParent() {

@@ -7,15 +7,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 public class TeamPermissions implements Parsable {
-    /** The admin property */
+    /**
+     * The admin property
+     */
     private Boolean admin;
-    /** The maintain property */
+    /**
+     * The maintain property
+     */
     private Boolean maintain;
-    /** The pull property */
+    /**
+     * The pull property
+     */
     private Boolean pull;
-    /** The push property */
+    /**
+     * The push property
+     */
     private Boolean push;
-    /** The triage property */
+    /**
+     * The triage property
+     */
     private Boolean triage;
     /**
      * Creates a new instance of the appropriate class based on discriminator value

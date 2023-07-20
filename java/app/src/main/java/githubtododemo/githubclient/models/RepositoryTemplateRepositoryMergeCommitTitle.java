@@ -3,7 +3,9 @@ package githubtododemo.githubclient.models;
 import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
-/** The default value for a merge commit title.- `PR_TITLE` - default to the pull request's title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name). */
+/**
+ * The default value for a merge commit title.- `PR_TITLE` - default to the pull request's title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
+ */
 public enum RepositoryTemplateRepositoryMergeCommitTitle implements ValuedEnum {
     PR_TITLE("PR_TITLE"),
     MERGE_MESSAGE("MERGE_MESSAGE");

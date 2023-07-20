@@ -3,7 +3,9 @@ package githubtododemo.githubclient.models;
 import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
-/** The state of the milestone. */
+/**
+ * The state of the milestone.
+ */
 public enum NullableMilestoneState implements ValuedEnum {
     Open("open"),
     Closed("closed");

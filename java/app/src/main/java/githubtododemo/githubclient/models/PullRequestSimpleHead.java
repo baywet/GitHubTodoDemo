@@ -7,15 +7,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 public class PullRequestSimpleHead implements Parsable {
-    /** The label property */
+    /**
+     * The label property
+     */
     private String label;
-    /** The ref property */
+    /**
+     * The ref property
+     */
     private String ref;
-    /** A repository on GitHub. */
+    /**
+     * A repository on GitHub.
+     */
     private Repository repo;
-    /** The sha property */
+    /**
+     * The sha property
+     */
     private String sha;
-    /** A GitHub user. */
+    /**
+     * A GitHub user.
+     */
     private NullableSimpleUser user;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
@@ -59,7 +69,7 @@ public class PullRequestSimpleHead implements Parsable {
     }
     /**
      * Gets the repo property value. A repository on GitHub.
-     * @return a repository
+     * @return a Repository
      */
     @javax.annotation.Nullable
     public Repository getRepo() {
@@ -75,7 +85,7 @@ public class PullRequestSimpleHead implements Parsable {
     }
     /**
      * Gets the user property value. A GitHub user.
-     * @return a nullableSimpleUser
+     * @return a NullableSimpleUser
      */
     @javax.annotation.Nullable
     public NullableSimpleUser getUser() {

@@ -11,40 +11,72 @@ import java.util.Objects;
  * A collection of related issues and pull requests.
  */
 public class NullableMilestone implements Parsable {
-    /** The closed_at property */
+    /**
+     * The closed_at property
+     */
     private OffsetDateTime closedAt;
-    /** The closed_issues property */
+    /**
+     * The closed_issues property
+     */
     private Integer closedIssues;
-    /** The created_at property */
+    /**
+     * The created_at property
+     */
     private OffsetDateTime createdAt;
-    /** A GitHub user. */
+    /**
+     * A GitHub user.
+     */
     private NullableSimpleUser creator;
-    /** The description property */
+    /**
+     * The description property
+     */
     private String description;
-    /** The due_on property */
+    /**
+     * The due_on property
+     */
     private OffsetDateTime dueOn;
-    /** The html_url property */
+    /**
+     * The html_url property
+     */
     private String htmlUrl;
-    /** The id property */
+    /**
+     * The id property
+     */
     private Integer id;
-    /** The labels_url property */
+    /**
+     * The labels_url property
+     */
     private String labelsUrl;
-    /** The node_id property */
+    /**
+     * The node_id property
+     */
     private String nodeId;
-    /** The number of the milestone. */
+    /**
+     * The number of the milestone.
+     */
     private Integer number;
-    /** The open_issues property */
+    /**
+     * The open_issues property
+     */
     private Integer openIssues;
-    /** The state of the milestone. */
+    /**
+     * The state of the milestone.
+     */
     private NullableMilestoneState state;
-    /** The title of the milestone. */
+    /**
+     * The title of the milestone.
+     */
     private String title;
-    /** The updated_at property */
+    /**
+     * The updated_at property
+     */
     private OffsetDateTime updatedAt;
-    /** The url property */
+    /**
+     * The url property
+     */
     private String url;
     /**
-     * Instantiates a new nullableMilestone and sets the default values.
+     * Instantiates a new NullableMilestone and sets the default values.
      * @return a void
      */
     @javax.annotation.Nullable
@@ -54,7 +86,7 @@ public class NullableMilestone implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a nullableMilestone
+     * @return a NullableMilestone
      */
     @javax.annotation.Nonnull
     public static NullableMilestone createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
@@ -87,7 +119,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the creator property value. A GitHub user.
-     * @return a nullableSimpleUser
+     * @return a NullableSimpleUser
      */
     @javax.annotation.Nullable
     public NullableSimpleUser getCreator() {

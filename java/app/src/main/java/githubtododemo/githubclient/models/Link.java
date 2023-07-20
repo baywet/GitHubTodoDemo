@@ -10,12 +10,14 @@ import java.util.Objects;
  * Hypermedia Link
  */
 public class Link implements Parsable {
-    /** The href property */
+    /**
+     * The href property
+     */
     private String href;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nonnull
     public static Link createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {

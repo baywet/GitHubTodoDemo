@@ -1,6 +1,6 @@
 package githubtododemo.githubclient.models;
 
-import com.microsoft.kiota.serialization.AdditionalDataHolder;
+import com.microsoft.kiota.serialization.ComposedTypeWrapper;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
@@ -8,17 +8,29 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 public class ValidationErrorErrors implements Parsable {
-    /** The code property */
+    /**
+     * The code property
+     */
     private String code;
-    /** The field property */
+    /**
+     * The field property
+     */
     private String field;
-    /** The index property */
+    /**
+     * The index property
+     */
     private Integer index;
-    /** The message property */
+    /**
+     * The message property
+     */
     private String message;
-    /** The resource property */
+    /**
+     * The resource property
+     */
     private String resource;
-    /** The value property */
+    /**
+     * The value property
+     */
     private Pulls value;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
@@ -165,24 +177,15 @@ public class ValidationErrorErrors implements Parsable {
     /**
      * Composed type wrapper for classes string, integer, string
      */
-    public static class Pulls implements AdditionalDataHolder, Parsable {
-        /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-        private Map<String, Object> additionalData;
-        /** Composed type representation for type integer */
-        private Integer integer;
-        /** Serialization hint for the current wrapper. */
-        @javax.annotation.Nullable
-        public String serializationHint;
-        /** Composed type representation for type string */
-        private String string;
+    public static class Pulls implements ComposedTypeWrapper, Parsable {
         /**
-         * Instantiates a new pulls and sets the default values.
-         * @return a void
+         * Composed type representation for type integer
          */
-        @javax.annotation.Nullable
-        public Pulls() {
-            this.setAdditionalData(new HashMap<>());
-        }
+        private Integer integer;
+        /**
+         * Composed type representation for type string
+         */
+        private String string;
         /**
          * Creates a new instance of the appropriate class based on discriminator value
          * @param parseNode The parse node to use to read the discriminator value and create the object
@@ -202,14 +205,6 @@ public class ValidationErrorErrors implements Parsable {
                 result.setString(parseNode.getStringValue());
             }
             return result;
-        }
-        /**
-         * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-         * @return a Map<String, Object>
-         */
-        @javax.annotation.Nonnull
-        public Map<String, Object> getAdditionalData() {
-            return this.additionalData;
         }
         /**
          * The deserialization information for the current model
@@ -248,16 +243,6 @@ public class ValidationErrorErrors implements Parsable {
             } else if (this.getString() != null) {
                 writer.writeStringValue(null, this.getString());
             }
-            writer.writeAdditionalData(this.getAdditionalData());
-        }
-        /**
-         * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-         * @param value Value to set for the AdditionalData property.
-         * @return a void
-         */
-        @javax.annotation.Nonnull
-        public void setAdditionalData(@javax.annotation.Nullable final Map<String, Object> value) {
-            this.additionalData = value;
         }
         /**
          * Sets the integer property value. Composed type representation for type integer

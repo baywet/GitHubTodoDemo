@@ -3,7 +3,9 @@ package githubtododemo.githubclient.models;
 import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
-/** The default value for a squash merge commit message:- `PR_BODY` - default to the pull request's body.- `COMMIT_MESSAGES` - default to the branch's commit messages.- `BLANK` - default to a blank commit message. */
+/**
+ * The default value for a squash merge commit message:- `PR_BODY` - default to the pull request's body.- `COMMIT_MESSAGES` - default to the branch's commit messages.- `BLANK` - default to a blank commit message.
+ */
 public enum RepositoryTemplateRepositorySquashMergeCommitMessage implements ValuedEnum {
     PR_BODY("PR_BODY"),
     COMMIT_MESSAGES("COMMIT_MESSAGES"),

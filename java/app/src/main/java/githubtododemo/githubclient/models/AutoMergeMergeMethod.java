@@ -3,7 +3,9 @@ package githubtododemo.githubclient.models;
 import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
-/** The merge method to use. */
+/**
+ * The merge method to use.
+ */
 public enum AutoMergeMergeMethod implements ValuedEnum {
     Merge("merge"),
     Squash("squash"),

@@ -18,7 +18,9 @@ import java.util.Objects;
  * The main entry point of the SDK, exposes the configuration and the fluent API.
  */
 public class GitHubServiceClient extends BaseRequestBuilder {
-    /** The repos property */
+    /**
+     * The repos property
+     */
     @javax.annotation.Nonnull
     public ReposRequestBuilder repos() {
         return new ReposRequestBuilder(pathParameters, requestAdapter);

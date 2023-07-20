@@ -43,7 +43,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>How much storage is available to the codespace.</summary>
         public int? StorageInBytes { get; set; }
         /// <summary>
-        /// Instantiates a new nullableCodespaceMachine and sets the default values.
+        /// Instantiates a new NullableCodespaceMachine and sets the default values.
         /// </summary>
         public NullableCodespaceMachine() {
             AdditionalData = new Dictionary<string, object>();

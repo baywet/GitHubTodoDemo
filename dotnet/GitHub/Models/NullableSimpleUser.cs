@@ -167,7 +167,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new nullableSimpleUser and sets the default values.
+        /// Instantiates a new NullableSimpleUser and sets the default values.
         /// </summary>
         public NullableSimpleUser() {
             AdditionalData = new Dictionary<string, object>();

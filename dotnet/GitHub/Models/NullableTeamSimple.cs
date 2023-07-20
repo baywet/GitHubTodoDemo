@@ -101,7 +101,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new nullableTeamSimple and sets the default values.
+        /// Instantiates a new NullableTeamSimple and sets the default values.
         /// </summary>
         public NullableTeamSimple() {
             AdditionalData = new Dictionary<string, object>();

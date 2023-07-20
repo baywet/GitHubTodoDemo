@@ -3,7 +3,9 @@ package githubtododemo.githubclient.models;
 import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
-/** How the author is associated with the repository. */
+/**
+ * How the author is associated with the repository.
+ */
 public enum AuthorAssociation implements ValuedEnum {
     COLLABORATOR("COLLABORATOR"),
     CONTRIBUTOR("CONTRIBUTOR"),

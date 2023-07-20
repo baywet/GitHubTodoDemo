@@ -539,7 +539,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The web_commit_signoff_required property</summary>
         public bool? WebCommitSignoffRequired { get; set; }
         /// <summary>
-        /// Instantiates a new minimalRepository and sets the default values.
+        /// Instantiates a new MinimalRepository and sets the default values.
         /// </summary>
         public MinimalRepository() {
             AdditionalData = new Dictionary<string, object>();

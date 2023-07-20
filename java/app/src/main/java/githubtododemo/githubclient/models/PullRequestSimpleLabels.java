@@ -7,19 +7,33 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 public class PullRequestSimpleLabels implements Parsable {
-    /** The color property */
+    /**
+     * The color property
+     */
     private String color;
-    /** The default property */
+    /**
+     * The default property
+     */
     private Boolean defaultEscaped;
-    /** The description property */
+    /**
+     * The description property
+     */
     private String description;
-    /** The id property */
+    /**
+     * The id property
+     */
     private Long id;
-    /** The name property */
+    /**
+     * The name property
+     */
     private String name;
-    /** The node_id property */
+    /**
+     * The node_id property
+     */
     private String nodeId;
-    /** The url property */
+    /**
+     * The url property
+     */
     private String url;
     /**
      * Creates a new instance of the appropriate class based on discriminator value

@@ -9,7 +9,9 @@ import java.util.Objects;
  * Builds and executes requests for operations under /repos/{owner}/{repo}
  */
 public class WithRepoItemRequestBuilder extends BaseRequestBuilder {
-    /** The pulls property */
+    /**
+     * The pulls property
+     */
     @javax.annotation.Nonnull
     public PullsRequestBuilder pulls() {
         return new PullsRequestBuilder(pathParameters, requestAdapter);

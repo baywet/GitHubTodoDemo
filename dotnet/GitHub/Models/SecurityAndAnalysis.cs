@@ -32,7 +32,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public SecurityAndAnalysis_secret_scanning_push_protection SecretScanningPushProtection { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new securityAndAnalysis and sets the default values.
+        /// Instantiates a new SecurityAndAnalysis and sets the default values.
         /// </summary>
         public SecurityAndAnalysis() {
             AdditionalData = new Dictionary<string, object>();

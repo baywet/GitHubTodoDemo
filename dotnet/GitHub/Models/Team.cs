@@ -109,7 +109,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new team and sets the default values.
+        /// Instantiates a new Team and sets the default values.
         /// </summary>
         public Team() {
             AdditionalData = new Dictionary<string, object>();

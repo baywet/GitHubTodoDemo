@@ -140,7 +140,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new repository_template_repository_owner and sets the default values.
+        /// Instantiates a new Repository_template_repository_owner and sets the default values.
         /// </summary>
         public Repository_template_repository_owner() {
             AdditionalData = new Dictionary<string, object>();

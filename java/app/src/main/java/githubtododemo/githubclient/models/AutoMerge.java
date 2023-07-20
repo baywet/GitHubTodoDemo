@@ -10,18 +10,26 @@ import java.util.Objects;
  * The status of auto merging a pull request.
  */
 public class AutoMerge implements Parsable {
-    /** Commit message for the merge commit. */
+    /**
+     * Commit message for the merge commit.
+     */
     private String commitMessage;
-    /** Title for the merge commit message. */
+    /**
+     * Title for the merge commit message.
+     */
     private String commitTitle;
-    /** A GitHub user. */
+    /**
+     * A GitHub user.
+     */
     private SimpleUser enabledBy;
-    /** The merge method to use. */
+    /**
+     * The merge method to use.
+     */
     private AutoMergeMergeMethod mergeMethod;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a autoMerge
+     * @return a AutoMerge
      */
     @javax.annotation.Nonnull
     public static AutoMerge createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
@@ -46,7 +54,7 @@ public class AutoMerge implements Parsable {
     }
     /**
      * Gets the enabled_by property value. A GitHub user.
-     * @return a simpleUser
+     * @return a SimpleUser
      */
     @javax.annotation.Nullable
     public SimpleUser getEnabledBy() {

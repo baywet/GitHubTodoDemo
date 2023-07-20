@@ -7,21 +7,37 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 public class PullRequestSimpleLinks implements Parsable {
-    /** Hypermedia Link */
+    /**
+     * Hypermedia Link
+     */
     private Link comments;
-    /** Hypermedia Link */
+    /**
+     * Hypermedia Link
+     */
     private Link commits;
-    /** Hypermedia Link */
+    /**
+     * Hypermedia Link
+     */
     private Link html;
-    /** Hypermedia Link */
+    /**
+     * Hypermedia Link
+     */
     private Link issue;
-    /** Hypermedia Link */
+    /**
+     * Hypermedia Link
+     */
     private Link reviewComment;
-    /** Hypermedia Link */
+    /**
+     * Hypermedia Link
+     */
     private Link reviewComments;
-    /** Hypermedia Link */
+    /**
+     * Hypermedia Link
+     */
     private Link self;
-    /** Hypermedia Link */
+    /**
+     * Hypermedia Link
+     */
     private Link statuses;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
@@ -35,7 +51,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the comments property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nullable
     public Link getComments() {
@@ -43,7 +59,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the commits property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nullable
     public Link getCommits() {
@@ -68,7 +84,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the html property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nullable
     public Link getHtml() {
@@ -76,7 +92,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the issue property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nullable
     public Link getIssue() {
@@ -84,7 +100,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the review_comment property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nullable
     public Link getReviewComment() {
@@ -92,7 +108,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the review_comments property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nullable
     public Link getReviewComments() {
@@ -100,7 +116,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the self property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nullable
     public Link getSelf() {
@@ -108,7 +124,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the statuses property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @javax.annotation.Nullable
     public Link getStatuses() {

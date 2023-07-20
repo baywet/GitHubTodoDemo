@@ -51,7 +51,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new codeOfConduct and sets the default values.
+        /// Instantiates a new CodeOfConduct and sets the default values.
         /// </summary>
         public CodeOfConduct() {
             AdditionalData = new Dictionary<string, object>();

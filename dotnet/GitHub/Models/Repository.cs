@@ -553,6 +553,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Url { get; set; }
 #endif
         /// <summary>Whether a squash merge commit can use the pull request title as default. **This property has been deprecated. Please use `squash_merge_commit_title` instead.</summary>
+        [Obsolete("")]
         public bool? UseSquashPrTitleAsDefault { get; set; }
         /// <summary>The repository visibility: public, private, or internal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -569,7 +570,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>Whether to require contributors to sign off on web-based commits</summary>
         public bool? WebCommitSignoffRequired { get; set; }
         /// <summary>
-        /// Instantiates a new repository and sets the default values.
+        /// Instantiates a new Repository and sets the default values.
         /// </summary>
         public Repository() {
             AdditionalData = new Dictionary<string, object>();

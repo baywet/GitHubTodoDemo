@@ -18,7 +18,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The triage property</summary>
         public bool? Triage { get; set; }
         /// <summary>
-        /// Instantiates a new minimalRepository_permissions and sets the default values.
+        /// Instantiates a new MinimalRepository_permissions and sets the default values.
         /// </summary>
         public MinimalRepository_permissions() {
             AdditionalData = new Dictionary<string, object>();

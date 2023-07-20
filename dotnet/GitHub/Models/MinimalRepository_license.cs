@@ -48,7 +48,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new minimalRepository_license and sets the default values.
+        /// Instantiates a new MinimalRepository_license and sets the default values.
         /// </summary>
         public MinimalRepository_license() {
             AdditionalData = new Dictionary<string, object>();

@@ -19,7 +19,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         public string Href { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new link and sets the default values.
+        /// Instantiates a new Link and sets the default values.
         /// </summary>
         public Link() {
             AdditionalData = new Dictionary<string, object>();

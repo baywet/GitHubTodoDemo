@@ -34,7 +34,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The verified property</summary>
         public bool? Verified { get; set; }
         /// <summary>
-        /// Instantiates a new verification and sets the default values.
+        /// Instantiates a new Verification and sets the default values.
         /// </summary>
         public Verification() {
             AdditionalData = new Dictionary<string, object>();

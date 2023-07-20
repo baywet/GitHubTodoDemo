@@ -109,25 +109,39 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     public class GetQueryParameters {
-        /** Filter pulls by base branch name. Example: `gh-pages`. */
+        /**
+         * Filter pulls by base branch name. Example: `gh-pages`.
+         */
         @javax.annotation.Nullable
         public String base;
-        /** The direction of the sort. Default: `desc` when sort is `created` or sort is not specified, otherwise `asc`. */
+        /**
+         * The direction of the sort. Default: `desc` when sort is `created` or sort is not specified, otherwise `asc`.
+         */
         @javax.annotation.Nullable
         public String direction;
-        /** Filter pulls by head user or head organization and branch name in the format of `user:ref-name` or `organization:ref-name`. For example: `github:new-script-format` or `octocat:test-branch`. */
+        /**
+         * Filter pulls by head user or head organization and branch name in the format of `user:ref-name` or `organization:ref-name`. For example: `github:new-script-format` or `octocat:test-branch`.
+         */
         @javax.annotation.Nullable
         public String head;
-        /** Page number of the results to fetch. */
+        /**
+         * Page number of the results to fetch.
+         */
         @javax.annotation.Nullable
         public Integer page;
-        /** The number of results per page (max 100). */
+        /**
+         * The number of results per page (max 100).
+         */
         @javax.annotation.Nullable
         public Integer per_page;
-        /** What to sort results by. `popularity` will sort by the number of comments. `long-running` will sort by date created and will limit the results to pull requests that have been open for more than a month and have had activity within the past month. */
+        /**
+         * What to sort results by. `popularity` will sort by the number of comments. `long-running` will sort by date created and will limit the results to pull requests that have been open for more than a month and have had activity within the past month.
+         */
         @javax.annotation.Nullable
         public String sort;
-        /** Either `open`, `closed`, or `all` to filter by state. */
+        /**
+         * Either `open`, `closed`, or `all` to filter by state.
+         */
         @javax.annotation.Nullable
         public String state;
     }
@@ -135,7 +149,9 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
      * Configuration for the request such as headers, query parameters, and middleware options.
      */
     public class GetRequestConfiguration extends BaseRequestConfiguration {
-        /** Request query parameters */
+        /**
+         * Request query parameters
+         */
         @javax.annotation.Nullable
         public GetQueryParameters queryParameters = new GetQueryParameters();
     }

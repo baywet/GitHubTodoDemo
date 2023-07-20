@@ -10,22 +10,34 @@ import java.util.Objects;
  * License Simple
  */
 public class NullableLicenseSimple implements Parsable {
-    /** The html_url property */
+    /**
+     * The html_url property
+     */
     private String htmlUrl;
-    /** The key property */
+    /**
+     * The key property
+     */
     private String key;
-    /** The name property */
+    /**
+     * The name property
+     */
     private String name;
-    /** The node_id property */
+    /**
+     * The node_id property
+     */
     private String nodeId;
-    /** The spdx_id property */
+    /**
+     * The spdx_id property
+     */
     private String spdxId;
-    /** The url property */
+    /**
+     * The url property
+     */
     private String url;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a nullableLicenseSimple
+     * @return a NullableLicenseSimple
      */
     @javax.annotation.Nonnull
     public static NullableLicenseSimple createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {

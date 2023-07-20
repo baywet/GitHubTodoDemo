@@ -93,19 +93,9 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>
         /// Composed type wrapper for classes string, integer, string
         /// </summary>
-        public class Pulls : IAdditionalDataHolder, IParsable {
-            /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-            public IDictionary<string, object> AdditionalData { get; set; }
+        public class Pulls : IComposedTypeWrapper, IParsable {
             /// <summary>Composed type representation for type integer</summary>
             public int? Integer { get; set; }
-            /// <summary>Serialization hint for the current wrapper.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? SerializationHint { get; set; }
-#nullable restore
-#else
-            public string SerializationHint { get; set; }
-#endif
             /// <summary>Composed type representation for type string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,12 +104,6 @@ namespace GitHubTodoDemo.GitHub.Models {
 #else
             public string String { get; set; }
 #endif
-            /// <summary>
-            /// Instantiates a new pulls and sets the default values.
-            /// </summary>
-            public Pulls() {
-                AdditionalData = new Dictionary<string, object>();
-            }
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -154,7 +138,6 @@ namespace GitHubTodoDemo.GitHub.Models {
                 else if(String != null) {
                     writer.WriteStringValue(null, String);
                 }
-                writer.WriteAdditionalData(AdditionalData);
             }
         }
     }

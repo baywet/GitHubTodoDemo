@@ -11,11 +11,17 @@ import java.util.Objects;
  * Validation Error
  */
 public class ValidationError extends ApiException implements Parsable {
-    /** The documentation_url property */
+    /**
+     * The documentation_url property
+     */
     private String documentationUrl;
-    /** The errors property */
+    /**
+     * The errors property
+     */
     private java.util.List<ValidationErrorErrors> errors;
-    /** The message property */
+    /**
+     * The message property
+     */
     private String message;
     /**
      * Creates a new instance of the appropriate class based on discriminator value

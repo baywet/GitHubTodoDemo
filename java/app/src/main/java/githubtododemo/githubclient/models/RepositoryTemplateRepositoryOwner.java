@@ -7,41 +7,77 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 public class RepositoryTemplateRepositoryOwner implements Parsable {
-    /** The avatar_url property */
+    /**
+     * The avatar_url property
+     */
     private String avatarUrl;
-    /** The events_url property */
+    /**
+     * The events_url property
+     */
     private String eventsUrl;
-    /** The followers_url property */
+    /**
+     * The followers_url property
+     */
     private String followersUrl;
-    /** The following_url property */
+    /**
+     * The following_url property
+     */
     private String followingUrl;
-    /** The gists_url property */
+    /**
+     * The gists_url property
+     */
     private String gistsUrl;
-    /** The gravatar_id property */
+    /**
+     * The gravatar_id property
+     */
     private String gravatarId;
-    /** The html_url property */
+    /**
+     * The html_url property
+     */
     private String htmlUrl;
-    /** The id property */
+    /**
+     * The id property
+     */
     private Integer id;
-    /** The login property */
+    /**
+     * The login property
+     */
     private String login;
-    /** The node_id property */
+    /**
+     * The node_id property
+     */
     private String nodeId;
-    /** The organizations_url property */
+    /**
+     * The organizations_url property
+     */
     private String organizationsUrl;
-    /** The received_events_url property */
+    /**
+     * The received_events_url property
+     */
     private String receivedEventsUrl;
-    /** The repos_url property */
+    /**
+     * The repos_url property
+     */
     private String reposUrl;
-    /** The site_admin property */
+    /**
+     * The site_admin property
+     */
     private Boolean siteAdmin;
-    /** The starred_url property */
+    /**
+     * The starred_url property
+     */
     private String starredUrl;
-    /** The subscriptions_url property */
+    /**
+     * The subscriptions_url property
+     */
     private String subscriptionsUrl;
-    /** The type property */
+    /**
+     * The type property
+     */
     private String type;
-    /** The url property */
+    /**
+     * The url property
+     */
     private String url;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
