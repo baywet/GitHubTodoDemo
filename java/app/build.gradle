@@ -21,7 +21,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 
     // This dependency is used by the application.
-    implementation 'com.google.guava:guava:32.1.1-jre'
+    implementation 'com.google.guava:guava:32.1.2-jre'
     implementation 'com.microsoft.kiota:microsoft-kiota-abstractions:0.4.7'
     implementation 'com.microsoft.kiota:microsoft-kiota-http-okHttp:0.4.7'
     implementation 'com.microsoft.kiota:microsoft-kiota-serialization-form:0.4.7'
