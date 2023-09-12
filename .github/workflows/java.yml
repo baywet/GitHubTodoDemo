@@ -19,6 +19,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
+    - uses: baywet/setup-kiota@v0.1.0
+    - run: kiota update
+      working-directory: java
     - uses: actions/checkout@v4
     - name: Setup JDK
       uses: actions/setup-java@v3
