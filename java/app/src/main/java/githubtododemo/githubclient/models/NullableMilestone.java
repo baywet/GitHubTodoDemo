@@ -10,6 +10,7 @@ import java.util.Objects;
 /**
  * A collection of related issues and pull requests.
  */
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public class NullableMilestone implements Parsable {
     /**
      * The closed_at property
@@ -76,20 +77,18 @@ public class NullableMilestone implements Parsable {
      */
     private String url;
     /**
-     * Instantiates a new NullableMilestone and sets the default values.
-     * @return a void
+     * Instantiates a new nullableMilestone and sets the default values.
      */
-    @javax.annotation.Nullable
     public NullableMilestone() {
         this.setState(NullableMilestoneState.forValue("open"));
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a NullableMilestone
+     * @return a nullableMilestone
      */
-    @javax.annotation.Nonnull
-    public static NullableMilestone createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
+    @jakarta.annotation.Nonnull
+    public static NullableMilestone createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
         return new NullableMilestone();
     }
@@ -97,7 +96,7 @@ public class NullableMilestone implements Parsable {
      * Gets the closed_at property value. The closed_at property
      * @return a OffsetDateTime
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public OffsetDateTime getClosedAt() {
         return this.closedAt;
     }
@@ -105,7 +104,7 @@ public class NullableMilestone implements Parsable {
      * Gets the closed_issues property value. The closed_issues property
      * @return a integer
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Integer getClosedIssues() {
         return this.closedIssues;
     }
@@ -113,15 +112,15 @@ public class NullableMilestone implements Parsable {
      * Gets the created_at property value. The created_at property
      * @return a OffsetDateTime
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public OffsetDateTime getCreatedAt() {
         return this.createdAt;
     }
     /**
      * Gets the creator property value. A GitHub user.
-     * @return a NullableSimpleUser
+     * @return a nullableSimpleUser
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public NullableSimpleUser getCreator() {
         return this.creator;
     }
@@ -129,7 +128,7 @@ public class NullableMilestone implements Parsable {
      * Gets the description property value. The description property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getDescription() {
         return this.description;
     }
@@ -137,7 +136,7 @@ public class NullableMilestone implements Parsable {
      * Gets the due_on property value. The due_on property
      * @return a OffsetDateTime
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public OffsetDateTime getDueOn() {
         return this.dueOn;
     }
@@ -145,7 +144,7 @@ public class NullableMilestone implements Parsable {
      * The deserialization information for the current model
      * @return a Map<String, java.util.function.Consumer<ParseNode>>
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
         deserializerMap.put("closed_at", (n) -> { this.setClosedAt(n.getOffsetDateTimeValue()); });
@@ -170,7 +169,7 @@ public class NullableMilestone implements Parsable {
      * Gets the html_url property value. The html_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getHtmlUrl() {
         return this.htmlUrl;
     }
@@ -178,7 +177,7 @@ public class NullableMilestone implements Parsable {
      * Gets the id property value. The id property
      * @return a integer
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Integer getId() {
         return this.id;
     }
@@ -186,7 +185,7 @@ public class NullableMilestone implements Parsable {
      * Gets the labels_url property value. The labels_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getLabelsUrl() {
         return this.labelsUrl;
     }
@@ -194,7 +193,7 @@ public class NullableMilestone implements Parsable {
      * Gets the node_id property value. The node_id property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getNodeId() {
         return this.nodeId;
     }
@@ -202,7 +201,7 @@ public class NullableMilestone implements Parsable {
      * Gets the number property value. The number of the milestone.
      * @return a integer
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Integer getNumber() {
         return this.number;
     }
@@ -210,7 +209,7 @@ public class NullableMilestone implements Parsable {
      * Gets the open_issues property value. The open_issues property
      * @return a integer
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Integer getOpenIssues() {
         return this.openIssues;
     }
@@ -218,7 +217,7 @@ public class NullableMilestone implements Parsable {
      * Gets the state property value. The state of the milestone.
      * @return a NullableMilestoneState
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public NullableMilestoneState getState() {
         return this.state;
     }
@@ -226,7 +225,7 @@ public class NullableMilestone implements Parsable {
      * Gets the title property value. The title of the milestone.
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getTitle() {
         return this.title;
     }
@@ -234,7 +233,7 @@ public class NullableMilestone implements Parsable {
      * Gets the updated_at property value. The updated_at property
      * @return a OffsetDateTime
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public OffsetDateTime getUpdatedAt() {
         return this.updatedAt;
     }
@@ -242,17 +241,15 @@ public class NullableMilestone implements Parsable {
      * Gets the url property value. The url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getUrl() {
         return this.url;
     }
     /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void serialize(@javax.annotation.Nonnull final SerializationWriter writer) {
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("closed_at", this.getClosedAt());
         writer.writeIntegerValue("closed_issues", this.getClosedIssues());
@@ -273,146 +270,114 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Sets the closed_at property value. The closed_at property
-     * @param value Value to set for the closedAt property.
-     * @return a void
+     * @param value Value to set for the closed_at property.
      */
-    @javax.annotation.Nonnull
-    public void setClosedAt(@javax.annotation.Nullable final OffsetDateTime value) {
+    public void setClosedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.closedAt = value;
     }
     /**
      * Sets the closed_issues property value. The closed_issues property
-     * @param value Value to set for the closedIssues property.
-     * @return a void
+     * @param value Value to set for the closed_issues property.
      */
-    @javax.annotation.Nonnull
-    public void setClosedIssues(@javax.annotation.Nullable final Integer value) {
+    public void setClosedIssues(@jakarta.annotation.Nullable final Integer value) {
         this.closedIssues = value;
     }
     /**
      * Sets the created_at property value. The created_at property
-     * @param value Value to set for the createdAt property.
-     * @return a void
+     * @param value Value to set for the created_at property.
      */
-    @javax.annotation.Nonnull
-    public void setCreatedAt(@javax.annotation.Nullable final OffsetDateTime value) {
+    public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
      * Sets the creator property value. A GitHub user.
      * @param value Value to set for the creator property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setCreator(@javax.annotation.Nullable final NullableSimpleUser value) {
+    public void setCreator(@jakarta.annotation.Nullable final NullableSimpleUser value) {
         this.creator = value;
     }
     /**
      * Sets the description property value. The description property
      * @param value Value to set for the description property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setDescription(@javax.annotation.Nullable final String value) {
+    public void setDescription(@jakarta.annotation.Nullable final String value) {
         this.description = value;
     }
     /**
      * Sets the due_on property value. The due_on property
-     * @param value Value to set for the dueOn property.
-     * @return a void
+     * @param value Value to set for the due_on property.
      */
-    @javax.annotation.Nonnull
-    public void setDueOn(@javax.annotation.Nullable final OffsetDateTime value) {
+    public void setDueOn(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.dueOn = value;
     }
     /**
      * Sets the html_url property value. The html_url property
-     * @param value Value to set for the htmlUrl property.
-     * @return a void
+     * @param value Value to set for the html_url property.
      */
-    @javax.annotation.Nonnull
-    public void setHtmlUrl(@javax.annotation.Nullable final String value) {
+    public void setHtmlUrl(@jakarta.annotation.Nullable final String value) {
         this.htmlUrl = value;
     }
     /**
      * Sets the id property value. The id property
      * @param value Value to set for the id property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setId(@javax.annotation.Nullable final Integer value) {
+    public void setId(@jakarta.annotation.Nullable final Integer value) {
         this.id = value;
     }
     /**
      * Sets the labels_url property value. The labels_url property
-     * @param value Value to set for the labelsUrl property.
-     * @return a void
+     * @param value Value to set for the labels_url property.
      */
-    @javax.annotation.Nonnull
-    public void setLabelsUrl(@javax.annotation.Nullable final String value) {
+    public void setLabelsUrl(@jakarta.annotation.Nullable final String value) {
         this.labelsUrl = value;
     }
     /**
      * Sets the node_id property value. The node_id property
-     * @param value Value to set for the nodeId property.
-     * @return a void
+     * @param value Value to set for the node_id property.
      */
-    @javax.annotation.Nonnull
-    public void setNodeId(@javax.annotation.Nullable final String value) {
+    public void setNodeId(@jakarta.annotation.Nullable final String value) {
         this.nodeId = value;
     }
     /**
      * Sets the number property value. The number of the milestone.
      * @param value Value to set for the number property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setNumber(@javax.annotation.Nullable final Integer value) {
+    public void setNumber(@jakarta.annotation.Nullable final Integer value) {
         this.number = value;
     }
     /**
      * Sets the open_issues property value. The open_issues property
-     * @param value Value to set for the openIssues property.
-     * @return a void
+     * @param value Value to set for the open_issues property.
      */
-    @javax.annotation.Nonnull
-    public void setOpenIssues(@javax.annotation.Nullable final Integer value) {
+    public void setOpenIssues(@jakarta.annotation.Nullable final Integer value) {
         this.openIssues = value;
     }
     /**
      * Sets the state property value. The state of the milestone.
      * @param value Value to set for the state property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setState(@javax.annotation.Nullable final NullableMilestoneState value) {
+    public void setState(@jakarta.annotation.Nullable final NullableMilestoneState value) {
         this.state = value;
     }
     /**
      * Sets the title property value. The title of the milestone.
      * @param value Value to set for the title property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setTitle(@javax.annotation.Nullable final String value) {
+    public void setTitle(@jakarta.annotation.Nullable final String value) {
         this.title = value;
     }
     /**
      * Sets the updated_at property value. The updated_at property
-     * @param value Value to set for the updatedAt property.
-     * @return a void
+     * @param value Value to set for the updated_at property.
      */
-    @javax.annotation.Nonnull
-    public void setUpdatedAt(@javax.annotation.Nullable final OffsetDateTime value) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.updatedAt = value;
     }
     /**
      * Sets the url property value. The url property
      * @param value Value to set for the url property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setUrl(@javax.annotation.Nullable final String value) {
+    public void setUrl(@jakarta.annotation.Nullable final String value) {
         this.url = value;
     }
 }

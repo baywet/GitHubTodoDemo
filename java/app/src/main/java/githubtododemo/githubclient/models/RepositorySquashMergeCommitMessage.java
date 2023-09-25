@@ -6,6 +6,7 @@ import java.util.Objects;
 /**
  * The default value for a squash merge commit message:- `PR_BODY` - default to the pull request's body.- `COMMIT_MESSAGES` - default to the branch's commit messages.- `BLANK` - default to a blank commit message.
  */
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public enum RepositorySquashMergeCommitMessage implements ValuedEnum {
     PR_BODY("PR_BODY"),
     COMMIT_MESSAGES("COMMIT_MESSAGES"),
@@ -14,10 +15,10 @@ public enum RepositorySquashMergeCommitMessage implements ValuedEnum {
     RepositorySquashMergeCommitMessage(final String value) {
         this.value = value;
     }
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getValue() { return this.value; }
-    @javax.annotation.Nullable
-    public static RepositorySquashMergeCommitMessage forValue(@javax.annotation.Nonnull final String searchValue) {
+    @jakarta.annotation.Nullable
+    public static RepositorySquashMergeCommitMessage forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "PR_BODY": return PR_BODY;

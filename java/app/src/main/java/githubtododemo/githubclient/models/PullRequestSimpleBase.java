@@ -6,6 +6,7 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public class PullRequestSimpleBase implements Parsable {
     /**
      * The label property
@@ -32,8 +33,8 @@ public class PullRequestSimpleBase implements Parsable {
      * @param parseNode The parse node to use to read the discriminator value and create the object
      * @return a PullRequestSimpleBase
      */
-    @javax.annotation.Nonnull
-    public static PullRequestSimpleBase createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
+    @jakarta.annotation.Nonnull
+    public static PullRequestSimpleBase createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
         return new PullRequestSimpleBase();
     }
@@ -41,7 +42,7 @@ public class PullRequestSimpleBase implements Parsable {
      * The deserialization information for the current model
      * @return a Map<String, java.util.function.Consumer<ParseNode>>
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("label", (n) -> { this.setLabel(n.getStringValue()); });
@@ -55,7 +56,7 @@ public class PullRequestSimpleBase implements Parsable {
      * Gets the label property value. The label property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getLabel() {
         return this.label;
     }
@@ -63,15 +64,15 @@ public class PullRequestSimpleBase implements Parsable {
      * Gets the ref property value. The ref property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getRef() {
         return this.ref;
     }
     /**
      * Gets the repo property value. A repository on GitHub.
-     * @return a Repository
+     * @return a repository
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Repository getRepo() {
         return this.repo;
     }
@@ -79,25 +80,23 @@ public class PullRequestSimpleBase implements Parsable {
      * Gets the sha property value. The sha property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getSha() {
         return this.sha;
     }
     /**
      * Gets the user property value. A GitHub user.
-     * @return a NullableSimpleUser
+     * @return a nullableSimpleUser
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public NullableSimpleUser getUser() {
         return this.user;
     }
     /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void serialize(@javax.annotation.Nonnull final SerializationWriter writer) {
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("label", this.getLabel());
         writer.writeStringValue("ref", this.getRef());
@@ -108,46 +107,36 @@ public class PullRequestSimpleBase implements Parsable {
     /**
      * Sets the label property value. The label property
      * @param value Value to set for the label property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setLabel(@javax.annotation.Nullable final String value) {
+    public void setLabel(@jakarta.annotation.Nullable final String value) {
         this.label = value;
     }
     /**
      * Sets the ref property value. The ref property
      * @param value Value to set for the ref property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setRef(@javax.annotation.Nullable final String value) {
+    public void setRef(@jakarta.annotation.Nullable final String value) {
         this.ref = value;
     }
     /**
      * Sets the repo property value. A repository on GitHub.
      * @param value Value to set for the repo property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setRepo(@javax.annotation.Nullable final Repository value) {
+    public void setRepo(@jakarta.annotation.Nullable final Repository value) {
         this.repo = value;
     }
     /**
      * Sets the sha property value. The sha property
      * @param value Value to set for the sha property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setSha(@javax.annotation.Nullable final String value) {
+    public void setSha(@jakarta.annotation.Nullable final String value) {
         this.sha = value;
     }
     /**
      * Sets the user property value. A GitHub user.
      * @param value Value to set for the user property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setUser(@javax.annotation.Nullable final NullableSimpleUser value) {
+    public void setUser(@jakarta.annotation.Nullable final NullableSimpleUser value) {
         this.user = value;
     }
 }

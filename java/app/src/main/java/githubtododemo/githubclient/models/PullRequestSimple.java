@@ -10,6 +10,7 @@ import java.util.Objects;
 /**
  * Pull Request Simple
  */
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public class PullRequestSimple implements Parsable {
     /**
      * The active_lock_reason property
@@ -158,10 +159,10 @@ public class PullRequestSimple implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a PullRequestSimple
+     * @return a pullRequestSimple
      */
-    @javax.annotation.Nonnull
-    public static PullRequestSimple createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
+    @jakarta.annotation.Nonnull
+    public static PullRequestSimple createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
         return new PullRequestSimple();
     }
@@ -169,39 +170,39 @@ public class PullRequestSimple implements Parsable {
      * Gets the active_lock_reason property value. The active_lock_reason property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getActiveLockReason() {
         return this.activeLockReason;
     }
     /**
      * Gets the assignee property value. A GitHub user.
-     * @return a NullableSimpleUser
+     * @return a nullableSimpleUser
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public NullableSimpleUser getAssignee() {
         return this.assignee;
     }
     /**
      * Gets the assignees property value. The assignees property
-     * @return a SimpleUser
+     * @return a simpleUser
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public java.util.List<SimpleUser> getAssignees() {
         return this.assignees;
     }
     /**
      * Gets the author_association property value. How the author is associated with the repository.
-     * @return a AuthorAssociation
+     * @return a authorAssociation
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public AuthorAssociation getAuthorAssociation() {
         return this.authorAssociation;
     }
     /**
      * Gets the auto_merge property value. The status of auto merging a pull request.
-     * @return a AutoMerge
+     * @return a autoMerge
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public AutoMerge getAutoMerge() {
         return this.autoMerge;
     }
@@ -209,7 +210,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the base property value. The base property
      * @return a PullRequestSimpleBase
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public PullRequestSimpleBase getBase() {
         return this.base;
     }
@@ -217,7 +218,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the body property value. The body property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getBody() {
         return this.body;
     }
@@ -225,7 +226,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the closed_at property value. The closed_at property
      * @return a OffsetDateTime
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public OffsetDateTime getClosedAt() {
         return this.closedAt;
     }
@@ -233,7 +234,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the comments_url property value. The comments_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getCommentsUrl() {
         return this.commentsUrl;
     }
@@ -241,7 +242,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the commits_url property value. The commits_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getCommitsUrl() {
         return this.commitsUrl;
     }
@@ -249,7 +250,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the created_at property value. The created_at property
      * @return a OffsetDateTime
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public OffsetDateTime getCreatedAt() {
         return this.createdAt;
     }
@@ -257,7 +258,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the diff_url property value. The diff_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getDiffUrl() {
         return this.diffUrl;
     }
@@ -265,7 +266,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the draft property value. Indicates whether or not the pull request is a draft.
      * @return a boolean
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Boolean getDraft() {
         return this.draft;
     }
@@ -273,7 +274,7 @@ public class PullRequestSimple implements Parsable {
      * The deserialization information for the current model
      * @return a Map<String, java.util.function.Consumer<ParseNode>>
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(36);
         deserializerMap.put("active_lock_reason", (n) -> { this.setActiveLockReason(n.getStringValue()); });
@@ -294,7 +295,7 @@ public class PullRequestSimple implements Parsable {
         deserializerMap.put("id", (n) -> { this.setId(n.getIntegerValue()); });
         deserializerMap.put("issue_url", (n) -> { this.setIssueUrl(n.getStringValue()); });
         deserializerMap.put("labels", (n) -> { this.setLabels(n.getCollectionOfObjectValues(PullRequestSimpleLabels::createFromDiscriminatorValue)); });
-        deserializerMap.put("_links", (n) -> { this.setlinks(n.getObjectValue(PullRequestSimpleLinks::createFromDiscriminatorValue)); });
+        deserializerMap.put("_links", (n) -> { this.setLinks(n.getObjectValue(PullRequestSimpleLinks::createFromDiscriminatorValue)); });
         deserializerMap.put("locked", (n) -> { this.setLocked(n.getBooleanValue()); });
         deserializerMap.put("merge_commit_sha", (n) -> { this.setMergeCommitSha(n.getStringValue()); });
         deserializerMap.put("merged_at", (n) -> { this.setMergedAt(n.getOffsetDateTimeValue()); });
@@ -318,7 +319,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the head property value. The head property
      * @return a PullRequestSimpleHead
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public PullRequestSimpleHead getHead() {
         return this.head;
     }
@@ -326,7 +327,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the html_url property value. The html_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getHtmlUrl() {
         return this.htmlUrl;
     }
@@ -334,7 +335,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the id property value. The id property
      * @return a integer
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Integer getId() {
         return this.id;
     }
@@ -342,7 +343,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the issue_url property value. The issue_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getIssueUrl() {
         return this.issueUrl;
     }
@@ -350,7 +351,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the labels property value. The labels property
      * @return a PullRequestSimpleLabels
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public java.util.List<PullRequestSimpleLabels> getLabels() {
         return this.labels;
     }
@@ -358,15 +359,15 @@ public class PullRequestSimple implements Parsable {
      * Gets the _links property value. The _links property
      * @return a PullRequestSimpleLinks
      */
-    @javax.annotation.Nullable
-    public PullRequestSimpleLinks getlinks() {
+    @jakarta.annotation.Nullable
+    public PullRequestSimpleLinks getLinks() {
         return this.links;
     }
     /**
      * Gets the locked property value. The locked property
      * @return a boolean
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Boolean getLocked() {
         return this.locked;
     }
@@ -374,7 +375,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the merge_commit_sha property value. The merge_commit_sha property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getMergeCommitSha() {
         return this.mergeCommitSha;
     }
@@ -382,15 +383,15 @@ public class PullRequestSimple implements Parsable {
      * Gets the merged_at property value. The merged_at property
      * @return a OffsetDateTime
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public OffsetDateTime getMergedAt() {
         return this.mergedAt;
     }
     /**
      * Gets the milestone property value. A collection of related issues and pull requests.
-     * @return a NullableMilestone
+     * @return a nullableMilestone
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public NullableMilestone getMilestone() {
         return this.milestone;
     }
@@ -398,7 +399,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the node_id property value. The node_id property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getNodeId() {
         return this.nodeId;
     }
@@ -406,7 +407,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the number property value. The number property
      * @return a integer
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Integer getNumber() {
         return this.number;
     }
@@ -414,23 +415,23 @@ public class PullRequestSimple implements Parsable {
      * Gets the patch_url property value. The patch_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getPatchUrl() {
         return this.patchUrl;
     }
     /**
      * Gets the requested_reviewers property value. The requested_reviewers property
-     * @return a SimpleUser
+     * @return a simpleUser
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public java.util.List<SimpleUser> getRequestedReviewers() {
         return this.requestedReviewers;
     }
     /**
      * Gets the requested_teams property value. The requested_teams property
-     * @return a Team
+     * @return a team
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public java.util.List<Team> getRequestedTeams() {
         return this.requestedTeams;
     }
@@ -438,7 +439,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the review_comments_url property value. The review_comments_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getReviewCommentsUrl() {
         return this.reviewCommentsUrl;
     }
@@ -446,7 +447,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the review_comment_url property value. The review_comment_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getReviewCommentUrl() {
         return this.reviewCommentUrl;
     }
@@ -454,7 +455,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the state property value. The state property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getState() {
         return this.state;
     }
@@ -462,7 +463,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the statuses_url property value. The statuses_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getStatusesUrl() {
         return this.statusesUrl;
     }
@@ -470,7 +471,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the title property value. The title property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getTitle() {
         return this.title;
     }
@@ -478,7 +479,7 @@ public class PullRequestSimple implements Parsable {
      * Gets the updated_at property value. The updated_at property
      * @return a OffsetDateTime
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public OffsetDateTime getUpdatedAt() {
         return this.updatedAt;
     }
@@ -486,25 +487,23 @@ public class PullRequestSimple implements Parsable {
      * Gets the url property value. The url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getUrl() {
         return this.url;
     }
     /**
      * Gets the user property value. A GitHub user.
-     * @return a NullableSimpleUser
+     * @return a nullableSimpleUser
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public NullableSimpleUser getUser() {
         return this.user;
     }
     /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void serialize(@javax.annotation.Nonnull final SerializationWriter writer) {
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("active_lock_reason", this.getActiveLockReason());
         writer.writeObjectValue("assignee", this.getAssignee());
@@ -524,7 +523,7 @@ public class PullRequestSimple implements Parsable {
         writer.writeIntegerValue("id", this.getId());
         writer.writeStringValue("issue_url", this.getIssueUrl());
         writer.writeCollectionOfObjectValues("labels", this.getLabels());
-        writer.writeObjectValue("_links", this.getlinks());
+        writer.writeObjectValue("_links", this.getLinks());
         writer.writeBooleanValue("locked", this.getLocked());
         writer.writeStringValue("merge_commit_sha", this.getMergeCommitSha());
         writer.writeOffsetDateTimeValue("merged_at", this.getMergedAt());
@@ -545,326 +544,254 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Sets the active_lock_reason property value. The active_lock_reason property
-     * @param value Value to set for the activeLockReason property.
-     * @return a void
+     * @param value Value to set for the active_lock_reason property.
      */
-    @javax.annotation.Nonnull
-    public void setActiveLockReason(@javax.annotation.Nullable final String value) {
+    public void setActiveLockReason(@jakarta.annotation.Nullable final String value) {
         this.activeLockReason = value;
     }
     /**
      * Sets the assignee property value. A GitHub user.
      * @param value Value to set for the assignee property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setAssignee(@javax.annotation.Nullable final NullableSimpleUser value) {
+    public void setAssignee(@jakarta.annotation.Nullable final NullableSimpleUser value) {
         this.assignee = value;
     }
     /**
      * Sets the assignees property value. The assignees property
      * @param value Value to set for the assignees property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setAssignees(@javax.annotation.Nullable final java.util.List<SimpleUser> value) {
+    public void setAssignees(@jakarta.annotation.Nullable final java.util.List<SimpleUser> value) {
         this.assignees = value;
     }
     /**
      * Sets the author_association property value. How the author is associated with the repository.
-     * @param value Value to set for the authorAssociation property.
-     * @return a void
+     * @param value Value to set for the author_association property.
      */
-    @javax.annotation.Nonnull
-    public void setAuthorAssociation(@javax.annotation.Nullable final AuthorAssociation value) {
+    public void setAuthorAssociation(@jakarta.annotation.Nullable final AuthorAssociation value) {
         this.authorAssociation = value;
     }
     /**
      * Sets the auto_merge property value. The status of auto merging a pull request.
-     * @param value Value to set for the autoMerge property.
-     * @return a void
+     * @param value Value to set for the auto_merge property.
      */
-    @javax.annotation.Nonnull
-    public void setAutoMerge(@javax.annotation.Nullable final AutoMerge value) {
+    public void setAutoMerge(@jakarta.annotation.Nullable final AutoMerge value) {
         this.autoMerge = value;
     }
     /**
      * Sets the base property value. The base property
      * @param value Value to set for the base property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setBase(@javax.annotation.Nullable final PullRequestSimpleBase value) {
+    public void setBase(@jakarta.annotation.Nullable final PullRequestSimpleBase value) {
         this.base = value;
     }
     /**
      * Sets the body property value. The body property
      * @param value Value to set for the body property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setBody(@javax.annotation.Nullable final String value) {
+    public void setBody(@jakarta.annotation.Nullable final String value) {
         this.body = value;
     }
     /**
      * Sets the closed_at property value. The closed_at property
-     * @param value Value to set for the closedAt property.
-     * @return a void
+     * @param value Value to set for the closed_at property.
      */
-    @javax.annotation.Nonnull
-    public void setClosedAt(@javax.annotation.Nullable final OffsetDateTime value) {
+    public void setClosedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.closedAt = value;
     }
     /**
      * Sets the comments_url property value. The comments_url property
-     * @param value Value to set for the commentsUrl property.
-     * @return a void
+     * @param value Value to set for the comments_url property.
      */
-    @javax.annotation.Nonnull
-    public void setCommentsUrl(@javax.annotation.Nullable final String value) {
+    public void setCommentsUrl(@jakarta.annotation.Nullable final String value) {
         this.commentsUrl = value;
     }
     /**
      * Sets the commits_url property value. The commits_url property
-     * @param value Value to set for the commitsUrl property.
-     * @return a void
+     * @param value Value to set for the commits_url property.
      */
-    @javax.annotation.Nonnull
-    public void setCommitsUrl(@javax.annotation.Nullable final String value) {
+    public void setCommitsUrl(@jakarta.annotation.Nullable final String value) {
         this.commitsUrl = value;
     }
     /**
      * Sets the created_at property value. The created_at property
-     * @param value Value to set for the createdAt property.
-     * @return a void
+     * @param value Value to set for the created_at property.
      */
-    @javax.annotation.Nonnull
-    public void setCreatedAt(@javax.annotation.Nullable final OffsetDateTime value) {
+    public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
      * Sets the diff_url property value. The diff_url property
-     * @param value Value to set for the diffUrl property.
-     * @return a void
+     * @param value Value to set for the diff_url property.
      */
-    @javax.annotation.Nonnull
-    public void setDiffUrl(@javax.annotation.Nullable final String value) {
+    public void setDiffUrl(@jakarta.annotation.Nullable final String value) {
         this.diffUrl = value;
     }
     /**
      * Sets the draft property value. Indicates whether or not the pull request is a draft.
      * @param value Value to set for the draft property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setDraft(@javax.annotation.Nullable final Boolean value) {
+    public void setDraft(@jakarta.annotation.Nullable final Boolean value) {
         this.draft = value;
     }
     /**
      * Sets the head property value. The head property
      * @param value Value to set for the head property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setHead(@javax.annotation.Nullable final PullRequestSimpleHead value) {
+    public void setHead(@jakarta.annotation.Nullable final PullRequestSimpleHead value) {
         this.head = value;
     }
     /**
      * Sets the html_url property value. The html_url property
-     * @param value Value to set for the htmlUrl property.
-     * @return a void
+     * @param value Value to set for the html_url property.
      */
-    @javax.annotation.Nonnull
-    public void setHtmlUrl(@javax.annotation.Nullable final String value) {
+    public void setHtmlUrl(@jakarta.annotation.Nullable final String value) {
         this.htmlUrl = value;
     }
     /**
      * Sets the id property value. The id property
      * @param value Value to set for the id property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setId(@javax.annotation.Nullable final Integer value) {
+    public void setId(@jakarta.annotation.Nullable final Integer value) {
         this.id = value;
     }
     /**
      * Sets the issue_url property value. The issue_url property
-     * @param value Value to set for the issueUrl property.
-     * @return a void
+     * @param value Value to set for the issue_url property.
      */
-    @javax.annotation.Nonnull
-    public void setIssueUrl(@javax.annotation.Nullable final String value) {
+    public void setIssueUrl(@jakarta.annotation.Nullable final String value) {
         this.issueUrl = value;
     }
     /**
      * Sets the labels property value. The labels property
      * @param value Value to set for the labels property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setLabels(@javax.annotation.Nullable final java.util.List<PullRequestSimpleLabels> value) {
+    public void setLabels(@jakarta.annotation.Nullable final java.util.List<PullRequestSimpleLabels> value) {
         this.labels = value;
     }
     /**
      * Sets the _links property value. The _links property
-     * @param value Value to set for the links property.
-     * @return a void
+     * @param value Value to set for the _links property.
      */
-    @javax.annotation.Nonnull
-    public void setlinks(@javax.annotation.Nullable final PullRequestSimpleLinks value) {
+    public void setLinks(@jakarta.annotation.Nullable final PullRequestSimpleLinks value) {
         this.links = value;
     }
     /**
      * Sets the locked property value. The locked property
      * @param value Value to set for the locked property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setLocked(@javax.annotation.Nullable final Boolean value) {
+    public void setLocked(@jakarta.annotation.Nullable final Boolean value) {
         this.locked = value;
     }
     /**
      * Sets the merge_commit_sha property value. The merge_commit_sha property
-     * @param value Value to set for the mergeCommitSha property.
-     * @return a void
+     * @param value Value to set for the merge_commit_sha property.
      */
-    @javax.annotation.Nonnull
-    public void setMergeCommitSha(@javax.annotation.Nullable final String value) {
+    public void setMergeCommitSha(@jakarta.annotation.Nullable final String value) {
         this.mergeCommitSha = value;
     }
     /**
      * Sets the merged_at property value. The merged_at property
-     * @param value Value to set for the mergedAt property.
-     * @return a void
+     * @param value Value to set for the merged_at property.
      */
-    @javax.annotation.Nonnull
-    public void setMergedAt(@javax.annotation.Nullable final OffsetDateTime value) {
+    public void setMergedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.mergedAt = value;
     }
     /**
      * Sets the milestone property value. A collection of related issues and pull requests.
      * @param value Value to set for the milestone property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setMilestone(@javax.annotation.Nullable final NullableMilestone value) {
+    public void setMilestone(@jakarta.annotation.Nullable final NullableMilestone value) {
         this.milestone = value;
     }
     /**
      * Sets the node_id property value. The node_id property
-     * @param value Value to set for the nodeId property.
-     * @return a void
+     * @param value Value to set for the node_id property.
      */
-    @javax.annotation.Nonnull
-    public void setNodeId(@javax.annotation.Nullable final String value) {
+    public void setNodeId(@jakarta.annotation.Nullable final String value) {
         this.nodeId = value;
     }
     /**
      * Sets the number property value. The number property
      * @param value Value to set for the number property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setNumber(@javax.annotation.Nullable final Integer value) {
+    public void setNumber(@jakarta.annotation.Nullable final Integer value) {
         this.number = value;
     }
     /**
      * Sets the patch_url property value. The patch_url property
-     * @param value Value to set for the patchUrl property.
-     * @return a void
+     * @param value Value to set for the patch_url property.
      */
-    @javax.annotation.Nonnull
-    public void setPatchUrl(@javax.annotation.Nullable final String value) {
+    public void setPatchUrl(@jakarta.annotation.Nullable final String value) {
         this.patchUrl = value;
     }
     /**
      * Sets the requested_reviewers property value. The requested_reviewers property
-     * @param value Value to set for the requestedReviewers property.
-     * @return a void
+     * @param value Value to set for the requested_reviewers property.
      */
-    @javax.annotation.Nonnull
-    public void setRequestedReviewers(@javax.annotation.Nullable final java.util.List<SimpleUser> value) {
+    public void setRequestedReviewers(@jakarta.annotation.Nullable final java.util.List<SimpleUser> value) {
         this.requestedReviewers = value;
     }
     /**
      * Sets the requested_teams property value. The requested_teams property
-     * @param value Value to set for the requestedTeams property.
-     * @return a void
+     * @param value Value to set for the requested_teams property.
      */
-    @javax.annotation.Nonnull
-    public void setRequestedTeams(@javax.annotation.Nullable final java.util.List<Team> value) {
+    public void setRequestedTeams(@jakarta.annotation.Nullable final java.util.List<Team> value) {
         this.requestedTeams = value;
     }
     /**
      * Sets the review_comments_url property value. The review_comments_url property
-     * @param value Value to set for the reviewCommentsUrl property.
-     * @return a void
+     * @param value Value to set for the review_comments_url property.
      */
-    @javax.annotation.Nonnull
-    public void setReviewCommentsUrl(@javax.annotation.Nullable final String value) {
+    public void setReviewCommentsUrl(@jakarta.annotation.Nullable final String value) {
         this.reviewCommentsUrl = value;
     }
     /**
      * Sets the review_comment_url property value. The review_comment_url property
-     * @param value Value to set for the reviewCommentUrl property.
-     * @return a void
+     * @param value Value to set for the review_comment_url property.
      */
-    @javax.annotation.Nonnull
-    public void setReviewCommentUrl(@javax.annotation.Nullable final String value) {
+    public void setReviewCommentUrl(@jakarta.annotation.Nullable final String value) {
         this.reviewCommentUrl = value;
     }
     /**
      * Sets the state property value. The state property
      * @param value Value to set for the state property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setState(@javax.annotation.Nullable final String value) {
+    public void setState(@jakarta.annotation.Nullable final String value) {
         this.state = value;
     }
     /**
      * Sets the statuses_url property value. The statuses_url property
-     * @param value Value to set for the statusesUrl property.
-     * @return a void
+     * @param value Value to set for the statuses_url property.
      */
-    @javax.annotation.Nonnull
-    public void setStatusesUrl(@javax.annotation.Nullable final String value) {
+    public void setStatusesUrl(@jakarta.annotation.Nullable final String value) {
         this.statusesUrl = value;
     }
     /**
      * Sets the title property value. The title property
      * @param value Value to set for the title property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setTitle(@javax.annotation.Nullable final String value) {
+    public void setTitle(@jakarta.annotation.Nullable final String value) {
         this.title = value;
     }
     /**
      * Sets the updated_at property value. The updated_at property
-     * @param value Value to set for the updatedAt property.
-     * @return a void
+     * @param value Value to set for the updated_at property.
      */
-    @javax.annotation.Nonnull
-    public void setUpdatedAt(@javax.annotation.Nullable final OffsetDateTime value) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.updatedAt = value;
     }
     /**
      * Sets the url property value. The url property
      * @param value Value to set for the url property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setUrl(@javax.annotation.Nullable final String value) {
+    public void setUrl(@jakarta.annotation.Nullable final String value) {
         this.url = value;
     }
     /**
      * Sets the user property value. A GitHub user.
      * @param value Value to set for the user property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setUser(@javax.annotation.Nullable final NullableSimpleUser value) {
+    public void setUser(@jakarta.annotation.Nullable final NullableSimpleUser value) {
         this.user = value;
     }
 }

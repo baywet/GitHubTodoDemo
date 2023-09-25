@@ -6,6 +6,7 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public class RepositoryTemplateRepositoryOwner implements Parsable {
     /**
      * The avatar_url property
@@ -84,8 +85,8 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * @param parseNode The parse node to use to read the discriminator value and create the object
      * @return a RepositoryTemplateRepositoryOwner
      */
-    @javax.annotation.Nonnull
-    public static RepositoryTemplateRepositoryOwner createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
+    @jakarta.annotation.Nonnull
+    public static RepositoryTemplateRepositoryOwner createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
         return new RepositoryTemplateRepositoryOwner();
     }
@@ -93,7 +94,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the avatar_url property value. The avatar_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getAvatarUrl() {
         return this.avatarUrl;
     }
@@ -101,7 +102,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the events_url property value. The events_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getEventsUrl() {
         return this.eventsUrl;
     }
@@ -109,7 +110,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * The deserialization information for the current model
      * @return a Map<String, java.util.function.Consumer<ParseNode>>
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
         deserializerMap.put("avatar_url", (n) -> { this.setAvatarUrl(n.getStringValue()); });
@@ -136,7 +137,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the followers_url property value. The followers_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getFollowersUrl() {
         return this.followersUrl;
     }
@@ -144,7 +145,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the following_url property value. The following_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getFollowingUrl() {
         return this.followingUrl;
     }
@@ -152,7 +153,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the gists_url property value. The gists_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getGistsUrl() {
         return this.gistsUrl;
     }
@@ -160,7 +161,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the gravatar_id property value. The gravatar_id property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getGravatarId() {
         return this.gravatarId;
     }
@@ -168,7 +169,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the html_url property value. The html_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getHtmlUrl() {
         return this.htmlUrl;
     }
@@ -176,7 +177,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the id property value. The id property
      * @return a integer
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Integer getId() {
         return this.id;
     }
@@ -184,7 +185,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the login property value. The login property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getLogin() {
         return this.login;
     }
@@ -192,7 +193,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the node_id property value. The node_id property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getNodeId() {
         return this.nodeId;
     }
@@ -200,7 +201,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the organizations_url property value. The organizations_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getOrganizationsUrl() {
         return this.organizationsUrl;
     }
@@ -208,7 +209,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the received_events_url property value. The received_events_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getReceivedEventsUrl() {
         return this.receivedEventsUrl;
     }
@@ -216,7 +217,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the repos_url property value. The repos_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getReposUrl() {
         return this.reposUrl;
     }
@@ -224,7 +225,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the site_admin property value. The site_admin property
      * @return a boolean
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Boolean getSiteAdmin() {
         return this.siteAdmin;
     }
@@ -232,7 +233,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the starred_url property value. The starred_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getStarredUrl() {
         return this.starredUrl;
     }
@@ -240,7 +241,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the subscriptions_url property value. The subscriptions_url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getSubscriptionsUrl() {
         return this.subscriptionsUrl;
     }
@@ -248,7 +249,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the type property value. The type property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getType() {
         return this.type;
     }
@@ -256,17 +257,15 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
      * Gets the url property value. The url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getUrl() {
         return this.url;
     }
     /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void serialize(@javax.annotation.Nonnull final SerializationWriter writer) {
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("avatar_url", this.getAvatarUrl());
         writer.writeStringValue("events_url", this.getEventsUrl());
@@ -289,164 +288,128 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Sets the avatar_url property value. The avatar_url property
-     * @param value Value to set for the avatarUrl property.
-     * @return a void
+     * @param value Value to set for the avatar_url property.
      */
-    @javax.annotation.Nonnull
-    public void setAvatarUrl(@javax.annotation.Nullable final String value) {
+    public void setAvatarUrl(@jakarta.annotation.Nullable final String value) {
         this.avatarUrl = value;
     }
     /**
      * Sets the events_url property value. The events_url property
-     * @param value Value to set for the eventsUrl property.
-     * @return a void
+     * @param value Value to set for the events_url property.
      */
-    @javax.annotation.Nonnull
-    public void setEventsUrl(@javax.annotation.Nullable final String value) {
+    public void setEventsUrl(@jakarta.annotation.Nullable final String value) {
         this.eventsUrl = value;
     }
     /**
      * Sets the followers_url property value. The followers_url property
-     * @param value Value to set for the followersUrl property.
-     * @return a void
+     * @param value Value to set for the followers_url property.
      */
-    @javax.annotation.Nonnull
-    public void setFollowersUrl(@javax.annotation.Nullable final String value) {
+    public void setFollowersUrl(@jakarta.annotation.Nullable final String value) {
         this.followersUrl = value;
     }
     /**
      * Sets the following_url property value. The following_url property
-     * @param value Value to set for the followingUrl property.
-     * @return a void
+     * @param value Value to set for the following_url property.
      */
-    @javax.annotation.Nonnull
-    public void setFollowingUrl(@javax.annotation.Nullable final String value) {
+    public void setFollowingUrl(@jakarta.annotation.Nullable final String value) {
         this.followingUrl = value;
     }
     /**
      * Sets the gists_url property value. The gists_url property
-     * @param value Value to set for the gistsUrl property.
-     * @return a void
+     * @param value Value to set for the gists_url property.
      */
-    @javax.annotation.Nonnull
-    public void setGistsUrl(@javax.annotation.Nullable final String value) {
+    public void setGistsUrl(@jakarta.annotation.Nullable final String value) {
         this.gistsUrl = value;
     }
     /**
      * Sets the gravatar_id property value. The gravatar_id property
-     * @param value Value to set for the gravatarId property.
-     * @return a void
+     * @param value Value to set for the gravatar_id property.
      */
-    @javax.annotation.Nonnull
-    public void setGravatarId(@javax.annotation.Nullable final String value) {
+    public void setGravatarId(@jakarta.annotation.Nullable final String value) {
         this.gravatarId = value;
     }
     /**
      * Sets the html_url property value. The html_url property
-     * @param value Value to set for the htmlUrl property.
-     * @return a void
+     * @param value Value to set for the html_url property.
      */
-    @javax.annotation.Nonnull
-    public void setHtmlUrl(@javax.annotation.Nullable final String value) {
+    public void setHtmlUrl(@jakarta.annotation.Nullable final String value) {
         this.htmlUrl = value;
     }
     /**
      * Sets the id property value. The id property
      * @param value Value to set for the id property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setId(@javax.annotation.Nullable final Integer value) {
+    public void setId(@jakarta.annotation.Nullable final Integer value) {
         this.id = value;
     }
     /**
      * Sets the login property value. The login property
      * @param value Value to set for the login property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setLogin(@javax.annotation.Nullable final String value) {
+    public void setLogin(@jakarta.annotation.Nullable final String value) {
         this.login = value;
     }
     /**
      * Sets the node_id property value. The node_id property
-     * @param value Value to set for the nodeId property.
-     * @return a void
+     * @param value Value to set for the node_id property.
      */
-    @javax.annotation.Nonnull
-    public void setNodeId(@javax.annotation.Nullable final String value) {
+    public void setNodeId(@jakarta.annotation.Nullable final String value) {
         this.nodeId = value;
     }
     /**
      * Sets the organizations_url property value. The organizations_url property
-     * @param value Value to set for the organizationsUrl property.
-     * @return a void
+     * @param value Value to set for the organizations_url property.
      */
-    @javax.annotation.Nonnull
-    public void setOrganizationsUrl(@javax.annotation.Nullable final String value) {
+    public void setOrganizationsUrl(@jakarta.annotation.Nullable final String value) {
         this.organizationsUrl = value;
     }
     /**
      * Sets the received_events_url property value. The received_events_url property
-     * @param value Value to set for the receivedEventsUrl property.
-     * @return a void
+     * @param value Value to set for the received_events_url property.
      */
-    @javax.annotation.Nonnull
-    public void setReceivedEventsUrl(@javax.annotation.Nullable final String value) {
+    public void setReceivedEventsUrl(@jakarta.annotation.Nullable final String value) {
         this.receivedEventsUrl = value;
     }
     /**
      * Sets the repos_url property value. The repos_url property
-     * @param value Value to set for the reposUrl property.
-     * @return a void
+     * @param value Value to set for the repos_url property.
      */
-    @javax.annotation.Nonnull
-    public void setReposUrl(@javax.annotation.Nullable final String value) {
+    public void setReposUrl(@jakarta.annotation.Nullable final String value) {
         this.reposUrl = value;
     }
     /**
      * Sets the site_admin property value. The site_admin property
-     * @param value Value to set for the siteAdmin property.
-     * @return a void
+     * @param value Value to set for the site_admin property.
      */
-    @javax.annotation.Nonnull
-    public void setSiteAdmin(@javax.annotation.Nullable final Boolean value) {
+    public void setSiteAdmin(@jakarta.annotation.Nullable final Boolean value) {
         this.siteAdmin = value;
     }
     /**
      * Sets the starred_url property value. The starred_url property
-     * @param value Value to set for the starredUrl property.
-     * @return a void
+     * @param value Value to set for the starred_url property.
      */
-    @javax.annotation.Nonnull
-    public void setStarredUrl(@javax.annotation.Nullable final String value) {
+    public void setStarredUrl(@jakarta.annotation.Nullable final String value) {
         this.starredUrl = value;
     }
     /**
      * Sets the subscriptions_url property value. The subscriptions_url property
-     * @param value Value to set for the subscriptionsUrl property.
-     * @return a void
+     * @param value Value to set for the subscriptions_url property.
      */
-    @javax.annotation.Nonnull
-    public void setSubscriptionsUrl(@javax.annotation.Nullable final String value) {
+    public void setSubscriptionsUrl(@jakarta.annotation.Nullable final String value) {
         this.subscriptionsUrl = value;
     }
     /**
      * Sets the type property value. The type property
      * @param value Value to set for the type property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setType(@javax.annotation.Nullable final String value) {
+    public void setType(@jakarta.annotation.Nullable final String value) {
         this.type = value;
     }
     /**
      * Sets the url property value. The url property
      * @param value Value to set for the url property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setUrl(@javax.annotation.Nullable final String value) {
+    public void setUrl(@jakarta.annotation.Nullable final String value) {
         this.url = value;
     }
 }

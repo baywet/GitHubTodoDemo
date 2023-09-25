@@ -6,6 +6,7 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public class PullRequestSimpleLabels implements Parsable {
     /**
      * The color property
@@ -40,8 +41,8 @@ public class PullRequestSimpleLabels implements Parsable {
      * @param parseNode The parse node to use to read the discriminator value and create the object
      * @return a PullRequestSimpleLabels
      */
-    @javax.annotation.Nonnull
-    public static PullRequestSimpleLabels createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
+    @jakarta.annotation.Nonnull
+    public static PullRequestSimpleLabels createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
         return new PullRequestSimpleLabels();
     }
@@ -49,7 +50,7 @@ public class PullRequestSimpleLabels implements Parsable {
      * Gets the color property value. The color property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getColor() {
         return this.color;
     }
@@ -57,7 +58,7 @@ public class PullRequestSimpleLabels implements Parsable {
      * Gets the default property value. The default property
      * @return a boolean
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Boolean getDefault() {
         return this.defaultEscaped;
     }
@@ -65,7 +66,7 @@ public class PullRequestSimpleLabels implements Parsable {
      * Gets the description property value. The description property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getDescription() {
         return this.description;
     }
@@ -73,7 +74,7 @@ public class PullRequestSimpleLabels implements Parsable {
      * The deserialization information for the current model
      * @return a Map<String, java.util.function.Consumer<ParseNode>>
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("color", (n) -> { this.setColor(n.getStringValue()); });
@@ -89,7 +90,7 @@ public class PullRequestSimpleLabels implements Parsable {
      * Gets the id property value. The id property
      * @return a int64
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Long getId() {
         return this.id;
     }
@@ -97,7 +98,7 @@ public class PullRequestSimpleLabels implements Parsable {
      * Gets the name property value. The name property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getName() {
         return this.name;
     }
@@ -105,7 +106,7 @@ public class PullRequestSimpleLabels implements Parsable {
      * Gets the node_id property value. The node_id property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getNodeId() {
         return this.nodeId;
     }
@@ -113,17 +114,15 @@ public class PullRequestSimpleLabels implements Parsable {
      * Gets the url property value. The url property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getUrl() {
         return this.url;
     }
     /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void serialize(@javax.annotation.Nonnull final SerializationWriter writer) {
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("color", this.getColor());
         writer.writeBooleanValue("default", this.getDefault());
@@ -136,64 +135,50 @@ public class PullRequestSimpleLabels implements Parsable {
     /**
      * Sets the color property value. The color property
      * @param value Value to set for the color property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setColor(@javax.annotation.Nullable final String value) {
+    public void setColor(@jakarta.annotation.Nullable final String value) {
         this.color = value;
     }
     /**
      * Sets the default property value. The default property
      * @param value Value to set for the default property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setDefault(@javax.annotation.Nullable final Boolean value) {
+    public void setDefault(@jakarta.annotation.Nullable final Boolean value) {
         this.defaultEscaped = value;
     }
     /**
      * Sets the description property value. The description property
      * @param value Value to set for the description property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setDescription(@javax.annotation.Nullable final String value) {
+    public void setDescription(@jakarta.annotation.Nullable final String value) {
         this.description = value;
     }
     /**
      * Sets the id property value. The id property
      * @param value Value to set for the id property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setId(@javax.annotation.Nullable final Long value) {
+    public void setId(@jakarta.annotation.Nullable final Long value) {
         this.id = value;
     }
     /**
      * Sets the name property value. The name property
      * @param value Value to set for the name property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setName(@javax.annotation.Nullable final String value) {
+    public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
      * Sets the node_id property value. The node_id property
-     * @param value Value to set for the nodeId property.
-     * @return a void
+     * @param value Value to set for the node_id property.
      */
-    @javax.annotation.Nonnull
-    public void setNodeId(@javax.annotation.Nullable final String value) {
+    public void setNodeId(@jakarta.annotation.Nullable final String value) {
         this.nodeId = value;
     }
     /**
      * Sets the url property value. The url property
      * @param value Value to set for the url property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setUrl(@javax.annotation.Nullable final String value) {
+    public void setUrl(@jakarta.annotation.Nullable final String value) {
         this.url = value;
     }
 }

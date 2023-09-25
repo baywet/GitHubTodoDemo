@@ -7,6 +7,7 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public class ValidationErrorErrors implements Parsable {
     /**
      * The code property
@@ -37,8 +38,8 @@ public class ValidationErrorErrors implements Parsable {
      * @param parseNode The parse node to use to read the discriminator value and create the object
      * @return a ValidationErrorErrors
      */
-    @javax.annotation.Nonnull
-    public static ValidationErrorErrors createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
+    @jakarta.annotation.Nonnull
+    public static ValidationErrorErrors createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
         return new ValidationErrorErrors();
     }
@@ -46,7 +47,7 @@ public class ValidationErrorErrors implements Parsable {
      * Gets the code property value. The code property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getCode() {
         return this.code;
     }
@@ -54,7 +55,7 @@ public class ValidationErrorErrors implements Parsable {
      * Gets the field property value. The field property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getField() {
         return this.field;
     }
@@ -62,7 +63,7 @@ public class ValidationErrorErrors implements Parsable {
      * The deserialization information for the current model
      * @return a Map<String, java.util.function.Consumer<ParseNode>>
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("code", (n) -> { this.setCode(n.getStringValue()); });
@@ -77,7 +78,7 @@ public class ValidationErrorErrors implements Parsable {
      * Gets the index property value. The index property
      * @return a integer
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Integer getIndex() {
         return this.index;
     }
@@ -85,7 +86,7 @@ public class ValidationErrorErrors implements Parsable {
      * Gets the message property value. The message property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getMessage() {
         return this.message;
     }
@@ -93,7 +94,7 @@ public class ValidationErrorErrors implements Parsable {
      * Gets the resource property value. The resource property
      * @return a string
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public String getResource() {
         return this.resource;
     }
@@ -101,17 +102,15 @@ public class ValidationErrorErrors implements Parsable {
      * Gets the value property value. The value property
      * @return a pulls
      */
-    @javax.annotation.Nullable
+    @jakarta.annotation.Nullable
     public Pulls getValue() {
         return this.value;
     }
     /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void serialize(@javax.annotation.Nonnull final SerializationWriter writer) {
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("code", this.getCode());
         writer.writeStringValue("field", this.getField());
@@ -123,65 +122,58 @@ public class ValidationErrorErrors implements Parsable {
     /**
      * Sets the code property value. The code property
      * @param value Value to set for the code property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setCode(@javax.annotation.Nullable final String value) {
+    public void setCode(@jakarta.annotation.Nullable final String value) {
         this.code = value;
     }
     /**
      * Sets the field property value. The field property
      * @param value Value to set for the field property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setField(@javax.annotation.Nullable final String value) {
+    public void setField(@jakarta.annotation.Nullable final String value) {
         this.field = value;
     }
     /**
      * Sets the index property value. The index property
      * @param value Value to set for the index property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setIndex(@javax.annotation.Nullable final Integer value) {
+    public void setIndex(@jakarta.annotation.Nullable final Integer value) {
         this.index = value;
     }
     /**
      * Sets the message property value. The message property
      * @param value Value to set for the message property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setMessage(@javax.annotation.Nullable final String value) {
+    public void setMessage(@jakarta.annotation.Nullable final String value) {
         this.message = value;
     }
     /**
      * Sets the resource property value. The resource property
      * @param value Value to set for the resource property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setResource(@javax.annotation.Nullable final String value) {
+    public void setResource(@jakarta.annotation.Nullable final String value) {
         this.resource = value;
     }
     /**
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
-     * @return a void
      */
-    @javax.annotation.Nonnull
-    public void setValue(@javax.annotation.Nullable final Pulls value) {
+    public void setValue(@jakarta.annotation.Nullable final Pulls value) {
         this.value = value;
     }
     /**
-     * Composed type wrapper for classes string, integer, string
+     * Composed type wrapper for classes integer, string, string
      */
+    @jakarta.annotation.Generated("com.microsoft.kiota")
     public static class Pulls implements ComposedTypeWrapper, Parsable {
         /**
          * Composed type representation for type integer
          */
         private Integer integer;
+        /**
+         * Composed type representation for type string
+         */
+        private String pullsString;
         /**
          * Composed type representation for type string
          */
@@ -191,8 +183,8 @@ public class ValidationErrorErrors implements Parsable {
          * @param parseNode The parse node to use to read the discriminator value and create the object
          * @return a pulls
          */
-        @javax.annotation.Nonnull
-        public static Pulls createFromDiscriminatorValue(@javax.annotation.Nonnull final ParseNode parseNode) {
+        @jakarta.annotation.Nonnull
+        public static Pulls createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
             Objects.requireNonNull(parseNode);
             final Pulls result = new Pulls();
             final ParseNode mappingValueNode = parseNode.getChildNode("");
@@ -202,6 +194,8 @@ public class ValidationErrorErrors implements Parsable {
             if (parseNode.getIntegerValue() != null) {
                 result.setInteger(parseNode.getIntegerValue());
             } else if (parseNode.getStringValue() != null) {
+                result.setPullsString(parseNode.getStringValue());
+            } else if (parseNode.getStringValue() != null) {
                 result.setString(parseNode.getStringValue());
             }
             return result;
@@ -210,7 +204,7 @@ public class ValidationErrorErrors implements Parsable {
          * The deserialization information for the current model
          * @return a Map<String, java.util.function.Consumer<ParseNode>>
          */
-        @javax.annotation.Nonnull
+        @jakarta.annotation.Nonnull
         public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
             return new HashMap<String, java.util.function.Consumer<ParseNode>>();
         }
@@ -218,7 +212,7 @@ public class ValidationErrorErrors implements Parsable {
          * Gets the integer property value. Composed type representation for type integer
          * @return a integer
          */
-        @javax.annotation.Nullable
+        @jakarta.annotation.Nullable
         public Integer getInteger() {
             return this.integer;
         }
@@ -226,20 +220,28 @@ public class ValidationErrorErrors implements Parsable {
          * Gets the string property value. Composed type representation for type string
          * @return a string
          */
-        @javax.annotation.Nullable
+        @jakarta.annotation.Nullable
+        public String getPullsString() {
+            return this.pullsString;
+        }
+        /**
+         * Gets the string property value. Composed type representation for type string
+         * @return a string
+         */
+        @jakarta.annotation.Nullable
         public String getString() {
             return this.string;
         }
         /**
          * Serializes information the current object
          * @param writer Serialization writer to use to serialize this model
-         * @return a void
          */
-        @javax.annotation.Nonnull
-        public void serialize(@javax.annotation.Nonnull final SerializationWriter writer) {
+        public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
             Objects.requireNonNull(writer);
             if (this.getInteger() != null) {
                 writer.writeIntegerValue(null, this.getInteger());
+            } else if (this.getPullsString() != null) {
+                writer.writeStringValue(null, this.getPullsString());
             } else if (this.getString() != null) {
                 writer.writeStringValue(null, this.getString());
             }
@@ -247,19 +249,22 @@ public class ValidationErrorErrors implements Parsable {
         /**
          * Sets the integer property value. Composed type representation for type integer
          * @param value Value to set for the integer property.
-         * @return a void
          */
-        @javax.annotation.Nonnull
-        public void setInteger(@javax.annotation.Nullable final Integer value) {
+        public void setInteger(@jakarta.annotation.Nullable final Integer value) {
             this.integer = value;
         }
         /**
          * Sets the string property value. Composed type representation for type string
          * @param value Value to set for the string property.
-         * @return a void
          */
-        @javax.annotation.Nonnull
-        public void setString(@javax.annotation.Nullable final String value) {
+        public void setPullsString(@jakarta.annotation.Nullable final String value) {
+            this.pullsString = value;
+        }
+        /**
+         * Sets the string property value. Composed type representation for type string
+         * @param value Value to set for the string property.
+         */
+        public void setString(@jakarta.annotation.Nullable final String value) {
             this.string = value;
         }
     }

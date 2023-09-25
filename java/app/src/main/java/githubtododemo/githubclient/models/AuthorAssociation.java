@@ -6,6 +6,7 @@ import java.util.Objects;
 /**
  * How the author is associated with the repository.
  */
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public enum AuthorAssociation implements ValuedEnum {
     COLLABORATOR("COLLABORATOR"),
     CONTRIBUTOR("CONTRIBUTOR"),
@@ -19,10 +20,10 @@ public enum AuthorAssociation implements ValuedEnum {
     AuthorAssociation(final String value) {
         this.value = value;
     }
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getValue() { return this.value; }
-    @javax.annotation.Nullable
-    public static AuthorAssociation forValue(@javax.annotation.Nonnull final String searchValue) {
+    @jakarta.annotation.Nullable
+    public static AuthorAssociation forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "COLLABORATOR": return COLLABORATOR;

@@ -6,6 +6,7 @@ import java.util.Objects;
 /**
  * The state of the milestone.
  */
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public enum NullableMilestoneState implements ValuedEnum {
     Open("open"),
     Closed("closed");
@@ -13,10 +14,10 @@ public enum NullableMilestoneState implements ValuedEnum {
     NullableMilestoneState(final String value) {
         this.value = value;
     }
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getValue() { return this.value; }
-    @javax.annotation.Nullable
-    public static NullableMilestoneState forValue(@javax.annotation.Nonnull final String searchValue) {
+    @jakarta.annotation.Nullable
+    public static NullableMilestoneState forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "open": return Open;

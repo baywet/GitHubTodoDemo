@@ -6,6 +6,7 @@ import java.util.Objects;
 /**
  * The default value for a merge commit title.- `PR_TITLE` - default to the pull request's title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
  */
+@jakarta.annotation.Generated("com.microsoft.kiota")
 public enum RepositoryMergeCommitTitle implements ValuedEnum {
     PR_TITLE("PR_TITLE"),
     MERGE_MESSAGE("MERGE_MESSAGE");
@@ -13,10 +14,10 @@ public enum RepositoryMergeCommitTitle implements ValuedEnum {
     RepositoryMergeCommitTitle(final String value) {
         this.value = value;
     }
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getValue() { return this.value; }
-    @javax.annotation.Nullable
-    public static RepositoryMergeCommitTitle forValue(@javax.annotation.Nonnull final String searchValue) {
+    @jakarta.annotation.Nullable
+    public static RepositoryMergeCommitTitle forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "PR_TITLE": return PR_TITLE;
