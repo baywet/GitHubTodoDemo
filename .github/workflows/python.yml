@@ -40,16 +40,20 @@ jobs:
         working-directory: python
       - name: Check code format
         run: |
-          yapf -dr python
+          yapf -dr .
+        working-directory: python
       - name: Check import order
         run: |
-          isort python
+          isort .
+        working-directory: python
       - name: Lint with Pylint
         run: |
-          pylint python --disable=W --rcfile=.pylintrc
+          pylint . --disable=W --rcfile=.pylintrc
+        working-directory: python
       - name: Static type checking with Mypy
         run: |
-          mypy python
+          mypy .
+        working-directory: python
       - name: Run the tests
         run: |
           pytest
