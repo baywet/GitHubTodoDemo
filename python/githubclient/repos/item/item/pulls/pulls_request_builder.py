@@ -13,41 +13,57 @@ if TYPE_CHECKING:
     from .....models.pull_request_simple import PullRequestSimple
     from .....models.validation_error import ValidationError
 
+
 class PullsRequestBuilder(BaseRequestBuilder):
     """
     Builds and executes requests for operations under /repos/{owner}/{repo}/pulls
     """
-    def __init__(self,request_adapter: RequestAdapter, path_parameters: Optional[Union[Dict[str, Any], str]] = None) -> None:
+
+    def __init__(
+            self,
+            request_adapter: RequestAdapter,
+            path_parameters: Optional[Union[Dict[str, Any],
+                                            str]] = None) -> None:
         """
         Instantiates a new PullsRequestBuilder and sets the default values.
         param path_parameters: The raw url or the Url template parameters for the request.
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
         """
-        super().__init__(request_adapter, "{+baseurl}/repos/{owner}/{repo}/pulls{?state*,head*,base*,sort*,direction*,per_page*,page*}", path_parameters)
-    
-    async def get(self,request_configuration: Optional[PullsRequestBuilderGetRequestConfiguration] = None) -> Optional[List[PullRequestSimple]]:
+        super().__init__(
+            request_adapter,
+            "{+baseurl}/repos/{owner}/{repo}/pulls{?state*,head*,base*,sort*,direction*,per_page*,page*}",
+            path_parameters)
+
+    async def get(
+        self,
+        request_configuration: Optional[
+            PullsRequestBuilderGetRequestConfiguration] = None
+    ) -> Optional[List[PullRequestSimple]]:
         """
         Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[List[PullRequestSimple]]
         API method documentation: https://docs.github.com/rest/reference/pulls#list-pull-requests
         """
-        request_info = self.to_get_request_information(
-            request_configuration
-        )
+        request_info = self.to_get_request_information(request_configuration)
         from .....models.validation_error import ValidationError
 
         error_mapping: Dict[str, ParsableFactory] = {
             "422": ValidationError,
         }
         if not self.request_adapter:
-            raise Exception("Http core is null") 
+            raise Exception("Http core is null")
         from .....models.pull_request_simple import PullRequestSimple
 
-        return await self.request_adapter.send_collection_async(request_info, PullRequestSimple, error_mapping)
-    
-    def to_get_request_information(self,request_configuration: Optional[PullsRequestBuilderGetRequestConfiguration] = None) -> RequestInformation:
+        return await self.request_adapter.send_collection_async(
+            request_info, PullRequestSimple, error_mapping)
+
+    def to_get_request_information(
+        self,
+        request_configuration: Optional[
+            PullsRequestBuilderGetRequestConfiguration] = None
+    ) -> RequestInformation:
         """
         Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
@@ -60,11 +76,12 @@ class PullsRequestBuilder(BaseRequestBuilder):
         request_info.headers["Accept"] = ["application/json"]
         if request_configuration:
             request_info.add_request_headers(request_configuration.headers)
-            request_info.set_query_string_parameters_from_raw_object(request_configuration.query_parameters)
+            request_info.set_query_string_parameters_from_raw_object(
+                request_configuration.query_parameters)
             request_info.add_request_options(request_configuration.options)
         return request_info
-    
-    def with_url(self,raw_url: Optional[str] = None) -> PullsRequestBuilder:
+
+    def with_url(self, raw_url: Optional[str] = None) -> PullsRequestBuilder:
         """
         Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         param raw_url: The raw URL to use for the request builder.
@@ -73,7 +90,7 @@ class PullsRequestBuilder(BaseRequestBuilder):
         if not raw_url:
             raise TypeError("raw_url cannot be null.")
         return PullsRequestBuilder(raw_url, self.request_adapter)
-    
+
     @dataclass
     class PullsRequestBuilderGetQueryParameters():
         """
@@ -100,18 +117,14 @@ class PullsRequestBuilder(BaseRequestBuilder):
         # Either `open`, `closed`, or `all` to filter by state.
         state: Optional[str] = None
 
-    
     from kiota_abstractions.base_request_configuration import BaseRequestConfiguration
 
     @dataclass
     class PullsRequestBuilderGetRequestConfiguration(BaseRequestConfiguration):
         from kiota_abstractions.base_request_configuration import BaseRequestConfiguration
-
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         # Request query parameters
-        query_parameters: Optional[PullsRequestBuilder.PullsRequestBuilderGetQueryParameters] = None
-
-    
-
+        query_parameters: Optional[
+            PullsRequestBuilder.PullsRequestBuilderGetQueryParameters] = None

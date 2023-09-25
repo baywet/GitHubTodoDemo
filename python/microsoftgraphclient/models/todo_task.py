@@ -19,6 +19,7 @@ if TYPE_CHECKING:
 
 from .entity import Entity
 
+
 @dataclass
 class TodoTask(Entity):
     # The attachmentSessions property
@@ -63,9 +64,10 @@ class TodoTask(Entity):
     status: Optional[TaskStatus] = None
     # A brief description of the task.
     title: Optional[str] = None
-    
+
     @staticmethod
-    def create_from_discriminator_value(parse_node: Optional[ParseNode] = None) -> TodoTask:
+    def create_from_discriminator_value(
+            parse_node: Optional[ParseNode] = None) -> TodoTask:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -74,8 +76,9 @@ class TodoTask(Entity):
         if not parse_node:
             raise TypeError("parse_node cannot be null.")
         return TodoTask()
-    
-    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
@@ -105,32 +108,71 @@ class TodoTask(Entity):
         from .task_status import TaskStatus
 
         fields: Dict[str, Callable[[Any], None]] = {
-            "attachmentSessions": lambda n : setattr(self, 'attachment_sessions', n.get_collection_of_object_values(AttachmentSession)),
-            "attachments": lambda n : setattr(self, 'attachments', n.get_collection_of_object_values(AttachmentBase)),
-            "body": lambda n : setattr(self, 'body', n.get_object_value(ItemBody)),
-            "bodyLastModifiedDateTime": lambda n : setattr(self, 'body_last_modified_date_time', n.get_datetime_value()),
-            "categories": lambda n : setattr(self, 'categories', n.get_collection_of_primitive_values(str)),
-            "checklistItems": lambda n : setattr(self, 'checklist_items', n.get_collection_of_object_values(ChecklistItem)),
-            "completedDateTime": lambda n : setattr(self, 'completed_date_time', n.get_object_value(DateTimeTimeZone)),
-            "createdDateTime": lambda n : setattr(self, 'created_date_time', n.get_datetime_value()),
-            "dueDateTime": lambda n : setattr(self, 'due_date_time', n.get_object_value(DateTimeTimeZone)),
-            "extensions": lambda n : setattr(self, 'extensions', n.get_collection_of_object_values(Extension)),
-            "hasAttachments": lambda n : setattr(self, 'has_attachments', n.get_bool_value()),
-            "importance": lambda n : setattr(self, 'importance', n.get_enum_value(Importance)),
-            "isReminderOn": lambda n : setattr(self, 'is_reminder_on', n.get_bool_value()),
-            "lastModifiedDateTime": lambda n : setattr(self, 'last_modified_date_time', n.get_datetime_value()),
-            "linkedResources": lambda n : setattr(self, 'linked_resources', n.get_collection_of_object_values(LinkedResource)),
-            "recurrence": lambda n : setattr(self, 'recurrence', n.get_object_value(PatternedRecurrence)),
-            "reminderDateTime": lambda n : setattr(self, 'reminder_date_time', n.get_object_value(DateTimeTimeZone)),
-            "startDateTime": lambda n : setattr(self, 'start_date_time', n.get_object_value(DateTimeTimeZone)),
-            "status": lambda n : setattr(self, 'status', n.get_enum_value(TaskStatus)),
-            "title": lambda n : setattr(self, 'title', n.get_str_value()),
+            "attachmentSessions":
+            lambda n: setattr(
+                self, 'attachment_sessions',
+                n.get_collection_of_object_values(AttachmentSession)),
+            "attachments":
+            lambda n: setattr(
+                self, 'attachments',
+                n.get_collection_of_object_values(AttachmentBase)),
+            "body":
+            lambda n: setattr(self, 'body', n.get_object_value(ItemBody)),
+            "bodyLastModifiedDateTime":
+            lambda n: setattr(self, 'body_last_modified_date_time',
+                              n.get_datetime_value()),
+            "categories":
+            lambda n: setattr(self, 'categories',
+                              n.get_collection_of_primitive_values(str)),
+            "checklistItems":
+            lambda n: setattr(self, 'checklist_items',
+                              n.get_collection_of_object_values(ChecklistItem)
+                              ),
+            "completedDateTime":
+            lambda n: setattr(self, 'completed_date_time',
+                              n.get_object_value(DateTimeTimeZone)),
+            "createdDateTime":
+            lambda n: setattr(self, 'created_date_time', n.get_datetime_value(
+            )),
+            "dueDateTime":
+            lambda n: setattr(self, 'due_date_time',
+                              n.get_object_value(DateTimeTimeZone)),
+            "extensions":
+            lambda n: setattr(self, 'extensions',
+                              n.get_collection_of_object_values(Extension)),
+            "hasAttachments":
+            lambda n: setattr(self, 'has_attachments', n.get_bool_value()),
+            "importance":
+            lambda n: setattr(self, 'importance', n.get_enum_value(Importance)
+                              ),
+            "isReminderOn":
+            lambda n: setattr(self, 'is_reminder_on', n.get_bool_value()),
+            "lastModifiedDateTime":
+            lambda n: setattr(self, 'last_modified_date_time',
+                              n.get_datetime_value()),
+            "linkedResources":
+            lambda n: setattr(
+                self, 'linked_resources',
+                n.get_collection_of_object_values(LinkedResource)),
+            "recurrence":
+            lambda n: setattr(self, 'recurrence',
+                              n.get_object_value(PatternedRecurrence)),
+            "reminderDateTime":
+            lambda n: setattr(self, 'reminder_date_time',
+                              n.get_object_value(DateTimeTimeZone)),
+            "startDateTime":
+            lambda n: setattr(self, 'start_date_time',
+                              n.get_object_value(DateTimeTimeZone)),
+            "status":
+            lambda n: setattr(self, 'status', n.get_enum_value(TaskStatus)),
+            "title":
+            lambda n: setattr(self, 'title', n.get_str_value()),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -139,25 +181,31 @@ class TodoTask(Entity):
         if not writer:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
-        writer.write_collection_of_object_values("attachmentSessions", self.attachment_sessions)
-        writer.write_collection_of_object_values("attachments", self.attachments)
+        writer.write_collection_of_object_values("attachmentSessions",
+                                                 self.attachment_sessions)
+        writer.write_collection_of_object_values("attachments",
+                                                 self.attachments)
         writer.write_object_value("body", self.body)
-        writer.write_datetime_value("bodyLastModifiedDateTime", self.body_last_modified_date_time)
-        writer.write_collection_of_primitive_values("categories", self.categories)
-        writer.write_collection_of_object_values("checklistItems", self.checklist_items)
-        writer.write_object_value("completedDateTime", self.completed_date_time)
+        writer.write_datetime_value("bodyLastModifiedDateTime",
+                                    self.body_last_modified_date_time)
+        writer.write_collection_of_primitive_values("categories",
+                                                    self.categories)
+        writer.write_collection_of_object_values("checklistItems",
+                                                 self.checklist_items)
+        writer.write_object_value("completedDateTime",
+                                  self.completed_date_time)
         writer.write_datetime_value("createdDateTime", self.created_date_time)
         writer.write_object_value("dueDateTime", self.due_date_time)
         writer.write_collection_of_object_values("extensions", self.extensions)
         writer.write_bool_value("hasAttachments", self.has_attachments)
         writer.write_enum_value("importance", self.importance)
         writer.write_bool_value("isReminderOn", self.is_reminder_on)
-        writer.write_datetime_value("lastModifiedDateTime", self.last_modified_date_time)
-        writer.write_collection_of_object_values("linkedResources", self.linked_resources)
+        writer.write_datetime_value("lastModifiedDateTime",
+                                    self.last_modified_date_time)
+        writer.write_collection_of_object_values("linkedResources",
+                                                 self.linked_resources)
         writer.write_object_value("recurrence", self.recurrence)
         writer.write_object_value("reminderDateTime", self.reminder_date_time)
         writer.write_object_value("startDateTime", self.start_date_time)
         writer.write_enum_value("status", self.status)
         writer.write_str_value("title", self.title)
-    
-
