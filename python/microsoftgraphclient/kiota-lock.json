@@ -1,0 +1,37 @@
+{
+  "descriptionHash": "1AF376CBCD39B2539CFE78F63A76059DEFF57CE0257E62D8AE97BF4CA4DAB457090CD331C956464B2036F462D800ED5EC948FEDB50BFBA2B2E4C3592EC0E78A5",
+  "descriptionLocation": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.6.1",
+  "clientClassName": "MicrosoftGraphServiceClient",
+  "clientNamespaceName": "githubtododemo.microsoftgraphclient",
+  "language": "Python",
+  "usesBackingStore": false,
+  "includeAdditionalData": true,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "text/plain",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ],
+  "includePatterns": [
+    "/me/todo/**/tasks",
+    "/me/todo/lists"
+  ],
+  "excludePatterns": [
+    "**/*delta*",
+    "**/*count"
+  ],
+  "disabledValidationRules": []
+}
