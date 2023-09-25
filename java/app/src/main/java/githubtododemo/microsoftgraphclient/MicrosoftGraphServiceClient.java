@@ -7,6 +7,7 @@ import com.microsoft.kiota.serialization.FormParseNodeFactory;
 import com.microsoft.kiota.serialization.FormSerializationWriterFactory;
 import com.microsoft.kiota.serialization.JsonParseNodeFactory;
 import com.microsoft.kiota.serialization.JsonSerializationWriterFactory;
+import com.microsoft.kiota.serialization.MultipartSerializationWriterFactory;
 import com.microsoft.kiota.serialization.ParseNodeFactoryRegistry;
 import com.microsoft.kiota.serialization.SerializationWriterFactoryRegistry;
 import com.microsoft.kiota.serialization.TextParseNodeFactory;
@@ -17,24 +18,26 @@ import java.util.Objects;
 /**
  * The main entry point of the SDK, exposes the configuration and the fluent API.
  */
-public class MicrosoftServiceGraphClient extends BaseRequestBuilder {
-    /** The me property */
-    @javax.annotation.Nonnull
+@jakarta.annotation.Generated("com.microsoft.kiota")
+public class MicrosoftGraphServiceClient extends BaseRequestBuilder {
+    /**
+     * The me property
+     */
+    @jakarta.annotation.Nonnull
     public MeRequestBuilder me() {
         return new MeRequestBuilder(pathParameters, requestAdapter);
     }
     /**
-     * Instantiates a new MicrosoftServiceGraphClient and sets the default values.
+     * Instantiates a new MicrosoftGraphServiceClient and sets the default values.
      * @param requestAdapter The request adapter to use to execute the requests.
-     * @return a void
      */
-    @javax.annotation.Nullable
-    public MicrosoftServiceGraphClient(@javax.annotation.Nonnull final RequestAdapter requestAdapter) {
+    public MicrosoftGraphServiceClient(@jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
         super(requestAdapter, "{+baseurl}");
         this.pathParameters = new HashMap<>();
         ApiClientBuilder.registerDefaultSerializer(JsonSerializationWriterFactory.class);
         ApiClientBuilder.registerDefaultSerializer(TextSerializationWriterFactory.class);
         ApiClientBuilder.registerDefaultSerializer(FormSerializationWriterFactory.class);
+        ApiClientBuilder.registerDefaultSerializer(MultipartSerializationWriterFactory.class);
         ApiClientBuilder.registerDefaultDeserializer(JsonParseNodeFactory.class);
         ApiClientBuilder.registerDefaultDeserializer(FormParseNodeFactory.class);
         ApiClientBuilder.registerDefaultDeserializer(TextParseNodeFactory.class);

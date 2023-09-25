@@ -4,7 +4,7 @@
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.6.1",
   "clientClassName": "GitHubServiceClient",
-  "clientNamespaceName": "GitHubTodoDemo.GitHubClient",
+  "clientNamespaceName": "githubtododemo.githubclient",
   "language": "Java",
   "usesBackingStore": false,
   "includeAdditionalData": false,
@@ -22,7 +22,8 @@
   "structuredMimeTypes": [
     "application/json",
     "text/plain",
-    "application/x-www-form-urlencoded"
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
   ],
   "includePatterns": [
     "/repos/{org}/{repo}/pulls#GET"

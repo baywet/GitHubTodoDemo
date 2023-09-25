@@ -55,8 +55,8 @@
 1. Click on the play sign (generate) and enter the following information:
 
    - Client Name : GitHubServiceClient
-   - Namespace Name : GitHubTodoDemo.GitHubClient
-   - Path : app/src/main/java
+   - Namespace Name : githubtododemo.githubclient
+   - Path : app/src/main/java/githubtododemo/githubclient
    - Language : Java
 
 ## Demo - Adding the client for Tasks
@@ -64,19 +64,21 @@
 1. `kiota search todo`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists"`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
-1. `kiota generate -l Java -n GitHubTodoDemo.MicrosoftGraphClient -o $PWD/app/src/main/java -c MicrosoftGraphServiceClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
+1. `kiota generate -l Java -n githubtododemo.microsoftgraphclient -o $PWD/app/src/main/java/githubtododemo/microsoftgraphclient -c MicrosoftGraphServiceClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
 1. `kiota info -l java`
 1. Edit `app/build.gradle` and in the **dependencies** section add the following.
 
    ```groovy
-   implementation 'com.microsoft.kiota:microsoft-kiota-abstractions:0.4.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-http-okHttp:0.4.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-form:0.4.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-json:0.4.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-authentication-azure:0.4.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-text:0.4.4'
-   implementation 'com.azure:azure-identity:1.9.1'
-   implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+   implementation 'com.microsoft.kiota:microsoft-kiota-abstractions:0.7.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-http-okHttp:0.7.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-form:0.7.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-json:0.7.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-authentication-azure:0.7.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-text:0.7.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-multipart:0.7.4'
+   implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
+   implementation 'com.azure:azure-identity:1.10.1'
+   implementation 'com.squareup.okhttp3:okhttp:4.11.0'
    implementation 'com.google.code.gson:gson:2.10.1'
    ```
 
