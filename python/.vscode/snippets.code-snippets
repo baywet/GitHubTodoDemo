@@ -17,7 +17,10 @@
       "    task.linked_resources[0].web_url = pull_request.html_url",
       "    task.linked_resources[0].application_name = \"GitHub\"",
       "    await graph_client.me.todo.lists.by_todo_task_list_id(todo_list.id).tasks.post(task)",
-      "print(\"Done!\")"
+      "print(\"Done!\")",
+      "# Run main",
+      "asyncio.run(main())",
+      "# DO NOT FOGET models/nullable_milestone.py remove if TYPE_CHECKING"
     ],
     "description": "Creates a todo task for each pull request"
   },

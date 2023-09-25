@@ -73,6 +73,7 @@
    pip install microsoft-kiota-serialization-json
    pip install microsoft-kiota-serialization-text
    pip install microsoft-kiota-authentication-azure
+   pip install azure.identity
    pip freeze > requirements.txt
    ```
 
