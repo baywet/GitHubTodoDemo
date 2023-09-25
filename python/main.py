@@ -1,6 +1,5 @@
 import asyncio
 from datetime import timedelta
-from typing import List
 from kiota_http.httpx_request_adapter import HttpxRequestAdapter
 from githubauthentication.github_authentication_provider import GitHubAuthenticationProvider
 from githubclient.git_hub_service_client import GitHubServiceClient

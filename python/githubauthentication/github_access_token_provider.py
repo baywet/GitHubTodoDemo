@@ -42,9 +42,7 @@ class GitHubAccessTokenProvider(AccessTokenProvider):
 										device_code_response: GitHubDeviceCodeResponse) -> str:
 		token = await self.get_token(device_code_response)
 		while token == "":
-			print(f"Waiting for authorization...{device_code_response.interval} seconds")
 			await asyncio.sleep(device_code_response.interval + 1)
-			print("Polling for authorization...")
 			token = await self.get_token(device_code_response)
 			if token != "":
 				print("Authorized!")
