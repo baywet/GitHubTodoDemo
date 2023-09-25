@@ -1,0 +1,8 @@
+{
+	"recommendations": [
+		"ms-python.python",
+		"shengchen.vscode-checkstyle",
+		"editorconfig.editorconfig",
+		"ms-graph.kiota"
+	]
+}
