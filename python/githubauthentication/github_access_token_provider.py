@@ -24,8 +24,6 @@ class GitHubAccessTokenProvider(AccessTokenProvider):
 			self,
 			uri: str,
 			additional_authentication_context: Dict[str, Any] = {}) -> str:
-		if not self._allowed_hosts_validator.is_host_allowed(uri):
-			return ""
 		parsed_url = urlparse(uri)
 
 		if not all([parsed_url.scheme, parsed_url.netloc]):
@@ -34,6 +32,7 @@ class GitHubAccessTokenProvider(AccessTokenProvider):
 		if not parsed_url.scheme == "https":
 			return ""
 		device_code_response = await self.get_device_code()
+		print(f"Please go to {device_code_response.verification_uri} and enter the code {device_code_response.user_code} to authenticate.")
 		if not device_code_response:
 			return ""
 		token = await self.poll_for_authorization_token(device_code_response)
@@ -42,9 +41,15 @@ class GitHubAccessTokenProvider(AccessTokenProvider):
 	async def poll_for_authorization_token(self,
 										device_code_response: GitHubDeviceCodeResponse) -> str:
 		token = await self.get_token(device_code_response)
-		while not token:
-			await asyncio.sleep(device_code_response.interval)
+		while token == "":
+			print(f"Waiting for authorization...{device_code_response.interval} seconds")
+			await asyncio.sleep(device_code_response.interval + 1)
+			print("Polling for authorization...")
 			token = await self.get_token(device_code_response)
+			if token != "":
+				print("Authorized!")
+				break
+		
 		return token
 	async def get_token(self,
 					device_code_response: GitHubDeviceCodeResponse) -> str:
@@ -60,7 +65,8 @@ class GitHubAccessTokenProvider(AccessTokenProvider):
 		response = await httpx.AsyncClient().send(request)
 		if response.status_code == 200:
 			json_response = response.json()
-			return json_response["access_token"]
+			if json_response.get('access_token'):
+				return json_response["access_token"]
 		return ""
 
 	async def get_device_code(self) -> GitHubDeviceCodeResponse:
@@ -79,6 +85,6 @@ class GitHubAccessTokenProvider(AccessTokenProvider):
 				json_response["device_code"],
 				json_response["user_code"],
 				json_response["verification_uri"],
-				json_response["expires_in"],
-				json_response["interval"])
+				int(json_response["expires_in"]),
+				int(json_response["interval"]))
 		return None
