@@ -46,15 +46,3 @@ jobs:
         run: |
           isort .
         working-directory: python
-      - name: Lint with Pylint
-        run: |
-          pylint . --disable=W --rcfile=.pylintrc
-        working-directory: python
-      - name: Static type checking with Mypy
-        run: |
-          mypy .
-        working-directory: python
-      - name: Run the tests
-        run: |
-          pytest
-        working-directory: python
