@@ -1,5 +1,5 @@
 {
-  "descriptionHash": "1E4A2DE09872B7C3BD6291224DC475AA068364EE6CAE6CBAF5B10883033F2E17E087AAB556CF49D3785DF29305DCAAB059C9063B848F370284DF2FA40A05B9E2",
+  "descriptionHash": "F2DCCDA68510E41FC465C48E76C089E6EC7C56A8C9DFE9270FFA53EA7CD72629A79AE9B28B8ABE59F1A5059BDA9C093A68A3DF065536EB6DE5C135532AAD6FB2",
   "descriptionLocation": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.8.0",
@@ -27,7 +27,8 @@
     "multipart/form-data"
   ],
   "includePatterns": [
-    "**/pulls/**"
+    "**/pulls/**",
+    "**/pulls"
   ],
   "excludePatterns": [
     "**/comments/**",

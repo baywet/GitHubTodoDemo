@@ -2,6 +2,7 @@
 
 namespace Baywet\Githubtododemo\Github\Repos\Item\Item;
 
+use Baywet\Githubtododemo\Github\Repos\Item\Item\Commits\CommitsRequestBuilder;
 use Baywet\Githubtododemo\Github\Repos\Item\Item\Pulls\PullsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -11,6 +12,13 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 */
 class WithRepoItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * The commits property
+    */
+    public function commits(): CommitsRequestBuilder {
+        return new CommitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * The pulls property
     */
