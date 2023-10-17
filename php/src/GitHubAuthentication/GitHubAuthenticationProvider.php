@@ -4,8 +4,6 @@ namespace Baywet\Githubtododemo\Githubauthentication;
 
 use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
 
-require_once __DIR__.'/../../vendor/autoload.php';
-
 class GitHubAuthenticationProvider extends BaseBearerTokenAuthenticationProvider
 {
 	public function __construct(string $clientId, string $scope, array $allowedHosts = ["api.github.com"]) {

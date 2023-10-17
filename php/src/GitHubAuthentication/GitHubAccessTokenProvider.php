@@ -9,10 +9,6 @@ use Microsoft\Kiota\Abstractions\Authentication\AccessTokenProvider;
 use Microsoft\Kiota\Abstractions\Authentication\AllowedHostsValidator;
 use GuzzleHttp\Client;
 
-require_once __DIR__.'/../../vendor/autoload.php';
-require_once __DIR__.'/GitHubDeviceCodeResponse.php';
-require_once __DIR__.'/GitHubAccessTokenCodeResponse.php';
-
 class GitHubAccessTokenProvider implements AccessTokenProvider
 {
 	private AllowedHostsValidator $allowedHostsValidator;

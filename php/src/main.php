@@ -15,7 +15,6 @@ use DateTime;
 use DateInterval;
 
 require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/GitHubAuthentication/GitHubAuthenticationProvider.php';
 
 $gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants::$GithubClientId, "repo");
 $gitHubRequestAdapter = new GuzzleRequestAdapter($gitHubAuthenticationProvider);
