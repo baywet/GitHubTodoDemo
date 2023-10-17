@@ -1,0 +1,27 @@
+{
+    "name": "baywet/githubtododemo",
+    "type": "project",
+    "require": {
+        "microsoft/kiota-abstractions": "^0.8.5",
+        "microsoft/kiota-http-guzzle": "^0.8.4",
+        "microsoft/kiota-serialization-json": "^0.6.0",
+        "microsoft/kiota-serialization-text": "^0.7.0",
+        "php-http/guzzle7-adapter": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Baywet\\Githubtododemo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vincent Biret",
+            "email": "vincentbiret@hotmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
