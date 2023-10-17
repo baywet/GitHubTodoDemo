@@ -1,0 +1,38 @@
+{
+  "descriptionHash": "D60E9917119573ED9DBF73EF22D08C95A4BE955014BA7CFD817BE6FD8C6FFF3EA5BFA2B6BD1E5750947BA3D6B32AFF56379FE5F52064087AD1DB87D70468E26E",
+  "descriptionLocation": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.8.0",
+  "clientClassName": "MicrosoftGraphClient",
+  "clientNamespaceName": "baywet.githubtododemo.microsoftgraph",
+  "language": "PHP",
+  "usesBackingStore": false,
+  "excludeBackwardCompatible": false,
+  "includeAdditionalData": true,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "text/plain",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ],
+  "includePatterns": [
+    "/me/todo/**/tasks",
+    "/me/todo/lists"
+  ],
+  "excludePatterns": [
+    "**/*delta*",
+    "**/*count"
+  ],
+  "disabledValidationRules": []
+}
