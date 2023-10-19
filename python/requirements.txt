@@ -34,7 +34,7 @@ microsoft-kiota-serialization-text==0.2.1
 msal==1.24.1
 msal-extensions==1.0.0
 multidict==6.0.4
-mypy==1.6.0
+mypy==1.6.1
 mypy-extensions==1.0.0
 opentelemetry-api==1.20.0
 opentelemetry-sdk==1.20.0
