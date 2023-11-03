@@ -8,7 +8,6 @@ use Baywet\Githubtododemo\Github\Models\Files503Error;
 use Baywet\Githubtododemo\Github\Models\ValidationError;
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -36,21 +35,18 @@ class FilesRequestBuilder extends BaseRequestBuilder
     /**
      * **Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.
      * @param FilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<array<DiffEntry>|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/pulls/pulls#list-pull-requests-files API method documentation
     */
     public function get(?FilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '422' => [ValidationError::class, 'createFromDiscriminatorValue'],
-                    '500' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '503' => [Files503Error::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendCollectionAsync($requestInfo, [DiffEntry::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '422' => [ValidationError::class, 'createFromDiscriminatorValue'],
+                '500' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '503' => [Files503Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendCollectionAsync($requestInfo, [DiffEntry::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -70,7 +66,7 @@ class FilesRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 

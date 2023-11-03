@@ -7,7 +7,6 @@ use Baywet\Githubtododemo\Github\Models\PullRequestReview;
 use Baywet\Githubtododemo\Github\Models\ValidationErrorSimple;
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -36,20 +35,17 @@ class DismissalsRequestBuilder extends BaseRequestBuilder
      * **Note:** To dismiss a pull request review on a [protected branch](https://docs.github.com/rest/branches/branch-protection), you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews.
      * @param DismissalsPutRequestBody $body The request body
      * @param DismissalsRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<PullRequestReview|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/pulls/reviews#dismiss-a-review-for-a-pull-request API method documentation
     */
     public function put(DismissalsPutRequestBody $body, ?DismissalsRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '404' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '422' => [ValidationErrorSimple::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PullRequestReview::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '404' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '422' => [ValidationErrorSimple::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [PullRequestReview::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -67,7 +63,7 @@ class DismissalsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

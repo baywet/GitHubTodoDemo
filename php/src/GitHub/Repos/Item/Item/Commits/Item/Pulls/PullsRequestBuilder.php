@@ -5,7 +5,6 @@ namespace Baywet\Githubtododemo\Github\Repos\Item\Item\Commits\Item\Pulls;
 use Baywet\Githubtododemo\Github\Models\PullRequestSimple;
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -33,16 +32,13 @@ class PullsRequestBuilder extends BaseRequestBuilder
     /**
      * Lists the merged pull request that introduced the commit to the repository. If the commit is not present in the default branch, will only return open pull requests associated with the commit.To list the open or merged pull requests associated with a branch, you can set the `commit_sha` parameter to the branch name.
      * @param PullsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<array<PullRequestSimple>|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/commits/commits#list-pull-requests-associated-with-a-commit API method documentation
     */
     public function get(?PullsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            return $this->requestAdapter->sendCollectionAsync($requestInfo, [PullRequestSimple::class, 'createFromDiscriminatorValue'], null);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        return $this->requestAdapter->sendCollectionAsync($requestInfo, [PullRequestSimple::class, 'createFromDiscriminatorValue'], null);
     }
 
     /**
@@ -62,7 +58,7 @@ class PullsRequestBuilder extends BaseRequestBuilder
             }
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 

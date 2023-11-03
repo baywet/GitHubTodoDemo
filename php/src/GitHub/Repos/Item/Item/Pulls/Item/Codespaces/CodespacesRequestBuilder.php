@@ -7,7 +7,6 @@ use Baywet\Githubtododemo\Github\Models\Codespace;
 use Baywet\Githubtododemo\Github\Models\Codespace503Error;
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -36,22 +35,19 @@ class CodespacesRequestBuilder extends BaseRequestBuilder
      * Creates a codespace owned by the authenticated user for the specified pull request.You must authenticate using an access token with the `codespace` scope to use this endpoint.GitHub Apps must have write access to the `codespaces` repository permission to use this endpoint.
      * @param CodespacesPostRequestBody $body The request body
      * @param CodespacesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<Codespace|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/codespaces/codespaces#create-a-codespace-from-a-pull-request API method documentation
     */
     public function post(CodespacesPostRequestBody $body, ?CodespacesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '401' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '403' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '404' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '503' => [Codespace503Error::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Codespace::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '401' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '403' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '404' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '503' => [Codespace503Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [Codespace::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -69,7 +65,7 @@ class CodespacesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

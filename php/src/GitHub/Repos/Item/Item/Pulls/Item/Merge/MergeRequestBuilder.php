@@ -7,7 +7,6 @@ use Baywet\Githubtododemo\Github\Models\PullRequestMergeResult;
 use Baywet\Githubtododemo\Github\Models\ValidationError;
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -35,39 +34,33 @@ class MergeRequestBuilder extends BaseRequestBuilder
     /**
      * Checks if a pull request has been merged into the base branch. The HTTP status of the response indicates whether or not the pull request has been merged; the response body is empty.
      * @param MergeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<void|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/pulls/pulls#check-if-a-pull-request-has-been-merged API method documentation
     */
     public function get(?MergeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, null);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        return $this->requestAdapter->sendNoContentAsync($requestInfo, null);
     }
 
     /**
      * Merges a pull request into the base branch.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. See "[Secondary rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#secondary-rate-limits)" and "[Dealing with secondary rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits)" for details.
      * @param MergePutRequestBody $body The request body
      * @param MergeRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<PullRequestMergeResult|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/pulls/pulls#merge-a-pull-request API method documentation
     */
     public function put(MergePutRequestBody $body, ?MergeRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '403' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '404' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '405' => [PullRequestMergeResult405Error::class, 'createFromDiscriminatorValue'],
-                    '409' => [PullRequestMergeResult409Error::class, 'createFromDiscriminatorValue'],
-                    '422' => [ValidationError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PullRequestMergeResult::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '403' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '404' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '405' => [PullRequestMergeResult405Error::class, 'createFromDiscriminatorValue'],
+                '409' => [PullRequestMergeResult409Error::class, 'createFromDiscriminatorValue'],
+                '422' => [ValidationError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [PullRequestMergeResult::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -102,7 +95,7 @@ class MergeRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

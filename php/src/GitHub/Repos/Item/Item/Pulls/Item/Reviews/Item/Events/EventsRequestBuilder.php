@@ -7,7 +7,6 @@ use Baywet\Githubtododemo\Github\Models\PullRequestReview;
 use Baywet\Githubtododemo\Github\Models\ValidationErrorSimple;
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -36,21 +35,18 @@ class EventsRequestBuilder extends BaseRequestBuilder
      * Submits a pending review for a pull request. For more information about creating a pending review for a pull request, see "[Create a review for a pull request](https://docs.github.com/rest/pulls/reviews#create-a-review-for-a-pull-request)."
      * @param EventsPostRequestBody $body The request body
      * @param EventsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<PullRequestReview|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/pulls/reviews#submit-a-review-for-a-pull-request API method documentation
     */
     public function post(EventsPostRequestBody $body, ?EventsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '403' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '404' => [BasicError::class, 'createFromDiscriminatorValue'],
-                    '422' => [ValidationErrorSimple::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PullRequestReview::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '403' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '404' => [BasicError::class, 'createFromDiscriminatorValue'],
+                '422' => [ValidationErrorSimple::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [PullRequestReview::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -68,7 +64,7 @@ class EventsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

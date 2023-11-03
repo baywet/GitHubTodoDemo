@@ -8,7 +8,6 @@ use Baywet\Githubtododemo\Github\Models\PullRequestSimple;
 use Baywet\Githubtododemo\Github\Models\ValidationError;
 use Exception;
 use Http\Promise\Promise;
-use Http\Promise\RejectedPromise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -37,53 +36,44 @@ class Requested_reviewersRequestBuilder extends BaseRequestBuilder
      * Removes review requests from a pull request for a given set of users and/or teams.
      * @param Requested_reviewersDeleteRequestBody $body The request body
      * @param Requested_reviewersRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<PullRequestSimple|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/pulls/review-requests#remove-requested-reviewers-from-a-pull-request API method documentation
     */
     public function delete(Requested_reviewersDeleteRequestBody $body, ?Requested_reviewersRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '422' => [ValidationError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PullRequestSimple::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '422' => [ValidationError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [PullRequestSimple::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Gets the users or teams whose review is requested for a pull request. Once a requested reviewer submits a review, they are no longer considered a requested reviewer. Their review will instead be returned by the [List reviews for a pull request](https://docs.github.com/rest/pulls/reviews#list-reviews-for-a-pull-request) operation.
      * @param Requested_reviewersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<PullRequestReviewRequest|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/pulls/review-requests#get-all-requested-reviewers-for-a-pull-request API method documentation
     */
     public function get(?Requested_reviewersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            return $this->requestAdapter->sendAsync($requestInfo, [PullRequestReviewRequest::class, 'createFromDiscriminatorValue'], null);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        return $this->requestAdapter->sendAsync($requestInfo, [PullRequestReviewRequest::class, 'createFromDiscriminatorValue'], null);
     }
 
     /**
      * Requests reviews for a pull request from a given set of users and/or teams.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. See "[Secondary rate limits](https://docs.github.com/rest/overview/resources-in-the-rest-api#secondary-rate-limits)" and "[Dealing with secondary rate limits](https://docs.github.com/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits)" for details.
      * @param Requested_reviewersPostRequestBody $body The request body
      * @param Requested_reviewersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise
+     * @return Promise<PullRequestSimple|null>
+     * @throws Exception
      * @link https://docs.github.com/rest/pulls/review-requests#request-reviewers-for-a-pull-request API method documentation
     */
     public function post(Requested_reviewersPostRequestBody $body, ?Requested_reviewersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '403' => [BasicError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PullRequestSimple::class, 'createFromDiscriminatorValue'], $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
+        $errorMappings = [
+                '403' => [BasicError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [PullRequestSimple::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -101,7 +91,7 @@ class Requested_reviewersRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
@@ -120,7 +110,7 @@ class Requested_reviewersRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         return $requestInfo;
     }
 
@@ -139,7 +129,7 @@ class Requested_reviewersRequestBuilder extends BaseRequestBuilder
             $requestInfo->addHeaders($requestConfiguration->headers);
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
-        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->tryAddHeader('Accept', "application/json;q=1");
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }

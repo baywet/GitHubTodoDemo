@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "F2DCCDA68510E41FC465C48E76C089E6EC7C56A8C9DFE9270FFA53EA7CD72629A79AE9B28B8ABE59F1A5059BDA9C093A68A3DF065536EB6DE5C135532AAD6FB2",
+  "descriptionHash": "183381651AF3244B33C77F424590604CB73853B4FFA78411F8ED840912C1B174A5FFADFED9DD5CD746B3FFF7E553DAE115B4ED8AE0B72F2055D87637A97E719F",
   "descriptionLocation": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.8.0",
+  "kiotaVersion": "1.8.1",
   "clientClassName": "GitHubClient",
   "clientNamespaceName": "baywet.githubtododemo.github",
   "language": "PHP",
@@ -21,10 +21,10 @@
     "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
   ],
   "structuredMimeTypes": [
-    "application/json",
-    "text/plain",
-    "application/x-www-form-urlencoded",
-    "multipart/form-data"
+    "application/json;q=1",
+    "text/plain;q=1",
+    "application/x-www-form-urlencoded;q=1",
+    "multipart/form-data;q=1"
   ],
   "includePatterns": [
     "**/pulls/**",
