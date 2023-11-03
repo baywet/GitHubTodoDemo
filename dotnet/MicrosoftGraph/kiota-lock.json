@@ -1,17 +1,19 @@
 {
-  "descriptionHash": "1AF376CBCD39B2539CFE78F63A76059DEFF57CE0257E62D8AE97BF4CA4DAB457090CD331C956464B2036F462D800ED5EC948FEDB50BFBA2B2E4C3592EC0E78A5",
+  "descriptionHash": "F3E25EE7FD3B04ACC772A799055320253178492C0AD581474BB3BCE08B8DEAD0AA6C783A1364EC86544EED7F3F7CFE3E5DD97F5C1DD50A9CA3358DE01EB1936D",
   "descriptionLocation": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.6.1",
+  "kiotaVersion": "1.8.1",
   "clientClassName": "MicrosoftGraphClient",
   "clientNamespaceName": "GitHubTodoDemo.MicrosoftGraph",
   "language": "CSharp",
   "usesBackingStore": false,
+  "excludeBackwardCompatible": true,
   "includeAdditionalData": true,
   "serializers": [
     "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
     "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
-    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory"
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
   ],
   "deserializers": [
     "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
@@ -19,13 +21,17 @@
     "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
   ],
   "structuredMimeTypes": [
-    "application/json",
-    "text/plain"
+    "application/json;q=1",
+    "text/plain;q=0.9",
+    "application/x-www-form-urlencoded;q=0.2",
+    "multipart/form-data;q=0.1"
   ],
   "includePatterns": [
     "/me/todo/**/tasks",
     "/me/todo/lists"
   ],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [
+    "all"
+  ]
 }

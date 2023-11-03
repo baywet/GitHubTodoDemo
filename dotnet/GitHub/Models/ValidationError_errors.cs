@@ -45,10 +45,10 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Pulls? Value { get; set; }
+        public ValidationError_errors_value? Value { get; set; }
 #nullable restore
 #else
-        public Pulls Value { get; set; }
+        public ValidationError_errors_value Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new validationError_errors and sets the default values.
@@ -67,44 +67,36 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"code", n => { Code = n.GetStringValue(); } },
                 {"field", n => { Field = n.GetStringValue(); } },
                 {"index", n => { Index = n.GetIntValue(); } },
                 {"message", n => { Message = n.GetStringValue(); } },
                 {"resource", n => { Resource = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetObjectValue<Pulls>(Pulls.CreateFromDiscriminatorValue); } },
+                {"value", n => { Value = n.GetObjectValue<ValidationError_errors_value>(ValidationError_errors_value.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("field", Field);
             writer.WriteIntValue("index", Index);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("resource", Resource);
-            writer.WriteObjectValue<Pulls>("value", Value);
+            writer.WriteObjectValue<ValidationError_errors_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes integer, string, string
+        /// Composed type wrapper for classes integer, string
         /// </summary>
-        public class Pulls : IComposedTypeWrapper, IParsable {
+        public class ValidationError_errors_value : IComposedTypeWrapper, IParsable {
             /// <summary>Composed type representation for type integer</summary>
             public int? Integer { get; set; }
-            /// <summary>Composed type representation for type string</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? PullsString { get; set; }
-#nullable restore
-#else
-            public string PullsString { get; set; }
-#endif
             /// <summary>Composed type representation for type string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,15 +109,12 @@ namespace GitHubTodoDemo.GitHub.Models {
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static Pulls CreateFromDiscriminatorValue(IParseNode parseNode) {
+            public static ValidationError_errors_value CreateFromDiscriminatorValue(IParseNode parseNode) {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new Pulls();
+                var result = new ValidationError_errors_value();
                 if(parseNode.GetIntValue() is int integerValue) {
                     result.Integer = integerValue;
-                }
-                else if(parseNode.GetStringValue() is string pullsStringValue) {
-                    result.PullsString = pullsStringValue;
                 }
                 else if(parseNode.GetStringValue() is string stringValue) {
                     result.String = stringValue;
@@ -135,20 +124,17 @@ namespace GitHubTodoDemo.GitHub.Models {
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
-            public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
             /// Serializes information the current object
             /// </summary>
             /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public void Serialize(ISerializationWriter writer) {
+            public virtual void Serialize(ISerializationWriter writer) {
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(Integer != null) {
                     writer.WriteIntValue(null, Integer);
-                }
-                else if(PullsString != null) {
-                    writer.WriteStringValue(null, PullsString);
                 }
                 else if(String != null) {
                     writer.WriteStringValue(null, String);

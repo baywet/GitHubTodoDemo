@@ -547,15 +547,15 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"allow_auto_merge", n => { AllowAutoMerge = n.GetBoolValue(); } },
                 {"allow_merge_commit", n => { AllowMergeCommit = n.GetBoolValue(); } },
                 {"allow_rebase_merge", n => { AllowRebaseMerge = n.GetBoolValue(); } },
                 {"allow_squash_merge", n => { AllowSquashMerge = n.GetBoolValue(); } },
                 {"allow_update_branch", n => { AllowUpdateBranch = n.GetBoolValue(); } },
-                {"archived", n => { Archived = n.GetBoolValue(); } },
                 {"archive_url", n => { ArchiveUrl = n.GetStringValue(); } },
+                {"archived", n => { Archived = n.GetBoolValue(); } },
                 {"assignees_url", n => { AssigneesUrl = n.GetStringValue(); } },
                 {"blobs_url", n => { BlobsUrl = n.GetStringValue(); } },
                 {"branches_url", n => { BranchesUrl = n.GetStringValue(); } },
@@ -591,10 +591,10 @@ namespace GitHubTodoDemo.GitHub.Models {
                 {"hooks_url", n => { HooksUrl = n.GetStringValue(); } },
                 {"html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 {"id", n => { Id = n.GetIntValue(); } },
+                {"is_template", n => { IsTemplate = n.GetBoolValue(); } },
                 {"issue_comment_url", n => { IssueCommentUrl = n.GetStringValue(); } },
                 {"issue_events_url", n => { IssueEventsUrl = n.GetStringValue(); } },
                 {"issues_url", n => { IssuesUrl = n.GetStringValue(); } },
-                {"is_template", n => { IsTemplate = n.GetBoolValue(); } },
                 {"keys_url", n => { KeysUrl = n.GetStringValue(); } },
                 {"labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 {"language", n => { Language = n.GetStringValue(); } },
@@ -642,7 +642,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_auto_merge", AllowAutoMerge);
             writer.WriteBoolValue("allow_merge_commit", AllowMergeCommit);

@@ -1,17 +1,19 @@
 {
-  "descriptionHash": "4E7FF49A6E30C109042428F018D754863C3AD80CE00D52F9516A85035F14B4B1411E8CC932589D105986741D4888BDF5FBF758FBF4D66508C1DB439E8905295D",
+  "descriptionHash": "6DCC9827A48104B229D5853AFA50232B20F7E87B5F47C4675CE339B4CE00A59EAD8BB1DCBC8A3C469DD6B0FF722F65EE24C34A377DD5A86FB5FB8E47A70A1B43",
   "descriptionLocation": "https://api.apis.guru/v2/specs/github.com/api.github.com/1.1.4/openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.6.1",
+  "kiotaVersion": "1.8.1",
   "clientClassName": "GitHubClient",
   "clientNamespaceName": "GitHubTodoDemo.GitHub",
   "language": "CSharp",
   "usesBackingStore": false,
+  "excludeBackwardCompatible": true,
   "includeAdditionalData": true,
   "serializers": [
     "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
     "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
-    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory"
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
   ],
   "deserializers": [
     "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
@@ -19,16 +21,14 @@
     "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
   ],
   "structuredMimeTypes": [
-    "application/json",
-    "text/plain"
+    "application/json;q=1",
+    "text/plain;q=0.9",
+    "application/x-www-form-urlencoded;q=0.2",
+    "multipart/form-data;q=0.1"
   ],
   "includePatterns": [
-    "**/pulls/**",
-    "**/pulls"
+    "/repos/{org}/{repo}/pulls#GET"
   ],
-  "excludePatterns": [
-    "**/comments/**",
-    "**/comments"
-  ],
+  "excludePatterns": [],
   "disabledValidationRules": []
 }

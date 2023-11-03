@@ -262,7 +262,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"active_lock_reason", n => { ActiveLockReason = n.GetStringValue(); } },
                 {"assignee", n => { Assignee = n.GetObjectValue<NullableSimpleUser>(NullableSimpleUser.CreateFromDiscriminatorValue); } },
@@ -292,8 +292,8 @@ namespace GitHubTodoDemo.GitHub.Models {
                 {"patch_url", n => { PatchUrl = n.GetStringValue(); } },
                 {"requested_reviewers", n => { RequestedReviewers = n.GetCollectionOfObjectValues<SimpleUser>(SimpleUser.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"requested_teams", n => { RequestedTeams = n.GetCollectionOfObjectValues<Team>(Team.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"review_comments_url", n => { ReviewCommentsUrl = n.GetStringValue(); } },
                 {"review_comment_url", n => { ReviewCommentUrl = n.GetStringValue(); } },
+                {"review_comments_url", n => { ReviewCommentsUrl = n.GetStringValue(); } },
                 {"state", n => { State = n.GetStringValue(); } },
                 {"statuses_url", n => { StatusesUrl = n.GetStringValue(); } },
                 {"title", n => { Title = n.GetStringValue(); } },
@@ -306,7 +306,7 @@ namespace GitHubTodoDemo.GitHub.Models {
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public void Serialize(ISerializationWriter writer) {
+        public virtual void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("active_lock_reason", ActiveLockReason);
             writer.WriteObjectValue<NullableSimpleUser>("assignee", Assignee);
