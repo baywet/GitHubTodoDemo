@@ -92,7 +92,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the avatar_url property value. The avatar_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getAvatarUrl() {
@@ -100,7 +100,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the events_url property value. The events_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getEventsUrl() {
@@ -135,7 +135,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the followers_url property value. The followers_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getFollowersUrl() {
@@ -143,7 +143,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the following_url property value. The following_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getFollowingUrl() {
@@ -151,7 +151,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the gists_url property value. The gists_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getGistsUrl() {
@@ -159,7 +159,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the gravatar_id property value. The gravatar_id property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getGravatarId() {
@@ -167,7 +167,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the html_url property value. The html_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getHtmlUrl() {
@@ -175,7 +175,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the id property value. The id property
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getId() {
@@ -183,7 +183,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the login property value. The login property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getLogin() {
@@ -191,7 +191,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the node_id property value. The node_id property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getNodeId() {
@@ -199,7 +199,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the organizations_url property value. The organizations_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getOrganizationsUrl() {
@@ -207,7 +207,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the received_events_url property value. The received_events_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getReceivedEventsUrl() {
@@ -215,7 +215,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the repos_url property value. The repos_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getReposUrl() {
@@ -223,7 +223,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the site_admin property value. The site_admin property
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getSiteAdmin() {
@@ -231,7 +231,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the starred_url property value. The starred_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getStarredUrl() {
@@ -239,7 +239,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the subscriptions_url property value. The subscriptions_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getSubscriptionsUrl() {
@@ -247,7 +247,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the type property value. The type property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getType() {
@@ -255,7 +255,7 @@ public class RepositoryTemplateRepositoryOwner implements Parsable {
     }
     /**
      * Gets the url property value. The url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getUrl() {

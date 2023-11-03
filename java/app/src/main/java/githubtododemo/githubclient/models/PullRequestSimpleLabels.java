@@ -48,7 +48,7 @@ public class PullRequestSimpleLabels implements Parsable {
     }
     /**
      * Gets the color property value. The color property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getColor() {
@@ -56,7 +56,7 @@ public class PullRequestSimpleLabels implements Parsable {
     }
     /**
      * Gets the default property value. The default property
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getDefault() {
@@ -64,7 +64,7 @@ public class PullRequestSimpleLabels implements Parsable {
     }
     /**
      * Gets the description property value. The description property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getDescription() {
@@ -88,7 +88,7 @@ public class PullRequestSimpleLabels implements Parsable {
     }
     /**
      * Gets the id property value. The id property
-     * @return a int64
+     * @return a Long
      */
     @jakarta.annotation.Nullable
     public Long getId() {
@@ -96,7 +96,7 @@ public class PullRequestSimpleLabels implements Parsable {
     }
     /**
      * Gets the name property value. The name property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getName() {
@@ -104,7 +104,7 @@ public class PullRequestSimpleLabels implements Parsable {
     }
     /**
      * Gets the node_id property value. The node_id property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getNodeId() {
@@ -112,7 +112,7 @@ public class PullRequestSimpleLabels implements Parsable {
     }
     /**
      * Gets the url property value. The url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getUrl() {

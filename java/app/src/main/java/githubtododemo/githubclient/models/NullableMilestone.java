@@ -77,7 +77,7 @@ public class NullableMilestone implements Parsable {
      */
     private String url;
     /**
-     * Instantiates a new nullableMilestone and sets the default values.
+     * Instantiates a new NullableMilestone and sets the default values.
      */
     public NullableMilestone() {
         this.setState(NullableMilestoneState.forValue("open"));
@@ -85,7 +85,7 @@ public class NullableMilestone implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a nullableMilestone
+     * @return a NullableMilestone
      */
     @jakarta.annotation.Nonnull
     public static NullableMilestone createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -102,7 +102,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the closed_issues property value. The closed_issues property
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getClosedIssues() {
@@ -118,7 +118,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the creator property value. A GitHub user.
-     * @return a nullableSimpleUser
+     * @return a NullableSimpleUser
      */
     @jakarta.annotation.Nullable
     public NullableSimpleUser getCreator() {
@@ -126,7 +126,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the description property value. The description property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getDescription() {
@@ -167,7 +167,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the html_url property value. The html_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getHtmlUrl() {
@@ -175,7 +175,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the id property value. The id property
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getId() {
@@ -183,7 +183,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the labels_url property value. The labels_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getLabelsUrl() {
@@ -191,7 +191,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the node_id property value. The node_id property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getNodeId() {
@@ -199,7 +199,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the number property value. The number of the milestone.
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getNumber() {
@@ -207,7 +207,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the open_issues property value. The open_issues property
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getOpenIssues() {
@@ -223,7 +223,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the title property value. The title of the milestone.
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getTitle() {
@@ -239,7 +239,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the url property value. The url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getUrl() {

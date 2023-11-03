@@ -54,7 +54,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the label property value. The label property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getLabel() {
@@ -62,7 +62,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the ref property value. The ref property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getRef() {
@@ -70,7 +70,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the repo property value. A repository on GitHub.
-     * @return a repository
+     * @return a Repository
      */
     @jakarta.annotation.Nullable
     public Repository getRepo() {
@@ -78,7 +78,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the sha property value. The sha property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getSha() {
@@ -86,7 +86,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the user property value. A GitHub user.
-     * @return a nullableSimpleUser
+     * @return a NullableSimpleUser
      */
     @jakarta.annotation.Nullable
     public NullableSimpleUser getUser() {

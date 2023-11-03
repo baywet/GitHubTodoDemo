@@ -159,7 +159,7 @@ public class PullRequestSimple implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a pullRequestSimple
+     * @return a PullRequestSimple
      */
     @jakarta.annotation.Nonnull
     public static PullRequestSimple createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -168,7 +168,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the active_lock_reason property value. The active_lock_reason property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getActiveLockReason() {
@@ -176,7 +176,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the assignee property value. A GitHub user.
-     * @return a nullableSimpleUser
+     * @return a NullableSimpleUser
      */
     @jakarta.annotation.Nullable
     public NullableSimpleUser getAssignee() {
@@ -184,7 +184,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the assignees property value. The assignees property
-     * @return a simpleUser
+     * @return a java.util.List<SimpleUser>
      */
     @jakarta.annotation.Nullable
     public java.util.List<SimpleUser> getAssignees() {
@@ -192,7 +192,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the author_association property value. How the author is associated with the repository.
-     * @return a authorAssociation
+     * @return a AuthorAssociation
      */
     @jakarta.annotation.Nullable
     public AuthorAssociation getAuthorAssociation() {
@@ -200,7 +200,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the auto_merge property value. The status of auto merging a pull request.
-     * @return a autoMerge
+     * @return a AutoMerge
      */
     @jakarta.annotation.Nullable
     public AutoMerge getAutoMerge() {
@@ -216,7 +216,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the body property value. The body property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getBody() {
@@ -232,7 +232,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the comments_url property value. The comments_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getCommentsUrl() {
@@ -240,7 +240,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the commits_url property value. The commits_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getCommitsUrl() {
@@ -256,7 +256,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the diff_url property value. The diff_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getDiffUrl() {
@@ -264,7 +264,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the draft property value. Indicates whether or not the pull request is a draft.
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getDraft() {
@@ -325,7 +325,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the html_url property value. The html_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getHtmlUrl() {
@@ -333,7 +333,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the id property value. The id property
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getId() {
@@ -341,7 +341,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the issue_url property value. The issue_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getIssueUrl() {
@@ -349,7 +349,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the labels property value. The labels property
-     * @return a PullRequestSimpleLabels
+     * @return a java.util.List<PullRequestSimpleLabels>
      */
     @jakarta.annotation.Nullable
     public java.util.List<PullRequestSimpleLabels> getLabels() {
@@ -365,7 +365,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the locked property value. The locked property
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getLocked() {
@@ -373,7 +373,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the merge_commit_sha property value. The merge_commit_sha property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getMergeCommitSha() {
@@ -389,7 +389,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the milestone property value. A collection of related issues and pull requests.
-     * @return a nullableMilestone
+     * @return a NullableMilestone
      */
     @jakarta.annotation.Nullable
     public NullableMilestone getMilestone() {
@@ -397,7 +397,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the node_id property value. The node_id property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getNodeId() {
@@ -405,7 +405,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the number property value. The number property
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getNumber() {
@@ -413,7 +413,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the patch_url property value. The patch_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getPatchUrl() {
@@ -421,7 +421,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the requested_reviewers property value. The requested_reviewers property
-     * @return a simpleUser
+     * @return a java.util.List<SimpleUser>
      */
     @jakarta.annotation.Nullable
     public java.util.List<SimpleUser> getRequestedReviewers() {
@@ -429,7 +429,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the requested_teams property value. The requested_teams property
-     * @return a team
+     * @return a java.util.List<Team>
      */
     @jakarta.annotation.Nullable
     public java.util.List<Team> getRequestedTeams() {
@@ -437,7 +437,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the review_comments_url property value. The review_comments_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getReviewCommentsUrl() {
@@ -445,7 +445,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the review_comment_url property value. The review_comment_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getReviewCommentUrl() {
@@ -453,7 +453,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the state property value. The state property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getState() {
@@ -461,7 +461,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the statuses_url property value. The statuses_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getStatusesUrl() {
@@ -469,7 +469,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the title property value. The title property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getTitle() {
@@ -485,7 +485,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the url property value. The url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getUrl() {
@@ -493,7 +493,7 @@ public class PullRequestSimple implements Parsable {
     }
     /**
      * Gets the user property value. A GitHub user.
-     * @return a nullableSimpleUser
+     * @return a NullableSimpleUser
      */
     @jakarta.annotation.Nullable
     public NullableSimpleUser getUser() {

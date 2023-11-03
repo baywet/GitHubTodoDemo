@@ -16,7 +16,6 @@ if TYPE_CHECKING:
     from .simple_user import SimpleUser
     from .team import Team
 
-
 @dataclass
 class PullRequestSimple(AdditionalDataHolder, Parsable):
     """
@@ -97,10 +96,9 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
     url: Optional[str] = None
     # A GitHub user.
     user: Optional[NullableSimpleUser] = None
-
+    
     @staticmethod
-    def create_from_discriminator_value(
-            parse_node: Optional[ParseNode] = None) -> PullRequestSimple:
+    def create_from_discriminator_value(parse_node: Optional[ParseNode] = None) -> PullRequestSimple:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -109,9 +107,8 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
         if not parse_node:
             raise TypeError("parse_node cannot be null.")
         return PullRequestSimple()
-
-    def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+    
+    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
@@ -139,95 +136,46 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
         from .team import Team
 
         fields: Dict[str, Callable[[Any], None]] = {
-            "_links":
-            lambda n: setattr(self, '_links',
-                              n.get_object_value(PullRequestSimple__links)),
-            "active_lock_reason":
-            lambda n: setattr(self, 'active_lock_reason', n.get_str_value()),
-            "assignee":
-            lambda n: setattr(self, 'assignee',
-                              n.get_object_value(NullableSimpleUser)),
-            "assignees":
-            lambda n: setattr(self, 'assignees',
-                              n.get_collection_of_object_values(SimpleUser)),
-            "author_association":
-            lambda n: setattr(self, 'author_association',
-                              n.get_enum_value(AuthorAssociation)),
-            "auto_merge":
-            lambda n: setattr(self, 'auto_merge', n.get_object_value(AutoMerge)
-                              ),
-            "base":
-            lambda n: setattr(self, 'base',
-                              n.get_object_value(PullRequestSimple_base)),
-            "body":
-            lambda n: setattr(self, 'body', n.get_str_value()),
-            "closed_at":
-            lambda n: setattr(self, 'closed_at', n.get_datetime_value()),
-            "comments_url":
-            lambda n: setattr(self, 'comments_url', n.get_str_value()),
-            "commits_url":
-            lambda n: setattr(self, 'commits_url', n.get_str_value()),
-            "created_at":
-            lambda n: setattr(self, 'created_at', n.get_datetime_value()),
-            "diff_url":
-            lambda n: setattr(self, 'diff_url', n.get_str_value()),
-            "draft":
-            lambda n: setattr(self, 'draft', n.get_bool_value()),
-            "head":
-            lambda n: setattr(self, 'head',
-                              n.get_object_value(PullRequestSimple_head)),
-            "html_url":
-            lambda n: setattr(self, 'html_url', n.get_str_value()),
-            "id":
-            lambda n: setattr(self, 'id', n.get_int_value()),
-            "issue_url":
-            lambda n: setattr(self, 'issue_url', n.get_str_value()),
-            "labels":
-            lambda n: setattr(
-                self, 'labels',
-                n.get_collection_of_object_values(PullRequestSimple_labels)),
-            "locked":
-            lambda n: setattr(self, 'locked', n.get_bool_value()),
-            "merge_commit_sha":
-            lambda n: setattr(self, 'merge_commit_sha', n.get_str_value()),
-            "merged_at":
-            lambda n: setattr(self, 'merged_at', n.get_datetime_value()),
-            "milestone":
-            lambda n: setattr(self, 'milestone',
-                              n.get_object_value(NullableMilestone)),
-            "node_id":
-            lambda n: setattr(self, 'node_id', n.get_str_value()),
-            "number":
-            lambda n: setattr(self, 'number', n.get_int_value()),
-            "patch_url":
-            lambda n: setattr(self, 'patch_url', n.get_str_value()),
-            "requested_reviewers":
-            lambda n: setattr(self, 'requested_reviewers',
-                              n.get_collection_of_object_values(SimpleUser)),
-            "requested_teams":
-            lambda n: setattr(self, 'requested_teams',
-                              n.get_collection_of_object_values(Team)),
-            "review_comment_url":
-            lambda n: setattr(self, 'review_comment_url', n.get_str_value()),
-            "review_comments_url":
-            lambda n: setattr(self, 'review_comments_url', n.get_str_value()),
-            "state":
-            lambda n: setattr(self, 'state', n.get_str_value()),
-            "statuses_url":
-            lambda n: setattr(self, 'statuses_url', n.get_str_value()),
-            "title":
-            lambda n: setattr(self, 'title', n.get_str_value()),
-            "updated_at":
-            lambda n: setattr(self, 'updated_at', n.get_datetime_value()),
-            "url":
-            lambda n: setattr(self, 'url', n.get_str_value()),
-            "user":
-            lambda n: setattr(self, 'user',
-                              n.get_object_value(NullableSimpleUser)),
+            "_links": lambda n : setattr(self, '_links', n.get_object_value(PullRequestSimple__links)),
+            "active_lock_reason": lambda n : setattr(self, 'active_lock_reason', n.get_str_value()),
+            "assignee": lambda n : setattr(self, 'assignee', n.get_object_value(NullableSimpleUser)),
+            "assignees": lambda n : setattr(self, 'assignees', n.get_collection_of_object_values(SimpleUser)),
+            "author_association": lambda n : setattr(self, 'author_association', n.get_enum_value(AuthorAssociation)),
+            "auto_merge": lambda n : setattr(self, 'auto_merge', n.get_object_value(AutoMerge)),
+            "base": lambda n : setattr(self, 'base', n.get_object_value(PullRequestSimple_base)),
+            "body": lambda n : setattr(self, 'body', n.get_str_value()),
+            "closed_at": lambda n : setattr(self, 'closed_at', n.get_datetime_value()),
+            "comments_url": lambda n : setattr(self, 'comments_url', n.get_str_value()),
+            "commits_url": lambda n : setattr(self, 'commits_url', n.get_str_value()),
+            "created_at": lambda n : setattr(self, 'created_at', n.get_datetime_value()),
+            "diff_url": lambda n : setattr(self, 'diff_url', n.get_str_value()),
+            "draft": lambda n : setattr(self, 'draft', n.get_bool_value()),
+            "head": lambda n : setattr(self, 'head', n.get_object_value(PullRequestSimple_head)),
+            "html_url": lambda n : setattr(self, 'html_url', n.get_str_value()),
+            "id": lambda n : setattr(self, 'id', n.get_int_value()),
+            "issue_url": lambda n : setattr(self, 'issue_url', n.get_str_value()),
+            "labels": lambda n : setattr(self, 'labels', n.get_collection_of_object_values(PullRequestSimple_labels)),
+            "locked": lambda n : setattr(self, 'locked', n.get_bool_value()),
+            "merge_commit_sha": lambda n : setattr(self, 'merge_commit_sha', n.get_str_value()),
+            "merged_at": lambda n : setattr(self, 'merged_at', n.get_datetime_value()),
+            "milestone": lambda n : setattr(self, 'milestone', n.get_object_value(NullableMilestone)),
+            "node_id": lambda n : setattr(self, 'node_id', n.get_str_value()),
+            "number": lambda n : setattr(self, 'number', n.get_int_value()),
+            "patch_url": lambda n : setattr(self, 'patch_url', n.get_str_value()),
+            "requested_reviewers": lambda n : setattr(self, 'requested_reviewers', n.get_collection_of_object_values(SimpleUser)),
+            "requested_teams": lambda n : setattr(self, 'requested_teams', n.get_collection_of_object_values(Team)),
+            "review_comment_url": lambda n : setattr(self, 'review_comment_url', n.get_str_value()),
+            "review_comments_url": lambda n : setattr(self, 'review_comments_url', n.get_str_value()),
+            "state": lambda n : setattr(self, 'state', n.get_str_value()),
+            "statuses_url": lambda n : setattr(self, 'statuses_url', n.get_str_value()),
+            "title": lambda n : setattr(self, 'title', n.get_str_value()),
+            "updated_at": lambda n : setattr(self, 'updated_at', n.get_datetime_value()),
+            "url": lambda n : setattr(self, 'url', n.get_str_value()),
+            "user": lambda n : setattr(self, 'user', n.get_object_value(NullableSimpleUser)),
         }
         return fields
-
-    def serialize(self, writer: SerializationWriter) -> None:
+    
+    def serialize(self,writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -261,10 +209,8 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
         writer.write_str_value("node_id", self.node_id)
         writer.write_int_value("number", self.number)
         writer.write_str_value("patch_url", self.patch_url)
-        writer.write_collection_of_object_values("requested_reviewers",
-                                                 self.requested_reviewers)
-        writer.write_collection_of_object_values("requested_teams",
-                                                 self.requested_teams)
+        writer.write_collection_of_object_values("requested_reviewers", self.requested_reviewers)
+        writer.write_collection_of_object_values("requested_teams", self.requested_teams)
         writer.write_str_value("review_comment_url", self.review_comment_url)
         writer.write_str_value("review_comments_url", self.review_comments_url)
         writer.write_str_value("state", self.state)
@@ -274,3 +220,5 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
         writer.write_str_value("url", self.url)
         writer.write_object_value("user", self.user)
         writer.write_additional_data_value(self.additional_data)
+    
+

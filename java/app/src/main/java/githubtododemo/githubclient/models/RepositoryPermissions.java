@@ -40,7 +40,7 @@ public class RepositoryPermissions implements Parsable {
     }
     /**
      * Gets the admin property value. The admin property
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getAdmin() {
@@ -62,7 +62,7 @@ public class RepositoryPermissions implements Parsable {
     }
     /**
      * Gets the maintain property value. The maintain property
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getMaintain() {
@@ -70,7 +70,7 @@ public class RepositoryPermissions implements Parsable {
     }
     /**
      * Gets the pull property value. The pull property
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getPull() {
@@ -78,7 +78,7 @@ public class RepositoryPermissions implements Parsable {
     }
     /**
      * Gets the push property value. The push property
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getPush() {
@@ -86,7 +86,7 @@ public class RepositoryPermissions implements Parsable {
     }
     /**
      * Gets the triage property value. The triage property
-     * @return a boolean
+     * @return a Boolean
      */
     @jakarta.annotation.Nullable
     public Boolean getTriage() {

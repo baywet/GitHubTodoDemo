@@ -62,7 +62,7 @@ public class NullableTeamSimple implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a nullableTeamSimple
+     * @return a NullableTeamSimple
      */
     @jakarta.annotation.Nonnull
     public static NullableTeamSimple createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -71,7 +71,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the description property value. Description of the team
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getDescription() {
@@ -100,7 +100,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the html_url property value. The html_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getHtmlUrl() {
@@ -108,7 +108,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the id property value. Unique identifier of the team
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getId() {
@@ -116,7 +116,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the ldap_dn property value. Distinguished Name (DN) that team maps to within LDAP environment
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getLdapDn() {
@@ -124,7 +124,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the members_url property value. The members_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getMembersUrl() {
@@ -132,7 +132,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the name property value. Name of the team
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getName() {
@@ -140,7 +140,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the node_id property value. The node_id property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getNodeId() {
@@ -148,7 +148,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the permission property value. Permission that the team will have for its repositories
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getPermission() {
@@ -156,7 +156,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the privacy property value. The level of privacy this team should have
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getPrivacy() {
@@ -164,7 +164,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the repositories_url property value. The repositories_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getRepositoriesUrl() {
@@ -172,7 +172,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the slug property value. The slug property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getSlug() {
@@ -180,7 +180,7 @@ public class NullableTeamSimple implements Parsable {
     }
     /**
      * Gets the url property value. URL for the team
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getUrl() {

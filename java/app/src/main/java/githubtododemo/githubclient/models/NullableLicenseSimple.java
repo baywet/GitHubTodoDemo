@@ -38,7 +38,7 @@ public class NullableLicenseSimple implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a nullableLicenseSimple
+     * @return a NullableLicenseSimple
      */
     @jakarta.annotation.Nonnull
     public static NullableLicenseSimple createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -62,7 +62,7 @@ public class NullableLicenseSimple implements Parsable {
     }
     /**
      * Gets the html_url property value. The html_url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getHtmlUrl() {
@@ -70,7 +70,7 @@ public class NullableLicenseSimple implements Parsable {
     }
     /**
      * Gets the key property value. The key property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getKey() {
@@ -78,7 +78,7 @@ public class NullableLicenseSimple implements Parsable {
     }
     /**
      * Gets the name property value. The name property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getName() {
@@ -86,7 +86,7 @@ public class NullableLicenseSimple implements Parsable {
     }
     /**
      * Gets the node_id property value. The node_id property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getNodeId() {
@@ -94,7 +94,7 @@ public class NullableLicenseSimple implements Parsable {
     }
     /**
      * Gets the spdx_id property value. The spdx_id property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getSpdxId() {
@@ -102,7 +102,7 @@ public class NullableLicenseSimple implements Parsable {
     }
     /**
      * Gets the url property value. The url property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getUrl() {

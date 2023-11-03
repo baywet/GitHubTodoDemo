@@ -52,7 +52,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the comments property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @jakarta.annotation.Nullable
     public Link getComments() {
@@ -60,7 +60,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the commits property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @jakarta.annotation.Nullable
     public Link getCommits() {
@@ -85,7 +85,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the html property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @jakarta.annotation.Nullable
     public Link getHtml() {
@@ -93,7 +93,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the issue property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @jakarta.annotation.Nullable
     public Link getIssue() {
@@ -101,7 +101,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the review_comment property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @jakarta.annotation.Nullable
     public Link getReviewComment() {
@@ -109,7 +109,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the review_comments property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @jakarta.annotation.Nullable
     public Link getReviewComments() {
@@ -117,7 +117,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the self property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @jakarta.annotation.Nullable
     public Link getSelf() {
@@ -125,7 +125,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the statuses property value. Hypermedia Link
-     * @return a link
+     * @return a Link
      */
     @jakarta.annotation.Nullable
     public Link getStatuses() {

@@ -9,7 +9,6 @@ if TYPE_CHECKING:
 
 from .entity import Entity
 
-
 @dataclass
 class AttachmentSession(Entity):
     # The content streams that are uploaded.
@@ -20,10 +19,9 @@ class AttachmentSession(Entity):
     next_expected_ranges: Optional[List[str]] = None
     # The OdataType property
     odata_type: Optional[str] = None
-
+    
     @staticmethod
-    def create_from_discriminator_value(
-            parse_node: Optional[ParseNode] = None) -> AttachmentSession:
+    def create_from_discriminator_value(parse_node: Optional[ParseNode] = None) -> AttachmentSession:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -32,9 +30,8 @@ class AttachmentSession(Entity):
         if not parse_node:
             raise TypeError("parse_node cannot be null.")
         return AttachmentSession()
-
-    def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+    
+    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
@@ -44,20 +41,15 @@ class AttachmentSession(Entity):
         from .entity import Entity
 
         fields: Dict[str, Callable[[Any], None]] = {
-            "content":
-            lambda n: setattr(self, 'content', n.get_bytes_value()),
-            "expirationDateTime":
-            lambda n: setattr(self, 'expiration_date_time',
-                              n.get_datetime_value()),
-            "nextExpectedRanges":
-            lambda n: setattr(self, 'next_expected_ranges',
-                              n.get_collection_of_primitive_values(str)),
+            "content": lambda n : setattr(self, 'content', n.get_bytes_value()),
+            "expirationDateTime": lambda n : setattr(self, 'expiration_date_time', n.get_datetime_value()),
+            "nextExpectedRanges": lambda n : setattr(self, 'next_expected_ranges', n.get_collection_of_primitive_values(str)),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
         return fields
-
-    def serialize(self, writer: SerializationWriter) -> None:
+    
+    def serialize(self,writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -67,7 +59,7 @@ class AttachmentSession(Entity):
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
         writer.write_bytes_value("content", self.content)
-        writer.write_datetime_value("expirationDateTime",
-                                    self.expiration_date_time)
-        writer.write_collection_of_primitive_values("nextExpectedRanges",
-                                                    self.next_expected_ranges)
+        writer.write_datetime_value("expirationDateTime", self.expiration_date_time)
+        writer.write_collection_of_primitive_values("nextExpectedRanges", self.next_expected_ranges)
+    
+

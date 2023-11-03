@@ -32,7 +32,7 @@ public class ValidationErrorErrors implements Parsable {
     /**
      * The value property
      */
-    private Pulls value;
+    private ValidationError_errors_value value;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
@@ -45,7 +45,7 @@ public class ValidationErrorErrors implements Parsable {
     }
     /**
      * Gets the code property value. The code property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getCode() {
@@ -53,7 +53,7 @@ public class ValidationErrorErrors implements Parsable {
     }
     /**
      * Gets the field property value. The field property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getField() {
@@ -71,12 +71,12 @@ public class ValidationErrorErrors implements Parsable {
         deserializerMap.put("index", (n) -> { this.setIndex(n.getIntegerValue()); });
         deserializerMap.put("message", (n) -> { this.setMessage(n.getStringValue()); });
         deserializerMap.put("resource", (n) -> { this.setResource(n.getStringValue()); });
-        deserializerMap.put("value", (n) -> { this.setValue(n.getObjectValue(Pulls::createFromDiscriminatorValue)); });
+        deserializerMap.put("value", (n) -> { this.setValue(n.getObjectValue(ValidationError_errors_value::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
      * Gets the index property value. The index property
-     * @return a integer
+     * @return a Integer
      */
     @jakarta.annotation.Nullable
     public Integer getIndex() {
@@ -84,7 +84,7 @@ public class ValidationErrorErrors implements Parsable {
     }
     /**
      * Gets the message property value. The message property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getMessage() {
@@ -92,7 +92,7 @@ public class ValidationErrorErrors implements Parsable {
     }
     /**
      * Gets the resource property value. The resource property
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getResource() {
@@ -100,10 +100,10 @@ public class ValidationErrorErrors implements Parsable {
     }
     /**
      * Gets the value property value. The value property
-     * @return a pulls
+     * @return a ValidationError_errors_value
      */
     @jakarta.annotation.Nullable
-    public Pulls getValue() {
+    public ValidationError_errors_value getValue() {
         return this.value;
     }
     /**
@@ -158,14 +158,14 @@ public class ValidationErrorErrors implements Parsable {
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public void setValue(@jakarta.annotation.Nullable final Pulls value) {
+    public void setValue(@jakarta.annotation.Nullable final ValidationError_errors_value value) {
         this.value = value;
     }
     /**
-     * Composed type wrapper for classes integer, string, string
+     * Composed type wrapper for classes integer, string
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
-    public static class Pulls implements ComposedTypeWrapper, Parsable {
+    public static class ValidationError_errors_value implements ComposedTypeWrapper, Parsable {
         /**
          * Composed type representation for type integer
          */
@@ -173,28 +173,22 @@ public class ValidationErrorErrors implements Parsable {
         /**
          * Composed type representation for type string
          */
-        private String pullsString;
-        /**
-         * Composed type representation for type string
-         */
         private String string;
         /**
          * Creates a new instance of the appropriate class based on discriminator value
          * @param parseNode The parse node to use to read the discriminator value and create the object
-         * @return a pulls
+         * @return a ValidationError_errors_value
          */
         @jakarta.annotation.Nonnull
-        public static Pulls createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+        public static ValidationError_errors_value createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
             Objects.requireNonNull(parseNode);
-            final Pulls result = new Pulls();
+            final ValidationError_errors_value result = new ValidationError_errors_value();
             final ParseNode mappingValueNode = parseNode.getChildNode("");
             if (mappingValueNode != null) {
                 final String mappingValue = mappingValueNode.getStringValue();
             }
             if (parseNode.getIntegerValue() != null) {
                 result.setInteger(parseNode.getIntegerValue());
-            } else if (parseNode.getStringValue() != null) {
-                result.setPullsString(parseNode.getStringValue());
             } else if (parseNode.getStringValue() != null) {
                 result.setString(parseNode.getStringValue());
             }
@@ -210,7 +204,7 @@ public class ValidationErrorErrors implements Parsable {
         }
         /**
          * Gets the integer property value. Composed type representation for type integer
-         * @return a integer
+         * @return a Integer
          */
         @jakarta.annotation.Nullable
         public Integer getInteger() {
@@ -218,15 +212,7 @@ public class ValidationErrorErrors implements Parsable {
         }
         /**
          * Gets the string property value. Composed type representation for type string
-         * @return a string
-         */
-        @jakarta.annotation.Nullable
-        public String getPullsString() {
-            return this.pullsString;
-        }
-        /**
-         * Gets the string property value. Composed type representation for type string
-         * @return a string
+         * @return a String
          */
         @jakarta.annotation.Nullable
         public String getString() {
@@ -240,8 +226,6 @@ public class ValidationErrorErrors implements Parsable {
             Objects.requireNonNull(writer);
             if (this.getInteger() != null) {
                 writer.writeIntegerValue(null, this.getInteger());
-            } else if (this.getPullsString() != null) {
-                writer.writeStringValue(null, this.getPullsString());
             } else if (this.getString() != null) {
                 writer.writeStringValue(null, this.getString());
             }
@@ -252,13 +236,6 @@ public class ValidationErrorErrors implements Parsable {
          */
         public void setInteger(@jakarta.annotation.Nullable final Integer value) {
             this.integer = value;
-        }
-        /**
-         * Sets the string property value. Composed type representation for type string
-         * @param value Value to set for the string property.
-         */
-        public void setPullsString(@jakarta.annotation.Nullable final String value) {
-            this.pullsString = value;
         }
         /**
          * Sets the string property value. Composed type representation for type string

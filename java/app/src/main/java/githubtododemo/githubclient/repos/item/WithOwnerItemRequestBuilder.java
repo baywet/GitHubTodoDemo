@@ -11,7 +11,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class WithOwnerItemRequestBuilder extends BaseRequestBuilder {
     /**
-     * Gets an item from the GitHubTodoDemo.GitHubClient.repos.item.item collection
+     * Gets an item from the githubtododemo.githubclient.repos.item.item collection
      * @param repo Unique identifier of the item
      * @return a WithRepoItemRequestBuilder
      */

@@ -38,7 +38,7 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
-     * @return a CompletableFuture of pullRequestSimple
+     * @return a CompletableFuture of java.util.List<PullRequestSimple>
      * @see <a href="https://docs.github.com/rest/reference/pulls#list-pull-requests">API method documentation</a>
      */
     @jakarta.annotation.Nonnull
@@ -48,7 +48,7 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
     /**
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a CompletableFuture of pullRequestSimple
+     * @return a CompletableFuture of java.util.List<PullRequestSimple>
      * @see <a href="https://docs.github.com/rest/reference/pulls#list-pull-requests">API method documentation</a>
      */
     @jakarta.annotation.Nonnull
@@ -74,10 +74,6 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation();
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.urlTemplate = urlTemplate;
-        requestInfo.pathParameters = pathParameters;
-        requestInfo.headers.add("Accept", "application/json");
         if (requestConfiguration != null) {
             final GetRequestConfiguration requestConfig = new GetRequestConfiguration();
             requestConfiguration.accept(requestConfig);
@@ -85,12 +81,16 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
             requestInfo.headers.putAll(requestConfig.headers);
             requestInfo.addRequestOptions(requestConfig.options);
         }
+        requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.urlTemplate = urlTemplate;
+        requestInfo.pathParameters = pathParameters;
+        requestInfo.headers.tryAdd("Accept", "application/json;q=1");
         return requestInfo;
     }
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
-     * @return a pullsRequestBuilder
+     * @return a PullsRequestBuilder
      */
     @jakarta.annotation.Nonnull
     public PullsRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
@@ -111,7 +111,7 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
          * The direction of the sort. Default: `desc` when sort is `created` or sort is not specified, otherwise `asc`.
          */
         @jakarta.annotation.Nullable
-        public String direction;
+        public GetDirectionQueryParameterType direction;
         /**
          * Filter pulls by head user or head organization and branch name in the format of `user:ref-name` or `organization:ref-name`. For example: `github:new-script-format` or `octocat:test-branch`.
          */
@@ -132,12 +132,12 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
          * What to sort results by. `popularity` will sort by the number of comments. `long-running` will sort by date created and will limit the results to pull requests that have been open for more than a month and have had activity within the past month.
          */
         @jakarta.annotation.Nullable
-        public String sort;
+        public GetSortQueryParameterType sort;
         /**
          * Either `open`, `closed`, or `all` to filter by state.
          */
         @jakarta.annotation.Nullable
-        public String state;
+        public GetStateQueryParameterType state;
     }
     /**
      * Configuration for the request such as headers, query parameters, and middleware options.

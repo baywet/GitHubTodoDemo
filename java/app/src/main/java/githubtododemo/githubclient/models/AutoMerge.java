@@ -30,7 +30,7 @@ public class AutoMerge implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a autoMerge
+     * @return a AutoMerge
      */
     @jakarta.annotation.Nonnull
     public static AutoMerge createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -39,7 +39,7 @@ public class AutoMerge implements Parsable {
     }
     /**
      * Gets the commit_message property value. Commit message for the merge commit.
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getCommitMessage() {
@@ -47,7 +47,7 @@ public class AutoMerge implements Parsable {
     }
     /**
      * Gets the commit_title property value. Title for the merge commit message.
-     * @return a string
+     * @return a String
      */
     @jakarta.annotation.Nullable
     public String getCommitTitle() {
@@ -55,7 +55,7 @@ public class AutoMerge implements Parsable {
     }
     /**
      * Gets the enabled_by property value. A GitHub user.
-     * @return a simpleUser
+     * @return a SimpleUser
      */
     @jakarta.annotation.Nullable
     public SimpleUser getEnabledBy() {
