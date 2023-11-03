@@ -58,13 +58,16 @@
 
 ## Demo - Adding the client for GitHub
 
-1. `kiota search github`
-1. `kiota search apisguru::github.com:api.github.com`
-1. `kiota show -k apisguru::github.com:api.github.com`
-1. `kiota show -k apisguru::github.com:api.github.com -i "**/pulls/**"`
-1. `kiota show -k apisguru::github.com:api.github.com -i "**/pulls/**" -e "**/comments/**" -e "**/comments"`
-1. `kiota generate -l CSharp -n "$projectName.GitHub" -o $PWD/GitHub -c GitHubClient  -d https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json -i "**/pulls/**" -e "**/comments/**" -e "**/comments"`
-1. `kiota info -d https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json -l CSharp`
+1. In VS Code hit ctrl + shift + P and search for **search for API description**, search for **GitHub**, select **api.github.com**.
+1. In the Kiota API Explorer pane, click on the funnel icon (filter) and type **pull**.
+1. Select the **GET** entry under **pull_number** with the + sign. (this is wrong on purpose for the rest of the demo)
+1. Outline the documentation icon next to the + sign.
+1. Click on the play sign (generate) and enter the following information:
+
+   - Client Name : GitHubClient
+   - Namespace Name : GitHubTodoDemo.GitHub
+   - Path : GitHub
+   - Language : CSharp
 
 ## Demo - Adding the client for Tasks
 
