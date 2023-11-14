@@ -29,7 +29,7 @@ public class App {
         final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, "repo");
         final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);
         final var gitHubClient = new GitHubServiceClient(gitHubRequestAdapter);
-        final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls().get().get();
+        final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls().get();
 
         final var microsoftGraphTokenCredentials = new DeviceCodeCredentialBuilder()
             .clientId(Constants.graphClientId)
@@ -41,7 +41,7 @@ public class App {
         final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {"graph.microsoft.com"}, "Tasks.ReadWrite");
         final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);
         final var graphClient = new MicrosoftGraphServiceClient(microsoftGraphRequestAdapter);
-        final var todoLists = graphClient.me().todo().lists().get().get();
+        final var todoLists = graphClient.me().todo().lists().get();
         final var todoList = todoLists.getValue().get(0);
         for (final var pullRequest : pullRequests) {
             final var todoTask = graphClient.me().todo().lists().byTodoTaskListId(todoList.getId()).tasks().post(new TodoTask() {{
@@ -57,7 +57,7 @@ public class App {
                         setApplicationName("GitHub");
                     }});
                 }});
-            }}).get();
+            }});
             System.out.println("Added task " + todoTask.getTitle() + " to your todo list");
         }
         

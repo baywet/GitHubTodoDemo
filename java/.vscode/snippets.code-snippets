@@ -16,7 +16,7 @@
       "                setApplicationName(\"GitHub\");",
       "            }});",
       "        }});",
-      "    }}).get();",
+      "    }});",
       "    System.out.println(\"Added task \" + todoTask.getTitle() + \" to your todo list\");",
       "}"
     ],
