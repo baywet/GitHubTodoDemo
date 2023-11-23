@@ -159,7 +159,7 @@ public class NullableMilestone implements Parsable {
         deserializerMap.put("node_id", (n) -> { this.setNodeId(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getIntegerValue()); });
         deserializerMap.put("open_issues", (n) -> { this.setOpenIssues(n.getIntegerValue()); });
-        deserializerMap.put("state", (n) -> { this.setState(n.getEnumValue(NullableMilestoneState.class)); });
+        deserializerMap.put("state", (n) -> { this.setState(n.getEnumValue(NullableMilestoneState::forValue)); });
         deserializerMap.put("title", (n) -> { this.setTitle(n.getStringValue()); });
         deserializerMap.put("updated_at", (n) -> { this.setUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("url", (n) -> { this.setUrl(n.getStringValue()); });

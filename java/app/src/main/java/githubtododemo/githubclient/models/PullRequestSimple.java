@@ -280,7 +280,7 @@ public class PullRequestSimple implements Parsable {
         deserializerMap.put("active_lock_reason", (n) -> { this.setActiveLockReason(n.getStringValue()); });
         deserializerMap.put("assignee", (n) -> { this.setAssignee(n.getObjectValue(NullableSimpleUser::createFromDiscriminatorValue)); });
         deserializerMap.put("assignees", (n) -> { this.setAssignees(n.getCollectionOfObjectValues(SimpleUser::createFromDiscriminatorValue)); });
-        deserializerMap.put("author_association", (n) -> { this.setAuthorAssociation(n.getEnumValue(AuthorAssociation.class)); });
+        deserializerMap.put("author_association", (n) -> { this.setAuthorAssociation(n.getEnumValue(AuthorAssociation::forValue)); });
         deserializerMap.put("auto_merge", (n) -> { this.setAutoMerge(n.getObjectValue(AutoMerge::createFromDiscriminatorValue)); });
         deserializerMap.put("base", (n) -> { this.setBase(n.getObjectValue(PullRequestSimpleBase::createFromDiscriminatorValue)); });
         deserializerMap.put("body", (n) -> { this.setBody(n.getStringValue()); });

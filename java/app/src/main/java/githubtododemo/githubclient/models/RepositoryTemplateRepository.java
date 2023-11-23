@@ -623,8 +623,8 @@ public class RepositoryTemplateRepository implements Parsable {
         deserializerMap.put("labels_url", (n) -> { this.setLabelsUrl(n.getStringValue()); });
         deserializerMap.put("language", (n) -> { this.setLanguage(n.getStringValue()); });
         deserializerMap.put("languages_url", (n) -> { this.setLanguagesUrl(n.getStringValue()); });
-        deserializerMap.put("merge_commit_message", (n) -> { this.setMergeCommitMessage(n.getEnumValue(RepositoryTemplateRepositoryMergeCommitMessage.class)); });
-        deserializerMap.put("merge_commit_title", (n) -> { this.setMergeCommitTitle(n.getEnumValue(RepositoryTemplateRepositoryMergeCommitTitle.class)); });
+        deserializerMap.put("merge_commit_message", (n) -> { this.setMergeCommitMessage(n.getEnumValue(RepositoryTemplateRepositoryMergeCommitMessage::forValue)); });
+        deserializerMap.put("merge_commit_title", (n) -> { this.setMergeCommitTitle(n.getEnumValue(RepositoryTemplateRepositoryMergeCommitTitle::forValue)); });
         deserializerMap.put("merges_url", (n) -> { this.setMergesUrl(n.getStringValue()); });
         deserializerMap.put("milestones_url", (n) -> { this.setMilestonesUrl(n.getStringValue()); });
         deserializerMap.put("mirror_url", (n) -> { this.setMirrorUrl(n.getStringValue()); });
@@ -640,8 +640,8 @@ public class RepositoryTemplateRepository implements Parsable {
         deserializerMap.put("pushed_at", (n) -> { this.setPushedAt(n.getStringValue()); });
         deserializerMap.put("releases_url", (n) -> { this.setReleasesUrl(n.getStringValue()); });
         deserializerMap.put("size", (n) -> { this.setSize(n.getIntegerValue()); });
-        deserializerMap.put("squash_merge_commit_message", (n) -> { this.setSquashMergeCommitMessage(n.getEnumValue(RepositoryTemplateRepositorySquashMergeCommitMessage.class)); });
-        deserializerMap.put("squash_merge_commit_title", (n) -> { this.setSquashMergeCommitTitle(n.getEnumValue(RepositoryTemplateRepositorySquashMergeCommitTitle.class)); });
+        deserializerMap.put("squash_merge_commit_message", (n) -> { this.setSquashMergeCommitMessage(n.getEnumValue(RepositoryTemplateRepositorySquashMergeCommitMessage::forValue)); });
+        deserializerMap.put("squash_merge_commit_title", (n) -> { this.setSquashMergeCommitTitle(n.getEnumValue(RepositoryTemplateRepositorySquashMergeCommitTitle::forValue)); });
         deserializerMap.put("ssh_url", (n) -> { this.setSshUrl(n.getStringValue()); });
         deserializerMap.put("stargazers_count", (n) -> { this.setStargazersCount(n.getIntegerValue()); });
         deserializerMap.put("stargazers_url", (n) -> { this.setStargazersUrl(n.getStringValue()); });
