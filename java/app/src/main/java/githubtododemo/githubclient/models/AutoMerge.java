@@ -71,7 +71,7 @@ public class AutoMerge implements Parsable {
         deserializerMap.put("commit_message", (n) -> { this.setCommitMessage(n.getStringValue()); });
         deserializerMap.put("commit_title", (n) -> { this.setCommitTitle(n.getStringValue()); });
         deserializerMap.put("enabled_by", (n) -> { this.setEnabledBy(n.getObjectValue(SimpleUser::createFromDiscriminatorValue)); });
-        deserializerMap.put("merge_method", (n) -> { this.setMergeMethod(n.getEnumValue(AutoMergeMergeMethod.class)); });
+        deserializerMap.put("merge_method", (n) -> { this.setMergeMethod(n.getEnumValue(AutoMergeMergeMethod::forValue)); });
         return deserializerMap;
     }
     /**
