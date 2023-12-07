@@ -2,7 +2,7 @@
   "descriptionHash": "6DCC9827A48104B229D5853AFA50232B20F7E87B5F47C4675CE339B4CE00A59EAD8BB1DCBC8A3C469DD6B0FF722F65EE24C34A377DD5A86FB5FB8E47A70A1B43",
   "descriptionLocation": "https://api.apis.guru/v2/specs/github.com/api.github.com/1.1.4/openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.8.1",
+  "kiotaVersion": "1.9.0",
   "clientClassName": "GitHubClient",
   "clientNamespaceName": "GitHubTodoDemo.GitHub",
   "language": "CSharp",
@@ -21,7 +21,7 @@
     "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
   ],
   "structuredMimeTypes": [
-    "application/json;q=1",
+    "application/json",
     "text/plain;q=0.9",
     "application/x-www-form-urlencoded;q=0.2",
     "multipart/form-data;q=0.1"

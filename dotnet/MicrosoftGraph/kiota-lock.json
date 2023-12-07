@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "F3E25EE7FD3B04ACC772A799055320253178492C0AD581474BB3BCE08B8DEAD0AA6C783A1364EC86544EED7F3F7CFE3E5DD97F5C1DD50A9CA3358DE01EB1936D",
+  "descriptionHash": "5777200C162487F11494FE4752C14D9D8F97A337F496980C6908F46BFF7EB28904CE299E0F8238E8D499E9A014ED7B7254E71350D1702485608E003AA2AC73CF",
   "descriptionLocation": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.8.1",
+  "kiotaVersion": "1.9.0",
   "clientClassName": "MicrosoftGraphClient",
   "clientNamespaceName": "GitHubTodoDemo.MicrosoftGraph",
   "language": "CSharp",
@@ -21,7 +21,7 @@
     "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
   ],
   "structuredMimeTypes": [
-    "application/json;q=1",
+    "application/json",
     "text/plain;q=0.9",
     "application/x-www-form-urlencoded;q=0.2",
     "multipart/form-data;q=0.1"
