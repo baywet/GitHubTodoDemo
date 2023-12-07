@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutionException;
 
 import githubtododemo.githubauthentication.GitHubAuthenticationProvider;
 import githubtododemo.githubclient.GitHubServiceClient;
-import githubtododemo.microsoftgraphclient.MicrosoftGraphServiceClient;
+import githubtododemo.microsoftgraphclient.MicrosoftGraphClient;
 import githubtododemo.microsoftgraphclient.models.DateTimeTimeZone;
 import githubtododemo.microsoftgraphclient.models.Importance;
 import githubtododemo.microsoftgraphclient.models.LinkedResource;
@@ -40,7 +40,7 @@ public class App {
             }).build();
         final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {"graph.microsoft.com"}, "Tasks.ReadWrite");
         final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);
-        final var graphClient = new MicrosoftGraphServiceClient(microsoftGraphRequestAdapter);
+        final var graphClient = new MicrosoftGraphClient(microsoftGraphRequestAdapter);
         final var todoLists = graphClient.me().todo().lists().get();
         final var todoList = todoLists.getValue().get(0);
         for (final var pullRequest : pullRequests) {
