@@ -4,12 +4,12 @@
 
 1. Windows terminal `winget install Microsoft.WindowsTerminal`.
 1. PowerShell core `winget install Microsoft.PowerShell`.
-1. Dotnet `winget install Microsoft.DotNet.SDK.7`.
+1. Dotnet `winget install Microsoft.DotNet.SDK.8`.
 1. Kiota installed `dotnet tool install -g Microsoft.OpenAPI.Kiota --prerelease`.
 1. Java `winget install EclipseAdoptium.Temurin.18.JDK`.
 1. VSCode `winget install Microsoft.VisualStudioCode`.
 1. Gradle `choco install gradle`.
-1. Edit the following configuration file `%USERPROFILE%\.dotnet\tools\.store\microsoft.openapi.kiota\<kiota-version>\microsoft.openapi.kiota\<kiota-version>\tools\net7.0\any\appsettings.json` to contain the following entry under `Generation`.
+1. Edit the following configuration file `%USERPROFILE%\.dotnet\tools\.store\microsoft.openapi.kiota\<kiota-version>\microsoft.openapi.kiota\<kiota-version>\tools\net8.0\any\appsettings.json` to contain the following entry under `Generation`.
 
    ```json
    "DisabledValidationRules": ["all"]
