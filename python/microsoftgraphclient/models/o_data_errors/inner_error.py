@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
 
+
 @dataclass
 class InnerError(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -17,9 +18,10 @@ class InnerError(AdditionalDataHolder, Parsable):
     odata_type: Optional[str] = None
     # Request Id as tracked internally by the service
     request_id: Optional[str] = None
-    
+
     @staticmethod
-    def create_from_discriminator_value(parse_node: Optional[ParseNode] = None) -> InnerError:
+    def create_from_discriminator_value(
+            parse_node: Optional[ParseNode] = None) -> InnerError:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -28,21 +30,26 @@ class InnerError(AdditionalDataHolder, Parsable):
         if not parse_node:
             raise TypeError("parse_node cannot be null.")
         return InnerError()
-    
-    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
         """
         fields: Dict[str, Callable[[Any], None]] = {
-            "client-request-id": lambda n : setattr(self, 'client_request_id', n.get_str_value()),
-            "date": lambda n : setattr(self, 'date', n.get_datetime_value()),
-            "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
-            "request-id": lambda n : setattr(self, 'request_id', n.get_str_value()),
+            "client-request-id":
+            lambda n: setattr(self, 'client_request_id', n.get_str_value()),
+            "date":
+            lambda n: setattr(self, 'date', n.get_datetime_value()),
+            "@odata.type":
+            lambda n: setattr(self, 'odata_type', n.get_str_value()),
+            "request-id":
+            lambda n: setattr(self, 'request_id', n.get_str_value()),
         }
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -55,5 +62,3 @@ class InnerError(AdditionalDataHolder, Parsable):
         writer.write_str_value("@odata.type", self.odata_type)
         writer.write_str_value("request-id", self.request_id)
         writer.write_additional_data_value(self.additional_data)
-    
-

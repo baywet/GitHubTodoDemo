@@ -11,6 +11,7 @@ if TYPE_CHECKING:
 
 from .entity import Entity
 
+
 @dataclass
 class TodoTaskList(Entity):
     # The name of the task list.
@@ -27,9 +28,10 @@ class TodoTaskList(Entity):
     tasks: Optional[List[TodoTask]] = None
     # The wellknownListName property
     wellknown_list_name: Optional[WellknownListName] = None
-    
+
     @staticmethod
-    def create_from_discriminator_value(parse_node: Optional[ParseNode] = None) -> TodoTaskList:
+    def create_from_discriminator_value(
+            parse_node: Optional[ParseNode] = None) -> TodoTaskList:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -38,8 +40,9 @@ class TodoTaskList(Entity):
         if not parse_node:
             raise TypeError("parse_node cannot be null.")
         return TodoTaskList()
-    
-    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
@@ -55,18 +58,27 @@ class TodoTaskList(Entity):
         from .wellknown_list_name import WellknownListName
 
         fields: Dict[str, Callable[[Any], None]] = {
-            "displayName": lambda n : setattr(self, 'display_name', n.get_str_value()),
-            "extensions": lambda n : setattr(self, 'extensions', n.get_collection_of_object_values(Extension)),
-            "isOwner": lambda n : setattr(self, 'is_owner', n.get_bool_value()),
-            "isShared": lambda n : setattr(self, 'is_shared', n.get_bool_value()),
-            "tasks": lambda n : setattr(self, 'tasks', n.get_collection_of_object_values(TodoTask)),
-            "wellknownListName": lambda n : setattr(self, 'wellknown_list_name', n.get_enum_value(WellknownListName)),
+            "displayName":
+            lambda n: setattr(self, 'display_name', n.get_str_value()),
+            "extensions":
+            lambda n: setattr(self, 'extensions',
+                              n.get_collection_of_object_values(Extension)),
+            "isOwner":
+            lambda n: setattr(self, 'is_owner', n.get_bool_value()),
+            "isShared":
+            lambda n: setattr(self, 'is_shared', n.get_bool_value()),
+            "tasks":
+            lambda n: setattr(self, 'tasks',
+                              n.get_collection_of_object_values(TodoTask)),
+            "wellknownListName":
+            lambda n: setattr(self, 'wellknown_list_name',
+                              n.get_enum_value(WellknownListName)),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -81,5 +93,3 @@ class TodoTaskList(Entity):
         writer.write_bool_value("isShared", self.is_shared)
         writer.write_collection_of_object_values("tasks", self.tasks)
         writer.write_enum_value("wellknownListName", self.wellknown_list_name)
-    
-
