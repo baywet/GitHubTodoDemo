@@ -12,7 +12,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item {
     /// </summary>
     public class WithOwnerItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Gets an item from the GitHubTodoDemo.GitHub.repos.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the repository. The name is not case sensitive.</param>
         public WithRepoItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("repo", position);

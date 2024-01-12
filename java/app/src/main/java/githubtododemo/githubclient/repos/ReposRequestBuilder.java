@@ -12,7 +12,7 @@ import java.util.Objects;
 public class ReposRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the githubtododemo.githubclient.repos.item collection
-     * @param owner Unique identifier of the item
+     * @param owner The account owner of the repository. The name is not case sensitive.
      * @return a WithOwnerItemRequestBuilder
      */
     @jakarta.annotation.Nonnull

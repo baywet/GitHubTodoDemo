@@ -3,7 +3,7 @@ package githubtododemo.githubclient.repos.item.item.pulls;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
-import com.microsoft.kiota.QueryParameter;
+import com.microsoft.kiota.QueryParameters;
 import com.microsoft.kiota.RequestAdapter;
 import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
@@ -92,7 +92,7 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
-    public class GetQueryParameters {
+    public class GetQueryParameters implements QueryParameters {
         /**
          * Filter pulls by base branch name. Example: `gh-pages`.
          */
@@ -116,7 +116,6 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
         /**
          * The number of results per page (max 100).
          */
-        @QueryParameter(name = "per_page")
         @jakarta.annotation.Nullable
         public Integer perPage;
         /**
@@ -129,6 +128,22 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
          */
         @jakarta.annotation.Nullable
         public GetStateQueryParameterType state;
+        /**
+         * Extracts the query parameters into a map for the URI template parsing.
+         * @return a Map<String, Object>
+         */
+        @jakarta.annotation.Nonnull
+        public Map<String, Object> toQueryParameters() {
+            final Map<String, Object> allQueryParams = new HashMap();
+            allQueryParams.put("direction", direction);
+            allQueryParams.put("sort", sort);
+            allQueryParams.put("state", state);
+            allQueryParams.put("base", base);
+            allQueryParams.put("head", head);
+            allQueryParams.put("page", page);
+            allQueryParams.put("per_page", perPage);
+            return allQueryParams;
+        }
     }
     /**
      * Configuration for the request such as headers, query parameters, and middleware options.

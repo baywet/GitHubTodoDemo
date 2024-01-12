@@ -32,7 +32,7 @@ public class ValidationErrorErrors implements Parsable {
     /**
      * The value property
      */
-    private ValidationError_errors_value value;
+    private ValidationErrorErrorsValue value;
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
@@ -71,7 +71,7 @@ public class ValidationErrorErrors implements Parsable {
         deserializerMap.put("index", (n) -> { this.setIndex(n.getIntegerValue()); });
         deserializerMap.put("message", (n) -> { this.setMessage(n.getStringValue()); });
         deserializerMap.put("resource", (n) -> { this.setResource(n.getStringValue()); });
-        deserializerMap.put("value", (n) -> { this.setValue(n.getObjectValue(ValidationError_errors_value::createFromDiscriminatorValue)); });
+        deserializerMap.put("value", (n) -> { this.setValue(n.getObjectValue(ValidationErrorErrorsValue::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -100,10 +100,10 @@ public class ValidationErrorErrors implements Parsable {
     }
     /**
      * Gets the value property value. The value property
-     * @return a ValidationError_errors_value
+     * @return a ValidationErrorErrorsValue
      */
     @jakarta.annotation.Nullable
-    public ValidationError_errors_value getValue() {
+    public ValidationErrorErrorsValue getValue() {
         return this.value;
     }
     /**
@@ -158,14 +158,14 @@ public class ValidationErrorErrors implements Parsable {
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public void setValue(@jakarta.annotation.Nullable final ValidationError_errors_value value) {
+    public void setValue(@jakarta.annotation.Nullable final ValidationErrorErrorsValue value) {
         this.value = value;
     }
     /**
      * Composed type wrapper for classes integer, string
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
-    public static class ValidationError_errors_value implements ComposedTypeWrapper, Parsable {
+    public static class ValidationErrorErrorsValue implements ComposedTypeWrapper, Parsable {
         /**
          * Composed type representation for type integer
          */
@@ -177,12 +177,12 @@ public class ValidationErrorErrors implements Parsable {
         /**
          * Creates a new instance of the appropriate class based on discriminator value
          * @param parseNode The parse node to use to read the discriminator value and create the object
-         * @return a ValidationError_errors_value
+         * @return a ValidationErrorErrorsValue
          */
         @jakarta.annotation.Nonnull
-        public static ValidationError_errors_value createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+        public static ValidationErrorErrorsValue createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
             Objects.requireNonNull(parseNode);
-            final ValidationError_errors_value result = new ValidationError_errors_value();
+            final ValidationErrorErrorsValue result = new ValidationErrorErrorsValue();
             final ParseNode mappingValueNode = parseNode.getChildNode("");
             if (mappingValueNode != null) {
                 final String mappingValue = mappingValueNode.getStringValue();

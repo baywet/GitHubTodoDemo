@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "5777200C162487F11494FE4752C14D9D8F97A337F496980C6908F46BFF7EB28904CE299E0F8238E8D499E9A014ED7B7254E71350D1702485608E003AA2AC73CF",
+  "descriptionHash": "8D31B5274C07301D0AC9CE36A5B53F6CE651D46AADA5EBDCD6312E009B888DB2D91F7898EE2C7F5BECC1EB30B0AE4B8C71AB1E3B02E5CF0C4DE123AB38194FEB",
   "descriptionLocation": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.9.0",
+  "kiotaVersion": "1.11.0",
   "clientClassName": "MicrosoftGraphClient",
   "clientNamespaceName": "githubtododemo.microsoftgraphclient",
   "language": "Java",
