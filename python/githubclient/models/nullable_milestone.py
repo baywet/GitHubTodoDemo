@@ -2,11 +2,9 @@ from __future__ import annotations
 import datetime
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
-
-if TYPE_CHECKING:
-    from .nullable_milestone_state import NullableMilestone_state
-    from .nullable_simple_user import NullableSimpleUser
+from typing import Any, Callable, Dict, List, Optional, Union
+from .nullable_milestone_state import NullableMilestone_state
+from .nullable_simple_user import NullableSimpleUser
 
 
 @dataclass
