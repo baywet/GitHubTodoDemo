@@ -16,7 +16,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists {
     /// </summary>
     public class ListsRequestBuilder : BaseRequestBuilder {
         /// <summary>Gets an item from the GitHubTodoDemo.MicrosoftGraph.me.todo.lists.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of todoTaskList</param>
         public TodoTaskListItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("todoTaskList%2Did", position);

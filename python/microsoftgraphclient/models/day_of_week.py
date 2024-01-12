@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class DayOfWeek(str, Enum):
     Sunday = "sunday",
     Monday = "monday",
@@ -9,3 +8,4 @@ class DayOfWeek(str, Enum):
     Thursday = "thursday",
     Friday = "friday",
     Saturday = "saturday",
+
