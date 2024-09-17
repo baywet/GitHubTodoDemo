@@ -359,7 +359,7 @@ public class RepositoryTemplateRepository implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a RepositoryTemplateRepository
+     * @return a {@link RepositoryTemplateRepository}
      */
     @jakarta.annotation.Nonnull
     public static RepositoryTemplateRepository createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -368,7 +368,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the allow_auto_merge property value. The allow_auto_merge property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getAllowAutoMerge() {
@@ -376,7 +376,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the allow_merge_commit property value. The allow_merge_commit property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getAllowMergeCommit() {
@@ -384,7 +384,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the allow_rebase_merge property value. The allow_rebase_merge property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getAllowRebaseMerge() {
@@ -392,7 +392,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the allow_squash_merge property value. The allow_squash_merge property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getAllowSquashMerge() {
@@ -400,7 +400,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the allow_update_branch property value. The allow_update_branch property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getAllowUpdateBranch() {
@@ -408,7 +408,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the archived property value. The archived property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getArchived() {
@@ -416,7 +416,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the archive_url property value. The archive_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getArchiveUrl() {
@@ -424,7 +424,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the assignees_url property value. The assignees_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getAssigneesUrl() {
@@ -432,7 +432,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the blobs_url property value. The blobs_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getBlobsUrl() {
@@ -440,7 +440,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the branches_url property value. The branches_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getBranchesUrl() {
@@ -448,7 +448,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the clone_url property value. The clone_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCloneUrl() {
@@ -456,7 +456,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the collaborators_url property value. The collaborators_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCollaboratorsUrl() {
@@ -464,7 +464,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the comments_url property value. The comments_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCommentsUrl() {
@@ -472,7 +472,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the commits_url property value. The commits_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCommitsUrl() {
@@ -480,7 +480,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the compare_url property value. The compare_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCompareUrl() {
@@ -488,7 +488,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the contents_url property value. The contents_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getContentsUrl() {
@@ -496,7 +496,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the contributors_url property value. The contributors_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getContributorsUrl() {
@@ -504,7 +504,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the created_at property value. The created_at property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCreatedAt() {
@@ -512,7 +512,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the default_branch property value. The default_branch property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getDefaultBranch() {
@@ -520,7 +520,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the delete_branch_on_merge property value. The delete_branch_on_merge property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getDeleteBranchOnMerge() {
@@ -528,7 +528,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the deployments_url property value. The deployments_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getDeploymentsUrl() {
@@ -536,7 +536,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the description property value. The description property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getDescription() {
@@ -544,7 +544,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the disabled property value. The disabled property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getDisabled() {
@@ -552,7 +552,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the downloads_url property value. The downloads_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getDownloadsUrl() {
@@ -560,7 +560,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the events_url property value. The events_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getEventsUrl() {
@@ -568,7 +568,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -664,7 +664,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the fork property value. The fork property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getFork() {
@@ -672,7 +672,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the forks_count property value. The forks_count property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getForksCount() {
@@ -680,7 +680,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the forks_url property value. The forks_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getForksUrl() {
@@ -688,7 +688,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the full_name property value. The full_name property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getFullName() {
@@ -696,7 +696,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the git_commits_url property value. The git_commits_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getGitCommitsUrl() {
@@ -704,7 +704,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the git_refs_url property value. The git_refs_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getGitRefsUrl() {
@@ -712,7 +712,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the git_tags_url property value. The git_tags_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getGitTagsUrl() {
@@ -720,7 +720,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the git_url property value. The git_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getGitUrl() {
@@ -728,7 +728,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the has_downloads property value. The has_downloads property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getHasDownloads() {
@@ -736,7 +736,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the has_issues property value. The has_issues property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getHasIssues() {
@@ -744,7 +744,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the has_pages property value. The has_pages property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getHasPages() {
@@ -752,7 +752,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the has_projects property value. The has_projects property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getHasProjects() {
@@ -760,7 +760,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the has_wiki property value. The has_wiki property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getHasWiki() {
@@ -768,7 +768,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the homepage property value. The homepage property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getHomepage() {
@@ -776,7 +776,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the hooks_url property value. The hooks_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getHooksUrl() {
@@ -784,7 +784,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the html_url property value. The html_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getHtmlUrl() {
@@ -792,7 +792,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the id property value. The id property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getId() {
@@ -800,7 +800,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the issue_comment_url property value. The issue_comment_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getIssueCommentUrl() {
@@ -808,7 +808,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the issue_events_url property value. The issue_events_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getIssueEventsUrl() {
@@ -816,7 +816,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the issues_url property value. The issues_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getIssuesUrl() {
@@ -824,7 +824,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the is_template property value. The is_template property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getIsTemplate() {
@@ -832,7 +832,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the keys_url property value. The keys_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getKeysUrl() {
@@ -840,7 +840,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the labels_url property value. The labels_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getLabelsUrl() {
@@ -848,7 +848,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the language property value. The language property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getLanguage() {
@@ -856,7 +856,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the languages_url property value. The languages_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getLanguagesUrl() {
@@ -864,7 +864,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the merge_commit_message property value. The default value for a merge commit message.- `PR_TITLE` - default to the pull request's title.- `PR_BODY` - default to the pull request's body.- `BLANK` - default to a blank commit message.
-     * @return a RepositoryTemplateRepositoryMergeCommitMessage
+     * @return a {@link RepositoryTemplateRepositoryMergeCommitMessage}
      */
     @jakarta.annotation.Nullable
     public RepositoryTemplateRepositoryMergeCommitMessage getMergeCommitMessage() {
@@ -872,7 +872,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the merge_commit_title property value. The default value for a merge commit title.- `PR_TITLE` - default to the pull request's title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
-     * @return a RepositoryTemplateRepositoryMergeCommitTitle
+     * @return a {@link RepositoryTemplateRepositoryMergeCommitTitle}
      */
     @jakarta.annotation.Nullable
     public RepositoryTemplateRepositoryMergeCommitTitle getMergeCommitTitle() {
@@ -880,7 +880,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the merges_url property value. The merges_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getMergesUrl() {
@@ -888,7 +888,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the milestones_url property value. The milestones_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getMilestonesUrl() {
@@ -896,7 +896,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the mirror_url property value. The mirror_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getMirrorUrl() {
@@ -904,7 +904,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the name property value. The name property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getName() {
@@ -912,7 +912,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the network_count property value. The network_count property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getNetworkCount() {
@@ -920,7 +920,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the node_id property value. The node_id property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getNodeId() {
@@ -928,7 +928,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the notifications_url property value. The notifications_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getNotificationsUrl() {
@@ -936,7 +936,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the open_issues_count property value. The open_issues_count property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getOpenIssuesCount() {
@@ -944,7 +944,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the owner property value. The owner property
-     * @return a RepositoryTemplateRepositoryOwner
+     * @return a {@link RepositoryTemplateRepositoryOwner}
      */
     @jakarta.annotation.Nullable
     public RepositoryTemplateRepositoryOwner getOwner() {
@@ -952,7 +952,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the permissions property value. The permissions property
-     * @return a RepositoryTemplateRepositoryPermissions
+     * @return a {@link RepositoryTemplateRepositoryPermissions}
      */
     @jakarta.annotation.Nullable
     public RepositoryTemplateRepositoryPermissions getPermissions() {
@@ -960,7 +960,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the private property value. The private property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getPrivate() {
@@ -968,7 +968,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the pulls_url property value. The pulls_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getPullsUrl() {
@@ -976,7 +976,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the pushed_at property value. The pushed_at property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getPushedAt() {
@@ -984,7 +984,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the releases_url property value. The releases_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getReleasesUrl() {
@@ -992,7 +992,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the size property value. The size property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getSize() {
@@ -1000,7 +1000,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the squash_merge_commit_message property value. The default value for a squash merge commit message:- `PR_BODY` - default to the pull request's body.- `COMMIT_MESSAGES` - default to the branch's commit messages.- `BLANK` - default to a blank commit message.
-     * @return a RepositoryTemplateRepositorySquashMergeCommitMessage
+     * @return a {@link RepositoryTemplateRepositorySquashMergeCommitMessage}
      */
     @jakarta.annotation.Nullable
     public RepositoryTemplateRepositorySquashMergeCommitMessage getSquashMergeCommitMessage() {
@@ -1008,7 +1008,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the squash_merge_commit_title property value. The default value for a squash merge commit title:- `PR_TITLE` - default to the pull request's title.- `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
-     * @return a RepositoryTemplateRepositorySquashMergeCommitTitle
+     * @return a {@link RepositoryTemplateRepositorySquashMergeCommitTitle}
      */
     @jakarta.annotation.Nullable
     public RepositoryTemplateRepositorySquashMergeCommitTitle getSquashMergeCommitTitle() {
@@ -1016,7 +1016,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the ssh_url property value. The ssh_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSshUrl() {
@@ -1024,7 +1024,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the stargazers_count property value. The stargazers_count property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getStargazersCount() {
@@ -1032,7 +1032,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the stargazers_url property value. The stargazers_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getStargazersUrl() {
@@ -1040,7 +1040,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the statuses_url property value. The statuses_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getStatusesUrl() {
@@ -1048,7 +1048,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the subscribers_count property value. The subscribers_count property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getSubscribersCount() {
@@ -1056,7 +1056,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the subscribers_url property value. The subscribers_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSubscribersUrl() {
@@ -1064,7 +1064,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the subscription_url property value. The subscription_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSubscriptionUrl() {
@@ -1072,7 +1072,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the svn_url property value. The svn_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSvnUrl() {
@@ -1080,7 +1080,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the tags_url property value. The tags_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getTagsUrl() {
@@ -1088,7 +1088,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the teams_url property value. The teams_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getTeamsUrl() {
@@ -1096,7 +1096,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the temp_clone_token property value. The temp_clone_token property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getTempCloneToken() {
@@ -1104,7 +1104,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the topics property value. The topics property
-     * @return a java.util.List<String>
+     * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
     public java.util.List<String> getTopics() {
@@ -1112,7 +1112,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the trees_url property value. The trees_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getTreesUrl() {
@@ -1120,7 +1120,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the updated_at property value. The updated_at property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getUpdatedAt() {
@@ -1128,7 +1128,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the url property value. The url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getUrl() {
@@ -1136,7 +1136,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the use_squash_pr_title_as_default property value. The use_squash_pr_title_as_default property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getUseSquashPrTitleAsDefault() {
@@ -1144,7 +1144,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the visibility property value. The visibility property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getVisibility() {
@@ -1152,7 +1152,7 @@ public class RepositoryTemplateRepository implements Parsable {
     }
     /**
      * Gets the watchers_count property value. The watchers_count property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getWatchersCount() {

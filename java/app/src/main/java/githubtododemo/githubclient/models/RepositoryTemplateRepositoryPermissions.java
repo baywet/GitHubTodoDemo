@@ -31,7 +31,7 @@ public class RepositoryTemplateRepositoryPermissions implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a RepositoryTemplateRepositoryPermissions
+     * @return a {@link RepositoryTemplateRepositoryPermissions}
      */
     @jakarta.annotation.Nonnull
     public static RepositoryTemplateRepositoryPermissions createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -40,7 +40,7 @@ public class RepositoryTemplateRepositoryPermissions implements Parsable {
     }
     /**
      * Gets the admin property value. The admin property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getAdmin() {
@@ -48,7 +48,7 @@ public class RepositoryTemplateRepositoryPermissions implements Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -62,7 +62,7 @@ public class RepositoryTemplateRepositoryPermissions implements Parsable {
     }
     /**
      * Gets the maintain property value. The maintain property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getMaintain() {
@@ -70,7 +70,7 @@ public class RepositoryTemplateRepositoryPermissions implements Parsable {
     }
     /**
      * Gets the pull property value. The pull property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getPull() {
@@ -78,7 +78,7 @@ public class RepositoryTemplateRepositoryPermissions implements Parsable {
     }
     /**
      * Gets the push property value. The push property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getPush() {
@@ -86,7 +86,7 @@ public class RepositoryTemplateRepositoryPermissions implements Parsable {
     }
     /**
      * Gets the triage property value. The triage property
-     * @return a Boolean
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getTriage() {

@@ -13,7 +13,7 @@ public class TodoTaskCollectionResponse extends BaseCollectionPaginationCountRes
      */
     private java.util.List<TodoTask> value;
     /**
-     * Instantiates a new TodoTaskCollectionResponse and sets the default values.
+     * Instantiates a new {@link TodoTaskCollectionResponse} and sets the default values.
      */
     public TodoTaskCollectionResponse() {
         super();
@@ -21,7 +21,7 @@ public class TodoTaskCollectionResponse extends BaseCollectionPaginationCountRes
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a TodoTaskCollectionResponse
+     * @return a {@link TodoTaskCollectionResponse}
      */
     @jakarta.annotation.Nonnull
     public static TodoTaskCollectionResponse createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -30,7 +30,7 @@ public class TodoTaskCollectionResponse extends BaseCollectionPaginationCountRes
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -40,7 +40,7 @@ public class TodoTaskCollectionResponse extends BaseCollectionPaginationCountRes
     }
     /**
      * Gets the value property value. The value property
-     * @return a java.util.List<TodoTask>
+     * @return a {@link java.util.List<TodoTask>}
      */
     @jakarta.annotation.Nullable
     public java.util.List<TodoTask> getValue() {

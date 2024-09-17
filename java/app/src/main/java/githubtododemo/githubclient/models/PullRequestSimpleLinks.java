@@ -43,7 +43,7 @@ public class PullRequestSimpleLinks implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a PullRequestSimpleLinks
+     * @return a {@link PullRequestSimpleLinks}
      */
     @jakarta.annotation.Nonnull
     public static PullRequestSimpleLinks createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -52,7 +52,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the comments property value. Hypermedia Link
-     * @return a Link
+     * @return a {@link Link}
      */
     @jakarta.annotation.Nullable
     public Link getComments() {
@@ -60,7 +60,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the commits property value. Hypermedia Link
-     * @return a Link
+     * @return a {@link Link}
      */
     @jakarta.annotation.Nullable
     public Link getCommits() {
@@ -68,7 +68,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -85,7 +85,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the html property value. Hypermedia Link
-     * @return a Link
+     * @return a {@link Link}
      */
     @jakarta.annotation.Nullable
     public Link getHtml() {
@@ -93,7 +93,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the issue property value. Hypermedia Link
-     * @return a Link
+     * @return a {@link Link}
      */
     @jakarta.annotation.Nullable
     public Link getIssue() {
@@ -101,7 +101,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the review_comment property value. Hypermedia Link
-     * @return a Link
+     * @return a {@link Link}
      */
     @jakarta.annotation.Nullable
     public Link getReviewComment() {
@@ -109,7 +109,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the review_comments property value. Hypermedia Link
-     * @return a Link
+     * @return a {@link Link}
      */
     @jakarta.annotation.Nullable
     public Link getReviewComments() {
@@ -117,7 +117,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the self property value. Hypermedia Link
-     * @return a Link
+     * @return a {@link Link}
      */
     @jakarta.annotation.Nullable
     public Link getSelf() {
@@ -125,7 +125,7 @@ public class PullRequestSimpleLinks implements Parsable {
     }
     /**
      * Gets the statuses property value. Hypermedia Link
-     * @return a Link
+     * @return a {@link Link}
      */
     @jakarta.annotation.Nullable
     public Link getStatuses() {

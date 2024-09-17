@@ -39,7 +39,7 @@
       "using GitHubTodoDemo.MicrosoftGraph;",
       "using GitHubTodoDemo.MicrosoftGraph.Models;",
       "using Azure.Identity;",
-      "using Microsoft.Kiota.Http.HttpClientLibrary;",
+      "using Microsoft.Kiota.Bundle;",
       "using Microsoft.Kiota.Authentication.Azure;"
     ],
     "description": "Adds the usings for the todo tasks"
@@ -57,7 +57,7 @@
       "    }",
       ");",
       "var graphAuthenticationProvider = new AzureIdentityAuthenticationProvider(tokenCredential, new string[] {\"graph.microsoft.com\"}, scopes: new string[] { \"Tasks.ReadWrite\"});",
-      "var graphRequestAdapter = new HttpClientRequestAdapter(graphAuthenticationProvider);"
+      "var graphRequestAdapter = new DefaultRequestAdapter(graphAuthenticationProvider);"
     ],
     "description": "Adds the graph client authentication"
   },
@@ -65,7 +65,7 @@
     "prefix": "todo-github-auth",
     "body": [
       "var githubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.GithubClientId, \"repo\", new[] { \"api.github.com\" });",
-      "var githubRequestAdapter = new HttpClientRequestAdapter(githubAuthenticationProvider);"
+      "var githubRequestAdapter = new DefaultRequestAdapter(githubAuthenticationProvider);"
     ],
     "description": "Adds the github client authentication"
   }
