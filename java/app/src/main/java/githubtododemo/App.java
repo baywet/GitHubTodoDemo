@@ -16,7 +16,7 @@ import githubtododemo.microsoftgraphclient.models.Importance;
 import githubtododemo.microsoftgraphclient.models.LinkedResource;
 import githubtododemo.microsoftgraphclient.models.TodoTask;
 
-import com.microsoft.kiota.http.OkHttpRequestAdapter;
+import com.microsoft.kiota.bundle.DefaultRequestAdapter;
 import com.microsoft.kiota.authentication.AzureIdentityAuthenticationProvider;
 import com.azure.identity.DeviceCodeCredentialBuilder;
 
@@ -27,7 +27,7 @@ public class App {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
         final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, "repo");
-        final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);
+        final var gitHubRequestAdapter = new DefaultRequestAdapter(gitHubAuthenticationProvider);
         final var gitHubClient = new GitHubServiceClient(gitHubRequestAdapter);
         final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls().get();
 
@@ -39,7 +39,7 @@ public class App {
                 System.out.println(challenge.getMessage());
             }).build();
         final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {"graph.microsoft.com"}, "Tasks.ReadWrite");
-        final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);
+        final var microsoftGraphRequestAdapter = new DefaultRequestAdapter(microsoftGraphAuthenticationProvider);
         final var graphClient = new MicrosoftGraphClient(microsoftGraphRequestAdapter);
         final var todoLists = graphClient.me().todo().lists().get();
         final var todoList = todoLists.getValue().get(0);
