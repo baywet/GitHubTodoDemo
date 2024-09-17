@@ -48,6 +48,10 @@
 1. Code open to the blank console application.
 1. A windows terminal open with PowerShell core cd'ed into the dotnet project repository.
 
+   ```PowerShell
+   $Env:KIOTA_CONFIG_PREVIEW = $true
+   ```
+
 ## Demo - Adding the client for GitHub
 
 1. In VS Code hit ctrl + shift + P and search for **search for API description**, search for **GitHub**, select **api.github.com**.
@@ -66,18 +70,13 @@
 1. `kiota search todo`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists"`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
-1. `kiota generate -l Java -n githubtododemo.microsoftgraphclient -o $PWD/app/src/main/java/githubtododemo/microsoftgraphclient -c MicrosoftGraphServiceClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
+1. `kiota client add -l Java -n githubtododemo.microsoftgraphclient -o $PWD/app/src/main/java/githubtododemo/microsoftgraphclient -c MicrosoftGraphServiceClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
 1. `kiota info -l java`
 1. Edit `app/build.gradle` and in the **dependencies** section add the following.
 
    ```groovy
-   implementation 'com.microsoft.kiota:microsoft-kiota-abstractions:0.7.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-http-okHttp:0.7.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-form:0.7.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-json:0.7.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-authentication-azure:0.7.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-text:0.7.4'
-   implementation 'com.microsoft.kiota:microsoft-kiota-serialization-multipart:0.7.4'
+   implementation 'com.microsoft.kiota:microsoft-kiota-http-okHttp:1.4.0'
+   implementation 'com.microsoft.kiota:microsoft-kiota-authentication-azure:1.4.0'
    implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
    implementation 'com.azure:azure-identity:1.10.1'
    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
@@ -131,7 +130,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, "repo");
-        final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);
+        final var gitHubRequestAdapter = new DefaultRequestAdapter(gitHubAuthenticationProvider);
         final var gitHubClient = new GitHubServiceClient(gitHubRequestAdapter);
         final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls().get().get();
 
@@ -143,7 +142,7 @@ public class App {
                 System.out.println(challenge.getMessage());
             }).build();
         final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {"graph.microsoft.com"}, "Tasks.ReadWrite");
-        final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);
+        final var microsoftGraphRequestAdapter = new DefaultRequestAdapter(microsoftGraphAuthenticationProvider);
         final var graphClient = new MicrosoftGraphServiceClient(microsoftGraphRequestAdapter);
         final var todoLists = graphClient.me().todo().lists().get().get();
         final var todoList = todoLists.getValue().get(0);
