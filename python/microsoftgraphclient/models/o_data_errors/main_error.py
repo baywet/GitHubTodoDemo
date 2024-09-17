@@ -7,6 +7,7 @@ if TYPE_CHECKING:
     from .error_details import ErrorDetails
     from .inner_error import InnerError
 
+
 @dataclass
 class MainError(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -22,7 +23,7 @@ class MainError(AdditionalDataHolder, Parsable):
     message: Optional[str] = None
     # The target property
     target: Optional[str] = None
-    
+
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> MainError:
         """
@@ -33,8 +34,9 @@ class MainError(AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return MainError()
-    
-    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
@@ -46,15 +48,22 @@ class MainError(AdditionalDataHolder, Parsable):
         from .inner_error import InnerError
 
         fields: Dict[str, Callable[[Any], None]] = {
-            "code": lambda n : setattr(self, 'code', n.get_str_value()),
-            "details": lambda n : setattr(self, 'details', n.get_collection_of_object_values(ErrorDetails)),
-            "innerError": lambda n : setattr(self, 'inner_error', n.get_object_value(InnerError)),
-            "message": lambda n : setattr(self, 'message', n.get_str_value()),
-            "target": lambda n : setattr(self, 'target', n.get_str_value()),
+            "code":
+            lambda n: setattr(self, 'code', n.get_str_value()),
+            "details":
+            lambda n: setattr(self, 'details',
+                              n.get_collection_of_object_values(ErrorDetails)),
+            "innerError":
+            lambda n: setattr(self, 'inner_error',
+                              n.get_object_value(InnerError)),
+            "message":
+            lambda n: setattr(self, 'message', n.get_str_value()),
+            "target":
+            lambda n: setattr(self, 'target', n.get_str_value()),
         }
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -68,5 +77,3 @@ class MainError(AdditionalDataHolder, Parsable):
         writer.write_str_value("message", self.message)
         writer.write_str_value("target", self.target)
         writer.write_additional_data_value(self.additional_data)
-    
-

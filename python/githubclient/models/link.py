@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
 
+
 @dataclass
 class Link(AdditionalDataHolder, Parsable):
     """
@@ -13,7 +14,7 @@ class Link(AdditionalDataHolder, Parsable):
 
     # The href property
     href: Optional[str] = None
-    
+
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> Link:
         """
@@ -24,18 +25,19 @@ class Link(AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return Link()
-    
-    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
         """
         fields: Dict[str, Callable[[Any], None]] = {
-            "href": lambda n : setattr(self, 'href', n.get_str_value()),
+            "href": lambda n: setattr(self, 'href', n.get_str_value()),
         }
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -45,5 +47,3 @@ class Link(AdditionalDataHolder, Parsable):
             raise TypeError("writer cannot be null.")
         writer.write_str_value("href", self.href)
         writer.write_additional_data_value(self.additional_data)
-    
-

@@ -6,6 +6,7 @@ from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .body_type import BodyType
 
+
 @dataclass
 class ItemBody(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -17,7 +18,7 @@ class ItemBody(AdditionalDataHolder, Parsable):
     content_type: Optional[BodyType] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    
+
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> ItemBody:
         """
@@ -28,8 +29,9 @@ class ItemBody(AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return ItemBody()
-    
-    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
@@ -39,13 +41,17 @@ class ItemBody(AdditionalDataHolder, Parsable):
         from .body_type import BodyType
 
         fields: Dict[str, Callable[[Any], None]] = {
-            "content": lambda n : setattr(self, 'content', n.get_str_value()),
-            "contentType": lambda n : setattr(self, 'content_type', n.get_enum_value(BodyType)),
-            "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
+            "content":
+            lambda n: setattr(self, 'content', n.get_str_value()),
+            "contentType":
+            lambda n: setattr(self, 'content_type', n.get_enum_value(BodyType)
+                              ),
+            "@odata.type":
+            lambda n: setattr(self, 'odata_type', n.get_str_value()),
         }
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -57,5 +63,3 @@ class ItemBody(AdditionalDataHolder, Parsable):
         writer.write_enum_value("contentType", self.content_type)
         writer.write_str_value("@odata.type", self.odata_type)
         writer.write_additional_data_value(self.additional_data)
-    
-

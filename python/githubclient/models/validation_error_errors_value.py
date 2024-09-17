@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from kiota_abstractions.serialization import ComposedTypeWrapper, Parsable, ParseNode, SerializationWriter
 from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
 
+
 @dataclass
 class ValidationError_errors_value(ComposedTypeWrapper, Parsable):
     """
@@ -12,9 +13,10 @@ class ValidationError_errors_value(ComposedTypeWrapper, Parsable):
     integer: Optional[int] = None
     # Composed type representation for type str
     string: Optional[str] = None
-    
+
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> ValidationError_errors_value:
+    def create_from_discriminator_value(
+            parse_node: ParseNode) -> ValidationError_errors_value:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -32,15 +34,16 @@ class ValidationError_errors_value(ComposedTypeWrapper, Parsable):
         elif string_value := parse_node.get_str_value():
             result.string = string_value
         return result
-    
-    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
         """
         return {}
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -52,5 +55,3 @@ class ValidationError_errors_value(ComposedTypeWrapper, Parsable):
             writer.write_int_value(None, self.integer)
         elif self.string:
             writer.write_str_value(None, self.string)
-    
-

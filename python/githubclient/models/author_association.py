@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class AuthorAssociation(str, Enum):
     COLLABORATOR = "COLLABORATOR",
     CONTRIBUTOR = "CONTRIBUTOR",
@@ -9,4 +10,3 @@ class AuthorAssociation(str, Enum):
     MEMBER = "MEMBER",
     NONE_ = "NONE",
     OWNER = "OWNER",
-
