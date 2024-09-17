@@ -70,7 +70,7 @@
 1. `kiota search todo`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists"`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
-1. `kiota client add -l Java -n githubtododemo.microsoftgraphclient -o $PWD/app/src/main/java/githubtododemo/microsoftgraphclient -c MicrosoftGraphServiceClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
+1. `kiota client add -l Java -n githubtododemo.microsoftgraphclient -o $PWD/app/src/main/java/githubtododemo/microsoftgraphclient --cn MicrosoftGraphServiceClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
 1. `kiota info -l java`
 1. Edit `app/build.gradle` and in the **dependencies** section add the following.
 

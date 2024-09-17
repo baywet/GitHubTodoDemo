@@ -75,7 +75,7 @@
 1. `kiota search todo`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists"`
 1. `kiota show -k github::microsoftgraph/msgraph-metadata/graph.microsoft.com/v1.0 -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
-1. `kiota generate -l CSharp -n "$projectName.MicrosoftGraph" -o $PWD/MicrosoftGraph -c MicrosoftGraphClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
+1. `kiota client add -l CSharp -n "$projectName.MicrosoftGraph" -o $PWD/MicrosoftGraph --cn MicrosoftGraphClient -d https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml -i "/me/todo/**/tasks" -i "/me/todo/lists" -e "**/*delta*" -e "**/*count"`
 
 ## Demo - Getting pull requests from GitHub
 
@@ -88,7 +88,7 @@
    ```
 
 1. Outline we don't have a GetAsync, this is most likely because we forgot a path in the generation. It's ok let's generate again.
-1. In the console `kiota client add -l CSharp -n "$projectName.GitHub" -o $PWD/GitHub -c GitHubClient  -d https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json -i "**/pulls/**" -e "**/comments/**" -e "**/comments" -i "**/pulls"`
+1. In the console `kiota client add -l CSharp -n "$projectName.GitHub" -o $PWD/GitHub --cn GitHubClient  -d https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json -i "**/pulls/**" -e "**/comments/**" -e "**/comments" -i "**/pulls"`
 1. In program.cs finish the navigation with `.GetAsync()`
 
 ## Demo - Creating tasks on Microsoft Graph
