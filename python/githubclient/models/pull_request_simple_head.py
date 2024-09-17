@@ -7,7 +7,6 @@ if TYPE_CHECKING:
     from .nullable_simple_user import NullableSimpleUser
     from .repository import Repository
 
-
 @dataclass
 class PullRequestSimple_head(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -23,21 +22,19 @@ class PullRequestSimple_head(AdditionalDataHolder, Parsable):
     sha: Optional[str] = None
     # A GitHub user.
     user: Optional[NullableSimpleUser] = None
-
+    
     @staticmethod
-    def create_from_discriminator_value(
-            parse_node: Optional[ParseNode] = None) -> PullRequestSimple_head:
+    def create_from_discriminator_value(parse_node: ParseNode) -> PullRequestSimple_head:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
         Returns: PullRequestSimple_head
         """
-        if not parse_node:
+        if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return PullRequestSimple_head()
-
-    def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+    
+    def get_field_deserializers(self,) -> Dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: Dict[str, Callable[[ParseNode], None]]
@@ -49,27 +46,21 @@ class PullRequestSimple_head(AdditionalDataHolder, Parsable):
         from .repository import Repository
 
         fields: Dict[str, Callable[[Any], None]] = {
-            "label":
-            lambda n: setattr(self, 'label', n.get_str_value()),
-            "ref":
-            lambda n: setattr(self, 'ref', n.get_str_value()),
-            "repo":
-            lambda n: setattr(self, 'repo', n.get_object_value(Repository)),
-            "sha":
-            lambda n: setattr(self, 'sha', n.get_str_value()),
-            "user":
-            lambda n: setattr(self, 'user',
-                              n.get_object_value(NullableSimpleUser)),
+            "label": lambda n : setattr(self, 'label', n.get_str_value()),
+            "ref": lambda n : setattr(self, 'ref', n.get_str_value()),
+            "repo": lambda n : setattr(self, 'repo', n.get_object_value(Repository)),
+            "sha": lambda n : setattr(self, 'sha', n.get_str_value()),
+            "user": lambda n : setattr(self, 'user', n.get_object_value(NullableSimpleUser)),
         }
         return fields
-
-    def serialize(self, writer: SerializationWriter) -> None:
+    
+    def serialize(self,writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
         Returns: None
         """
-        if not writer:
+        if writer is None:
             raise TypeError("writer cannot be null.")
         writer.write_str_value("label", self.label)
         writer.write_str_value("ref", self.ref)
@@ -77,3 +68,5 @@ class PullRequestSimple_head(AdditionalDataHolder, Parsable):
         writer.write_str_value("sha", self.sha)
         writer.write_object_value("user", self.user)
         writer.write_additional_data_value(self.additional_data)
+    
+
