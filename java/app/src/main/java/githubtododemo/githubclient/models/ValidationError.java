@@ -27,7 +27,7 @@ public class ValidationError extends ApiException implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a ValidationError
+     * @return a {@link ValidationError}
      */
     @jakarta.annotation.Nonnull
     public static ValidationError createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -36,7 +36,7 @@ public class ValidationError extends ApiException implements Parsable {
     }
     /**
      * Gets the documentation_url property value. The documentation_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getDocumentationUrl() {
@@ -44,7 +44,7 @@ public class ValidationError extends ApiException implements Parsable {
     }
     /**
      * Gets the errors property value. The errors property
-     * @return a java.util.List<ValidationErrorErrors>
+     * @return a {@link java.util.List<ValidationErrorErrors>}
      */
     @jakarta.annotation.Nullable
     public java.util.List<ValidationErrorErrors> getErrors() {
@@ -52,7 +52,7 @@ public class ValidationError extends ApiException implements Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -64,7 +64,7 @@ public class ValidationError extends ApiException implements Parsable {
     }
     /**
      * The primary error message.
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nonnull
     @Override
@@ -73,7 +73,7 @@ public class ValidationError extends ApiException implements Parsable {
     }
     /**
      * Gets the message property value. The message property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getMessageEscaped() {

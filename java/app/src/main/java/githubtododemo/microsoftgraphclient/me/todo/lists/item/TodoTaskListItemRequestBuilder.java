@@ -12,13 +12,14 @@ import java.util.Objects;
 public class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+     * @return a {@link TasksRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public TasksRequestBuilder tasks() {
         return new TasksRequestBuilder(pathParameters, requestAdapter);
     }
     /**
-     * Instantiates a new TodoTaskListItemRequestBuilder and sets the default values.
+     * Instantiates a new {@link TodoTaskListItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
@@ -26,7 +27,7 @@ public class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/me/todo/lists/{todoTaskList%2Did}", pathParameters);
     }
     /**
-     * Instantiates a new TodoTaskListItemRequestBuilder and sets the default values.
+     * Instantiates a new {@link TodoTaskListItemRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */

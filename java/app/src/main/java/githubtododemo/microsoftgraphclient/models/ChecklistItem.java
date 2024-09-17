@@ -18,15 +18,15 @@ public class ChecklistItem extends Entity implements Parsable {
      */
     private OffsetDateTime createdDateTime;
     /**
-     * Field indicating the title of checklistItem.
+     * Indicates the title of the checklistItem.
      */
     private String displayName;
     /**
-     * State indicating whether the item is checked off or not.
+     * State that indicates whether the item is checked off or not.
      */
     private Boolean isChecked;
     /**
-     * Instantiates a new ChecklistItem and sets the default values.
+     * Instantiates a new {@link ChecklistItem} and sets the default values.
      */
     public ChecklistItem() {
         super();
@@ -34,7 +34,7 @@ public class ChecklistItem extends Entity implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a ChecklistItem
+     * @return a {@link ChecklistItem}
      */
     @jakarta.annotation.Nonnull
     public static ChecklistItem createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -43,7 +43,7 @@ public class ChecklistItem extends Entity implements Parsable {
     }
     /**
      * Gets the checkedDateTime property value. The date and time when the checklistItem was finished.
-     * @return a OffsetDateTime
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getCheckedDateTime() {
@@ -51,15 +51,15 @@ public class ChecklistItem extends Entity implements Parsable {
     }
     /**
      * Gets the createdDateTime property value. The date and time when the checklistItem was created.
-     * @return a OffsetDateTime
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getCreatedDateTime() {
         return this.createdDateTime;
     }
     /**
-     * Gets the displayName property value. Field indicating the title of checklistItem.
-     * @return a String
+     * Gets the displayName property value. Indicates the title of the checklistItem.
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getDisplayName() {
@@ -67,7 +67,7 @@ public class ChecklistItem extends Entity implements Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -79,8 +79,8 @@ public class ChecklistItem extends Entity implements Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the isChecked property value. State indicating whether the item is checked off or not.
-     * @return a Boolean
+     * Gets the isChecked property value. State that indicates whether the item is checked off or not.
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getIsChecked() {
@@ -113,14 +113,14 @@ public class ChecklistItem extends Entity implements Parsable {
         this.createdDateTime = value;
     }
     /**
-     * Sets the displayName property value. Field indicating the title of checklistItem.
+     * Sets the displayName property value. Indicates the title of the checklistItem.
      * @param value Value to set for the displayName property.
      */
     public void setDisplayName(@jakarta.annotation.Nullable final String value) {
         this.displayName = value;
     }
     /**
-     * Sets the isChecked property value. State indicating whether the item is checked off or not.
+     * Sets the isChecked property value. State that indicates whether the item is checked off or not.
      * @param value Value to set for the isChecked property.
      */
     public void setIsChecked(@jakarta.annotation.Nullable final Boolean value) {

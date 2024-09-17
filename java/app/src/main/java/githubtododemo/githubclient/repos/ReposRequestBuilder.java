@@ -13,7 +13,7 @@ public class ReposRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the githubtododemo.githubclient.repos.item collection
      * @param owner The account owner of the repository. The name is not case sensitive.
-     * @return a WithOwnerItemRequestBuilder
+     * @return a {@link WithOwnerItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public WithOwnerItemRequestBuilder byOwner(@jakarta.annotation.Nonnull final String owner) {
@@ -23,7 +23,7 @@ public class ReposRequestBuilder extends BaseRequestBuilder {
         return new WithOwnerItemRequestBuilder(urlTplParams, requestAdapter);
     }
     /**
-     * Instantiates a new ReposRequestBuilder and sets the default values.
+     * Instantiates a new {@link ReposRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
@@ -31,7 +31,7 @@ public class ReposRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/repos", pathParameters);
     }
     /**
-     * Instantiates a new ReposRequestBuilder and sets the default values.
+     * Instantiates a new {@link ReposRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */

@@ -12,13 +12,14 @@ import java.util.Objects;
 public class MeRequestBuilder extends BaseRequestBuilder {
     /**
      * The todo property
+     * @return a {@link TodoRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public TodoRequestBuilder todo() {
         return new TodoRequestBuilder(pathParameters, requestAdapter);
     }
     /**
-     * Instantiates a new MeRequestBuilder and sets the default values.
+     * Instantiates a new {@link MeRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
@@ -26,7 +27,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/me", pathParameters);
     }
     /**
-     * Instantiates a new MeRequestBuilder and sets the default values.
+     * Instantiates a new {@link MeRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */

@@ -21,24 +21,25 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PullsRequestBuilder extends BaseRequestBuilder {
     /**
-     * Instantiates a new PullsRequestBuilder and sets the default values.
+     * Instantiates a new {@link PullsRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public PullsRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/pulls{?state*,head*,base*,sort*,direction*,per_page*,page*}", pathParameters);
+        super(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/pulls{?base*,direction*,head*,page*,per_page*,sort*,state*}", pathParameters);
     }
     /**
-     * Instantiates a new PullsRequestBuilder and sets the default values.
+     * Instantiates a new {@link PullsRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public PullsRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/pulls{?state*,head*,base*,sort*,direction*,per_page*,page*}", rawUrl);
+        super(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/pulls{?base*,direction*,head*,page*,per_page*,sort*,state*}", rawUrl);
     }
     /**
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
-     * @return a java.util.List<PullRequestSimple>
+     * @return a {@link java.util.List<PullRequestSimple>}
+     * @throws ValidationError When receiving a 422 status code
      * @see <a href="https://docs.github.com/rest/reference/pulls#list-pull-requests">API method documentation</a>
      */
     @jakarta.annotation.Nullable
@@ -48,7 +49,8 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
     /**
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a java.util.List<PullRequestSimple>
+     * @return a {@link java.util.List<PullRequestSimple>}
+     * @throws ValidationError When receiving a 422 status code
      * @see <a href="https://docs.github.com/rest/reference/pulls#list-pull-requests">API method documentation</a>
      */
     @jakarta.annotation.Nullable
@@ -60,7 +62,7 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
-     * @return a RequestInformation
+     * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
     public RequestInformation toGetRequestInformation() {
@@ -69,7 +71,7 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
     /**
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a RequestInformation
+     * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
     public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -81,7 +83,7 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
-     * @return a PullsRequestBuilder
+     * @return a {@link PullsRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public PullsRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
@@ -130,7 +132,7 @@ public class PullsRequestBuilder extends BaseRequestBuilder {
         public GetStateQueryParameterType state;
         /**
          * Extracts the query parameters into a map for the URI template parsing.
-         * @return a Map<String, Object>
+         * @return a {@link Map<String, Object>}
          */
         @jakarta.annotation.Nonnull
         public Map<String, Object> toQueryParameters() {

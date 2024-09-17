@@ -46,7 +46,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
      */
     private RecurrencePatternType type;
     /**
-     * Instantiates a new RecurrencePattern and sets the default values.
+     * Instantiates a new {@link RecurrencePattern} and sets the default values.
      */
     public RecurrencePattern() {
         this.setAdditionalData(new HashMap<>());
@@ -54,7 +54,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a RecurrencePattern
+     * @return a {@link RecurrencePattern}
      */
     @jakarta.annotation.Nonnull
     public static RecurrencePattern createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -63,7 +63,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return a Map<String, Object>
+     * @return a {@link Map<String, Object>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, Object> getAdditionalData() {
@@ -71,7 +71,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the dayOfMonth property value. The day of the month on which the event occurs. Required if type is absoluteMonthly or absoluteYearly.
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getDayOfMonth() {
@@ -79,7 +79,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the daysOfWeek property value. A collection of the days of the week on which the event occurs. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.
-     * @return a java.util.List<DayOfWeek>
+     * @return a {@link java.util.List<DayOfWeek>}
      */
     @jakarta.annotation.Nullable
     public java.util.List<DayOfWeek> getDaysOfWeek() {
@@ -87,7 +87,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -104,7 +104,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the firstDayOfWeek property value. The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
-     * @return a DayOfWeek
+     * @return a {@link DayOfWeek}
      */
     @jakarta.annotation.Nullable
     public DayOfWeek getFirstDayOfWeek() {
@@ -112,7 +112,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the index property value. Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
-     * @return a WeekIndex
+     * @return a {@link WeekIndex}
      */
     @jakarta.annotation.Nullable
     public WeekIndex getIndex() {
@@ -120,7 +120,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the interval property value. The number of units between occurrences, where units can be in days, weeks, months, or years, depending on the type. Required.
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getInterval() {
@@ -128,7 +128,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the month property value. The month in which the event occurs.  This is a number from 1 to 12.
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getMonth() {
@@ -136,7 +136,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the @odata.type property value. The OdataType property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getOdataType() {
@@ -144,7 +144,7 @@ public class RecurrencePattern implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the type property value. The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property.
-     * @return a RecurrencePatternType
+     * @return a {@link RecurrencePatternType}
      */
     @jakarta.annotation.Nullable
     public RecurrencePatternType getType() {
