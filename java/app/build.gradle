@@ -22,8 +22,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:33.3.1-jre'
-    implementation 'com.microsoft.kiota:microsoft-kiota-bundle:1.5.0'
-    implementation 'com.microsoft.kiota:microsoft-kiota-authentication-azure:1.5.0'
+    implementation 'com.microsoft.kiota:microsoft-kiota-bundle:1.5.1'
+    implementation 'com.microsoft.kiota:microsoft-kiota-authentication-azure:1.5.1'
     implementation 'jakarta.annotation:jakarta.annotation-api:3.0.0'
     implementation 'com.azure:azure-identity:1.14.0'
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
