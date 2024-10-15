@@ -1,0 +1,31 @@
+{
+  "applicationName": "application",
+  "apiDependencies": {
+    "MicrosoftGraphClient": {
+      "apiDescriptionUrl": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
+      "apiDeploymentBaseUrl": "https://graph.microsoft.com/v1.0/",
+      "requests": [
+        {
+          "method": "GET",
+          "uriTemplate": "me/todo/lists/{todoTaskList-id}/tasks"
+        },
+        {
+          "method": "POST",
+          "uriTemplate": "me/todo/lists/{todoTaskList-id}/tasks"
+        },
+        {
+          "method": "GET",
+          "uriTemplate": "me/todo/lists"
+        },
+        {
+          "method": "POST",
+          "uriTemplate": "me/todo/lists"
+        }
+      ],
+      "extensions": {
+        "x-ms-kiota-hash": "DD08935B38514DD5C518E8B7FFC6178B7DFEBC12A78C61BA930AB41ABC49ACA1",
+        "x-ms-kiota-version": "1.19.1"
+      }
+    }
+  }
+}
