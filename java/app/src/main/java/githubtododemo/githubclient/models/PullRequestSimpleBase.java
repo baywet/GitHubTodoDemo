@@ -31,7 +31,7 @@ public class PullRequestSimpleBase implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a PullRequestSimpleBase
+     * @return a {@link PullRequestSimpleBase}
      */
     @jakarta.annotation.Nonnull
     public static PullRequestSimpleBase createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -40,7 +40,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -54,7 +54,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the label property value. The label property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getLabel() {
@@ -62,7 +62,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the ref property value. The ref property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getRef() {
@@ -70,7 +70,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the repo property value. A repository on GitHub.
-     * @return a Repository
+     * @return a {@link Repository}
      */
     @jakarta.annotation.Nullable
     public Repository getRepo() {
@@ -78,7 +78,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the sha property value. The sha property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSha() {
@@ -86,7 +86,7 @@ public class PullRequestSimpleBase implements Parsable {
     }
     /**
      * Gets the user property value. A GitHub user.
-     * @return a NullableSimpleUser
+     * @return a {@link NullableSimpleUser}
      */
     @jakarta.annotation.Nullable
     public NullableSimpleUser getUser() {

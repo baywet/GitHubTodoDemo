@@ -10,13 +10,13 @@ import java.util.concurrent.ExecutionException;
 
 import githubtododemo.githubauthentication.GitHubAuthenticationProvider;
 import githubtododemo.githubclient.GitHubServiceClient;
-import githubtododemo.microsoftgraphclient.MicrosoftGraphServiceClient;
+import githubtododemo.microsoftgraphclient.MicrosoftGraphClient;
 import githubtododemo.microsoftgraphclient.models.DateTimeTimeZone;
 import githubtododemo.microsoftgraphclient.models.Importance;
 import githubtododemo.microsoftgraphclient.models.LinkedResource;
 import githubtododemo.microsoftgraphclient.models.TodoTask;
 
-import com.microsoft.kiota.http.OkHttpRequestAdapter;
+import com.microsoft.kiota.bundle.DefaultRequestAdapter;
 import com.microsoft.kiota.authentication.AzureIdentityAuthenticationProvider;
 import com.azure.identity.DeviceCodeCredentialBuilder;
 
@@ -27,9 +27,9 @@ public class App {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
         final var gitHubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.githubClientId, "repo");
-        final var gitHubRequestAdapter = new OkHttpRequestAdapter(gitHubAuthenticationProvider);
+        final var gitHubRequestAdapter = new DefaultRequestAdapter(gitHubAuthenticationProvider);
         final var gitHubClient = new GitHubServiceClient(gitHubRequestAdapter);
-        final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls().get().get();
+        final var pullRequests = gitHubClient.repos().byOwner("baywet").byRepo("demo").pulls().get();
 
         final var microsoftGraphTokenCredentials = new DeviceCodeCredentialBuilder()
             .clientId(Constants.graphClientId)
@@ -39,9 +39,9 @@ public class App {
                 System.out.println(challenge.getMessage());
             }).build();
         final var microsoftGraphAuthenticationProvider = new AzureIdentityAuthenticationProvider(microsoftGraphTokenCredentials, new String[] {"graph.microsoft.com"}, "Tasks.ReadWrite");
-        final var microsoftGraphRequestAdapter = new OkHttpRequestAdapter(microsoftGraphAuthenticationProvider);
-        final var graphClient = new MicrosoftGraphServiceClient(microsoftGraphRequestAdapter);
-        final var todoLists = graphClient.me().todo().lists().get().get();
+        final var microsoftGraphRequestAdapter = new DefaultRequestAdapter(microsoftGraphAuthenticationProvider);
+        final var graphClient = new MicrosoftGraphClient(microsoftGraphRequestAdapter);
+        final var todoLists = graphClient.me().todo().lists().get();
         final var todoList = todoLists.getValue().get(0);
         for (final var pullRequest : pullRequests) {
             final var todoTask = graphClient.me().todo().lists().byTodoTaskListId(todoList.getId()).tasks().post(new TodoTask() {{
@@ -57,7 +57,7 @@ public class App {
                         setApplicationName("GitHub");
                     }});
                 }});
-            }}).get();
+            }});
             System.out.println("Added task " + todoTask.getTitle() + " to your todo list");
         }
         

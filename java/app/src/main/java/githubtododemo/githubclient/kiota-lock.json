@@ -1,30 +1,26 @@
 {
   "descriptionHash": "6DCC9827A48104B229D5853AFA50232B20F7E87B5F47C4675CE339B4CE00A59EAD8BB1DCBC8A3C469DD6B0FF722F65EE24C34A377DD5A86FB5FB8E47A70A1B43",
-  "descriptionLocation": "https://api.apis.guru/v2/specs/github.com/api.github.com/1.1.4/openapi.json",
+  "descriptionLocation": "https://raw.githubusercontent.com/APIs-guru/openapi-directory/gh-pages/v2/specs/github.com/api.github.com/1.1.4/openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.8.1",
+  "kiotaVersion": "1.18.0",
   "clientClassName": "GitHubServiceClient",
   "clientNamespaceName": "githubtododemo.githubclient",
   "language": "Java",
   "usesBackingStore": false,
   "excludeBackwardCompatible": false,
   "includeAdditionalData": false,
+  "disableSSLValidation": false,
   "serializers": [
-    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
-    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
-    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
-    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
+    "none"
   ],
   "deserializers": [
-    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
-    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
-    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+    "none"
   ],
   "structuredMimeTypes": [
-    "application/json;q=1",
-    "text/plain;q=1",
-    "application/x-www-form-urlencoded;q=1",
-    "multipart/form-data;q=1"
+    "application/json",
+    "text/plain",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
   ],
   "includePatterns": [
     "/repos/{org}/{repo}/pulls#GET"

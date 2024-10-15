@@ -77,7 +77,7 @@ public class NullableMilestone implements Parsable {
      */
     private String url;
     /**
-     * Instantiates a new NullableMilestone and sets the default values.
+     * Instantiates a new {@link NullableMilestone} and sets the default values.
      */
     public NullableMilestone() {
         this.setState(NullableMilestoneState.forValue("open"));
@@ -85,7 +85,7 @@ public class NullableMilestone implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a NullableMilestone
+     * @return a {@link NullableMilestone}
      */
     @jakarta.annotation.Nonnull
     public static NullableMilestone createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -94,7 +94,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the closed_at property value. The closed_at property
-     * @return a OffsetDateTime
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getClosedAt() {
@@ -102,7 +102,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the closed_issues property value. The closed_issues property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getClosedIssues() {
@@ -110,7 +110,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the created_at property value. The created_at property
-     * @return a OffsetDateTime
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getCreatedAt() {
@@ -118,7 +118,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the creator property value. A GitHub user.
-     * @return a NullableSimpleUser
+     * @return a {@link NullableSimpleUser}
      */
     @jakarta.annotation.Nullable
     public NullableSimpleUser getCreator() {
@@ -126,7 +126,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the description property value. The description property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getDescription() {
@@ -134,7 +134,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the due_on property value. The due_on property
-     * @return a OffsetDateTime
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getDueOn() {
@@ -142,7 +142,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -159,7 +159,7 @@ public class NullableMilestone implements Parsable {
         deserializerMap.put("node_id", (n) -> { this.setNodeId(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getIntegerValue()); });
         deserializerMap.put("open_issues", (n) -> { this.setOpenIssues(n.getIntegerValue()); });
-        deserializerMap.put("state", (n) -> { this.setState(n.getEnumValue(NullableMilestoneState.class)); });
+        deserializerMap.put("state", (n) -> { this.setState(n.getEnumValue(NullableMilestoneState::forValue)); });
         deserializerMap.put("title", (n) -> { this.setTitle(n.getStringValue()); });
         deserializerMap.put("updated_at", (n) -> { this.setUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("url", (n) -> { this.setUrl(n.getStringValue()); });
@@ -167,7 +167,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the html_url property value. The html_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getHtmlUrl() {
@@ -175,7 +175,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the id property value. The id property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getId() {
@@ -183,7 +183,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the labels_url property value. The labels_url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getLabelsUrl() {
@@ -191,7 +191,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the node_id property value. The node_id property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getNodeId() {
@@ -199,7 +199,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the number property value. The number of the milestone.
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getNumber() {
@@ -207,7 +207,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the open_issues property value. The open_issues property
-     * @return a Integer
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getOpenIssues() {
@@ -215,7 +215,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the state property value. The state of the milestone.
-     * @return a NullableMilestoneState
+     * @return a {@link NullableMilestoneState}
      */
     @jakarta.annotation.Nullable
     public NullableMilestoneState getState() {
@@ -223,7 +223,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the title property value. The title of the milestone.
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getTitle() {
@@ -231,7 +231,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the updated_at property value. The updated_at property
-     * @return a OffsetDateTime
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getUpdatedAt() {
@@ -239,7 +239,7 @@ public class NullableMilestone implements Parsable {
     }
     /**
      * Gets the url property value. The url property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getUrl() {

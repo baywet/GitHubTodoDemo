@@ -31,7 +31,7 @@ public class InnerError implements AdditionalDataHolder, Parsable {
      */
     private String requestId;
     /**
-     * Instantiates a new InnerError and sets the default values.
+     * Instantiates a new {@link InnerError} and sets the default values.
      */
     public InnerError() {
         this.setAdditionalData(new HashMap<>());
@@ -39,7 +39,7 @@ public class InnerError implements AdditionalDataHolder, Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a InnerError
+     * @return a {@link InnerError}
      */
     @jakarta.annotation.Nonnull
     public static InnerError createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -48,7 +48,7 @@ public class InnerError implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return a Map<String, Object>
+     * @return a {@link Map<String, Object>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, Object> getAdditionalData() {
@@ -56,15 +56,15 @@ public class InnerError implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the client-request-id property value. Client request Id as sent by the client application.
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getClientRequestId() {
         return this.clientRequestId;
     }
     /**
-     * Gets the Date property value. Date when the error occured.
-     * @return a OffsetDateTime
+     * Gets the date property value. Date when the error occured.
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getDate() {
@@ -72,20 +72,20 @@ public class InnerError implements AdditionalDataHolder, Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
         deserializerMap.put("client-request-id", (n) -> { this.setClientRequestId(n.getStringValue()); });
-        deserializerMap.put("Date", (n) -> { this.setDate(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("date", (n) -> { this.setDate(n.getOffsetDateTimeValue()); });
         deserializerMap.put("@odata.type", (n) -> { this.setOdataType(n.getStringValue()); });
         deserializerMap.put("request-id", (n) -> { this.setRequestId(n.getStringValue()); });
         return deserializerMap;
     }
     /**
      * Gets the @odata.type property value. The OdataType property
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getOdataType() {
@@ -93,7 +93,7 @@ public class InnerError implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the request-id property value. Request Id as tracked internally by the service
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getRequestId() {
@@ -106,7 +106,7 @@ public class InnerError implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("client-request-id", this.getClientRequestId());
-        writer.writeOffsetDateTimeValue("Date", this.getDate());
+        writer.writeOffsetDateTimeValue("date", this.getDate());
         writer.writeStringValue("@odata.type", this.getOdataType());
         writer.writeStringValue("request-id", this.getRequestId());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -126,8 +126,8 @@ public class InnerError implements AdditionalDataHolder, Parsable {
         this.clientRequestId = value;
     }
     /**
-     * Sets the Date property value. Date when the error occured.
-     * @param value Value to set for the Date property.
+     * Sets the date property value. Date when the error occured.
+     * @param value Value to set for the date property.
      */
     public void setDate(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.date = value;

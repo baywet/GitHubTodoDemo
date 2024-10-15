@@ -30,7 +30,7 @@ public class AutoMerge implements Parsable {
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a AutoMerge
+     * @return a {@link AutoMerge}
      */
     @jakarta.annotation.Nonnull
     public static AutoMerge createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
@@ -39,7 +39,7 @@ public class AutoMerge implements Parsable {
     }
     /**
      * Gets the commit_message property value. Commit message for the merge commit.
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCommitMessage() {
@@ -47,7 +47,7 @@ public class AutoMerge implements Parsable {
     }
     /**
      * Gets the commit_title property value. Title for the merge commit message.
-     * @return a String
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCommitTitle() {
@@ -55,7 +55,7 @@ public class AutoMerge implements Parsable {
     }
     /**
      * Gets the enabled_by property value. A GitHub user.
-     * @return a SimpleUser
+     * @return a {@link SimpleUser}
      */
     @jakarta.annotation.Nullable
     public SimpleUser getEnabledBy() {
@@ -63,7 +63,7 @@ public class AutoMerge implements Parsable {
     }
     /**
      * The deserialization information for the current model
-     * @return a Map<String, java.util.function.Consumer<ParseNode>>
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
@@ -71,12 +71,12 @@ public class AutoMerge implements Parsable {
         deserializerMap.put("commit_message", (n) -> { this.setCommitMessage(n.getStringValue()); });
         deserializerMap.put("commit_title", (n) -> { this.setCommitTitle(n.getStringValue()); });
         deserializerMap.put("enabled_by", (n) -> { this.setEnabledBy(n.getObjectValue(SimpleUser::createFromDiscriminatorValue)); });
-        deserializerMap.put("merge_method", (n) -> { this.setMergeMethod(n.getEnumValue(AutoMergeMergeMethod.class)); });
+        deserializerMap.put("merge_method", (n) -> { this.setMergeMethod(n.getEnumValue(AutoMergeMergeMethod::forValue)); });
         return deserializerMap;
     }
     /**
      * Gets the merge_method property value. The merge method to use.
-     * @return a AutoMergeMergeMethod
+     * @return a {@link AutoMergeMergeMethod}
      */
     @jakarta.annotation.Nullable
     public AutoMergeMergeMethod getMergeMethod() {

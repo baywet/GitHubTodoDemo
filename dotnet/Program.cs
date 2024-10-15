@@ -5,12 +5,12 @@ using GitHubTodoDemo.GitHubAuthentication;
 using GitHubTodoDemo.MicrosoftGraph;
 using GitHubTodoDemo.MicrosoftGraph.Models;
 using Microsoft.Kiota.Authentication.Azure;
-using Microsoft.Kiota.Http.HttpClientLibrary;
+using Microsoft.Kiota.Bundle;
 
 Console.WriteLine("Hello, World!");
 
 var githubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.GithubClientId, "repo", new[] { "api.github.com" });
-var githubRequestAdapter = new HttpClientRequestAdapter(githubAuthenticationProvider);
+var githubRequestAdapter = new DefaultRequestAdapter(githubAuthenticationProvider);
 
 var gitHubClient = new GitHubClient(githubRequestAdapter);
 var pullRequests = await gitHubClient.Repos["baywet"]["demo"].Pulls.GetAsync();
@@ -25,7 +25,7 @@ var tokenCredential = new DeviceCodeCredential(
 	}
 );
 var graphAuthenticationProvider = new AzureIdentityAuthenticationProvider(tokenCredential, new string[] {"graph.microsoft.com"}, scopes: new string[] { "Tasks.ReadWrite"});
-var graphRequestAdapter = new HttpClientRequestAdapter(graphAuthenticationProvider);
+var graphRequestAdapter = new DefaultRequestAdapter(graphAuthenticationProvider);
 
 var graphClient = new MicrosoftGraphClient(graphRequestAdapter);
 var todoLists = await graphClient.Me.Todo.Lists.GetAsync();

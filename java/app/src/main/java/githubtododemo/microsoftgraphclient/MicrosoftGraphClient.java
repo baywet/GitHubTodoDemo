@@ -3,15 +3,8 @@ package githubtododemo.microsoftgraphclient;
 import com.microsoft.kiota.ApiClientBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
-import com.microsoft.kiota.serialization.FormParseNodeFactory;
-import com.microsoft.kiota.serialization.FormSerializationWriterFactory;
-import com.microsoft.kiota.serialization.JsonParseNodeFactory;
-import com.microsoft.kiota.serialization.JsonSerializationWriterFactory;
-import com.microsoft.kiota.serialization.MultipartSerializationWriterFactory;
 import com.microsoft.kiota.serialization.ParseNodeFactoryRegistry;
 import com.microsoft.kiota.serialization.SerializationWriterFactoryRegistry;
-import com.microsoft.kiota.serialization.TextParseNodeFactory;
-import com.microsoft.kiota.serialization.TextSerializationWriterFactory;
 import githubtododemo.microsoftgraphclient.me.MeRequestBuilder;
 import java.util.HashMap;
 import java.util.Objects;
@@ -22,25 +15,19 @@ import java.util.Objects;
 public class MicrosoftGraphClient extends BaseRequestBuilder {
     /**
      * The me property
+     * @return a {@link MeRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public MeRequestBuilder me() {
         return new MeRequestBuilder(pathParameters, requestAdapter);
     }
     /**
-     * Instantiates a new MicrosoftGraphClient and sets the default values.
+     * Instantiates a new {@link MicrosoftGraphClient} and sets the default values.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MicrosoftGraphClient(@jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
         super(requestAdapter, "{+baseurl}");
         this.pathParameters = new HashMap<>();
-        ApiClientBuilder.registerDefaultSerializer(JsonSerializationWriterFactory.class);
-        ApiClientBuilder.registerDefaultSerializer(TextSerializationWriterFactory.class);
-        ApiClientBuilder.registerDefaultSerializer(FormSerializationWriterFactory.class);
-        ApiClientBuilder.registerDefaultSerializer(MultipartSerializationWriterFactory.class);
-        ApiClientBuilder.registerDefaultDeserializer(JsonParseNodeFactory.class);
-        ApiClientBuilder.registerDefaultDeserializer(FormParseNodeFactory.class);
-        ApiClientBuilder.registerDefaultDeserializer(TextParseNodeFactory.class);
         if (requestAdapter.getBaseUrl() == null || requestAdapter.getBaseUrl().isEmpty()) {
             requestAdapter.setBaseUrl("https://graph.microsoft.com/v1.0");
         }

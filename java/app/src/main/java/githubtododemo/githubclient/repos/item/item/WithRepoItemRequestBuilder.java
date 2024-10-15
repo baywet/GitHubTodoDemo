@@ -12,13 +12,14 @@ import java.util.Objects;
 public class WithRepoItemRequestBuilder extends BaseRequestBuilder {
     /**
      * The pulls property
+     * @return a {@link PullsRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public PullsRequestBuilder pulls() {
         return new PullsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
-     * Instantiates a new WithRepoItemRequestBuilder and sets the default values.
+     * Instantiates a new {@link WithRepoItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
@@ -26,7 +27,7 @@ public class WithRepoItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/repos/{owner}/{repo}", pathParameters);
     }
     /**
-     * Instantiates a new WithRepoItemRequestBuilder and sets the default values.
+     * Instantiates a new {@link WithRepoItemRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */

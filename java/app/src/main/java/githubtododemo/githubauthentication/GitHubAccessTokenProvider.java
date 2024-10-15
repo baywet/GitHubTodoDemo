@@ -49,7 +49,7 @@ public class GitHubAccessTokenProvider implements AccessTokenProvider {
 		_allowedHostsValidator = new AllowedHostsValidator(allowedHost);
 	}
 	@Nonnull
-    public CompletableFuture<String> getAuthorizationToken(@Nonnull final URI uri, @Nullable final Map<String, Object> additionalAuthenticationContext)
+    public String getAuthorizationToken(@Nonnull final URI uri, @Nullable final Map<String, Object> additionalAuthenticationContext)
 	{
 		Objects.requireNonNull(uri);
 		if(!_allowedHostsValidator.isUrlHostValid(uri)) {
@@ -60,14 +60,14 @@ public class GitHubAccessTokenProvider implements AccessTokenProvider {
 			final var deviceCodeResponse = getDeviceCode();
 			System.out.println("Please go to " + deviceCodeResponse.verification_uri + " and enter the code " + deviceCodeResponse.user_code + " to authenticate.");
 			final var tokenResponse = pollForToken(deviceCodeResponse);
-			return CompletableFuture.completedFuture(tokenResponse.access_token);
+			return tokenResponse.access_token;
 		}
 		catch (Exception ex)
 		{
-			return CompletableFuture.failedFuture(ex);
+			throw new RuntimeException("Error getting the access token", ex);
 		}
 	}
-	private GitHubAccessCodeResponse pollForToken(final GitHubDeviceCodeResponse deviceCodeResponse) throws InterruptedException, ExecutionException, IOException {
+	private GitHubAccessCodeResponse pollForToken(final GitHubDeviceCodeResponse deviceCodeResponse) throws InterruptedException, IOException {
 		var tokenResponse = getToken(deviceCodeResponse);
 		do
 		{
