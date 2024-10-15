@@ -25,6 +25,27 @@
         "**/*count"
       ],
       "outputPath": "./microsoftGraph"
+    },
+    "GitHubClient": {
+      "language": "TypeScript",
+      "typeAccessModifier": "Public",
+      "structuredMimeTypes": [
+        "application/json",
+        "text/plain;q=0.9",
+        "application/x-www-form-urlencoded;q=0.2",
+        "multipart/form-data;q=0.1"
+      ],
+      "clientNamespaceName": "GitHubTodoDemo.GitHub",
+      "usesBackingStore": true,
+      "includeAdditionalData": true,
+      "excludeBackwardCompatible": false,
+      "disabledValidationRules": [],
+      "descriptionLocation": "https://raw.githubusercontent.com/APIs-guru/openapi-directory/gh-pages/v2/specs/github.com/api.github.com/1.1.4/openapi.json",
+      "includePatterns": [
+        "/repos/{org-id}/{repo-id}/pulls#GET"
+      ],
+      "excludePatterns": [],
+      "outputPath": "./gitHub"
     }
   },
   "plugins": {}
