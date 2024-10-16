@@ -3,16 +3,8 @@ name: Gradle Build And Test
 on:
   push:
     branches: [main]
-    paths: 
-      - 'java/**'
-      - 'java/*'
-      - '.github/**'
   pull_request:
     branches: [main]
-    paths:
-      - 'java/**'
-      - 'java/*'
-      - '.github/**'
   workflow_dispatch:
 
 jobs:

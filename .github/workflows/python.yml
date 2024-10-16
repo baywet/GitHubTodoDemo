@@ -7,16 +7,8 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: 
-      - 'python/**'
-      - 'python/*'
-      - '.github/**'
   pull_request:
     branches: [main]
-    paths: 
-      - 'python/**'
-      - 'python/*'
-      - '.github/**'
 
 jobs:
   build:

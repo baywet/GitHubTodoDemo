@@ -6,16 +6,8 @@ name: .NET
 on:
   push:
     branches: [ "main" ]
-    paths: 
-      - 'dotnet/**'
-      - 'dotnet/*'
-      - '.github/**'
   pull_request:
     branches: [ "main" ]
-    paths: 
-      - 'dotnet/**'
-      - 'dotnet/*'
-      - '.github/**'
   workflow_dispatch:
 
 jobs:
