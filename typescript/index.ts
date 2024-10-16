@@ -31,7 +31,7 @@ pullRequests!.forEach(async pullRequest => {
 	const addedTask = await graphClient.me.todo.lists.byTodoTaskListId(todoList?.id!).tasks.post({ 
 		title: pullRequest.title,
 		dueDateTime: {
-			timeZone: "UTC",
+			timeZone: 'UTC',
 			dateTime: addSevenDays(pullRequest.createdAt!).toISOString(),
 		},
 		importance: 'high',

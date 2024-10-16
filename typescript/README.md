@@ -120,58 +120,53 @@
 
 ## Answer code
 
-```CSharp
-var githubAuthenticationProvider = new GitHubAuthenticationProvider(Constants.GithubClientId, "repo", new[] { "api.github.com" });
-var githubRequestAdapter = new DefaultRequestAdapter(githubAuthenticationProvider);
+```TypeScript
+import { DeviceCodeCredential } from '@azure/identity';
+import { addSevenDays, GithubClientId, GraphClientId } from './constants.js';
+import { createGitHubClient } from './gitHub/gitHubClient.js';
+import { createMicrosoftGraphClient } from './microsoftGraph/microsoftGraphClient.js';
+import { AzureIdentityAuthenticationProvider } from '@microsoft/kiota-authentication-azure';
+import { DefaultRequestAdapter } from '@microsoft/kiota-bundle';
+import { GitHubAuthenticationProvider } from './gitHubAuthentication/gitHubAuthenticationProvider.js';
+console.log('Hello, world!');
 
-var gitHubClient = new GitHubClient(githubRequestAdapter);
-var pullRequests = await gitHubClient.Repos["baywet"]["demo"].Pulls.GetAsync();
+const githubAuthProvider = new GitHubAuthenticationProvider(GithubClientId, 'repo');
+const gitHubAdapter = new DefaultRequestAdapter(githubAuthProvider);
 
-var tokenCredential = new DeviceCodeCredential(
-    clientId: Constants.GraphClientId,
-    tenantId: Constants.GraphTenantId,
-    deviceCodeCallback: (deviceCodeInfo, _) =>
-    {
-        Console.WriteLine(deviceCodeInfo.Message);
-        return Task.FromResult(0);
+const githubClient = createGitHubClient(gitHubAdapter);
+const pullRequests = await githubClient.repos.byOwner('baywet').byRepo('demo').pulls.get();
+
+const credential = new DeviceCodeCredential({
+  clientId: GraphClientId,
+  userPromptCallback: (deviceCodeInfo) => {
+    console.log(deviceCodeInfo.message);
+  }
 });
-var graphAuthenticationProvider = new AzureIdentityAuthenticationProvider(tokenCredential, new string[] {"graph.microsoft.com"}, scopes: new string[] { "Tasks.ReadWrite"});
-var graphRequestAdapter = new DefaultRequestAdapter(graphAuthenticationProvider);
 
-var graphClient = new MicrosoftGraphClient(graphRequestAdapter);
-var todoLists = await graphClient.Me.Todo.Lists.GetAsync();
-var todoList = todoLists?.Value?.FirstOrDefault();
+const graphAuthProvider = new AzureIdentityAuthenticationProvider(credential);
+const graphAdapter = new DefaultRequestAdapter(graphAuthProvider);
 
-if(todoList == null || string.IsNullOrEmpty(todoList.Id)) {
- await Console.Error.WriteLineAsync("No todo list found. Exiting.");
- return;
-}
-if (pullRequests == null) {
- await Console.Error.WriteLineAsync("No pull requests found. Exiting.");
- return;
-}
+const graphClient = createMicrosoftGraphClient(graphAdapter);
+const todoLists = await graphClient.me.todo.lists.get();
+const todoList = todoLists?.value?.[0];
 
-foreach(var pullRequest in pullRequests) {
- var addedTask = await graphClient.Me.Todo.Lists[todoList.Id].Tasks.PostAsync(
-  new TodoTask() {
-   OdataType = null,
-   Title = pullRequest.Title,
-   DueDateTime = new DateTimeTimeZone {
-    OdataType = null,
-    DateTime = pullRequest.Created_at?.Add(TimeSpan.FromDays(7)).ToString("o"),
-    TimeZone = "UTC"
-   },
-   Importance = Importance.High,
-   LinkedResources = new List<LinkedResource> {
-    new LinkedResource {
-     OdataType = null,
-     WebUrl = pullRequest.Html_url,
-     ApplicationName = "GitHub",
-    }
-   }
- });
- Console.WriteLine($"Added task {addedTask?.Title} to your todo list");
-}
+pullRequests!.forEach(async pullRequest => {
+	const addedTask = await graphClient.me.todo.lists.byTodoTaskListId(todoList?.id!).tasks.post({ 
+		title: pullRequest.title,
+		dueDateTime: {
+			timeZone: 'UTC',
+			dateTime: addSevenDays(pullRequest.createdAt!).toISOString(),
+		},
+		importance: 'high',
+		linkedResources: [
+			{
+				applicationName: 'GitHub',
+				displayName: pullRequest.htmlUrl,
+			}
+		]
+	});
+	console.log(`Added task ${addedTask?.title} to your todo list`);
+});
 ```
 
 ## Run the client
@@ -179,3 +174,10 @@ foreach(var pullRequest in pullRequests) {
 1. Show that todo doesn't have any task.
 1. Run the client.
 1. Show that todo has tasks.
+
+
+## TODO:
+
+- [ ] dry run
+- [ ] workflow
+- [ ] dependabot
