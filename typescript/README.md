@@ -30,6 +30,8 @@
 1. Updated configuration
 
     1. **package.json** > **type** > "module".
+    1. **package.json** > **build** > "tsc".
+    1. **package.json** > **start** > "node ./index.js".
     1. **tsconfig.json** > **compilerOptions** > **lib** > ["ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020", "ES2021", "ES2022"].
     1. **tsconfig.json** > **compilerOptions** > **target** > "ES2020".
     1. **tsconfig.json** > **compilerOptions** > **module** > "NodeNext".
