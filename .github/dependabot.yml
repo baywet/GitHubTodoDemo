@@ -39,3 +39,16 @@ updates:
     open-telemetry:
       patterns:
         - "*opentelemetry*"
+
+- package-ecosystem: npm
+  directory: "/typescript"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  groups:
+    kiota-dependencies:
+      patterns:
+        - "*kiota*"
+    open-telemetry:
+      patterns:
+        - "*opentelemetry*"
