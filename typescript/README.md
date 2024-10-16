@@ -180,4 +180,3 @@ pullRequests!.forEach(async pullRequest => {
 
 - [ ] dry run
 - [ ] workflow
-- [ ] dependabot
