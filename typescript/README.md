@@ -179,4 +179,3 @@ pullRequests!.forEach(async pullRequest => {
 ## TODO:
 
 - [ ] dry run
-- [ ] workflow
