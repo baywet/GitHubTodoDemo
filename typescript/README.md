@@ -151,21 +151,21 @@ const todoLists = await graphClient.me.todo.lists.get();
 const todoList = todoLists?.value?.[0];
 
 pullRequests!.forEach(async pullRequest => {
-	const addedTask = await graphClient.me.todo.lists.byTodoTaskListId(todoList?.id!).tasks.post({ 
-		title: pullRequest.title,
-		dueDateTime: {
-			timeZone: 'UTC',
-			dateTime: addSevenDays(pullRequest.createdAt!).toISOString(),
-		},
-		importance: 'high',
-		linkedResources: [
-			{
-				applicationName: 'GitHub',
-				displayName: pullRequest.htmlUrl,
-			}
-		]
-	});
-	console.log(`Added task ${addedTask?.title} to your todo list`);
+  const addedTask = await graphClient.me.todo.lists.byTodoTaskListId(todoList?.id!).tasks.post({ 
+    title: pullRequest.title,
+    dueDateTime: {
+      timeZone: 'UTC',
+      dateTime: addSevenDays(pullRequest.createdAt!).toISOString(),
+    },
+    importance: 'high',
+    linkedResources: [
+      {
+        applicationName: 'GitHub',
+        displayName: pullRequest.htmlUrl,
+      }
+    ]
+  });
+  console.log(`Added task ${addedTask?.title} to your todo list`);
 });
 ```
 
@@ -174,8 +174,3 @@ pullRequests!.forEach(async pullRequest => {
 1. Show that todo doesn't have any task.
 1. Run the client.
 1. Show that todo has tasks.
-
-
-## TODO:
-
-- [ ] dry run
