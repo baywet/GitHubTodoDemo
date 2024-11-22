@@ -19,7 +19,7 @@
   "type": "module",
   "dependencies": {
     "@azure/identity": "^4.5.0",
-    "@microsoft/kiota-authentication-azure": "^1.0.0-preview.75",
-    "@microsoft/kiota-bundle": "^1.0.0-preview.75"
+    "@microsoft/kiota-authentication-azure": "^1.0.0-preview.76",
+    "@microsoft/kiota-bundle": "^1.0.0-preview.76"
   }
 }
