@@ -46,7 +46,7 @@ portalocker==2.10.1
 pycparser==2.22
 PyJWT==2.9.0
 pylint==3.2.7
-pytest==8.3.3
+pytest==8.3.4
 python-dateutil==2.9.0.post0
 requests==2.32.3
 six==1.16.0
