@@ -1,8 +1,9 @@
 from __future__ import annotations
 import datetime
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .attachment_base import AttachmentBase
@@ -21,19 +22,19 @@ from .entity import Entity
 
 
 @dataclass
-class TodoTask(Entity):
+class TodoTask(Entity, Parsable):
     # The attachmentSessions property
-    attachment_sessions: Optional[List[AttachmentSession]] = None
+    attachment_sessions: Optional[list[AttachmentSession]] = None
     # A collection of file attachments for the task.
-    attachments: Optional[List[AttachmentBase]] = None
+    attachments: Optional[list[AttachmentBase]] = None
     # The task body that typically contains information about the task.
     body: Optional[ItemBody] = None
     # The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
     body_last_modified_date_time: Optional[datetime.datetime] = None
     # The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
-    categories: Optional[List[str]] = None
+    categories: Optional[list[str]] = None
     # A collection of checklistItems linked to a task.
-    checklist_items: Optional[List[ChecklistItem]] = None
+    checklist_items: Optional[list[ChecklistItem]] = None
     # The date and time in the specified time zone that the task was finished.
     completed_date_time: Optional[DateTimeTimeZone] = None
     # The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
@@ -41,7 +42,7 @@ class TodoTask(Entity):
     # The date and time in the specified time zone that the task is to be finished.
     due_date_time: Optional[DateTimeTimeZone] = None
     # The collection of open extensions defined for the task. Nullable.
-    extensions: Optional[List[Extension]] = None
+    extensions: Optional[list[Extension]] = None
     # Indicates whether the task has attachments.
     has_attachments: Optional[bool] = None
     # The importance property
@@ -51,7 +52,7 @@ class TodoTask(Entity):
     # The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
     last_modified_date_time: Optional[datetime.datetime] = None
     # A collection of resources linked to the task.
-    linked_resources: Optional[List[LinkedResource]] = None
+    linked_resources: Optional[list[LinkedResource]] = None
     # The OdataType property
     odata_type: Optional[str] = None
     # The recurrence pattern for the task.
@@ -77,10 +78,10 @@ class TodoTask(Entity):
         return TodoTask()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .attachment_base import AttachmentBase
         from .attachment_session import AttachmentSession
@@ -106,7 +107,7 @@ class TodoTask(Entity):
         from .patterned_recurrence import PatternedRecurrence
         from .task_status import TaskStatus
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "attachmentSessions":
             lambda n: setattr(
                 self, 'attachment_sessions',

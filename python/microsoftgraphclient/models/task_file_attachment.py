@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .attachment_base import AttachmentBase
@@ -10,7 +11,7 @@ from .attachment_base import AttachmentBase
 
 
 @dataclass
-class TaskFileAttachment(AttachmentBase):
+class TaskFileAttachment(AttachmentBase, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.taskFileAttachment"
     # The base64-encoded contents of the file.
@@ -29,16 +30,16 @@ class TaskFileAttachment(AttachmentBase):
         return TaskFileAttachment()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .attachment_base import AttachmentBase
 
         from .attachment_base import AttachmentBase
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "contentBytes":
             lambda n: setattr(self, 'content_bytes', n.get_bytes_value()),
         }

@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 
 @dataclass
@@ -10,7 +11,7 @@ class NullableLicenseSimple(AdditionalDataHolder, Parsable):
     License Simple
     """
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additional_data: Dict[str, Any] = field(default_factory=dict)
+    additional_data: dict[str, Any] = field(default_factory=dict)
 
     # The html_url property
     html_url: Optional[str] = None
@@ -38,12 +39,12 @@ class NullableLicenseSimple(AdditionalDataHolder, Parsable):
         return NullableLicenseSimple()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "html_url": lambda n: setattr(self, 'html_url', n.get_str_value()),
             "key": lambda n: setattr(self, 'key', n.get_str_value()),
             "name": lambda n: setattr(self, 'name', n.get_str_value()),

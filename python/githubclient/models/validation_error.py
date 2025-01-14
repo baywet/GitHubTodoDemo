@@ -1,25 +1,26 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.api_error import APIError
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .validation_error_errors import ValidationError_errors
 
 
 @dataclass
-class ValidationError(APIError):
+class ValidationError(APIError, AdditionalDataHolder, Parsable):
     """
     Validation Error
     """
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additional_data: Dict[str, Any] = field(default_factory=dict)
+    additional_data: dict[str, Any] = field(default_factory=dict)
 
     # The documentation_url property
     documentation_url: Optional[str] = None
     # The errors property
-    errors: Optional[List[ValidationError_errors]] = None
+    errors: Optional[list[ValidationError_errors]] = None
     # The message property
     message: Optional[str] = None
 
@@ -36,16 +37,16 @@ class ValidationError(APIError):
         return ValidationError()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .validation_error_errors import ValidationError_errors
 
         from .validation_error_errors import ValidationError_errors
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "documentation_url":
             lambda n: setattr(self, 'documentation_url', n.get_str_value()),
             "errors":
@@ -71,7 +72,7 @@ class ValidationError(APIError):
         writer.write_additional_data_value(self.additional_data)
 
     @property
-    def primary_message(self) -> str:
+    def primary_message(self) -> Optional[str]:
         """
         The primary error message.
         """
