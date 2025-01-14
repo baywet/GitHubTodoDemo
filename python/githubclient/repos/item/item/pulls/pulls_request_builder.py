@@ -20,52 +20,66 @@ if TYPE_CHECKING:
     from .get_sort_query_parameter_type import GetSortQueryParameterType
     from .get_state_query_parameter_type import GetStateQueryParameterType
 
+
 class PullsRequestBuilder(BaseRequestBuilder):
     """
     Builds and executes requests for operations under /repos/{owner}/{repo}/pulls
     """
-    def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]]) -> None:
+
+    def __init__(self, request_adapter: RequestAdapter,
+                 path_parameters: Union[str, dict[str, Any]]) -> None:
         """
         Instantiates a new PullsRequestBuilder and sets the default values.
         param path_parameters: The raw url or the url-template parameters for the request.
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
         """
-        super().__init__(request_adapter, "{+baseurl}/repos/{owner}/{repo}/pulls{?base*,direction*,head*,page*,per_page*,sort*,state*}", path_parameters)
-    
-    async def get(self,request_configuration: Optional[RequestConfiguration[PullsRequestBuilderGetQueryParameters]] = None) -> Optional[list[PullRequestSimple]]:
+        super().__init__(
+            request_adapter,
+            "{+baseurl}/repos/{owner}/{repo}/pulls{?base*,direction*,head*,page*,per_page*,sort*,state*}",
+            path_parameters)
+
+    async def get(
+        self,
+        request_configuration: Optional[
+            RequestConfiguration[PullsRequestBuilderGetQueryParameters]] = None
+    ) -> Optional[list[PullRequestSimple]]:
         """
         Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[list[PullRequestSimple]]
         API method documentation: https://docs.github.com/rest/reference/pulls#list-pull-requests
         """
-        request_info = self.to_get_request_information(
-            request_configuration
-        )
+        request_info = self.to_get_request_information(request_configuration)
         from .....models.validation_error import ValidationError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "422": ValidationError,
         }
         if not self.request_adapter:
-            raise Exception("Http core is null") 
+            raise Exception("Http core is null")
         from .....models.pull_request_simple import PullRequestSimple
 
-        return await self.request_adapter.send_collection_async(request_info, PullRequestSimple, error_mapping)
-    
-    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[PullsRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
+        return await self.request_adapter.send_collection_async(
+            request_info, PullRequestSimple, error_mapping)
+
+    def to_get_request_information(
+        self,
+        request_configuration: Optional[
+            RequestConfiguration[PullsRequestBuilderGetQueryParameters]] = None
+    ) -> RequestInformation:
         """
         Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
-        request_info = RequestInformation(Method.GET, self.url_template, self.path_parameters)
+        request_info = RequestInformation(Method.GET, self.url_template,
+                                          self.path_parameters)
         request_info.configure(request_configuration)
         request_info.headers.try_add("Accept", "application/json")
         return request_info
-    
-    def with_url(self,raw_url: str) -> PullsRequestBuilder:
+
+    def with_url(self, raw_url: str) -> PullsRequestBuilder:
         """
         Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         param raw_url: The raw URL to use for the request builder.
@@ -74,7 +88,7 @@ class PullsRequestBuilder(BaseRequestBuilder):
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
         return PullsRequestBuilder(self.request_adapter, raw_url)
-    
+
     @dataclass
     class PullsRequestBuilderGetQueryParameters():
         """
@@ -101,12 +115,12 @@ class PullsRequestBuilder(BaseRequestBuilder):
         # Either `open`, `closed`, or `all` to filter by state.
         state: Optional[GetStateQueryParameterType] = None
 
-    
     @dataclass
-    class PullsRequestBuilderGetRequestConfiguration(RequestConfiguration[PullsRequestBuilderGetQueryParameters]):
+    class PullsRequestBuilderGetRequestConfiguration(
+            RequestConfiguration[PullsRequestBuilderGetQueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
-        warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
-    
-
+        warn(
+            "This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.",
+            DeprecationWarning)

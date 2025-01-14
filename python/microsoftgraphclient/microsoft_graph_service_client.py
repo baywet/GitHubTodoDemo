@@ -17,11 +17,13 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .me.me_request_builder import MeRequestBuilder
 
+
 class MicrosoftGraphServiceClient(BaseRequestBuilder):
     """
     The main entry point of the SDK, exposes the configuration and the fluent API.
     """
-    def __init__(self,request_adapter: RequestAdapter) -> None:
+
+    def __init__(self, request_adapter: RequestAdapter) -> None:
         """
         Instantiates a new MicrosoftGraphServiceClient and sets the default values.
         param request_adapter: The request adapter to use to execute the requests.
@@ -40,7 +42,7 @@ class MicrosoftGraphServiceClient(BaseRequestBuilder):
         if not self.request_adapter.base_url:
             self.request_adapter.base_url = "https://graph.microsoft.com/v1.0"
         self.path_parameters["base_url"] = self.request_adapter.base_url
-    
+
     @property
     def me(self) -> MeRequestBuilder:
         """
@@ -49,5 +51,3 @@ class MicrosoftGraphServiceClient(BaseRequestBuilder):
         from .me.me_request_builder import MeRequestBuilder
 
         return MeRequestBuilder(self.request_adapter, self.path_parameters)
-    
-

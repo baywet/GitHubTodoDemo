@@ -8,6 +8,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .main_error import MainError
 
+
 @dataclass
 class ODataError(APIError, AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -15,7 +16,7 @@ class ODataError(APIError, AdditionalDataHolder, Parsable):
 
     # The error property
     error: Optional[MainError] = None
-    
+
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> ODataError:
         """
@@ -26,8 +27,9 @@ class ODataError(APIError, AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return ODataError()
-    
-    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
@@ -37,11 +39,12 @@ class ODataError(APIError, AdditionalDataHolder, Parsable):
         from .main_error import MainError
 
         fields: dict[str, Callable[[Any], None]] = {
-            "error": lambda n : setattr(self, 'error', n.get_object_value(MainError)),
+            "error":
+            lambda n: setattr(self, 'error', n.get_object_value(MainError)),
         }
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -51,7 +54,7 @@ class ODataError(APIError, AdditionalDataHolder, Parsable):
             raise TypeError("writer cannot be null.")
         writer.write_object_value("error", self.error)
         writer.write_additional_data_value(self.additional_data)
-    
+
     @property
     def primary_message(self) -> Optional[str]:
         """
@@ -60,4 +63,3 @@ class ODataError(APIError, AdditionalDataHolder, Parsable):
         if self.error is not None:
             return '' if self.error.message is None else self.error.message
         return ''
-

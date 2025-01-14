@@ -10,11 +10,12 @@ if TYPE_CHECKING:
 
 from .entity import Entity
 
+
 @dataclass
 class Extension(Entity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = None
-    
+
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> Extension:
         """
@@ -29,13 +30,15 @@ class Extension(Entity, Parsable):
             mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.openTypeExtension".casefold():
+        if mapping_value and mapping_value.casefold(
+        ) == "#microsoft.graph.openTypeExtension".casefold():
             from .open_type_extension import OpenTypeExtension
 
             return OpenTypeExtension()
         return Extension()
-    
-    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
@@ -46,13 +49,12 @@ class Extension(Entity, Parsable):
         from .entity import Entity
         from .open_type_extension import OpenTypeExtension
 
-        fields: dict[str, Callable[[Any], None]] = {
-        }
+        fields: dict[str, Callable[[Any], None]] = {}
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -61,5 +63,3 @@ class Extension(Entity, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
-    
-

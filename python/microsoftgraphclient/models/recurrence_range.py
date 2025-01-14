@@ -8,6 +8,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .recurrence_range_type import RecurrenceRangeType
 
+
 @dataclass
 class RecurrenceRange(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -25,9 +26,10 @@ class RecurrenceRange(AdditionalDataHolder, Parsable):
     start_date: Optional[datetime.date] = None
     # The recurrence range. The possible values are: endDate, noEnd, numbered. Required.
     type: Optional[RecurrenceRangeType] = None
-    
+
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> RecurrenceRange:
+    def create_from_discriminator_value(
+            parse_node: ParseNode) -> RecurrenceRange:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -36,8 +38,9 @@ class RecurrenceRange(AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return RecurrenceRange()
-    
-    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
@@ -47,16 +50,24 @@ class RecurrenceRange(AdditionalDataHolder, Parsable):
         from .recurrence_range_type import RecurrenceRangeType
 
         fields: dict[str, Callable[[Any], None]] = {
-            "endDate": lambda n : setattr(self, 'end_date', n.get_date_value()),
-            "numberOfOccurrences": lambda n : setattr(self, 'number_of_occurrences', n.get_int_value()),
-            "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
-            "recurrenceTimeZone": lambda n : setattr(self, 'recurrence_time_zone', n.get_str_value()),
-            "startDate": lambda n : setattr(self, 'start_date', n.get_date_value()),
-            "type": lambda n : setattr(self, 'type', n.get_enum_value(RecurrenceRangeType)),
+            "endDate":
+            lambda n: setattr(self, 'end_date', n.get_date_value()),
+            "numberOfOccurrences":
+            lambda n: setattr(self, 'number_of_occurrences', n.get_int_value()
+                              ),
+            "@odata.type":
+            lambda n: setattr(self, 'odata_type', n.get_str_value()),
+            "recurrenceTimeZone":
+            lambda n: setattr(self, 'recurrence_time_zone', n.get_str_value()),
+            "startDate":
+            lambda n: setattr(self, 'start_date', n.get_date_value()),
+            "type":
+            lambda n: setattr(self, 'type',
+                              n.get_enum_value(RecurrenceRangeType)),
         }
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -65,11 +76,10 @@ class RecurrenceRange(AdditionalDataHolder, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         writer.write_date_value("endDate", self.end_date)
-        writer.write_int_value("numberOfOccurrences", self.number_of_occurrences)
+        writer.write_int_value("numberOfOccurrences",
+                               self.number_of_occurrences)
         writer.write_str_value("@odata.type", self.odata_type)
         writer.write_str_value("recurrenceTimeZone", self.recurrence_time_zone)
         writer.write_date_value("startDate", self.start_date)
         writer.write_enum_value("type", self.type)
         writer.write_additional_data_value(self.additional_data)
-    
-

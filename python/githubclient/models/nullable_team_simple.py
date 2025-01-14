@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from typing import Any, Optional, TYPE_CHECKING, Union
 
+
 @dataclass
 class NullableTeamSimple(AdditionalDataHolder, Parsable):
     """
@@ -36,9 +37,10 @@ class NullableTeamSimple(AdditionalDataHolder, Parsable):
     slug: Optional[str] = None
     # URL for the team
     url: Optional[str] = None
-    
+
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> NullableTeamSimple:
+    def create_from_discriminator_value(
+            parse_node: ParseNode) -> NullableTeamSimple:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -47,29 +49,42 @@ class NullableTeamSimple(AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return NullableTeamSimple()
-    
-    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+
+    def get_field_deserializers(
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
         fields: dict[str, Callable[[Any], None]] = {
-            "description": lambda n : setattr(self, 'description', n.get_str_value()),
-            "html_url": lambda n : setattr(self, 'html_url', n.get_str_value()),
-            "id": lambda n : setattr(self, 'id', n.get_int_value()),
-            "ldap_dn": lambda n : setattr(self, 'ldap_dn', n.get_str_value()),
-            "members_url": lambda n : setattr(self, 'members_url', n.get_str_value()),
-            "name": lambda n : setattr(self, 'name', n.get_str_value()),
-            "node_id": lambda n : setattr(self, 'node_id', n.get_str_value()),
-            "permission": lambda n : setattr(self, 'permission', n.get_str_value()),
-            "privacy": lambda n : setattr(self, 'privacy', n.get_str_value()),
-            "repositories_url": lambda n : setattr(self, 'repositories_url', n.get_str_value()),
-            "slug": lambda n : setattr(self, 'slug', n.get_str_value()),
-            "url": lambda n : setattr(self, 'url', n.get_str_value()),
+            "description":
+            lambda n: setattr(self, 'description', n.get_str_value()),
+            "html_url":
+            lambda n: setattr(self, 'html_url', n.get_str_value()),
+            "id":
+            lambda n: setattr(self, 'id', n.get_int_value()),
+            "ldap_dn":
+            lambda n: setattr(self, 'ldap_dn', n.get_str_value()),
+            "members_url":
+            lambda n: setattr(self, 'members_url', n.get_str_value()),
+            "name":
+            lambda n: setattr(self, 'name', n.get_str_value()),
+            "node_id":
+            lambda n: setattr(self, 'node_id', n.get_str_value()),
+            "permission":
+            lambda n: setattr(self, 'permission', n.get_str_value()),
+            "privacy":
+            lambda n: setattr(self, 'privacy', n.get_str_value()),
+            "repositories_url":
+            lambda n: setattr(self, 'repositories_url', n.get_str_value()),
+            "slug":
+            lambda n: setattr(self, 'slug', n.get_str_value()),
+            "url":
+            lambda n: setattr(self, 'url', n.get_str_value()),
         }
         return fields
-    
-    def serialize(self,writer: SerializationWriter) -> None:
+
+    def serialize(self, writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -90,5 +105,3 @@ class NullableTeamSimple(AdditionalDataHolder, Parsable):
         writer.write_str_value("slug", self.slug)
         writer.write_str_value("url", self.url)
         writer.write_additional_data_value(self.additional_data)
-    
-
