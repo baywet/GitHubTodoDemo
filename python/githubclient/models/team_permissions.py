@@ -1,13 +1,13 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
-
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 @dataclass
 class Team_permissions(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additional_data: Dict[str, Any] = field(default_factory=dict)
+    additional_data: dict[str, Any] = field(default_factory=dict)
 
     # The admin property
     admin: Optional[bool] = None
@@ -19,10 +19,9 @@ class Team_permissions(AdditionalDataHolder, Parsable):
     push: Optional[bool] = None
     # The triage property
     triage: Optional[bool] = None
-
+    
     @staticmethod
-    def create_from_discriminator_value(
-            parse_node: ParseNode) -> Team_permissions:
+    def create_from_discriminator_value(parse_node: ParseNode) -> Team_permissions:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -31,24 +30,22 @@ class Team_permissions(AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return Team_permissions()
-
-    def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
-        fields: Dict[str, Callable[[Any], None]] = {
-            "admin": lambda n: setattr(self, 'admin', n.get_bool_value()),
-            "maintain":
-            lambda n: setattr(self, 'maintain', n.get_bool_value()),
-            "pull": lambda n: setattr(self, 'pull', n.get_bool_value()),
-            "push": lambda n: setattr(self, 'push', n.get_bool_value()),
-            "triage": lambda n: setattr(self, 'triage', n.get_bool_value()),
+        fields: dict[str, Callable[[Any], None]] = {
+            "admin": lambda n : setattr(self, 'admin', n.get_bool_value()),
+            "maintain": lambda n : setattr(self, 'maintain', n.get_bool_value()),
+            "pull": lambda n : setattr(self, 'pull', n.get_bool_value()),
+            "push": lambda n : setattr(self, 'push', n.get_bool_value()),
+            "triage": lambda n : setattr(self, 'triage', n.get_bool_value()),
         }
         return fields
-
-    def serialize(self, writer: SerializationWriter) -> None:
+    
+    def serialize(self,writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -62,3 +59,5 @@ class Team_permissions(AdditionalDataHolder, Parsable):
         writer.write_bool_value("push", self.push)
         writer.write_bool_value("triage", self.triage)
         writer.write_additional_data_value(self.additional_data)
+    
+

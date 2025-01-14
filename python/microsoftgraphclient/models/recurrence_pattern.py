@@ -1,23 +1,23 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .day_of_week import DayOfWeek
     from .recurrence_pattern_type import RecurrencePatternType
     from .week_index import WeekIndex
 
-
 @dataclass
 class RecurrencePattern(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additional_data: Dict[str, Any] = field(default_factory=dict)
+    additional_data: dict[str, Any] = field(default_factory=dict)
 
     # The day of the month on which the event occurs. Required if type is absoluteMonthly or absoluteYearly.
     day_of_month: Optional[int] = None
     # A collection of the days of the week on which the event occurs. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.
-    days_of_week: Optional[List[DayOfWeek]] = None
+    days_of_week: Optional[list[DayOfWeek]] = None
     # The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
     first_day_of_week: Optional[DayOfWeek] = None
     # Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
@@ -30,10 +30,9 @@ class RecurrencePattern(AdditionalDataHolder, Parsable):
     odata_type: Optional[str] = None
     # The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property.
     type: Optional[RecurrencePatternType] = None
-
+    
     @staticmethod
-    def create_from_discriminator_value(
-            parse_node: ParseNode) -> RecurrencePattern:
+    def create_from_discriminator_value(parse_node: ParseNode) -> RecurrencePattern:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
@@ -42,12 +41,11 @@ class RecurrencePattern(AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         return RecurrencePattern()
-
-    def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .day_of_week import DayOfWeek
         from .recurrence_pattern_type import RecurrencePatternType
@@ -57,30 +55,19 @@ class RecurrencePattern(AdditionalDataHolder, Parsable):
         from .recurrence_pattern_type import RecurrencePatternType
         from .week_index import WeekIndex
 
-        fields: Dict[str, Callable[[Any], None]] = {
-            "dayOfMonth":
-            lambda n: setattr(self, 'day_of_month', n.get_int_value()),
-            "daysOfWeek":
-            lambda n: setattr(self, 'days_of_week',
-                              n.get_collection_of_enum_values(DayOfWeek)),
-            "firstDayOfWeek":
-            lambda n: setattr(self, 'first_day_of_week',
-                              n.get_enum_value(DayOfWeek)),
-            "index":
-            lambda n: setattr(self, 'index', n.get_enum_value(WeekIndex)),
-            "interval":
-            lambda n: setattr(self, 'interval', n.get_int_value()),
-            "month":
-            lambda n: setattr(self, 'month', n.get_int_value()),
-            "@odata.type":
-            lambda n: setattr(self, 'odata_type', n.get_str_value()),
-            "type":
-            lambda n: setattr(self, 'type',
-                              n.get_enum_value(RecurrencePatternType)),
+        fields: dict[str, Callable[[Any], None]] = {
+            "dayOfMonth": lambda n : setattr(self, 'day_of_month', n.get_int_value()),
+            "daysOfWeek": lambda n : setattr(self, 'days_of_week', n.get_collection_of_enum_values(DayOfWeek)),
+            "firstDayOfWeek": lambda n : setattr(self, 'first_day_of_week', n.get_enum_value(DayOfWeek)),
+            "index": lambda n : setattr(self, 'index', n.get_enum_value(WeekIndex)),
+            "interval": lambda n : setattr(self, 'interval', n.get_int_value()),
+            "month": lambda n : setattr(self, 'month', n.get_int_value()),
+            "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
+            "type": lambda n : setattr(self, 'type', n.get_enum_value(RecurrencePatternType)),
         }
         return fields
-
-    def serialize(self, writer: SerializationWriter) -> None:
+    
+    def serialize(self,writer: SerializationWriter) -> None:
         """
         Serializes information the current object
         param writer: Serialization writer to use to serialize this model
@@ -97,3 +84,5 @@ class RecurrencePattern(AdditionalDataHolder, Parsable):
         writer.write_str_value("@odata.type", self.odata_type)
         writer.write_enum_value("type", self.type)
         writer.write_additional_data_value(self.additional_data)
+    
+
