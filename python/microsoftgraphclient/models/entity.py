@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .attachment_base import AttachmentBase
@@ -18,7 +19,7 @@ if TYPE_CHECKING:
 @dataclass
 class Entity(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additional_data: Dict[str, Any] = field(default_factory=dict)
+    additional_data: dict[str, Any] = field(default_factory=dict)
 
     # The unique identifier for an entity. Read-only.
     id: Optional[str] = None
@@ -35,8 +36,8 @@ class Entity(AdditionalDataHolder, Parsable):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         try:
-            mapping_value = parse_node.get_child_node(
-                "@odata.type").get_str_value()
+            child_node = parse_node.get_child_node("@odata.type")
+            mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
         if mapping_value and mapping_value.casefold(
@@ -87,10 +88,10 @@ class Entity(AdditionalDataHolder, Parsable):
         return Entity()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .attachment_base import AttachmentBase
         from .attachment_session import AttachmentSession
@@ -112,7 +113,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .todo_task import TodoTask
         from .todo_task_list import TodoTaskList
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "id":
             lambda n: setattr(self, 'id', n.get_str_value()),
             "@odata.type":

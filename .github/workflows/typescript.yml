@@ -1,0 +1,26 @@
+name: NodeJS build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v4
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with: 
+        node-version: 22
+        cache: npm
+        cache-dependency-path: typescript/package-lock.json
+    - name: Install dependencies
+      run: npm ci
+      working-directory: typescript
+    - name: Build with node
+      run: npm run build
+      working-directory: typescript

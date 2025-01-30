@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .entity import Entity
@@ -11,7 +12,7 @@ from .entity import Entity
 
 
 @dataclass
-class Extension(Entity):
+class Extension(Entity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = None
 
@@ -25,8 +26,8 @@ class Extension(Entity):
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
         try:
-            mapping_value = parse_node.get_child_node(
-                "@odata.type").get_str_value()
+            child_node = parse_node.get_child_node("@odata.type")
+            mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
         if mapping_value and mapping_value.casefold(
@@ -37,10 +38,10 @@ class Extension(Entity):
         return Extension()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .entity import Entity
         from .open_type_extension import OpenTypeExtension
@@ -48,7 +49,7 @@ class Extension(Entity):
         from .entity import Entity
         from .open_type_extension import OpenTypeExtension
 
-        fields: Dict[str, Callable[[Any], None]] = {}
+        fields: dict[str, Callable[[Any], None]] = {}
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
         return fields

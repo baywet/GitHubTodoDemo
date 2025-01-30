@@ -8,12 +8,13 @@
     <Nullable>enable</Nullable>
     <NoWarn>0114</NoWarn>
     <RootNamespace>GitHubTodoDemo</RootNamespace>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Identity" Version="1.13.0" />
-    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.13.1" />
-    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.13.1" />
+    <PackageReference Include="Azure.Identity" Version="1.13.2" />
+    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.16.4" />
+    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.16.4" />
   </ItemGroup>
 
 </Project>

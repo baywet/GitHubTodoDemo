@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .entity import Entity
@@ -10,7 +11,7 @@ from .entity import Entity
 
 
 @dataclass
-class LinkedResource(Entity):
+class LinkedResource(Entity, Parsable):
     # The app name of the source that sends the linkedResource.
     application_name: Optional[str] = None
     # The title of the linkedResource.
@@ -35,16 +36,16 @@ class LinkedResource(Entity):
         return LinkedResource()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .entity import Entity
 
         from .entity import Entity
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "applicationName":
             lambda n: setattr(self, 'application_name', n.get_str_value()),
             "displayName":

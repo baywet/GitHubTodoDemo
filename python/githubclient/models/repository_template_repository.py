@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .repository_template_repository_merge_commit_message import Repository_template_repository_merge_commit_message
@@ -15,7 +16,7 @@ if TYPE_CHECKING:
 @dataclass
 class Repository_template_repository(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additional_data: Dict[str, Any] = field(default_factory=dict)
+    additional_data: dict[str, Any] = field(default_factory=dict)
 
     # The allow_auto_merge property
     allow_auto_merge: Optional[bool] = None
@@ -182,7 +183,7 @@ class Repository_template_repository(AdditionalDataHolder, Parsable):
     # The temp_clone_token property
     temp_clone_token: Optional[str] = None
     # The topics property
-    topics: Optional[List[str]] = None
+    topics: Optional[list[str]] = None
     # The trees_url property
     trees_url: Optional[str] = None
     # The updated_at property
@@ -209,10 +210,10 @@ class Repository_template_repository(AdditionalDataHolder, Parsable):
         return Repository_template_repository()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .repository_template_repository_merge_commit_message import Repository_template_repository_merge_commit_message
         from .repository_template_repository_merge_commit_title import Repository_template_repository_merge_commit_title
@@ -228,7 +229,7 @@ class Repository_template_repository(AdditionalDataHolder, Parsable):
         from .repository_template_repository_squash_merge_commit_message import Repository_template_repository_squash_merge_commit_message
         from .repository_template_repository_squash_merge_commit_title import Repository_template_repository_squash_merge_commit_title
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "allow_auto_merge":
             lambda n: setattr(self, 'allow_auto_merge', n.get_bool_value()),
             "allow_merge_commit":

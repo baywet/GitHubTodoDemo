@@ -1,0 +1,23 @@
+{
+	"cSpell.words": [
+		"Kiota"
+	],
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/*.code-search": true,
+		"**/.ruby-lsp": true,
+		"*.js": true
+	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+		"**/.ruby-lsp": true,
+		"*.js": true,
+		"*.map": true
+	}
+}

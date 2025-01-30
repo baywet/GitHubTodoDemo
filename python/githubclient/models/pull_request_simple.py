@@ -1,8 +1,9 @@
 from __future__ import annotations
 import datetime
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .author_association import AuthorAssociation
@@ -23,7 +24,7 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
     Pull Request Simple
     """
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additional_data: Dict[str, Any] = field(default_factory=dict)
+    additional_data: dict[str, Any] = field(default_factory=dict)
 
     # The _links property
     _links: Optional[PullRequestSimple__links] = None
@@ -32,7 +33,7 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
     # A GitHub user.
     assignee: Optional[NullableSimpleUser] = None
     # The assignees property
-    assignees: Optional[List[SimpleUser]] = None
+    assignees: Optional[list[SimpleUser]] = None
     # How the author is associated with the repository.
     author_association: Optional[AuthorAssociation] = None
     # The status of auto merging a pull request.
@@ -62,7 +63,7 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
     # The issue_url property
     issue_url: Optional[str] = None
     # The labels property
-    labels: Optional[List[PullRequestSimple_labels]] = None
+    labels: Optional[list[PullRequestSimple_labels]] = None
     # The locked property
     locked: Optional[bool] = None
     # The merge_commit_sha property
@@ -78,9 +79,9 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
     # The patch_url property
     patch_url: Optional[str] = None
     # The requested_reviewers property
-    requested_reviewers: Optional[List[SimpleUser]] = None
+    requested_reviewers: Optional[list[SimpleUser]] = None
     # The requested_teams property
-    requested_teams: Optional[List[Team]] = None
+    requested_teams: Optional[list[Team]] = None
     # The review_comment_url property
     review_comment_url: Optional[str] = None
     # The review_comments_url property
@@ -111,10 +112,10 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
         return PullRequestSimple()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .author_association import AuthorAssociation
         from .auto_merge import AutoMerge
@@ -138,7 +139,7 @@ class PullRequestSimple(AdditionalDataHolder, Parsable):
         from .simple_user import SimpleUser
         from .team import Team
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "_links":
             lambda n: setattr(self, '_links',
                               n.get_object_value(PullRequestSimple__links)),

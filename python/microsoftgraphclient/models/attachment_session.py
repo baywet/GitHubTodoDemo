@@ -1,8 +1,9 @@
 from __future__ import annotations
 import datetime
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .entity import Entity
@@ -11,13 +12,13 @@ from .entity import Entity
 
 
 @dataclass
-class AttachmentSession(Entity):
+class AttachmentSession(Entity, Parsable):
     # The content streams that are uploaded.
     content: Optional[bytes] = None
     # The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
     expiration_date_time: Optional[datetime.datetime] = None
     # Indicates a single value {start} that represents the location in the file where the next upload should begin.
-    next_expected_ranges: Optional[List[str]] = None
+    next_expected_ranges: Optional[list[str]] = None
     # The OdataType property
     odata_type: Optional[str] = None
 
@@ -34,16 +35,16 @@ class AttachmentSession(Entity):
         return AttachmentSession()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .entity import Entity
 
         from .entity import Entity
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "content":
             lambda n: setattr(self, 'content', n.get_bytes_value()),
             "expirationDateTime":

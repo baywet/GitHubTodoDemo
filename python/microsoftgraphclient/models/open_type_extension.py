@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .extension import Extension
@@ -10,7 +11,7 @@ from .extension import Extension
 
 
 @dataclass
-class OpenTypeExtension(Extension):
+class OpenTypeExtension(Extension, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.openTypeExtension"
     # A unique text identifier for an open type data extension. Optional.
@@ -29,16 +30,16 @@ class OpenTypeExtension(Extension):
         return OpenTypeExtension()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .extension import Extension
 
         from .extension import Extension
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "extensionName":
             lambda n: setattr(self, 'extension_name', n.get_str_value()),
         }

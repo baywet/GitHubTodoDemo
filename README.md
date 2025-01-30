@@ -11,3 +11,4 @@ The demos run as a console application that creates to-do tasks for GitHub pull 
 - [dotnet](./dotnet/)
 - [java](./java/)
 - [python](./python/)
+- [typescript](./typescript/)

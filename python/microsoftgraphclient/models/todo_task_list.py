@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .entity import Entity
@@ -13,11 +14,11 @@ from .entity import Entity
 
 
 @dataclass
-class TodoTaskList(Entity):
+class TodoTaskList(Entity, Parsable):
     # The name of the task list.
     display_name: Optional[str] = None
     # The collection of open extensions defined for the task list. Nullable.
-    extensions: Optional[List[Extension]] = None
+    extensions: Optional[list[Extension]] = None
     # True if the user is owner of the given task list.
     is_owner: Optional[bool] = None
     # True if the task list is shared with other users
@@ -25,7 +26,7 @@ class TodoTaskList(Entity):
     # The OdataType property
     odata_type: Optional[str] = None
     # The tasks in this task list. Read-only. Nullable.
-    tasks: Optional[List[TodoTask]] = None
+    tasks: Optional[list[TodoTask]] = None
     # The wellknownListName property
     wellknown_list_name: Optional[WellknownListName] = None
 
@@ -41,10 +42,10 @@ class TodoTaskList(Entity):
         return TodoTaskList()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .entity import Entity
         from .extension import Extension
@@ -56,7 +57,7 @@ class TodoTaskList(Entity):
         from .todo_task import TodoTask
         from .wellknown_list_name import WellknownListName
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "displayName":
             lambda n: setattr(self, 'display_name', n.get_str_value()),
             "extensions":

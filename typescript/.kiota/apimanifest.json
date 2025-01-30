@@ -1,0 +1,45 @@
+{
+  "applicationName": "application",
+  "apiDependencies": {
+    "MicrosoftGraphClient": {
+      "apiDescriptionUrl": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
+      "apiDeploymentBaseUrl": "https://graph.microsoft.com/v1.0/",
+      "requests": [
+        {
+          "method": "GET",
+          "uriTemplate": "me/todo/lists/{todoTaskList-id}/tasks"
+        },
+        {
+          "method": "POST",
+          "uriTemplate": "me/todo/lists/{todoTaskList-id}/tasks"
+        },
+        {
+          "method": "GET",
+          "uriTemplate": "me/todo/lists"
+        },
+        {
+          "method": "POST",
+          "uriTemplate": "me/todo/lists"
+        }
+      ],
+      "extensions": {
+        "x-ms-kiota-hash": "DD08935B38514DD5C518E8B7FFC6178B7DFEBC12A78C61BA930AB41ABC49ACA1",
+        "x-ms-kiota-version": "1.19.1"
+      }
+    },
+    "GitHubClient": {
+      "apiDescriptionUrl": "https://raw.githubusercontent.com/APIs-guru/openapi-directory/gh-pages/v2/specs/github.com/api.github.com/1.1.4/openapi.json",
+      "apiDeploymentBaseUrl": "https://api.github.com/",
+      "requests": [
+        {
+          "method": "GET",
+          "uriTemplate": "repos/{owner}/{repo}/pulls"
+        }
+      ],
+      "extensions": {
+        "x-ms-kiota-hash": "CB62FFDFEF98663F93036F656BB0D34B62E6D369026C5700D4275B91BBE0C4E9",
+        "x-ms-kiota-version": "1.20.0-preview.202410100001"
+      }
+    }
+  }
+}

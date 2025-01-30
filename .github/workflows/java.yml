@@ -3,16 +3,8 @@ name: Gradle Build And Test
 on:
   push:
     branches: [main]
-    paths: 
-      - 'java/**'
-      - 'java/*'
-      - '.github/**'
   pull_request:
     branches: [main]
-    paths:
-      - 'java/**'
-      - 'java/*'
-      - '.github/**'
   workflow_dispatch:
 
 jobs:
@@ -26,6 +18,7 @@ jobs:
         java-version: 18
         distribution: 'adopt'
         cache: gradle
+        cache-dependency-path: java/app/build.gradle
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
       working-directory: java

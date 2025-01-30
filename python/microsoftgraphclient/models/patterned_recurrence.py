@@ -1,7 +1,8 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .recurrence_pattern import RecurrencePattern
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 @dataclass
 class PatternedRecurrence(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additional_data: Dict[str, Any] = field(default_factory=dict)
+    additional_data: dict[str, Any] = field(default_factory=dict)
 
     # The OdataType property
     odata_type: Optional[str] = None
@@ -33,10 +34,10 @@ class PatternedRecurrence(AdditionalDataHolder, Parsable):
         return PatternedRecurrence()
 
     def get_field_deserializers(
-        self, ) -> Dict[str, Callable[[ParseNode], None]]:
+        self, ) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
-        Returns: Dict[str, Callable[[ParseNode], None]]
+        Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .recurrence_pattern import RecurrencePattern
         from .recurrence_range import RecurrenceRange
@@ -44,7 +45,7 @@ class PatternedRecurrence(AdditionalDataHolder, Parsable):
         from .recurrence_pattern import RecurrencePattern
         from .recurrence_range import RecurrenceRange
 
-        fields: Dict[str, Callable[[Any], None]] = {
+        fields: dict[str, Callable[[Any], None]] = {
             "@odata.type":
             lambda n: setattr(self, 'odata_type', n.get_str_value()),
             "pattern":

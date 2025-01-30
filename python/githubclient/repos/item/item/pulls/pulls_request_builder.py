@@ -1,4 +1,5 @@
 from __future__ import annotations
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
@@ -9,7 +10,7 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
-from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING, Union
+from typing import Any, Optional, TYPE_CHECKING, Union
 from warnings import warn
 
 if TYPE_CHECKING:
@@ -26,7 +27,7 @@ class PullsRequestBuilder(BaseRequestBuilder):
     """
 
     def __init__(self, request_adapter: RequestAdapter,
-                 path_parameters: Union[str, Dict[str, Any]]) -> None:
+                 path_parameters: Union[str, dict[str, Any]]) -> None:
         """
         Instantiates a new PullsRequestBuilder and sets the default values.
         param path_parameters: The raw url or the url-template parameters for the request.
@@ -42,17 +43,17 @@ class PullsRequestBuilder(BaseRequestBuilder):
         self,
         request_configuration: Optional[
             RequestConfiguration[PullsRequestBuilderGetQueryParameters]] = None
-    ) -> Optional[List[PullRequestSimple]]:
+    ) -> Optional[list[PullRequestSimple]]:
         """
         Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[List[PullRequestSimple]]
+        Returns: Optional[list[PullRequestSimple]]
         API method documentation: https://docs.github.com/rest/reference/pulls#list-pull-requests
         """
         request_info = self.to_get_request_information(request_configuration)
         from .....models.validation_error import ValidationError
 
-        error_mapping: Dict[str, ParsableFactory] = {
+        error_mapping: dict[str, type[ParsableFactory]] = {
             "422": ValidationError,
         }
         if not self.request_adapter:
