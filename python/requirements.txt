@@ -26,11 +26,11 @@ iniconfig==2.0.0
 isort==6.0.0
 lazy-object-proxy==1.10.0
 mccabe==0.7.0
-microsoft-kiota-abstractions==1.9.1
-microsoft-kiota-authentication-azure==1.9.1
-microsoft-kiota-http==1.9.1
-microsoft-kiota-serialization-json==1.9.1
-microsoft-kiota-serialization-text==1.9.1
+microsoft-kiota-abstractions==1.9.2
+microsoft-kiota-authentication-azure==1.9.2
+microsoft-kiota-http==1.9.2
+microsoft-kiota-serialization-json==1.9.2
+microsoft-kiota-serialization-text==1.9.2
 msal==1.31.1
 msal-extensions==1.2.0
 multidict==6.1.0
