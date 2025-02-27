@@ -42,6 +42,8 @@
    ```
 
 1. Copy the **.vscode** directory to add debug and build configuration.
+1. Edit **.vscode/tasks.json** to match the csproj path.
+1. Edit **.vscode/launch.json** to match the dll path.
 1. Make sure you install the recommended extensions (type `@recommended` in the extensions search bar, and install all the `Workspace recommendations`).
 1. Copy the **GitHubAuthentication** directory to add the authentication provider for GitHub.
 1. Add the required dependencies
