@@ -44,6 +44,13 @@
 1. Copy the **.vscode** directory to add debug and build configuration.
 1. Make sure you install the recommended extensions (type `@recommended` in the extensions search bar, and install all the `Workspace recommendations`).
 1. Copy the **GitHubAuthentication** directory to add the authentication provider for GitHub.
+1. Add the required dependencies
+
+   ```shell
+   dotnet add package Microsoft.Kiota.Bundle
+   dotnet add package Microsoft.Kiota.Authentication.Azure
+   dotnet add package Azure.Identity
+   ```
 
 ## Getting ready
 
@@ -106,7 +113,6 @@
 
 ## Demo - Wrapping authentication for Microsoft Graph
 
-1. `dotnet add package Azure.Identity`.
 1. Add the **todo-graph-auth** snippet in Program.cs and update the null value for the client.
 
 ## Demo - Wrapping authentication for GitHub
