@@ -4,7 +4,7 @@ using System;
 namespace GitHubTodoDemo.GitHub.Models
 {
     /// <summary>The merge method to use.</summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AutoMerge_merge_method
     {
         [EnumMember(Value = "merge")]

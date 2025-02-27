@@ -15,7 +15,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item.Tasks
     /// <summary>
     /// Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
     /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TasksRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
@@ -137,7 +137,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo.Lists.Item.Tasks
         /// <summary>
         /// Get the todoTask resources from the tasks navigation property of a specified todoTaskList.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TasksRequestBuilderGetQueryParameters 
         {
             /// <summary>Include count of items</summary>

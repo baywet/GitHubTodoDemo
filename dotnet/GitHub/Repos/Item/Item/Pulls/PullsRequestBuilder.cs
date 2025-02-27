@@ -14,7 +14,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls
     /// <summary>
     /// Builds and executes requests for operations under \repos\{owner}\{repo}\pulls
     /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PullsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
@@ -89,7 +89,7 @@ namespace GitHubTodoDemo.GitHub.Repos.Item.Item.Pulls
         /// <summary>
         /// Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub&apos;s products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PullsRequestBuilderGetQueryParameters 
         {
             /// <summary>Filter pulls by base branch name. Example: `gh-pages`.</summary>
