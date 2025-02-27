@@ -4,7 +4,7 @@ using System;
 namespace GitHubTodoDemo.GitHub.Models
 {
     /// <summary>The state of the milestone.</summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum NullableMilestone_state
     {
         [EnumMember(Value = "open")]

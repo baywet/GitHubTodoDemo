@@ -7,7 +7,7 @@ using System.IO;
 using System;
 namespace GitHubTodoDemo.GitHub.Models
 {
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public partial class Repository_template_repository_owner : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591

@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,250 +11,519 @@ namespace GitHubTodoDemo.GitHub.Models
     /// <summary>
     /// Pull Request Simple
     /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
-    public partial class PullRequestSimple : IAdditionalDataHolder, IParsable
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    public partial class PullRequestSimple : IAdditionalDataHolder, IBackedModel, IParsable
     {
         /// <summary>The active_lock_reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActiveLockReason { get; set; }
+        public string? ActiveLockReason
+        {
+            get { return BackingStore?.Get<string?>("active_lock_reason"); }
+            set { BackingStore?.Set("active_lock_reason", value); }
+        }
 #nullable restore
 #else
-        public string ActiveLockReason { get; set; }
+        public string ActiveLockReason
+        {
+            get { return BackingStore?.Get<string>("active_lock_reason"); }
+            set { BackingStore?.Set("active_lock_reason", value); }
+        }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData
+        {
+            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
+            set { BackingStore.Set("AdditionalData", value); }
+        }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser? Assignee { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser? Assignee
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser?>("assignee"); }
+            set { BackingStore?.Set("assignee", value); }
+        }
 #nullable restore
 #else
-        public global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser Assignee { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser Assignee
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser>("assignee"); }
+            set { BackingStore?.Set("assignee", value); }
+        }
 #endif
         /// <summary>The assignees property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::GitHubTodoDemo.GitHub.Models.SimpleUser>? Assignees { get; set; }
+        public List<global::GitHubTodoDemo.GitHub.Models.SimpleUser>? Assignees
+        {
+            get { return BackingStore?.Get<List<global::GitHubTodoDemo.GitHub.Models.SimpleUser>?>("assignees"); }
+            set { BackingStore?.Set("assignees", value); }
+        }
 #nullable restore
 #else
-        public List<global::GitHubTodoDemo.GitHub.Models.SimpleUser> Assignees { get; set; }
+        public List<global::GitHubTodoDemo.GitHub.Models.SimpleUser> Assignees
+        {
+            get { return BackingStore?.Get<List<global::GitHubTodoDemo.GitHub.Models.SimpleUser>>("assignees"); }
+            set { BackingStore?.Set("assignees", value); }
+        }
 #endif
         /// <summary>How the author is associated with the repository.</summary>
-        public global::GitHubTodoDemo.GitHub.Models.AuthorAssociation? AuthorAssociation { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.AuthorAssociation? AuthorAssociation
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.AuthorAssociation?>("author_association"); }
+            set { BackingStore?.Set("author_association", value); }
+        }
         /// <summary>The status of auto merging a pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::GitHubTodoDemo.GitHub.Models.AutoMerge? AutoMerge { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.AutoMerge? AutoMerge
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.AutoMerge?>("auto_merge"); }
+            set { BackingStore?.Set("auto_merge", value); }
+        }
 #nullable restore
 #else
-        public global::GitHubTodoDemo.GitHub.Models.AutoMerge AutoMerge { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.AutoMerge AutoMerge
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.AutoMerge>("auto_merge"); }
+            set { BackingStore?.Set("auto_merge", value); }
+        }
 #endif
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>The base property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_base? Base { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_base? Base
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_base?>("base"); }
+            set { BackingStore?.Set("base", value); }
+        }
 #nullable restore
 #else
-        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_base Base { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_base Base
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_base>("base"); }
+            set { BackingStore?.Set("base", value); }
+        }
 #endif
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get; set; }
+        public string? Body
+        {
+            get { return BackingStore?.Get<string?>("body"); }
+            set { BackingStore?.Set("body", value); }
+        }
 #nullable restore
 #else
-        public string Body { get; set; }
+        public string Body
+        {
+            get { return BackingStore?.Get<string>("body"); }
+            set { BackingStore?.Set("body", value); }
+        }
 #endif
         /// <summary>The closed_at property</summary>
-        public DateTimeOffset? ClosedAt { get; set; }
+        public DateTimeOffset? ClosedAt
+        {
+            get { return BackingStore?.Get<DateTimeOffset?>("closed_at"); }
+            set { BackingStore?.Set("closed_at", value); }
+        }
         /// <summary>The comments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommentsUrl { get; set; }
+        public string? CommentsUrl
+        {
+            get { return BackingStore?.Get<string?>("comments_url"); }
+            set { BackingStore?.Set("comments_url", value); }
+        }
 #nullable restore
 #else
-        public string CommentsUrl { get; set; }
+        public string CommentsUrl
+        {
+            get { return BackingStore?.Get<string>("comments_url"); }
+            set { BackingStore?.Set("comments_url", value); }
+        }
 #endif
         /// <summary>The commits_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitsUrl { get; set; }
+        public string? CommitsUrl
+        {
+            get { return BackingStore?.Get<string?>("commits_url"); }
+            set { BackingStore?.Set("commits_url", value); }
+        }
 #nullable restore
 #else
-        public string CommitsUrl { get; set; }
+        public string CommitsUrl
+        {
+            get { return BackingStore?.Get<string>("commits_url"); }
+            set { BackingStore?.Set("commits_url", value); }
+        }
 #endif
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt
+        {
+            get { return BackingStore?.Get<DateTimeOffset?>("created_at"); }
+            set { BackingStore?.Set("created_at", value); }
+        }
         /// <summary>The diff_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DiffUrl { get; set; }
+        public string? DiffUrl
+        {
+            get { return BackingStore?.Get<string?>("diff_url"); }
+            set { BackingStore?.Set("diff_url", value); }
+        }
 #nullable restore
 #else
-        public string DiffUrl { get; set; }
+        public string DiffUrl
+        {
+            get { return BackingStore?.Get<string>("diff_url"); }
+            set { BackingStore?.Set("diff_url", value); }
+        }
 #endif
         /// <summary>Indicates whether or not the pull request is a draft.</summary>
-        public bool? Draft { get; set; }
+        public bool? Draft
+        {
+            get { return BackingStore?.Get<bool?>("draft"); }
+            set { BackingStore?.Set("draft", value); }
+        }
         /// <summary>The head property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head? Head { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head? Head
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head?>("head"); }
+            set { BackingStore?.Set("head", value); }
+        }
 #nullable restore
 #else
-        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head Head { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head Head
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head>("head"); }
+            set { BackingStore?.Set("head", value); }
+        }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl
+        {
+            get { return BackingStore?.Get<string?>("html_url"); }
+            set { BackingStore?.Set("html_url", value); }
+        }
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl
+        {
+            get { return BackingStore?.Get<string>("html_url"); }
+            set { BackingStore?.Set("html_url", value); }
+        }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id
+        {
+            get { return BackingStore?.Get<string?>("id"); }
+            set { BackingStore?.Set("id", value); }
+        }
+#nullable restore
+#else
+        public string Id
+        {
+            get { return BackingStore?.Get<string>("id"); }
+            set { BackingStore?.Set("id", value); }
+        }
+#endif
         /// <summary>The issue_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssueUrl { get; set; }
+        public string? IssueUrl
+        {
+            get { return BackingStore?.Get<string?>("issue_url"); }
+            set { BackingStore?.Set("issue_url", value); }
+        }
 #nullable restore
 #else
-        public string IssueUrl { get; set; }
+        public string IssueUrl
+        {
+            get { return BackingStore?.Get<string>("issue_url"); }
+            set { BackingStore?.Set("issue_url", value); }
+        }
 #endif
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels>? Labels { get; set; }
+        public List<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels>? Labels
+        {
+            get { return BackingStore?.Get<List<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels>?>("labels"); }
+            set { BackingStore?.Set("labels", value); }
+        }
 #nullable restore
 #else
-        public List<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels> Labels { get; set; }
+        public List<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels> Labels
+        {
+            get { return BackingStore?.Get<List<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels>>("labels"); }
+            set { BackingStore?.Set("labels", value); }
+        }
 #endif
         /// <summary>The _links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links? Links { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links? Links
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links?>("_links"); }
+            set { BackingStore?.Set("_links", value); }
+        }
 #nullable restore
 #else
-        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links Links { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links Links
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links>("_links"); }
+            set { BackingStore?.Set("_links", value); }
+        }
 #endif
         /// <summary>The locked property</summary>
-        public bool? Locked { get; set; }
+        public bool? Locked
+        {
+            get { return BackingStore?.Get<bool?>("locked"); }
+            set { BackingStore?.Set("locked", value); }
+        }
         /// <summary>The merge_commit_sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MergeCommitSha { get; set; }
+        public string? MergeCommitSha
+        {
+            get { return BackingStore?.Get<string?>("merge_commit_sha"); }
+            set { BackingStore?.Set("merge_commit_sha", value); }
+        }
 #nullable restore
 #else
-        public string MergeCommitSha { get; set; }
+        public string MergeCommitSha
+        {
+            get { return BackingStore?.Get<string>("merge_commit_sha"); }
+            set { BackingStore?.Set("merge_commit_sha", value); }
+        }
 #endif
         /// <summary>The merged_at property</summary>
-        public DateTimeOffset? MergedAt { get; set; }
+        public DateTimeOffset? MergedAt
+        {
+            get { return BackingStore?.Get<DateTimeOffset?>("merged_at"); }
+            set { BackingStore?.Set("merged_at", value); }
+        }
         /// <summary>A collection of related issues and pull requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::GitHubTodoDemo.GitHub.Models.NullableMilestone? Milestone { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.NullableMilestone? Milestone
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.NullableMilestone?>("milestone"); }
+            set { BackingStore?.Set("milestone", value); }
+        }
 #nullable restore
 #else
-        public global::GitHubTodoDemo.GitHub.Models.NullableMilestone Milestone { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.NullableMilestone Milestone
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.NullableMilestone>("milestone"); }
+            set { BackingStore?.Set("milestone", value); }
+        }
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NodeId { get; set; }
+        public string? NodeId
+        {
+            get { return BackingStore?.Get<string?>("node_id"); }
+            set { BackingStore?.Set("node_id", value); }
+        }
 #nullable restore
 #else
-        public string NodeId { get; set; }
+        public string NodeId
+        {
+            get { return BackingStore?.Get<string>("node_id"); }
+            set { BackingStore?.Set("node_id", value); }
+        }
 #endif
         /// <summary>The number property</summary>
-        public int? Number { get; set; }
+        public int? Number
+        {
+            get { return BackingStore?.Get<int?>("number"); }
+            set { BackingStore?.Set("number", value); }
+        }
         /// <summary>The patch_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PatchUrl { get; set; }
+        public string? PatchUrl
+        {
+            get { return BackingStore?.Get<string?>("patch_url"); }
+            set { BackingStore?.Set("patch_url", value); }
+        }
 #nullable restore
 #else
-        public string PatchUrl { get; set; }
+        public string PatchUrl
+        {
+            get { return BackingStore?.Get<string>("patch_url"); }
+            set { BackingStore?.Set("patch_url", value); }
+        }
 #endif
         /// <summary>The requested_reviewers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::GitHubTodoDemo.GitHub.Models.SimpleUser>? RequestedReviewers { get; set; }
+        public List<global::GitHubTodoDemo.GitHub.Models.SimpleUser>? RequestedReviewers
+        {
+            get { return BackingStore?.Get<List<global::GitHubTodoDemo.GitHub.Models.SimpleUser>?>("requested_reviewers"); }
+            set { BackingStore?.Set("requested_reviewers", value); }
+        }
 #nullable restore
 #else
-        public List<global::GitHubTodoDemo.GitHub.Models.SimpleUser> RequestedReviewers { get; set; }
+        public List<global::GitHubTodoDemo.GitHub.Models.SimpleUser> RequestedReviewers
+        {
+            get { return BackingStore?.Get<List<global::GitHubTodoDemo.GitHub.Models.SimpleUser>>("requested_reviewers"); }
+            set { BackingStore?.Set("requested_reviewers", value); }
+        }
 #endif
         /// <summary>The requested_teams property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::GitHubTodoDemo.GitHub.Models.Team>? RequestedTeams { get; set; }
+        public List<global::GitHubTodoDemo.GitHub.Models.Team>? RequestedTeams
+        {
+            get { return BackingStore?.Get<List<global::GitHubTodoDemo.GitHub.Models.Team>?>("requested_teams"); }
+            set { BackingStore?.Set("requested_teams", value); }
+        }
 #nullable restore
 #else
-        public List<global::GitHubTodoDemo.GitHub.Models.Team> RequestedTeams { get; set; }
+        public List<global::GitHubTodoDemo.GitHub.Models.Team> RequestedTeams
+        {
+            get { return BackingStore?.Get<List<global::GitHubTodoDemo.GitHub.Models.Team>>("requested_teams"); }
+            set { BackingStore?.Set("requested_teams", value); }
+        }
 #endif
         /// <summary>The review_comments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReviewCommentsUrl { get; set; }
+        public string? ReviewCommentsUrl
+        {
+            get { return BackingStore?.Get<string?>("review_comments_url"); }
+            set { BackingStore?.Set("review_comments_url", value); }
+        }
 #nullable restore
 #else
-        public string ReviewCommentsUrl { get; set; }
+        public string ReviewCommentsUrl
+        {
+            get { return BackingStore?.Get<string>("review_comments_url"); }
+            set { BackingStore?.Set("review_comments_url", value); }
+        }
 #endif
         /// <summary>The review_comment_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReviewCommentUrl { get; set; }
+        public string? ReviewCommentUrl
+        {
+            get { return BackingStore?.Get<string?>("review_comment_url"); }
+            set { BackingStore?.Set("review_comment_url", value); }
+        }
 #nullable restore
 #else
-        public string ReviewCommentUrl { get; set; }
+        public string ReviewCommentUrl
+        {
+            get { return BackingStore?.Get<string>("review_comment_url"); }
+            set { BackingStore?.Set("review_comment_url", value); }
+        }
 #endif
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? State { get; set; }
+        public string? State
+        {
+            get { return BackingStore?.Get<string?>("state"); }
+            set { BackingStore?.Set("state", value); }
+        }
 #nullable restore
 #else
-        public string State { get; set; }
+        public string State
+        {
+            get { return BackingStore?.Get<string>("state"); }
+            set { BackingStore?.Set("state", value); }
+        }
 #endif
         /// <summary>The statuses_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusesUrl { get; set; }
+        public string? StatusesUrl
+        {
+            get { return BackingStore?.Get<string?>("statuses_url"); }
+            set { BackingStore?.Set("statuses_url", value); }
+        }
 #nullable restore
 #else
-        public string StatusesUrl { get; set; }
+        public string StatusesUrl
+        {
+            get { return BackingStore?.Get<string>("statuses_url"); }
+            set { BackingStore?.Set("statuses_url", value); }
+        }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get; set; }
+        public string? Title
+        {
+            get { return BackingStore?.Get<string?>("title"); }
+            set { BackingStore?.Set("title", value); }
+        }
 #nullable restore
 #else
-        public string Title { get; set; }
+        public string Title
+        {
+            get { return BackingStore?.Get<string>("title"); }
+            set { BackingStore?.Set("title", value); }
+        }
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt
+        {
+            get { return BackingStore?.Get<DateTimeOffset?>("updated_at"); }
+            set { BackingStore?.Set("updated_at", value); }
+        }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url
+        {
+            get { return BackingStore?.Get<string?>("url"); }
+            set { BackingStore?.Set("url", value); }
+        }
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url
+        {
+            get { return BackingStore?.Get<string>("url"); }
+            set { BackingStore?.Set("url", value); }
+        }
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser? User { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser? User
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser?>("user"); }
+            set { BackingStore?.Set("user", value); }
+        }
 #nullable restore
 #else
-        public global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser User { get; set; }
+        public global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser User
+        {
+            get { return BackingStore?.Get<global::GitHubTodoDemo.GitHub.Models.NullableSimpleUser>("user"); }
+            set { BackingStore?.Set("user", value); }
+        }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::GitHubTodoDemo.GitHub.Models.PullRequestSimple"/> and sets the default values.
         /// </summary>
         public PullRequestSimple()
         {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
@@ -289,7 +559,7 @@ namespace GitHubTodoDemo.GitHub.Models
                 { "draft", n => { Draft = n.GetBoolValue(); } },
                 { "head", n => { Head = n.GetObjectValue<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head>(global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "issue_url", n => { IssueUrl = n.GetStringValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels>(global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "_links", n => { Links = n.GetObjectValue<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links>(global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links.CreateFromDiscriminatorValue); } },
@@ -334,7 +604,7 @@ namespace GitHubTodoDemo.GitHub.Models
             writer.WriteBoolValue("draft", Draft);
             writer.WriteObjectValue<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_head>("head", Head);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteStringValue("id", Id);
             writer.WriteStringValue("issue_url", IssueUrl);
             writer.WriteCollectionOfObjectValues<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple_labels>("labels", Labels);
             writer.WriteObjectValue<global::GitHubTodoDemo.GitHub.Models.PullRequestSimple__links>("_links", Links);

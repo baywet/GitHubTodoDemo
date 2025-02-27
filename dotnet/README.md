@@ -4,10 +4,10 @@
 
 1. Windows terminal `winget install Microsoft.WindowsTerminal`.
 1. PowerShell core `winget install Microsoft.PowerShell`.
-1. Dotnet `winget install Microsoft.DotNet.SDK.8`.
+1. Dotnet `winget install Microsoft.DotNet.SDK.9`.
 1. Kiota installed `dotnet tool install -g Microsoft.OpenAPI.Kiota --prerelease`.
 1. VSCode `winget install Microsoft.VisualStudioCode`.
-1. Edit the following configuration file `%USERPROFILE%\.dotnet\tools\.store\microsoft.openapi.kiota\<kiota-version>\microsoft.openapi.kiota\<kiota-version>\tools\net8.0\any\appsettings.json` to contain the following entry under `Generation`.
+1. Edit the following configuration file `%USERPROFILE%\.dotnet\tools\.store\microsoft.openapi.kiota\<kiota-version>\microsoft.openapi.kiota\<kiota-version>\tools\net9.0\any\appsettings.json` to contain the following entry under `Generation`.
 
    ```json
    "DisabledValidationRules": ["all"]
@@ -42,8 +42,17 @@
    ```
 
 1. Copy the **.vscode** directory to add debug and build configuration.
+1. Edit **.vscode/tasks.json** to match the csproj path.
+1. Edit **.vscode/launch.json** to match the dll path.
 1. Make sure you install the recommended extensions (type `@recommended` in the extensions search bar, and install all the `Workspace recommendations`).
 1. Copy the **GitHubAuthentication** directory to add the authentication provider for GitHub.
+1. Add the required dependencies
+
+   ```shell
+   dotnet add package Microsoft.Kiota.Bundle
+   dotnet add package Microsoft.Kiota.Authentication.Azure
+   dotnet add package Azure.Identity
+   ```
 
 ## Getting ready
 
@@ -106,7 +115,6 @@
 
 ## Demo - Wrapping authentication for Microsoft Graph
 
-1. `dotnet add package Azure.Identity`.
 1. Add the **todo-graph-auth** snippet in Program.cs and update the null value for the client.
 
 ## Demo - Wrapping authentication for GitHub

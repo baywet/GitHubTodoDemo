@@ -12,7 +12,7 @@ namespace GitHubTodoDemo.GitHub.Repos
     /// <summary>
     /// Builds and executes requests for operations under \repos
     /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the GitHubTodoDemo.GitHub.repos.item collection</summary>

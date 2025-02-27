@@ -12,7 +12,7 @@ namespace GitHubTodoDemo.MicrosoftGraph.Me.Todo
     /// <summary>
     /// Builds and executes requests for operations under \me\todo
     /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.18.0")]
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TodoRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Provides operations to manage the lists property of the microsoft.graph.todo entity.</summary>
