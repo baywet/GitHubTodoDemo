@@ -20,7 +20,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.x
+        dotnet-version: 9.x
         cache: true
         cache-dependency-path: dotnet/packages.lock.json
     - name: Restore dependencies
@@ -28,7 +28,7 @@ jobs:
       run: dotnet restore
     - name: Build
       working-directory: ./dotnet
-      run: dotnet build --no-restore
+      run: dotnet build dotnet.sln --no-restore
     - name: Test
       working-directory: ./dotnet
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test dotnet.sln --no-build --verbosity normal
