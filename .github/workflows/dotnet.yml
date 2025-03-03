@@ -25,7 +25,7 @@ jobs:
         cache-dependency-path: dotnet/packages.lock.json
     - name: Restore dependencies
       working-directory: ./dotnet
-      run: dotnet restore
+      run: dotnet restore dotnet.sln
     - name: Build
       working-directory: ./dotnet
       run: dotnet build dotnet.sln --no-restore
