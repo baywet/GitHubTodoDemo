@@ -8,11 +8,9 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

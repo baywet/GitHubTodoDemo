@@ -1,6 +1,6 @@
 package githubtododemo.githubauthentication;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import com.microsoft.kiota.authentication.BaseBearerTokenAuthenticationProvider;
 
