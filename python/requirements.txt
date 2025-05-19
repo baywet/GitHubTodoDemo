@@ -38,7 +38,7 @@ mypy==1.15.0
 mypy-extensions==1.1.0
 opentelemetry-api==1.33.1
 opentelemetry-sdk==1.33.1
-opentelemetry-semantic-conventions==0.54b0
+opentelemetry-semantic-conventions==0.54b1
 packaging==25.0
 platformdirs==4.3.8
 pluggy==1.6.0
