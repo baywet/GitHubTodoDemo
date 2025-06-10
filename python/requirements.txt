@@ -13,7 +13,7 @@ colorama==0.4.6
 cryptography==45.0.4
 Deprecated==1.2.18
 dill==0.4.0
-frozenlist==1.6.2
+frozenlist==1.7.0
 h11==0.16.0
 h2==4.2.0
 hpack==4.1.0
