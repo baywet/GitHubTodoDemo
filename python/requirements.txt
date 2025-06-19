@@ -55,7 +55,7 @@ std-uritemplate==2.0.0
 tomli==2.2.1
 tomlkit==0.13.3
 typing_extensions==4.14.0
-urllib3==2.4.0
+urllib3==2.5.0
 wrapt==1.17.2
 yapf==0.43.0
 yarl==1.20.1
