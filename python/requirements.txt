@@ -5,7 +5,7 @@ astroid==3.3.11
 async-timeout==4.0.3
 attrs==25.3.0
 azure-core==1.35.0
-azure-identity==1.23.0
+azure-identity==1.23.1
 certifi==2025.7.14
 cffi==1.17.1
 charset-normalizer==3.4.2
